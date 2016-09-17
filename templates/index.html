@@ -1,0 +1,296 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
+  <script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}"></script>
+  <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
+  <link rel="stylesheet" href=" {% static 'css/fileinput.css' %}">
+  <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
+  <style type="text/css">
+    .launch-modal {
+      margin: 20px;
+    }
+    div.modal-footer{
+      text-align: right;
+    }
+    html, body {
+    height: 100%;
+    }
+    html, body, * {
+        padding: 0;
+        margin: 0;
+    }
+    p, h3 {
+        padding: 1em 0 .5em 0;
+    }
+    #wrapper {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    #content {
+        position: relative;
+        top: 10%;
+        left: 21%;
+        margin-left: 2%;
+        width: 53%;
+    }
+    #sidebar {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        right: 3%;
+        margin-left: 27%;
+        width: 18%;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    #left-bar {
+        position: absolute;
+        top: 10%;
+        left: 5%; 
+        width: 17%;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    #sidebar:hover {
+        overflow-y: auto;
+    }
+    .btn{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .well{
+      background-color: rgba(245,245,245,0);
+    }
+    div.img_resize img{
+          width: auto; /* you can use % */
+          height: 200px;
+      } 
+  </style>
+</head>
+<body>  
+  <nav class="navbar navbar-inverse nav-fixed navbar-fixed-top">
+     <div class="container">
+        <ul class="nav navbar-nav">
+            <li role = "presentation"><a href="/sites/">Sites</a></li>
+            <li role = "presentation"><a href="/summary/">Summary</a></li>
+        </ul>
+     </div>
+  </nav>
+  <div class = "well" id="left-bar">
+        <ul class="nav nav-tabs nav-stacked ">
+          <li><button class="btn btn-primary btn-lg launch-modal" data-toggle="modal" data-target="#myModal1">
+                Express
+              </button>
+          </li>
+         <h4>Pinned Wiki</h4>
+         <li><a href="#one">Wiki One</a></li>
+         <li><a href="#two">Wiki Two</a></li>
+         <li><a href="#three">Wiki Three</a></li>
+         <h4>Related</h4>
+         <li><a href="#four">Images</a></li>
+         <li><a href="#five">Articles</a></li>
+         <li><a href="#six">Archives</a></li>
+         <h4>Websites</h4>
+         <li><a href="#seven">Website One</a></li>
+         <li><a href="#eight">Website Two</a></li>
+         <li><a href="#nine">Website Three</a></li>
+        </ul>
+    </div>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+          </div>
+          <form id="post_form" action="/post_update/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+              <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+              <input type="textarea" id="textareaID1" class="form-control">
+              <label class="control-label"> </label>
+              <div id="preview-container-parent">
+                <div id="preview-container"></div>
+              </div>
+              <!-- <label class="control-label"> </label> -->
+              <input id="input-20" name= "file" type="file">
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+              <input type="submit" value="Post!" class="btn btn-primary">
+            </div>
+          </form>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  <div id="wrapper">
+    <div class="well" id="content">
+        <h4>Main content</h4>
+        <div class="well status-box">
+          <p>Vivamus metus lacus, iaculis eget varius quis, ultrices in mi. Curabitur ut nisl libero. Nunc lobortis pellentesque mauris rhoncus rutrum. Proin nec auctor augue. Aliquam erat volutpat. Curabitur libero sapien, blandit vel ultrices sed, accumsan fringilla erat. Pellentesque consequat neque eu eros elementum ac consectetur sapien gravida. Phasellus sit amet purus vel turpis feugiat porttitor.</p>
+          <div class="img_resize">
+            <img src="/media/test.jpg" class="img-rounded"/>
+          </div>
+          <button type="button" class="btn btn-primaty"">Like</button>
+          <button type="button" class="btn btn-primary">Comment</button>
+        </div>
+        <p>Sed mollis, ligula in vulputate dapibus, urna arcu dictum leo, ac semper nisi risus elementum elit. Aliquam euismod lacus massa. Morbi fermentum mattis faucibus. Aenean ultrices, enim non pulvinar dictum, nibh orci tempor quam, a pretium augue quam sed lectus. Nullam auctor, nunc a dignissim pretium, lacus mauris dictum elit, et faucibus risus augue id risus. Curabitur mollis vestibulum augue, sed vulputate orci consectetur quis. Cras vel mollis urna. Ut eu fermentum elit.</p>
+        <p>Praesent vitae erat non ipsum commodo congue. In hac habitasse platea dictumst. Sed aliquet enim ut libero lacinia tincidunt euismod magna sagittis. Morbi eu metus velit. Ut lorem ipsum, rutrum sit amet malesuada quis, tincidunt et purus. Nulla sem sapien, hendrerit non egestas vehicula, mattis quis velit. Praesent luctus sapien eu tortor aliquet condimentum ac et mauris.</p>
+        <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam est ac dolor auctor vestibulum. Duis tristique metus non diam pulvinar et vehicula elit venenatis. Aliquam vel convallis tellus. Aliquam erat volutpat. Ut venenatis, ligula ut aliquam imperdiet, quam nisl ultricies leo, eu laoreet arcu erat nec ante. Praesent ullamcorper faucibus dapibus.</p>
+    </div>
+  </div>
+  <div class="well" id="sidebar">
+      <ul class="nav nav-tabs nav-stacked ">
+       <!-- <li><a href="#" class="btn btn-primary" role="button">Discuss</a>  -->
+       <li>
+         <button type="button" class="btn btn-primary btn-lg launch-modal" data-toggle="modal" data-target="#myModal">
+          <span class="new_chat_label"></span>Discuss!</button>
+       </li>
+       <h4>Topic Experts</h4>
+       <li><a href="#one">Expert One</a></li>
+       <li><a href="#two">Expert Two</a></li>
+       <li><a href="#three">Expert Three</a></li>
+       <h4>Trending</h4>
+       <li><a href="#four">Trending One</a></li>
+       <li><a href="#five">Trending Two</a></li>
+       <li><a href="#six">Trending Three</a></li>
+       <h4>Featured</h4>
+       <li><a href="#seven">Featured One</a></li>
+       <li><a href="#eight">Featured Two</a></li>
+       <li><a href="#nine">Featured Three</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <span class="glyphicon glyphicon-comment"></span> Discuss
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"> 
+              <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            <li><a href="#"><span class="glyphicon glyphicon-refresh"></span>Refresh</a>
+                            </li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok-sign"></span>Available</a>
+                            </li>
+                            <li><a href="#"><span class="glyphicon glyphicon-remove"></span>Busy</a>
+                            </li>
+                            <li><a href="#"><span class="glyphicon glyphicon-time"></span>Away</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span>Close</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="well">
+                    <p>The Topic of discussion!</p>
+                </div>
+                <div class="panel-body" id="reverse_scroll">
+                    <ul class="chat">
+                        <li class="left clearfix">
+                          <span class="chat-img pull-left">
+                              <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                          </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"> <strong class="primary-font">Mike Hussey</strong>  <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+
+                                </div>
+                                <div class="well status-box">
+                                  <p>Sample Statement :)</p>
+                                  <button type="button" class="btn btn-primaty"">Like</button>
+                                  <button type="button" class="btn btn-primary">Comment</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+              </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"> <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                  <strong class="pull-right primary-font">Geeks Orbit</strong>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</p>
+                            </div>
+                        </li>
+            
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+              </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"> <strong class="primary-font">Mike Hussey</strong>  <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</p>
+                            </div>
+                        </li>
+                         <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+              </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"> <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                  <strong class="pull-right primary-font">Geeks Orbit</strong>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /> <span class="input-group-btn">
+                            <button class="btn btn-primary btn-sm" >
+                                Send</button>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+  <script>
+    $('#myModal1').on('show.bs.modal', function () {
+      $('#textareaID1').focus();
+    })
+    $(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
+        $(this).find('form').trigger('reset');
+        $('#preview-container').remove();
+        $('#preview-container-parent').append('<div id=' + '"preview-container"' + '></div>');
+    });
+    $(document).on('ready', function() {
+        $("#input-20").fileinput({
+            browseClass: "btn btn-primary btn-block",
+            showCaption: false,
+            showRemove: false,
+            showUpload: false
+        });
+    });
+    window.onload=function(){
+      $('#myModal').on('shown.bs.modal', function () {
+          var elem = document.getElementById('reverse_scroll');
+          elem.scrollTop = elem.scrollHeight;
+      });
+    }
+  </script>
+  <script type="text/javascript" src=" {% static 'js/main.js' %}"></script> 
+</html>
