@@ -21,7 +21,7 @@ def update(request):
 			for filename, file in request.FILES.iteritems():
 				data = file
 		except:
-			return render(request, "home.html", {})
+			return render(request, "index.html", {})
 		path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
 		tmp_file = os.path.join(settings.MEDIA_ROOT, path)
 		return render(request, "index.html", {})

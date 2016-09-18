@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for core project.
 
@@ -138,12 +140,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'var/www/static')
 #url to access the static files
 STATIC_URL = '/static/'
 
-#static files during development
+#static files during development wrt base directory
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'templates/include/static'),
 )
 
-#place where media files are served
+#place where media files are served wrt base directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 #url to access media files
