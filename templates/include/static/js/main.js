@@ -12,6 +12,7 @@ $(function() {
      $('#post_form').submit(uploadFiles);
 });
 
+
 function uploadFiles()
 {
     event.preventDefault();
@@ -37,7 +38,11 @@ function uploadFiles()
     {
         formData.append(key, value);
     });
-    
+
+    //console.log($('#textareaID1').val());
+    //formData['express_text'] = $('#textareaID1').val();
+    formData.append('express_text', $('#textareaID1').val())
+    //console.log(formData['express_text']);
     $.ajax({
         url: $(this).attr('action'),
         type: $(this).attr('method'),
@@ -49,7 +54,7 @@ function uploadFiles()
         {
             if(typeof data.error === 'undefined')
             {
-                console.log('File Upload! : ' + data);
+                console.log('File Upload!');
             }
             else
             {

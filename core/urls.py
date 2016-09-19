@@ -3,13 +3,14 @@
 from django.conf import settings
 from django.conf.urls import url
 from feed.views import index
-from express.views import update
+from express.views import update, store_link
 from django.conf.urls.static import static
 #from neo4django import admin as neo_admin
 
 urlpatterns = [
 	url(r'^express/update/$', update),
-	url(r'^$', index)
+	url(r'^$', index),
+	url(r'store/link/$', store_link),
 	#url(r'^neo_admin/', include(neo_admin.site.urls))
 ]
 

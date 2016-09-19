@@ -115,7 +115,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="myModalLabel">Express youself!</h4>
           </div>
-          <form id="post_form" action="/post_update/" method="post" enctype="multipart/form-data">
+          <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="modal-body">
               <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
@@ -142,9 +142,9 @@
         <h4>Main content</h4>
         <div class="well status-box">
           <p>Vivamus metus lacus, iaculis eget varius quis, ultrices in mi. Curabitur ut nisl libero. Nunc lobortis pellentesque mauris rhoncus rutrum. Proin nec auctor augue. Aliquam erat volutpat. Curabitur libero sapien, blandit vel ultrices sed, accumsan fringilla erat. Pellentesque consequat neque eu eros elementum ac consectetur sapien gravida. Phasellus sit amet purus vel turpis feugiat porttitor.</p>
-          <div class="img_resize">
+          <!-- <div class="img_resize">
             <img src="/media/test.jpg" class="img-rounded"/>
-          </div>
+          </div> -->
           <button type="button" class="btn btn-primaty"">Like</button>
           <button type="button" class="btn btn-primary">Comment</button>
         </div>

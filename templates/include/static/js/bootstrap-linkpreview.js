@@ -1,59 +1,4 @@
-/* =========================================================
- * bootstrap-linkpreview.js
- * http://www.github.com/ekito/bootstrap-linkpreview
- *
- * Use:
- * $("#link").linkpreview({
- *     url: "http://romainpiel.com",            //optional
- *     previewContainer: "#preview-container",  //optional
- *     previewContainerClass: "row-fluid",
- *     refreshButton: "#refresh-button",        //optional
- *     preProcess: function() {                 //optional
- *         console.log("preProcess");
- *     },
- *     onSuccess: function() {                  //optional
- *         console.log("onSuccess");
- *     },
- *     onError: function() {                    //optional
- *         console.log("onError");
- *     },
- *     onComplete: function() {                 //optional
- *         console.log("onComplete");
- *     }
- * });
- *
- * =========================================================
- * Copyright 2013 ekito - http://ekito.fr
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================= */
 
-
-// $("#textareaID1").bind('textarea propertychange', function() {
-//   console.log(this.value);
-//   $("#textareaID1").linkpreview({url: "http://romainpiel.com"});
-// });
-
-// $('input[type=textarea]').onchange(console.log('workring!'));
-
-// $('input[type=textarea]').bind('input propertychange', function() {
-//     console.log('workring!');
-//     console.log(this.value);
-// });
-
-//$("#textareaID1").linkpreview({url: "http://romainpiel.com"});
-
-//console.log('Inherefirst:D');
 function urlify(text) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
     //var urlRegex = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
@@ -189,6 +134,7 @@ $(document).ready(function(){
                     }
                 },
                 error: function() {
+                    //this.emptyPreviewContainer;
                     onError(this.url, that);
                     if (typeof that.getOption("onError") === "function") {
                         that.options.onError();
@@ -226,6 +172,9 @@ $(document).ready(function(){
                 description = that.findDescriptionInDom($dom),
                 image = that.findImageInDom($dom);
 
+            //storing the link in database
+            that.linkStore(title, description, image);
+
             // build dom elements
             var $title = $("<a></a>").attr("href", url).text(title),
                 $description = $("<p></p>").text(description);
@@ -250,9 +199,60 @@ $(document).ready(function(){
                 .append($spanRight);
         },
 
+
+        //storign the link data in database for future refrence
+        linkStore : function(title, description, image){
+            //putting them in DB first for future reference
+            var csrftoken = $.cookie('csrftoken');
+    
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+
+            var formData = new FormData();
+
+            formData.append('link_name',title);
+            formData.append('link_desc', description);
+            formData.append('link_image', image);
+
+            $.ajax({
+                url: '/store/link/',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false, // Don't process the files
+                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+                success: function(data, textStatus, jqXHR)
+                {
+                    if(typeof data.error === 'undefined')
+                    {
+                        console.log('It was stored!');
+                    }
+                    else
+                    {
+                        console.log('ERRORS: ' + data.error);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    console.log('ERRORS: ' + textStatus);
+                }
+            });
+
+        },
+
         renderError: function(url, that) {
 
-            // old request
+            //old request
             if (that.url !== url) {
                 return;
             }
@@ -265,7 +265,7 @@ $(document).ready(function(){
             if (that.getOption("errorMessage")) {
                 $alert.text(that.options.errorMessage);
             } else {
-                $alert.text("We are sorry we couldn't load the preview. The URL is invalid.");
+                $alert.text("We are sorry we couldn't load the preview. Please check the URL.");
             }
                             
             that.$previewContainer.append($alert);
@@ -338,19 +338,6 @@ $(document).ready(function(){
                 data = $this.data('linkpreview'),
                 options = typeof option === 'object' && option;
             $this.data('linkpreview', (data = new LinkPreview(this, $.extend({}, $.fn.linkpreview.defaults, options))));
-            // if (option instanceof LinkPreview) {
-            //     $this.data('linkpreview', (data = option));
-            //     console.log('Entry to function first case!');
-            //     data.init(this, data.options);
-            // }
-            // if (!data) {
-            //     console.log('Entry to function second case!');
-            //     $this.data('linkpreview', (data = new LinkPreview(this, $.extend({}, $.fn.linkpreview.defaults, options))));
-            // }
-            // if (typeof option === 'string') {
-            //     console.log('Entry to function third case!');
-            //     data[option]();
-            // }
         });
     };
 
