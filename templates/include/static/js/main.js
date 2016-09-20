@@ -9,11 +9,11 @@ function prepareUpload(event)
 
 
 $(function() {
-     $('#post_form').submit(uploadFiles);
+     $('#post_form').submit(postExpression);
 });
 
 
-function uploadFiles()
+function postExpression()
 {
     event.preventDefault();
     $('#myModal1').modal('toggle');
