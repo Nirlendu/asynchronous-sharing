@@ -23,8 +23,12 @@
     }
     html, body {
       height: 100%;
-      overflow-x: auto;
-      overflow-y: scroll;
+      /*overflow-x: scroll;
+      overflow-y: scroll;*/
+      /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+      font-family: Verdana,Geneva,Tahoma,Arial,Helvetica,sans-serif!important;
+      font-weight: 400;
+      line-height: 1.4;
     }
     p, h3 {
         padding: 1em 0 .5em 0;
@@ -105,7 +109,7 @@
     }
     .topic-name{
       height:20px;
-      width:49%;
+      width:48%;
       /*padding-right: 5px;*/
       text-align: right;
       display: inline-block;
@@ -123,6 +127,7 @@
     .post-contents{
       margin-bottom: 0px;
       padding: 5px;
+      padding-right: 0px;
       border: 0px;
     }
     .post-image-resize img{
@@ -150,9 +155,49 @@
       padding: 0px;
     }
     .btn-upvote{
-      width: 24.3%;
+      width: 24.205%;
       background-color: white;
       color: black;
+    }
+    .link-preview-box{
+      /*padding-top: 0px;
+      padding-bottom: 0px;*/
+      border: 0px;
+      padding: 0px;
+      margin-bottom: 5px;
+    }
+    .link-preview-box:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    .link-preview-img{
+      width: 100px;
+      height : 100px;
+      display: inline-block;
+    }
+    .link-preview-details{
+      vertical-align: top;
+      height : 100px;
+      width: 77.4%;
+      display: inline-block;
+      border: 0px;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    .link-preview-image-resize img{
+      vertical-align: top;
+      width: 100px; /* you can use % */
+      height: 100px;
+    }
+    .link-preview-title{
+      padding-top: 5px;
+      padding-left: 5px;
+      height:80px;
+      width:100%;
+    }
+    .link-parent-name{
+      height:20px;
+      width:100%;
+      padding-right: 5px;
+      text-align: right;
     }
   </style>
     <div class="well" id="content">
@@ -180,17 +225,32 @@
               <div class="post-text-box">
                 Hey, this is my first status!
               </div>
-              <div class="post-image-resize">
+              <!-- <div class="post-image-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
+              </div> -->
+              <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+                <div class = "link-preview-img">
+                  <div class="link-preview-image-resize">
+                    <img src="/media/test2.jpg" class="img-rounded"/>
+                  </div>
+                </div>
+                <div class = "link-preview-details">
+                  <div class="link-preview-title">  
+                    Preview Title             
+                  </div>
+                  <div class="link-parent-name">
+                    Preview Parent
+                  </div>
+                </div>
               </div>
             </div> 
           </div>
           <div class = "post-footer">
             <div class = "well post-action">
-              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Upvote'/>
-              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Downvote'/>
-              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Share'/>
+              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Upvote'/>
+              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Downvote'/>
+              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
+              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Share'/>
             </div>
           </div>
         </div>
