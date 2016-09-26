@@ -71,6 +71,9 @@
     .well{
       background-color: rgba(245,245,245,0);
     }
+    .status-box{
+      padding : 5px;
+    }
     div.img_resize img{
           width: auto; /* you can use % */
           height: 200px;
@@ -118,6 +121,8 @@
           <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="modal-body">
+              <input type="textarea" id="tagareaID1" class="form-control" placeholder="Tag it">
+              </br>
               <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
               <input type="textarea" id="textareaID1" class="form-control">
               <label class="control-label"> </label>
@@ -141,12 +146,16 @@
     <div class="well" id="content">
         <h4>Main content</h4>
         <div class="well status-box">
+        <div class="container">The heading</div>
           <p>Vivamus metus lacus, iaculis eget varius quis, ultrices in mi. Curabitur ut nisl libero. Nunc lobortis pellentesque mauris rhoncus rutrum. Proin nec auctor augue. Aliquam erat volutpat. Curabitur libero sapien, blandit vel ultrices sed, accumsan fringilla erat. Pellentesque consequat neque eu eros elementum ac consectetur sapien gravida. Phasellus sit amet purus vel turpis feugiat porttitor.</p>
           <!-- <div class="img_resize">
             <img src="/media/test.jpg" class="img-rounded"/>
           </div> -->
           <button type="button" class="btn btn-primaty"">Like</button>
           <button type="button" class="btn btn-primary">Comment</button>
+            <!-- <div class="span4 text-left"><a href="#" class="btn btn-primary">Like</a></div>
+            <div class="span4 text-center"><a href="#" class="btn btn-primary">Comment</a></div>
+            <div class="span4 text-right"><a href="#" class="btn btn-primary">Share</a></div> -->
         </div>
         <p>Sed mollis, ligula in vulputate dapibus, urna arcu dictum leo, ac semper nisi risus elementum elit. Aliquam euismod lacus massa. Morbi fermentum mattis faucibus. Aenean ultrices, enim non pulvinar dictum, nibh orci tempor quam, a pretium augue quam sed lectus. Nullam auctor, nunc a dignissim pretium, lacus mauris dictum elit, et faucibus risus augue id risus. Curabitur mollis vestibulum augue, sed vulputate orci consectetur quis. Cras vel mollis urna. Ut eu fermentum elit.</p>
         <p>Praesent vitae erat non ipsum commodo congue. In hac habitasse platea dictumst. Sed aliquet enim ut libero lacinia tincidunt euismod magna sagittis. Morbi eu metus velit. Ut lorem ipsum, rutrum sit amet malesuada quis, tincidunt et purus. Nulla sem sapien, hendrerit non egestas vehicula, mattis quis velit. Praesent luctus sapien eu tortor aliquet condimentum ac et mauris.</p>

@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import models as models_sql
+#from feed.models import Topic
 
 from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 	RelationshipTo, RelationshipFrom)
@@ -27,6 +28,7 @@ class Posts(StructuredNode):
 	shared_owner = RelationshipFrom(Person, 'SHARED')
 	upvoter = RelationshipFrom(Person, 'UPVOTED')
 	downvoter = RelationshipFrom(Person, 'DOWNVOTED')
+	in_topic = RelationshipTo('Topic', 'IN_TOPIC')
 
 
 class LinkManager(models_sql.Manager):

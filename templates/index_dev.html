@@ -1,0 +1,225 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
+  <script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}"></script>
+  <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
+  <link rel="stylesheet" href=" {% static 'css/fileinput.css' %}">
+  <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
+  <style type="text/css">
+    .launch-modal {
+      margin: 20px;
+    }
+    div.modal-footer{
+      text-align: right;
+    }
+    html, body {
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: scroll;
+    }
+    p, h3 {
+        padding: 1em 0 .5em 0;
+    }
+    #wrapper {
+        margin-left:auto;
+        margin-right:auto;
+        width:960px;
+        /*min-width: 100%;*/
+    }
+    #content {
+        position: static;
+        width: 61.8%;
+        min-width: 61.8%;
+        overflow-x: hidden;
+    }
+    .btn{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .well{
+      background-color: rgba(245,245,245,0);
+    }
+  </style>
+</head>
+<body>  
+  <div id="wrapper">
+
+  <style type="text/css">
+    .status-box{
+      padding : 2%;
+      margin-bottom: 0%;
+    }
+    .well-custom{
+      border: 1px solid;
+      border-color: inherit;
+      border-radius: 5px;
+      padding-bottom: 5px;
+    }
+    .post-header{
+      width: 100% ;
+      height : 50px;
+    }
+    .post-profile-img{
+      width: 50px;
+      height : 50px;
+      display: inline-block;
+    }
+    .post-profile-details{
+      vertical-align: top;
+      height : 50px;
+      width: 89%;
+      display: inline-block;
+      border: thin;
+    }
+    .post-profile-image-resize img{
+      vertical-align: top;
+      width: 50px; /* you can use % */
+      height: 50px;
+    }
+    .rank-color{
+      height:30px;
+      width:100%;
+      background-color: rgba(255, 10, 10, 0.41);
+    }
+    .post_background{
+      height:30px;
+      width:100%;
+      background-color: rgba(255, 10, 10, 0.41);
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+    .profile-name{
+      height:20px;
+      width:50%;
+      padding-left: 5px;
+      display: inline-block;
+    }
+    .topic-name{
+      height:20px;
+      width:49%;
+      /*padding-right: 5px;*/
+      text-align: right;
+      display: inline-block;
+    }
+    .post-profile-name{
+      height:30px;
+      width:100%;
+    }
+    .post-body{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: inherit;
+      padding-left: 55px;
+    }
+    .post-contents{
+      margin-bottom: 0px;
+      padding: 5px;
+      border: 0px;
+    }
+    .post-image-resize img{
+      vertical-align: top;
+      width: 100%; /* you can use % */
+      height: auto;
+      /*margin-left: 5px;*/
+    }
+    .post-text-box{
+      /*padding: 5px;*/
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+    .post-footer{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: inherit;
+      padding-left: 55px;
+    }
+    .post-action{
+      border: 0px;
+      margin-bottom: 0px;
+      margin-right: 5px;
+      margin-left: 5px;
+      padding: 0px;
+    }
+    .btn-upvote{
+      width: 24.3%;
+      background-color: white;
+      color: black;
+    }
+  </style>
+    <div class="well" id="content">
+        <h4>Main content</h4>
+        <div class="well-custom status-box">
+          <div class = "post-header">
+            <div class = "post-profile-img">
+              <div class="post-profile-image-resize">
+                <img src="/media/test2.jpg" class="img-rounded"/>
+              </div>
+            </div>
+            <div class = "post-profile-details">
+              <div class="post_background">               
+              </div>
+              <div class="profile-name">
+                Profile Name!
+              </div>
+              <div class="topic-name">
+                Topic Name!
+              </div>
+            </div>
+          </div>
+          <div class = "post-body">
+            <div class = "well post-contents">
+              <div class="post-text-box">
+                Hey, this is my first status!
+              </div>
+              <div class="post-image-resize">
+                <img src="/media/test2.jpg" class="img-rounded"/>
+              </div>
+            </div> 
+          </div>
+          <div class = "post-footer">
+            <div class = "well post-action">
+              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Upvote'/>
+              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Downvote'/>
+              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Discuss'/>
+              <input type='button' class='btn btn-upvote btn-success btn-sm' value='Share'/>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+  <script>
+    $('#myModal1').on('show.bs.modal', function () {
+      $('#textareaID1').focus();
+    })
+    $(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
+        $(this).find('form').trigger('reset');
+        $('#preview-container').remove();
+        $('#preview-container-parent').append('<div id=' + '"preview-container"' + '></div>');
+    });
+    $(document).on('ready', function() {
+        $("#input-20").fileinput({
+            browseClass: "btn btn-primary btn-block",
+            showCaption: false,
+            showRemove: false,
+            showUpload: false
+        });
+    });
+    window.onload=function(){
+      $('#myModal').on('shown.bs.modal', function () {
+          var elem = document.getElementById('reverse_scroll');
+          elem.scrollTop = elem.scrollHeight;
+      });
+    }
+  </script>
+  <script type="text/javascript" src=" {% static 'js/main.js' %}"></script> 
+</html>

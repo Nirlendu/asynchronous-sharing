@@ -9,7 +9,8 @@ from django.shortcuts import render
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
-from express.models import Link, Postss
+from express.models import Link, Posts
+from feed.models import Topic
 
 @ensure_csrf_cookie
 def update(request):
@@ -20,7 +21,7 @@ def update(request):
 			path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
 			tmp_file = os.path.join(settings.MEDIA_ROOT, path)
 		except:
-			pass
+			tmp_file = ''
 		#print request.POST
 		#print 'Post Text is! :'
 		#print request.POST.get('express_text')
@@ -29,6 +30,9 @@ def update(request):
 			post_image = tmp_file, 
 			post_link = ''
 			).save()
+		topic = Topic.nodes.get(name='naarada')
+		#post.in_topic.connect(topic)
+		topic.related_posts.connect(post)
 		return render(request, "index.html", {})
 
 def store_link(request):
@@ -43,4 +47,4 @@ def store_link(request):
 				request.POST.get('link_desc'),
 				image_file_name
 			)
-		return render(request, "index.html", {})
+		return update(request)
