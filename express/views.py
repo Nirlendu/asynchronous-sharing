@@ -13,6 +13,7 @@ from express.models import Link, Posts
 from feed.models import Topic
 
 @ensure_csrf_cookie
+
 def update(request):
 	if request.method == 'POST':
 		try:
