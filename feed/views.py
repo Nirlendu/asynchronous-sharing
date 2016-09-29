@@ -43,3 +43,9 @@ def index(request):
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	return render(request, "index_dev.html", {})
+
+@ensure_csrf_cookie
+def topic(request):
+	if mobileBrowser(request):
+		return render(request, "mobile/index_dev_m.html", {})
+	return render(request, "topic_dev.html", {})
