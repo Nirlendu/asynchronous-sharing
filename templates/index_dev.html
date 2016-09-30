@@ -19,6 +19,40 @@
 </head>
 <body> 
   
+
+<!-- Modal 1 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+          </div>
+          <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+              <input type="textarea" id="tagareaID1" class="form-control" placeholder="Tag it">
+              </br>
+              <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+              <input type="textarea" id="textareaID1" class="form-control">
+              <label class="control-label"> </label>
+              <div id="preview-container-parent">
+                <div id="preview-container"></div>
+              </div>
+              <!-- <label class="control-label"> </label> -->
+              <input id="input-20" name= "file" type="file">
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+              <input type="submit" value="Post!" class="btn btn-primary">
+            </div>
+          </form>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
   <nav class="navbar navbar-inverse nav-fixed navbar-fixed-top">
     <nav class="top-nav ">
         <ul class="nav nav-buttons navbar-nav">
@@ -187,94 +221,63 @@
           Hey, Nirlendu!
         </div>
 
-        <div class="well-custom feed-express-area">
-          <div class = "feed-express-header">
-            <div class = "feed-express-profile-img">
-              <div class="feed-express-profile-image-resize">
-                <img src="/media/test2.jpg" class="img-rounded"/>
-              </div>
-            </div>
-            <div class = "feed-express-profile-details">
-              <div class="feed-express-background">               
-              </div>
-              <div class="profile-name">
-                Profile Name!
-              </div>
-              <div class="topic-name">
-                Topic Name!
-              </div>
-            </div>
-          </div>
-          <div class = "feed-express-body">
-            <div class = "well feed-express-contents">
-              <div class="feed-express-text-box">
-                Hey, this is my first status!
-              </div>
-              <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-                <div class = "link-preview-img">
-                  <div class="link-preview-image-resize">
-                    <img src="/media/test2.jpg" class="img-rounded"/>
-                  </div>
-                </div>
-                <div class = "link-preview-details">
-                  <div class="link-preview-title">  
-                    Preview Title             
-                  </div>
-                  <div class="link-preview-parent-name">
-                    Preview Parent
-                  </div>
-                </div>
-              </div>
-            </div> 
-          </div>
-          <div class = "feed-express-footer">
-            <div class = "well feed-express-action">
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Upvote'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Downvote'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Share'/>
-            </div>
-          </div>
-        </div>
 
 
-        <div class="well-custom feed-express-area">
-          <div class = "feed-express-header">
-            <div class = "feed-express-profile-img">
-              <div class="feed-express-profile-image-resize">
-                <img src="/media/test2.jpg" class="img-rounded"/>
+        {% for entry in Expressions %}
+          <div class="well-custom feed-express-area">
+            <div class = "feed-express-header">
+              <div class = "feed-express-profile-img">
+                <div class="feed-express-profile-image-resize">
+                  <img src="/media/test2.jpg" class="img-rounded"/>
+                </div>
+              </div>
+              <div class = "feed-express-profile-details">
+                <div class="feed-express-background">               
+                </div>
+                <div class="profile-name">
+                  Profile Name!
+                </div>
+                <div class="topic-name">
+                  Topic Name!
+                </div>
               </div>
             </div>
-            <div class = "feed-express-profile-details">
-              <div class="feed-express-background">               
-              </div>
-              <div class="profile-name">
-                Profile Name!
-              </div>
-              <div class="topic-name">
-                Topic Name!
+            <div class = "feed-express-body">
+              <div class = "well feed-express-contents">
+                <div class="feed-express-text-box">
+                  {{entry.post_content}}
+                </div>
+                <div class="feed-express-image-resize">
+                    <img src="{{entry.post_image}}" class="img-rounded"/>
+                  </div>
+                <!-- <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+                  <div class = "link-preview-img">
+                    <div class="link-preview-image-resize">
+                      <img src="{{entry.post_image}}" class="img-rounded"/>
+                    </div>
+                  </div>
+                  <div class = "link-preview-details">
+                    <div class="link-preview-title">  
+                      Preview Title             
+                    </div>
+                    <div class="link-preview-parent-name">
+                      Preview Parent
+                    </div>
+                  </div>
+                </div> -->
+              </div> 
+            </div>
+            <div class = "feed-express-footer">
+              <div class = "well feed-express-action">
+                <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Upvote'/>
+                <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Downvote'/>
+                <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Discuss'/>
+                <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Share'/>
               </div>
             </div>
           </div>
-          <div class = "feed-express-body">
-            <div class = "well feed-express-contents">
-              <div class="feed-express-text-box">
-                Hey, this is my first status!
-              </div>
-              <div class="feed-express-image-resize">
-                <img src="/media/test2.jpg" class="img-rounded"/>
-              </div>
-            </div> 
-          </div>
-          <div class = "feed-express-footer">
-            <div class = "well feed-express-action">
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Upvote'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Downvote'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Share'/>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+
 
 
     </div>

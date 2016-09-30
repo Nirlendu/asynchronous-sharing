@@ -20,7 +20,7 @@ def update(request):
 			for filename, file in request.FILES.iteritems():
 				data = file
 			path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
-			tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+			tmp_file = os.path.join(settings.MEDIA_URL, path)
 		except:
 			tmp_file = ''
 		#print request.POST

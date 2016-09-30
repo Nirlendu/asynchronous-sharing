@@ -19,19 +19,44 @@
   
 </head>
 <body> 
-  <style type="text/css">
-    .top-nav{
-      width:1000px;
-      margin-right: calc(((100% - 1000px) * 1.6)/2.6);
-      margin-left: calc((100% - 1000px)/2.6);
-    }
-    .ele>li>a {
-      padding-left: 0px;
-    }
-  </style>
+
+
+<!-- Modal 1 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+          </div>
+          <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+              <input type="textarea" id="tagareaID1" class="form-control" placeholder="Tag it">
+              </br>
+              <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+              <input type="textarea" id="textareaID1" class="form-control">
+              <label class="control-label"> </label>
+              <div id="preview-container-parent">
+                <div id="preview-container"></div>
+              </div>
+              <!-- <label class="control-label"> </label> -->
+              <input id="input-20" name= "file" type="file">
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+              <input type="submit" value="Post!" class="btn btn-primary">
+            </div>
+          </form>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
   <nav class="navbar navbar-inverse nav-fixed navbar-fixed-top">
     <nav class="top-nav ">
-        <ul class="nav ele navbar-nav">
+        <ul class="nav .nav-buttons navbar-nav">
             <li role = "presentation"><a href="#">Home</a></li>
             <li role = "presentation"><a href="#">Profile</a></li>
         </ul>
