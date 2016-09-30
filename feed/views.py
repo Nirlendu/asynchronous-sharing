@@ -52,7 +52,13 @@ def index(request):
 	entry=[]
 	#print express
 	for record in express:
+		owner = graph.cypher.stream("MATCH (a:Person) -[:EXPRESSED]->(b:Expression{expression_id:'"+record[0]['expression_id']+"'}) return a");
+		for x in owner:
+			record[0]['expression_owner'] = x[0]['person_name']
+			record[0]['expression_owner_id'] = x[0]['id']
+			break
 		entry.append(record[0])
+		#print 'ENTRY ' + record[0]['expression_owner']
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	#print entry[0]['expression_content'];
@@ -63,3 +69,14 @@ def topic(request):
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	return render(request, "topic_dev.html", {})
+
+@ensure_csrf_cookie
+def upvote(request):
+	expression_id = request.POST.get('expression_id')
+	person_id = request.session['person_id']
+	#Expression.upvoter
+	graph = Graph()
+	#graph.cypher.stream("CREATE (a:Person), (b:Expression), (a)-[:UPVOTED]->(b) WHERE a.person_id = '" + person_id + "', b.expression_id ='" + expression_id + "'");
+	graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:Expression{expression_id:'" + expression_id + "'}) CREATE (p)-[:UPVOTED]->(e)")
+	return render(request, "index_dev.html", {})
+
