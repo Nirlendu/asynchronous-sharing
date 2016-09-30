@@ -12,20 +12,19 @@ from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 
 
 class Person(StructuredNode):
-	#code = StringProperty(unique_index=True, required=True)
-	name = StringProperty()
-	age = IntegerProperty()
-	gender = StringProperty() 
-	follow = RelationshipFrom('Person', 'FOLLOWS')
+	person_id = StringProperty(unique_index=True, required=True)
+	person_name = StringProperty(required=True)
+	person_age = IntegerProperty()
+	person_gender = StringProperty() 
+	person_follow = RelationshipFrom('Person', 'FOLLOWS')
 
-class Posts(StructuredNode):
-	# name = StringProperty(unique_index=True)
-	# age = IntegerProperty(index=True, default=0)
-	post_content = StringProperty()
-	post_image = StringProperty()
-	post_link = StringProperty()
-	post_owner = RelationshipFrom(Person, 'POSTED')
-	shared_owner = RelationshipFrom(Person, 'SHARED')
+class Expression(StructuredNode):
+	expression_id = StringProperty(unique_index=True)
+	expression_content = StringProperty(required=True)
+	expression_image = StringProperty(default='')
+	expression_link = StringProperty(default='')
+	expression_owner = RelationshipFrom(Person, 'EXPRESSED')
+	broadcast_owner = RelationshipFrom(Person, 'BROADCASTED')
 	upvoter = RelationshipFrom(Person, 'UPVOTED')
 	downvoter = RelationshipFrom(Person, 'DOWNVOTED')
 	in_topic = RelationshipTo('Topic', 'IN_TOPIC')

@@ -245,26 +245,33 @@
             <div class = "feed-express-body">
               <div class = "well feed-express-contents">
                 <div class="feed-express-text-box">
-                  {{entry.post_content}}
+                  {{entry.expression_content}}
                 </div>
-                <div class="feed-express-image-resize">
-                    <img src="{{entry.post_image}}" class="img-rounded"/>
+
+                {% if entry.expression_image != "" %}
+                  <div class="feed-express-image-resize">
+                    <img src="{{entry.expression_image}}" class="img-rounded"/>
                   </div>
-                <!-- <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-                  <div class = "link-preview-img">
-                    <div class="link-preview-image-resize">
-                      <img src="{{entry.post_image}}" class="img-rounded"/>
+                {% endif %}
+
+                {% if entry.expression_link != "" %}
+                  <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+                    <div class = "link-preview-img">
+                      <div class="link-preview-image-resize">
+                        <img src="{{entry.post_image}}" class="img-rounded"/>
+                      </div>
+                    </div>
+                    <div class = "link-preview-details">
+                      <div class="link-preview-title">  
+                        Preview Title             
+                      </div>
+                      <div class="link-preview-parent-name">
+                        Preview Parent
+                      </div>
                     </div>
                   </div>
-                  <div class = "link-preview-details">
-                    <div class="link-preview-title">  
-                      Preview Title             
-                    </div>
-                    <div class="link-preview-parent-name">
-                      Preview Parent
-                    </div>
-                  </div>
-                </div> -->
+                {% endif %}
+
               </div> 
             </div>
             <div class = "feed-express-footer">
@@ -277,8 +284,6 @@
             </div>
           </div>
         {% endfor %}
-
-
 
     </div>
     <style type="text/css">

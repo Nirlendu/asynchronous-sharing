@@ -9,7 +9,7 @@ from django.shortcuts import render
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
-from express.models import Link, Posts
+from express.models import Link, Expression, Person
 from feed.models import Topic
 
 @ensure_csrf_cookie
@@ -23,17 +23,19 @@ def update(request):
 			tmp_file = os.path.join(settings.MEDIA_URL, path)
 		except:
 			tmp_file = ''
-		#print request.POST
-		#print 'Post Text is! :'
-		#print request.POST.get('express_text')
-		post = Posts(
-			post_content = request.POST.get('express_text'), 
-			post_image = tmp_file, 
-			post_link = ''
+		expression = Expression(
+			expression_id = str(round(time.time() * 1000)),
+			expression_content = request.POST.get('express_text'), 
+			expression_image = tmp_file, 
+			expression_link = ''
 			).save()
-		topic = Topic.nodes.get(name='naarada')
-		#post.in_topic.connect(topic)
-		topic.related_posts.connect(post)
+		person = Person.nodes.get(person_id=request.session['person_id'])
+		expression.expression_owner.connect(person)
+		try:
+			topic = Topic.nodes.get(name=request.POST.get('express_tag'))
+			topic.related_posts.connect(expression)
+		except:
+			pass
 		return render(request, "index.html", {})
 
 def store_link(request):

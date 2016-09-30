@@ -6,7 +6,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 from neomodel import db
-from express.models import Posts
+from express.models import Expression
 from py2neo import Graph
 # from feed.models import 
 #from posts.models import Posts
@@ -44,21 +44,18 @@ def mobileBrowser(request):
 
 @ensure_csrf_cookie
 def index(request):
-	#express, meta = db.cypher_query("MATCH (n:Posts) -[:IN_TOPIC]->(Topic{name:'naarada'}) RETURN n");
-	# people = [Posts.inflate(row[0]) for row in express]
-	# print people
-	# for row in express:
-	# 	print 'each'
-	# 	print row._method_
+	request.session['person_name'] = 'Nirlendu Saha'
+	request.session['person_id'] = 'asd123'
+	request.session['person_profile_photo'] = '/media/somename_bHwPbrb.jpg'
 	graph = Graph()
-	express = graph.cypher.stream("MATCH (n:Posts) -[:IN_TOPIC]->(Topic{name:'naarada'}) RETURN n");
+	express = graph.cypher.stream("MATCH (n:Expression) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
 	entry=[]
+	#print express
 	for record in express:
-		#print len(record);
-		print record[0]['post_content'];
 		entry.append(record[0])
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
+	#print entry[0]['expression_content'];
 	return render(request, "index_dev.html", {'Expressions' : entry})
 
 @ensure_csrf_cookie

@@ -41,6 +41,7 @@ function postExpression()
 
     //console.log($('#textareaID1').val());
     //formData['express_text'] = $('#textareaID1').val();
+    formData.append('express_tag', $('#tagareaID1').val())
     formData.append('express_text', $('#textareaID1').val())
     //console.log(formData['express_text']);
     $.ajax({
