@@ -9,215 +9,29 @@
   <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
   <script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
   <script type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}"></script>
-  <!-- <script type="text/javascript" src=" {% static 'js/jquery/scroll-to-fix.js' %}"></script> -->
   <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
   <script type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
   <link rel="stylesheet" href=" {% static 'css/fileinput.css' %}">
+  <link rel="stylesheet" href=" {% static 'css/index-page.css' %}">
   <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
-  <style type="text/css">
-    .launch-modal {
-      margin: 20px;
-    }
-    div.modal-footer{
-      text-align: right;
-    }
-    html, body {
-      height: 100%;
-      /*overflow-x: scroll;
-      overflow-y: scroll;*/
-      /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
-      font-family: Verdana,Geneva,Tahoma,Arial,Helvetica,sans-serif!important;
-      font-weight: 400;
-      line-height: 1.4;
-    }
-    p, h3 {
-        padding: 1em 0 .5em 0;
-    }
-    #wrapper {
-        /*margin-left:auto;
-        margin-right:auto;*/
-        position: relative;
-        margin-top: 50px;
-        margin-bottom: 10px;
-        margin-right: calc(((100% - 1000px) * 1.6)/2.6);
-        margin-left: calc((100% - 1000px)/2.6);
-        width:1000px;
-        /*min-width: 100%;*/
-        overflow-x: auto;
-        overflow-y: auto;
-    }
-    .btn{
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .well{
-      background-color: rgba(245,245,245,0);
-    }
-  </style>
+
 </head>
 <body> 
-  <style type="text/css">
-    .top-nav{
-      width:1000px;
-      margin-right: calc(((100% - 1000px) * 1.6)/2.6);
-      margin-left: calc((100% - 1000px)/2.6);
-    }
-    .ele>li>a {
-      padding-left: 0px;
-    }
-  </style>
+  
   <nav class="navbar navbar-inverse nav-fixed navbar-fixed-top">
     <nav class="top-nav ">
-        <ul class="nav ele navbar-nav">
+        <ul class="nav nav-buttons navbar-nav">
             <li role = "presentation"><a href="#">Home</a></li>
             <li role = "presentation"><a href="#">Profile</a></li>
         </ul>
     </nav>
   </nav>
+
+
   <div id="wrapper">
-  <style type="text/css">
-    .left-info-area{
-      /*border: 1px solid;
-      border-color: grey;*/
-      position: fixed;
-      border-radius: 5px;
-      padding-bottom: 5px;
-      /*width: 23%;
-      min-width: 23%;*/
-      width: calc(1000px * 0.186);
-      padding-top: 5px;
-      height: auto;
-      display: inline-block;
-      vertical-align: top;
-      padding-right: 0px;
-      padding-left: 0px;
-    }
-    .left-profile-info{
-      width: 100% ;
-      height : 50px;
-      border: 1px solid #e3e3e3;
-      padding: 0px;
-      margin-bottom: 0px;
-    }
-    .left-profile-img{
-      width: 50px;
-      height : 50px;
-      display: inline-block;
-    }
-    .left-profile-image-resize img{
-      vertical-align: top;
-      width: 50px; /* you can use % */
-      height: 50px;
-    }
-    .left-profile-details{
-      position:relative;
-      vertical-align: top;
-      display: inline-block;
-      height : 50px;
-      /*width: 74.5%;*/
-      width: calc(100% - 55px);
-      border: 0px;
-    }
-    .left-profile-name{
-      height:100%;
-      width:100%;
-      padding-left: 2px;
-    }
-    #left-name{
-      position:absolute;
-      bottom:0;
-      left:0;
-    }
-    #left-name span{
-      /*position:absolute;*/
-      bottom:0;
-      right:0;
-    }
-    .left-post-background{
-      height:30px;
-      width:100%;
-      background-color: rgba(0, 0, 0, 0.06);
-      border-radius: 4px;
-    }
-    .left-profile{
-      margin: 0px;
-      margin-top: 0px;
-      margin-bottom: 5px;
-      padding: 0px;
-      border: 0px;
-    }
-    .left-profile-about{
-      margin-bottom: 5px;
-      padding: 5px;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-    .btn-post{
-      margin: 0px;
-      width: 100%;
-      margin-bottom: 5px;
-    }
-    .topic-side-follow{
-      position: relative;
-      margin-bottom: 5px;
-      padding: 0px;
-    }
-    .topic-side-follow-info{
-      margin: 0px;
-      padding: 0px;
-      display: inline-block;
-      vertical-align: top;
-      width: 85%;
-      height: 100%;
-      border: 0px;
-    }
-    .follow-button{
-      position: absolute;
-      display: inline-block;
-      vertical-align: top;
-      color: black;
-      background-color: rgba(201, 206, 210, 0.55);
-      width: 15%;
-      height: 100%;
-      top: 0; 
-      bottom: 0;
-      border-radius: 3px;
-      text-align: center;
-      padding-top:12px;
-    } 
-    .follow-button:hover{
-      color: #fff;
-      background-color: #337ab7;
-    }
-    .topic-side-follow-info-head{
-      margin-bottom: 0px;
-      padding: 0px;
-      -webkit-border-radius:0px;
-      border-radius: 0px;
-      border: none !important;
-    }
-    .left-topic-follow-resize{
-      width: 25px;
-      height : 25px;
-      display: inline-block;
-    }
-    .left-topic-follow-resize img{
-      vertical-align: top;
-      display: inline-block;
-      width: 25px; /* you can use % */
-      height: 25px;
-    }
-    .left-follow-topic-name{
-      vertical-align: top;
-      display: inline-block;
-      width: calc(100% - 30px); /* you can use % */
-      height: 100%;
-      border: none !important;
-      margin-top: 5px;
-    }
-  </style>
   <div class = "left-info-area">
+
     <div class="left-profile well">
       <div class = "left-profile-info well">
         <div class = "left-profile-img">
@@ -226,38 +40,35 @@
           </div>
         </div>
         <div class = "left-profile-details">
-          <!-- <div class="left-post-background">               
-          </div>
-          <div class="left-profile-name">
-            Nirlendu Saha
-          </div> -->
           <div id="left-name"><span>Nirlendu Saha</span></div>
         </div>
       </div> 
     </div>
-    <div class="well left-profile-about">
-      Followers : 100
-      </br>
-      Ratings : 10
-    </div>
-      <button class="btn btn-primary btn-md btn-post launch-modal" data-toggle="modal" data-target="#myModal1">
+
+
+      <div class="well left-profile-about">
+        Followers : 100
+        </br>
+        Ratings : 10
+      </div>
+
+      <button class="btn btn-primary btn-md left-express-btn launch-modal" data-toggle="modal" data-target="#myModal1">
         Express
       </button>
+
       <div class="well left-profile-about">
         Discover
-
-
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 google.com
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             Search anything
             </div> 
           </div>
@@ -267,17 +78,17 @@
         </div>
 
 
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 Aristotle
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             Thinker, Rationalist
             </div> 
           </div>
@@ -287,17 +98,17 @@
         </div>
 
 
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 Leonidas
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             Warrior, King
             </div> 
           </div>
@@ -306,17 +117,18 @@
           </div>
         </div>
 
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 Pompeii
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             Roman City
             </div> 
           </div>
@@ -326,17 +138,17 @@
         </div>
 
 
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 greekmuseum.gr
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             National Museum
             </div> 
           </div>
@@ -346,17 +158,17 @@
         </div>
 
 
-        <div class="well topic-side-follow">
-          <div class="topic-side-follow-info">
-            <div class="well topic-side-follow-info-head">  
-              <div class="left-topic-follow-resize">
+        <div class="well discover-side-follow">
+          <div class="discover-side-follow-info">
+            <div class="well discover-side-follow-info-head">  
+              <div class="discover-side-follow-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div> 
-              <div class="left-follow-topic-name">
+              <div class="discover-side-follow-name">
                 Greek History
               </div>         
             </div>
-            <div class="well topic-side-follow-info-head">
+            <div class="well discover-side-follow-info-head">
             Old Greece
             </div> 
           </div>
@@ -365,188 +177,25 @@
           </div>
         </div>
 
-
-
       </div>
   </div>
-  <!-- <script type="text/javascript">
-    $(document).ready(function() {
-      $('.left-info-area').scrollToFixed();
-    });
-  </script> -->
 
-  <style type="text/css">
-    #content {
-        position: static;
-        width: 61.8%;
-        min-width: 61.8%;
-        overflow-x: hidden;
-        display: inline-block;
-        vertical-align: top;
-        padding-left: 0px;
-        padding-right: 0px;
-        border-width: 0px;
-        padding-top: 5px;
-        margin-left: 19.1%;
-    }
-    .status-box{
-      padding : 2%;
-      margin-bottom: 5px;
-    }
-    .well-custom{
-      border: 1px solid;
-      border-color: inherit;
-      border-radius: 5px;
-      padding-bottom: 5px;
-    }
-    .post-header{
-      width: 100% ;
-      height : 50px;
-    }
-    .post-profile-img{
-      width: 50px;
-      height : 50px;
-      display: inline-block;
-    }
-    .post-profile-details{
-      vertical-align: top;
-      height : 50px;
-      /*width: 89%;*/
-      width: calc(100% - 55px);
-      display: inline-block;
-      border: thin;
-    }
-    .post-profile-image-resize img{
-      vertical-align: top;
-      width: 50px; /* you can use % */
-      height: 50px;
-    }
-    .post_background{
-      height:30px;
-      width:100%;
-      background-color: rgba(0, 0, 0, 0.06);
-      border-radius: 4px;
-      margin-left: 5px;
-    }
-    .profile-name{
-      height:20px;
-      width:50%;
-      padding-left: 5px;
-      display: inline-block;
-    }
-    .topic-name{
-      height:20px;
-      width:48%;
-      /*padding-right: 5px;*/
-      text-align: right;
-      display: inline-block;
-    }
-    .post-profile-name{
-      height:30px;
-      width:100%;
-    }
-    .post-body{
-      margin-top: 5px;
-      margin-bottom: 5px;
-      width: inherit;
-      padding-left: 55px;
-    }
-    .post-contents{
-      margin-bottom: 0px;
-      padding: 5px;
-      padding-right: 0px;
-      border: 0px;
-    }
-    .post-image-resize img{
-      vertical-align: top;
-      width: 100%; /* you can use % */
-      height: auto;
-      /*margin-left: 5px;*/
-    }
-    .post-text-box{
-      /*padding: 5px;*/
-      margin-bottom: 10px;
-      margin-top: 5px;
-    }
-    .post-footer{
-      margin-top: 5px;
-      margin-bottom: 5px;
-      mar
-      width: inherit;
-      padding-left: 55px;
-    }
-    .post-action{
-      border: 0px;
-      margin-bottom: 0px;
-      margin-right: 0px;
-      margin-left: 5px;
-      padding: 0px;
-    }
-    .btn-upvote{
-      /*width: 24.26%;*/
-      width: calc(25% - 5px);
-      background-color: white;
-      color: black;
-    }
-    .link-preview-box{
-      /*padding-top: 0px;
-      padding-bottom: 0px;*/
-      border: 0px;
-      padding: 0px;
-      margin-bottom: 5px;
-    }
-    .link-preview-box:hover {
-      background-color: rgba(0, 0, 0, 0.04);
-    }
-    .link-preview-img{
-      width: 100px;
-      height : 100px;
-      display: inline-block;
-    }
-    .link-preview-details{
-      vertical-align: top;
-      height : 100px;
-      /*width: 79.2%;*/
-      width: calc(100% - 105px);
-      display: inline-block;
-      border: 0px;
-      background-color: rgba(0, 0, 0, 0.04);
-    }
-    .link-preview-image-resize img{
-      vertical-align: top;
-      width: 100px; /* you can use % */
-      height: 100px;
-    }
-    .link-preview-title{
-      padding-top: 5px;
-      padding-left: 5px;
-      height:80px;
-      width:100%;
-    }
-    .link-parent-name{
-      height:20px;
-      width:100%;
-      padding-right: 5px;
-      text-align: right;
-    }
-  </style>
-    <div class="well" id="content">
-        <div class="well status-box">
+
+
+    <div class="well" id="feed-area">
+        <div class="well feed-express-area">
           Hey, Nirlendu!
         </div>
 
-
-
-
-        <div class="well-custom status-box">
-          <div class = "post-header">
-            <div class = "post-profile-img">
-              <div class="post-profile-image-resize">
+        <div class="well-custom feed-express-area">
+          <div class = "feed-express-header">
+            <div class = "feed-express-profile-img">
+              <div class="feed-express-profile-image-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div>
             </div>
-            <div class = "post-profile-details">
-              <div class="post_background">               
+            <div class = "feed-express-profile-details">
+              <div class="feed-express-background">               
               </div>
               <div class="profile-name">
                 Profile Name!
@@ -556,14 +205,11 @@
               </div>
             </div>
           </div>
-          <div class = "post-body">
-            <div class = "well post-contents">
-              <div class="post-text-box">
+          <div class = "feed-express-body">
+            <div class = "well feed-express-contents">
+              <div class="feed-express-text-box">
                 Hey, this is my first status!
               </div>
-              <!-- <div class="post-image-resize">
-                <img src="/media/test2.jpg" class="img-rounded"/>
-              </div> -->
               <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
                 <div class = "link-preview-img">
                   <div class="link-preview-image-resize">
@@ -574,33 +220,33 @@
                   <div class="link-preview-title">  
                     Preview Title             
                   </div>
-                  <div class="link-parent-name">
+                  <div class="link-preview-parent-name">
                     Preview Parent
                   </div>
                 </div>
               </div>
             </div> 
           </div>
-          <div class = "post-footer">
-            <div class = "well post-action">
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Upvote'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Downvote'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Share'/>
+          <div class = "feed-express-footer">
+            <div class = "well feed-express-action">
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Upvote'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Downvote'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Discuss'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Share'/>
             </div>
           </div>
         </div>
 
 
-        <div class="well-custom status-box">
-          <div class = "post-header">
-            <div class = "post-profile-img">
-              <div class="post-profile-image-resize">
+        <div class="well-custom feed-express-area">
+          <div class = "feed-express-header">
+            <div class = "feed-express-profile-img">
+              <div class="feed-express-profile-image-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div>
             </div>
-            <div class = "post-profile-details">
-              <div class="post_background">               
+            <div class = "feed-express-profile-details">
+              <div class="feed-express-background">               
               </div>
               <div class="profile-name">
                 Profile Name!
@@ -610,58 +256,29 @@
               </div>
             </div>
           </div>
-          <div class = "post-body">
-            <div class = "well post-contents">
-              <div class="post-text-box">
+          <div class = "feed-express-body">
+            <div class = "well feed-express-contents">
+              <div class="feed-express-text-box">
                 Hey, this is my first status!
               </div>
-              <div class="post-image-resize">
+              <div class="feed-express-image-resize">
                 <img src="/media/test2.jpg" class="img-rounded"/>
               </div>
-              <!-- <div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-                <div class = "link-preview-img">
-                  <div class="link-preview-image-resize">
-                    <img src="/media/test2.jpg" class="img-rounded"/>
-                  </div>
-                </div>
-                <div class = "link-preview-details">
-                  <div class="link-preview-title">  
-                    Preview Title             
-                  </div>
-                  <div class="link-parent-name">
-                    Preview Parent
-                  </div>
-                </div>
-              </div> -->
             </div> 
           </div>
-          <div class = "post-footer">
-            <div class = "well post-action">
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Upvote'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Downvote'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Share'/>
+          <div class = "feed-express-footer">
+            <div class = "well feed-express-action">
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Upvote'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Downvote'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Discuss'/>
+              <input type='button' class='btn btn-feed-express btn-primary btn-sm' value='Share'/>
             </div>
           </div>
         </div>
 
 
-
-
     </div>
     <style type="text/css">
-    .right-info-area{
-      /*border: 1px solid;
-      border-color: grey;*/
-      border-radius: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      width: 18.6%;
-      /*min-width: 20%;*/
-      display: inline-block;
-      vertical-align: top;
-      margin-top: 5px;
-    }
   </style>
   <div class = "right-info-area well">
     Some stuff here
