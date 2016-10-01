@@ -3,7 +3,10 @@
 #import os
 
 #from django.db import connection
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
+from django.template.context_processors import request
+#import django.core.context_processors.request
 from django.views.decorators.csrf import ensure_csrf_cookie
 from neomodel import db
 from express.models import Expression
@@ -27,23 +30,23 @@ mobile_uas = [
 mobile_ua_hints = [ 'SymbianOS', 'Opera Mini', 'iPhone' ]
  
 def mobileBrowser(request):
-    ''' Super simple device detection, returns True for mobile devices '''
+	''' Super simple device detection, returns True for mobile devices '''
  
-    mobile_browser = False
-    # ua = request.META['HTTP_USER_AGENT'].lower()[0:4]
+	mobile_browser = False
+	# ua = request.META['HTTP_USER_AGENT'].lower()[0:4]
  
-    # if (ua in mobile_uas):
-    #     mobile_browser = True
-    # else:
-    #     for hint in mobile_ua_hints:
-    #         if request.META['HTTP_USER_AGENT'].find(hint) > 0:
-    #             mobile_browser = True
-    if str(request.META['HTTP_USER_AGENT']).find('Android') != -1:
-    	mobile_browser = True
-    return mobile_browser
+	# if (ua in mobile_uas):
+	#     mobile_browser = True
+	# else:
+	#     for hint in mobile_ua_hints:
+	#         if request.META['HTTP_USER_AGENT'].find(hint) > 0:
+	#             mobile_browser = True
+	if str(request.META['HTTP_USER_AGENT']).find('Android') != -1:
+		mobile_browser = True
+	return mobile_browser
 
 @ensure_csrf_cookie
-def index(request):
+def index(request, template="index_dev.html", page_template="feed.html"):
 	request.session['person_name'] = 'Nirlendu Saha'
 	request.session['person_id'] = 'asd123'
 	request.session['person_profile_photo'] = '/media/somename_bHwPbrb.jpg'
@@ -59,10 +62,25 @@ def index(request):
 			break
 		entry.append(record[0])
 		#print 'ENTRY ' + record[0]['expression_owner']
+	# template = "index_dev.html"
+	# feed_template = "feed.html"
+	# if request.is_ajax():
+	# 	template = feed_template
+	# print template
+	# return render_to_response(
+	#     template, context, context_instance=RequestContext(request))
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	#print entry[0]['expression_content'];
-	return render(request, "index_dev.html", {'Expressions' : entry})
+	#return render(request, "index_dev.html", {'Expressions' : entry, 'feed_template' : feed_template})
+	context = {
+		'Expressions': entry,
+		'page_template': page_template,
+	}
+	if request.is_ajax():
+		template = page_template
+	#return render_to_response(template, context, context_instance=RequestContext(request))
+	return render(request, template, context)
 
 @ensure_csrf_cookie
 def topic(request):

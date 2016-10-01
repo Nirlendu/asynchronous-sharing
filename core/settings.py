@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'feed',
     'express',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 #url to access media files
 MEDIA_URL = '/media/'
+
+# from django.conf.global_settings import TEMPLATES
+
+# TEMPLATES[0]['OPTIONS']['context_processors'].insert(0, 'django.core.context_processors.request')
