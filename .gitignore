@@ -1,3 +1,8 @@
 *.pyc
 mediafiles/
-database
+databas*
+*DS*
+env/
+requirements.txt
+var/
+server_logs/
