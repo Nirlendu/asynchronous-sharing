@@ -9,8 +9,9 @@ from django.template.context_processors import request
 #import django.core.context_processors.request
 from django.views.decorators.csrf import ensure_csrf_cookie
 from neomodel import db
-from express.models import Expression
+from express.models import Expression, Link
 from py2neo import Graph
+import re
 # from feed.models import 
 #from posts.models import Posts
 #from posts.forms import Posts
@@ -60,6 +61,13 @@ def index(request, template="index_dev.html", page_template="feed.html"):
 			record[0]['expression_owner'] = x[0]['person_name']
 			record[0]['expression_owner_id'] = x[0]['id']
 			break
+		if record[0]['expression_link']!= '':
+			entries = Link.objects.filter(link_url = record[0]['expression_link'])
+			#print entry
+			for entri in entries:
+				record[0]['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', record[0]['expression_link'])[0]
+				record[0]['expression_link_title'] = entri.link_name
+				record[0]['expression_link_image'] = entri.link_image
 		entry.append(record[0])
 		#print 'ENTRY ' + record[0]['expression_owner']
 	# template = "index_dev.html"

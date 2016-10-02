@@ -33,18 +33,18 @@
 		{% endif %}
 
 		{% if entry.expression_link != "" %}
-			<div onclick="window.open('http://127.0.0.1:8000','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+			<div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 			<div class = "link-preview-img">
 				<div class="link-preview-image-resize">
-				<img src="{{entry.post_image}}" class="img-rounded"/>
+				<img src="{{entry.expression_link_image}}" class="img-rounded"/>
 				</div>
 			</div>
 			<div class = "link-preview-details">
 				<div class="link-preview-title">    
-				Preview Title                         
+				{{entry.expression_link_title}}                         
 				</div>
 				<div class="link-preview-parent-name">
-				Preview Parent
+				{{entry.parent_domain}}
 				</div>
 			</div>
 			</div>

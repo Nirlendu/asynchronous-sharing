@@ -173,7 +173,7 @@ $(document).ready(function(){
                 image = that.findImageInDom($dom);
 
             //storing the link in database
-            that.linkStore(title, description, image);
+            that.linkStore(url, title, description, image);
 
             // build dom elements
             var $title = $("<a></a>").attr("href", url).text(title),
@@ -201,7 +201,7 @@ $(document).ready(function(){
 
 
         //storign the link data in database for future refrence
-        linkStore : function(title, description, image){
+        linkStore : function(url, title, description, image){
             //putting them in DB first for future reference
             var csrftoken = $.cookie('csrftoken');
     
@@ -220,6 +220,7 @@ $(document).ready(function(){
 
             var formData = new FormData();
 
+            formData.append('link_url',url);
             formData.append('link_name',title);
             formData.append('link_desc', description);
             formData.append('link_image', image);
