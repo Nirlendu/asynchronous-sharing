@@ -26,9 +26,9 @@ BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 SECRET_KEY = 'f23u9)dk)c$61q(hi65^^^&8y9cv4#hwkx5r+2*!9qrw-g(8r+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*",]
 
 
 # Application definition
@@ -147,7 +147,7 @@ STATICFILES_DIRS = (
 )
 
 #place where media files are served wrt base directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #url to access media files
 MEDIA_URL = '/media/'
