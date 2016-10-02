@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 from abc import ABCMeta, abstractmethod
  
 
-def processfile(file):
+def image_upload(file):
     """Renames the specified image to a backup path,
     and writes out the image again with optimal settings."""
     BASE_DIR = join(dirname(__file__), '..')

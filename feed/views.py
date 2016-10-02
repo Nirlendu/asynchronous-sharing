@@ -12,6 +12,7 @@ from neomodel import db
 from express.models import Expression, Link
 from py2neo import Graph
 import re
+from libs.logger import app_logger as logger
 # from feed.models import 
 #from posts.models import Posts
 #from posts.forms import Posts
@@ -48,6 +49,7 @@ def mobileBrowser(request):
 
 @ensure_csrf_cookie
 def index(request, template="index_dev.html", page_template="feed.html"):
+	logger.log('-------------Fetching index page----------------')
 	request.session['person_name'] = 'Nirlendu Saha'
 	request.session['person_id'] = 'asd123'
 	request.session['person_profile_photo'] = '/media/somename_bHwPbrb.jpg'

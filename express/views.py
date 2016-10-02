@@ -11,7 +11,7 @@ from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
 from express.models import Link, Expression, Person
 from feed.models import Topic
-from image_processor import compressimages
+from libs.image_processor import compressimages
 import re
 
 @ensure_csrf_cookie
@@ -23,19 +23,24 @@ def update(request):
 				data = file
 			path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
 			tmp_file = os.path.join(settings.MEDIA_URL, path)
-			compressimages.processfile(tmp_file)
+			compressimages.image_upload(tmp_file)
 		except:
 			tmp_file = ''
 		text = request.POST.get('express_text')
 		link = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
-		trimmed_text = text.replace(link[0],'')
+		try:
+			trimmed_text = text.replace(link[0],'')
+			text_url = link[0]
+		except:
+			trimmed_text = text
+			text_url = ''
 		#print text
 		#print link[0]
 		expression = Expression(
 			expression_id = str(round(time.time() * 1000)),
 			expression_content = trimmed_text, 
 			expression_image = tmp_file, 
-			expression_link = link[0]
+			expression_link = text_url
 			).save()
 		person = Person.nodes.get(person_id=request.session['person_id'])
 		expression.expression_owner.connect(person)
@@ -52,6 +57,7 @@ def store_link(request):
 			image_file = str(round(time.time() * 1000)) + '.jpg'
 			urllib.urlretrieve(request.POST.get('link_image'), os.path.join(settings.MEDIA_ROOT, image_file))
 			image_file_name = os.path.join(settings.MEDIA_URL, image_file)
+			#compressimages.image_upload(tmp_file)
 		except:
 			image_file_name = ''
 		link = Link.objects.store_link(
