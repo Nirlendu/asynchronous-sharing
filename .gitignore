@@ -1,6 +1,6 @@
 *.pyc
 media/
-databas*
+database
 *DS*
 env/
 requirements.txt

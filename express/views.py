@@ -28,12 +28,12 @@ def update(request):
 			tmp_file = ''
 		text = request.POST.get('express_text')
 		link = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
-		text.replace(link[0],'')
-		print text
-		print link[0]
+		trimmed_text = text.replace(link[0],'')
+		#print text
+		#print link[0]
 		expression = Expression(
 			expression_id = str(round(time.time() * 1000)),
-			expression_content = text, 
+			expression_content = trimmed_text, 
 			expression_image = tmp_file, 
 			expression_link = link[0]
 			).save()
