@@ -11,6 +11,7 @@ from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
 from express.models import Link, Expression, Person
 from feed.models import Topic
+from image_processor import compressimages
 
 @ensure_csrf_cookie
 
@@ -21,6 +22,7 @@ def update(request):
 				data = file
 			path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
 			tmp_file = os.path.join(settings.MEDIA_URL, path)
+			compressimages.processfile(tmp_file)
 		except:
 			tmp_file = ''
 		expression = Expression(

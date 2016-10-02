@@ -8,10 +8,9 @@
 	<link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
 	<link rel="stylesheet" href=" {% static 'css/index-page.css' %}">
-	<script async type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+	<script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
 	<script async type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}" defer></script>
-	<script async type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-	<script async type="text/javascript" src=" {% static 'js/fileinput.js' %}" defer></script>
+	<script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 	<script async type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
 
 </head>
@@ -341,12 +340,13 @@
 		});
 	}
 	</script>
-	<script async type="text/javascript" src=" {% static 'js/loadCSS.js' %}" defer></script>
+	<script async type="text/javascript" src=" {% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+	<script type="text/javascript" src=" {% static 'js/loadCSS.js' %}"></script>
 	<script id="loadcss">
 		loadCSS( "{% static 'css/fileinput.css' %}");
 		loadCSS( "{% static 'css/chat.css' %}");
 	</script>
-	<script async type="text/javascript" src=" {% static 'js/main.js' %}" defer></script>
 </html>
 
 
