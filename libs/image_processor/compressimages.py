@@ -11,7 +11,7 @@ from abc import ABCMeta, abstractmethod
 def image_upload(file):
     """Renames the specified image to a backup path,
     and writes out the image again with optimal settings."""
-    BASE_DIR = join(dirname(__file__), '..')
+    BASE_DIR = join(dirname(__file__), '../..')
     filename = BASE_DIR + file
     print filename
     try:

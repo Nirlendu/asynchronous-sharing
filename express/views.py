@@ -4,18 +4,21 @@ import os, urllib, time
 
 #from django.db import connection
 from django.conf import settings
-from django.shortcuts import render
+#from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
+from django.template.context_processors import request
+from py2neo import Graph
 #from django.http import HttpResponse
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
 from express.models import Link, Expression
-from app_base.models import Topic
+from app_base.models import Topic, Person
 from libs.image_processor import compressimages
 import re
 
 @ensure_csrf_cookie
-
 def update(request):
 	if request.method == 'POST':
 		try:
@@ -34,7 +37,7 @@ def update(request):
 		except:
 			trimmed_text = text
 			text_url = ''
-		#print text
+		#print 'TRIMEED TEXT IS :' + trimmed_text
 		#print link[0]
 		expression = Expression(
 			expression_id = str(round(time.time() * 1000)),
@@ -46,11 +49,14 @@ def update(request):
 		expression.expression_owner.connect(person)
 		try:
 			topic = Topic.nodes.get(name=request.POST.get('express_tag'))
-			topic.related_posts.connect(expression)
+			#print 'EXPRESS TAG!' + request.POST.get('express_tag')
+			#topic.related_posts.connect(expression)
+			expression.in_topic.connect(topic)
 		except:
 			pass
 		return render(request, "index.html", {})
 
+@ensure_csrf_cookie
 def store_link(request):
 	if request.method == 'POST':
 		try:
@@ -60,15 +66,18 @@ def store_link(request):
 			#compressimages.image_upload(tmp_file)
 		except:
 			image_file_name = ''
+		#print 'LINK URL IS : ' + request.POST.get('link_url')
 		link = Link.objects.store_link(
 				request.POST.get('link_url'),
 				request.POST.get('link_name'),
 				request.POST.get('link_desc'),
 				image_file_name
 			)
-		return render(request, "index.html", {})
+		template = "index.html"
+		context = {}
+		return render(request, template, context)
 
-
+@ensure_csrf_cookie
 def upvote(request):
 	expression_id = request.POST.get('expression_id')
 	person_id = request.session['person_id']
