@@ -3,20 +3,13 @@
 from __future__ import unicode_literals
 
 from django.db import models as models_sql
+from app_base.models import Person, Topic
 #from feed.models import Topic
 
 from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 	RelationshipTo, RelationshipFrom)
 
 # Create your models here.
-
-
-class Person(StructuredNode):
-	person_id = StringProperty(unique_index=True, required=True)
-	person_name = StringProperty(required=True)
-	person_age = IntegerProperty()
-	person_gender = StringProperty() 
-	person_follow = RelationshipFrom('Person', 'FOLLOWS')
 
 class Expression(StructuredNode):
 	expression_id = StringProperty(unique_index=True)
@@ -27,7 +20,7 @@ class Expression(StructuredNode):
 	broadcast_owner = RelationshipFrom(Person, 'BROADCASTED')
 	upvoter = RelationshipFrom(Person, 'UPVOTED')
 	downvoter = RelationshipFrom(Person, 'DOWNVOTED')
-	in_topic = RelationshipTo('Topic', 'IN_TOPIC')
+	in_topic = RelationshipTo(Topic, 'IN_TOPIC')
 
 
 class LinkManager(models_sql.Manager):

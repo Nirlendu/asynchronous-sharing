@@ -48,7 +48,7 @@ def mobileBrowser(request):
 	return mobile_browser
 
 @ensure_csrf_cookie
-def index(request, template="index_dev.html", page_template="feed.html"):
+def index(request, template="index.html", page_template="feed.html"):
 	logger.log('-------------Fetching index page----------------')
 	request.session['person_name'] = 'Nirlendu Saha'
 	request.session['person_id'] = 'asd123'
@@ -97,14 +97,4 @@ def topic(request):
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	return render(request, "topic_dev.html", {})
-
-@ensure_csrf_cookie
-def upvote(request):
-	expression_id = request.POST.get('expression_id')
-	person_id = request.session['person_id']
-	#Expression.upvoter
-	graph = Graph()
-	#graph.cypher.stream("CREATE (a:Person), (b:Expression), (a)-[:UPVOTED]->(b) WHERE a.person_id = '" + person_id + "', b.expression_id ='" + expression_id + "'");
-	graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:Expression{expression_id:'" + expression_id + "'}) CREATE (p)-[:UPVOTED]->(e)")
-	return render(request, "index_dev.html", {})
 

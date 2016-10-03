@@ -9,8 +9,8 @@ from django.shortcuts import render
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.views.decorators.csrf import ensure_csrf_cookie
-from express.models import Link, Expression, Person
-from feed.models import Topic
+from express.models import Link, Expression
+from app_base.models import Topic
 from libs.image_processor import compressimages
 import re
 
@@ -67,3 +67,13 @@ def store_link(request):
 				image_file_name
 			)
 		return render(request, "index.html", {})
+
+
+def upvote(request):
+	expression_id = request.POST.get('expression_id')
+	person_id = request.session['person_id']
+	#Expression.upvoter
+	graph = Graph()
+	#graph.cypher.stream("CREATE (a:Person), (b:Expression), (a)-[:UPVOTED]->(b) WHERE a.person_id = '" + person_id + "', b.expression_id ='" + expression_id + "'");
+	graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:Expression{expression_id:'" + expression_id + "'}) CREATE (p)-[:UPVOTED]->(e)")
+	return render(request, "index.html", {})

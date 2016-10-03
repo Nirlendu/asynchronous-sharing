@@ -6,5 +6,5 @@ def log(log_string):
                             format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                             datefmt='%H:%M:%S',
                             level=logging.DEBUG)
-	logging.info(log_string)
+	logging.info('###########' + log_string + '###########')
 	return
