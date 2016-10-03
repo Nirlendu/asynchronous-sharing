@@ -26,13 +26,13 @@
 			{{entry.expression_content}}
 		</div>
 
-		{% if entry.expression_image != "" %}
+		{% if entry.expression_image %}
 			<div class="feed-express-image-resize">
 			<img src="{{entry.expression_image}}" class="img-rounded"/>
 			</div>
 		{% endif %}
 
-		{% if entry.expression_link != "" %}
+		{% if entry.expression_link_title %}
 			<div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 			<div class = "link-preview-img">
 				<div class="link-preview-image-resize">

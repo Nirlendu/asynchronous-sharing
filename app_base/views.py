@@ -9,7 +9,7 @@ from django.template.context_processors import request
 #import django.core.context_processors.request
 from django.views.decorators.csrf import ensure_csrf_cookie
 from neomodel import db
-from express.models import Expression, Link
+from express.models import Expression, Link, ExpressionGraph
 from py2neo import Graph
 import re
 from libs.logger import app_logger as logger
@@ -49,28 +49,32 @@ def mobileBrowser(request):
 
 @ensure_csrf_cookie
 def index(request, template="index.html", page_template="feed.html"):
-	logger.log('-------------Fetching index page----------------')
+	logger.log('Fetching index page')
 	request.session['person_name'] = 'Nirlendu Saha'
 	request.session['person_id'] = 'asd123'
 	request.session['person_profile_photo'] = '/media/somename_bHwPbrb.jpg'
-	graph = Graph()
-	express = graph.cypher.stream("MATCH (n:Expression) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
-	entry=[]
-	#print express
-	for record in express:
-		owner = graph.cypher.stream("MATCH (a:Person) -[:EXPRESSED]->(b:Expression{expression_id:'"+record[0]['expression_id']+"'}) return a");
-		for x in owner:
-			record[0]['expression_owner'] = x[0]['person_name']
-			record[0]['expression_owner_id'] = x[0]['id']
-			break
-		if record[0]['expression_link']!= '':
-			entries = Link.objects.filter(link_url = record[0]['expression_link'])
-			#print entry
-			for entri in entries:
-				record[0]['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', record[0]['expression_link'])[0]
-				record[0]['expression_link_title'] = entri.link_name
-				record[0]['expression_link_image'] = entri.link_image
-		entry.append(record[0])
+	# graph = Graph()
+	# express = graph.cypher.stream("MATCH (n:Expression) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+	# entry=[]
+	# #print express
+	# for record in express:
+	# 	owner = graph.cypher.stream("MATCH (a:Person) -[:EXPRESSED]->(b:Expression{expression_id:'"+record[0]['expression_id']+"'}) return a");
+	# 	for x in owner:
+	# 		record[0]['expression_owner'] = x[0]['person_name']
+	# 		record[0]['expression_owner_id'] = x[0]['id']
+	# 		break
+	# 	if record[0]['expression_link']!= '':
+	# 		entries = Link.objects.filter(link_url = record[0]['expression_link'])
+	# 		#print entry
+	# 		for entri in entries:
+	# 			record[0]['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', record[0]['expression_link'])[0]
+	# 			record[0]['expression_link_title'] = entri.link_name
+	# 			record[0]['expression_link_image'] = entri.link_image
+	# 	entry.append(record[0])
+
+
+
+
 		#print 'ENTRY ' + record[0]['expression_owner']
 	# template = "index_dev.html"
 	# feed_template = "feed.html"
@@ -79,6 +83,26 @@ def index(request, template="index.html", page_template="feed.html"):
 	# print template
 	# return render_to_response(
 	#     template, context, context_instance=RequestContext(request))
+	entry = []
+	graph = Graph()
+	express = graph.cypher.stream("MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+	for record in express:
+		expressions = Expression.objects.filter(id = record[0]['expression_id'])
+		for expression in expressions:
+			a = {}
+			a['expression_owner'] = expression.expression_owner_id
+			a['expression_content'] = expression.expression_content
+			a['expression_image'] = expression.expression_imagefile
+			#expression_link
+			#expression_link_title
+			#parent_domain		
+			if (expression.expression_link_id != None):
+				entries = Link.objects.filter(id = expression.expression_link_id)
+				for x in entries:
+					a['expression_link_title'] = x.link_name
+					a['expression_link_image'] = x.link_image
+					a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+			entry.append(a)
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	#print entry[0]['expression_content'];

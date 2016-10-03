@@ -1,8 +1,9 @@
 *.pyc
 media/
 database
-*DS*
+.DS_Store
 env/
 requirements.txt
 var/
 server_logs/
+*.log
