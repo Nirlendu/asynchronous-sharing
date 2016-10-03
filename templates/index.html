@@ -268,45 +268,41 @@
 
 
 		function upvoteExpression(expression_id){
-		event.preventDefault();
-		var csrftoken = $.cookie('csrftoken');
-	
-		function csrfSafeMethod(method) {
-			// these HTTP methods do not require CSRF protection
-			return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-		$.ajaxSetup({
-		beforeSend: function(xhr, settings) {
-			if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-				xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			event.preventDefault();
+			var csrftoken = $.cookie('csrftoken');
+		
+			function csrfSafeMethod(method) {
+				// these HTTP methods do not require CSRF protection
+				return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 			}
-			}
-		});
-		var formData = new FormData();
-		formData.append('expression_id', expression_id);
-		$.ajax({
-			url: '/expression/upvote/',
-			type: 'POST',
-			data: formData,
-			cache: false,
-			processData: false, // Don't process the files
-			contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-			success: function(data, textStatus, jqXHR)
-			{
-				if(typeof data.error === 'undefined')
-				{
-					console.log('File Upload!');
+			$.ajaxSetup({
+			beforeSend: function(xhr, settings) {
+				if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+					xhr.setRequestHeader("X-CSRFToken", csrftoken);
 				}
-				else
-				{
-					console.log('ERRORS: ' + data.error);
 				}
-			},
-			error: function(jqXHR, textStatus, errorThrown)
-			{
-				console.log('ERRORS: ' + textStatus);
-			}
-		});
+			});
+			var formData = new FormData();
+			formData.append('expression_id', expression_id);
+			$.ajax({
+				url: '/expression/upvote/',
+				type: 'POST',
+				data: formData,
+				cache: false,
+				processData: false, // Don't process the files
+				contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+				success: function(data, textStatus, jqXHR)
+				{
+					if(typeof data.error === 'undefined')
+					{
+						console.log('Upvoted!');
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrown)
+				{
+					console.log('ERRORS: ' + textStatus);
+				}
+			});
 		}
 	</script>
 	<div class = "right-info-area well">

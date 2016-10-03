@@ -34808,3 +34808,1081 @@ TemplateSyntaxError: Could not parse the remainder: '!=""' from 'entry.expressio
 16:56:26,681 httpstream DEBUG < content-length: 3934
 16:56:26,681 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
 16:56:26,681 py2neo.cypher INFO stream (u'n',)
+17:55:24,660 root INFO ###########Fetching index page###########
+17:55:24,662 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+17:55:24,662 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+17:55:24,662 httpstream DEBUG > Host: localhost:7474
+17:55:24,662 httpstream DEBUG > Content-Type: application/json
+17:55:24,663 httpstream DEBUG > X-Stream: true
+17:55:24,663 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+17:55:24,741 httpstream INFO < 200 OK [3934]
+17:55:24,741 httpstream DEBUG < date: Mon, 03 Oct 2016 17:55:24 GMT
+17:55:24,741 httpstream DEBUG < access-control-allow-origin: *
+17:55:24,741 httpstream DEBUG < content-type: application/json; charset=UTF-8
+17:55:24,741 httpstream DEBUG < content-length: 3934
+17:55:24,741 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+17:55:24,742 py2neo.cypher INFO stream (u'n',)
+18:06:30,296 root INFO ###########Fetching index page###########
+18:06:30,298 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:06:30,299 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:06:30,299 httpstream DEBUG > Host: localhost:7474
+18:06:30,299 httpstream DEBUG > Content-Type: application/json
+18:06:30,299 httpstream DEBUG > X-Stream: true
+18:06:30,299 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:06:30,304 httpstream INFO < 200 OK [3934]
+18:06:30,304 httpstream DEBUG < date: Mon, 03 Oct 2016 18:06:30 GMT
+18:06:30,304 httpstream DEBUG < access-control-allow-origin: *
+18:06:30,304 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:06:30,304 httpstream DEBUG < content-length: 3934
+18:06:30,304 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:06:30,305 py2neo.cypher INFO stream (u'n',)
+18:06:30,819 root INFO ###########Fetching index page###########
+18:06:30,824 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:06:30,824 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:06:30,824 httpstream DEBUG > Host: localhost:7474
+18:06:30,825 httpstream DEBUG > Content-Type: application/json
+18:06:30,825 httpstream DEBUG > X-Stream: true
+18:06:30,825 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:06:30,836 httpstream INFO < 200 OK [3934]
+18:06:30,836 httpstream DEBUG < date: Mon, 03 Oct 2016 18:06:30 GMT
+18:06:30,836 httpstream DEBUG < access-control-allow-origin: *
+18:06:30,836 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:06:30,836 httpstream DEBUG < content-length: 3934
+18:06:30,836 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:06:30,837 py2neo.cypher INFO stream (u'n',)
+18:06:32,972 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:''}) CREATE (p)-[:UPVOTED]->(e)" {}
+18:06:32,972 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:06:32,973 httpstream DEBUG > Host: localhost:7474
+18:06:32,973 httpstream DEBUG > Content-Type: application/json
+18:06:32,973 httpstream DEBUG > X-Stream: true
+18:06:32,973 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:06:33,9 httpstream INFO < 200 OK [37]
+18:06:33,9 httpstream DEBUG < date: Mon, 03 Oct 2016 18:06:32 GMT
+18:06:33,9 httpstream DEBUG < access-control-allow-origin: *
+18:06:33,10 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:06:33,10 httpstream DEBUG < content-length: 37
+18:06:33,10 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:06:33,10 py2neo.cypher INFO stream ()
+18:06:33,16 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 117, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 965, in render_annotated
+    raise
+TypeError: exceptions must be old-style classes or derived from BaseException, not NoneType
+18:07:53,577 root INFO ###########Fetching index page###########
+18:07:53,579 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:07:53,579 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:07:53,579 httpstream DEBUG > Host: localhost:7474
+18:07:53,579 httpstream DEBUG > Content-Type: application/json
+18:07:53,579 httpstream DEBUG > X-Stream: true
+18:07:53,579 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:07:53,584 httpstream INFO < 200 OK [3934]
+18:07:53,584 httpstream DEBUG < date: Mon, 03 Oct 2016 18:07:53 GMT
+18:07:53,584 httpstream DEBUG < access-control-allow-origin: *
+18:07:53,584 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:07:53,584 httpstream DEBUG < content-length: 3934
+18:07:53,584 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:07:53,585 py2neo.cypher INFO stream (u'n',)
+18:07:55,378 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:''}) CREATE (p)-[:UPVOTED]->(e)" {}
+18:07:55,378 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:07:55,379 httpstream DEBUG > Host: localhost:7474
+18:07:55,379 httpstream DEBUG > Content-Type: application/json
+18:07:55,379 httpstream DEBUG > X-Stream: true
+18:07:55,379 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:07:55,383 httpstream INFO < 200 OK [37]
+18:07:55,383 httpstream DEBUG < date: Mon, 03 Oct 2016 18:07:55 GMT
+18:07:55,383 httpstream DEBUG < access-control-allow-origin: *
+18:07:55,383 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:07:55,383 httpstream DEBUG < content-length: 37
+18:07:55,383 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:07:55,384 py2neo.cypher INFO stream ()
+18:07:55,390 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 117, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:09:17,5 root INFO ###########Fetching index page###########
+18:09:17,8 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:09:17,9 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:09:17,9 httpstream DEBUG > Host: localhost:7474
+18:09:17,9 httpstream DEBUG > Content-Type: application/json
+18:09:17,9 httpstream DEBUG > X-Stream: true
+18:09:17,9 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:09:17,14 httpstream INFO < 200 OK [3934]
+18:09:17,14 httpstream DEBUG < date: Mon, 03 Oct 2016 18:09:17 GMT
+18:09:17,15 httpstream DEBUG < access-control-allow-origin: *
+18:09:17,15 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:09:17,15 httpstream DEBUG < content-length: 3934
+18:09:17,15 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:09:17,15 py2neo.cypher INFO stream (u'n',)
+18:09:17,679 root INFO ###########Fetching index page###########
+18:09:17,681 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:09:17,682 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:09:17,682 httpstream DEBUG > Host: localhost:7474
+18:09:17,682 httpstream DEBUG > Content-Type: application/json
+18:09:17,682 httpstream DEBUG > X-Stream: true
+18:09:17,682 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:09:17,688 httpstream INFO < 200 OK [3934]
+18:09:17,688 httpstream DEBUG < date: Mon, 03 Oct 2016 18:09:17 GMT
+18:09:17,688 httpstream DEBUG < access-control-allow-origin: *
+18:09:17,688 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:09:17,688 httpstream DEBUG < content-length: 3934
+18:09:17,688 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:09:17,689 py2neo.cypher INFO stream (u'n',)
+18:09:19,601 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:''}) CREATE (p)-[:UPVOTED]->(e)" {}
+18:09:19,602 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:09:19,602 httpstream DEBUG > Host: localhost:7474
+18:09:19,602 httpstream DEBUG > Content-Type: application/json
+18:09:19,602 httpstream DEBUG > X-Stream: true
+18:09:19,602 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:09:19,607 httpstream INFO < 200 OK [37]
+18:09:19,607 httpstream DEBUG < date: Mon, 03 Oct 2016 18:09:19 GMT
+18:09:19,607 httpstream DEBUG < access-control-allow-origin: *
+18:09:19,607 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:09:19,607 httpstream DEBUG < content-length: 37
+18:09:19,607 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:09:19,607 py2neo.cypher INFO stream ()
+18:09:19,607 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 167, in _wrapped_view
+    return middleware.process_response(request, response)
+  File "/Library/Python/2.7/site-packages/django/middleware/csrf.py", line 290, in process_response
+    response.set_cookie(settings.CSRF_COOKIE_NAME,
+AttributeError: 'NoneType' object has no attribute 'set_cookie'
+18:09:57,403 root INFO ###########Fetching index page###########
+18:09:57,406 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:09:57,406 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:09:57,406 httpstream DEBUG > Host: localhost:7474
+18:09:57,406 httpstream DEBUG > Content-Type: application/json
+18:09:57,406 httpstream DEBUG > X-Stream: true
+18:09:57,406 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:09:57,411 httpstream INFO < 200 OK [3934]
+18:09:57,412 httpstream DEBUG < date: Mon, 03 Oct 2016 18:09:57 GMT
+18:09:57,412 httpstream DEBUG < access-control-allow-origin: *
+18:09:57,412 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:09:57,412 httpstream DEBUG < content-length: 3934
+18:09:57,412 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:09:57,412 py2neo.cypher INFO stream (u'n',)
+18:09:59,795 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:''}) CREATE (p)-[:UPVOTED]->(e)" {}
+18:09:59,795 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:09:59,795 httpstream DEBUG > Host: localhost:7474
+18:09:59,795 httpstream DEBUG > Content-Type: application/json
+18:09:59,795 httpstream DEBUG > X-Stream: true
+18:09:59,795 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:09:59,799 httpstream INFO < 200 OK [37]
+18:09:59,799 httpstream DEBUG < date: Mon, 03 Oct 2016 18:09:59 GMT
+18:09:59,799 httpstream DEBUG < access-control-allow-origin: *
+18:09:59,799 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:09:59,800 httpstream DEBUG < content-length: 37
+18:09:59,800 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:09:59,800 py2neo.cypher INFO stream ()
+18:09:59,807 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 117, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 965, in render_annotated
+    raise
+TypeError: exceptions must be old-style classes or derived from BaseException, not NoneType
+18:11:38,664 root INFO ###########Fetching index page###########
+18:11:38,668 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:11:38,669 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:11:38,669 httpstream DEBUG > Host: localhost:7474
+18:11:38,669 httpstream DEBUG > Content-Type: application/json
+18:11:38,669 httpstream DEBUG > X-Stream: true
+18:11:38,669 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:11:38,675 httpstream INFO < 200 OK [3934]
+18:11:38,675 httpstream DEBUG < date: Mon, 03 Oct 2016 18:11:38 GMT
+18:11:38,675 httpstream DEBUG < access-control-allow-origin: *
+18:11:38,675 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:11:38,675 httpstream DEBUG < content-length: 3934
+18:11:38,675 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:11:38,676 py2neo.cypher INFO stream (u'n',)
+18:11:40,637 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:''}) CREATE (p)-[:UPVOTED]->(e)" {}
+18:11:40,637 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:11:40,637 httpstream DEBUG > Host: localhost:7474
+18:11:40,637 httpstream DEBUG > Content-Type: application/json
+18:11:40,637 httpstream DEBUG > X-Stream: true
+18:11:40,637 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:11:40,642 httpstream INFO < 200 OK [37]
+18:11:40,642 httpstream DEBUG < date: Mon, 03 Oct 2016 18:11:40 GMT
+18:11:40,642 httpstream DEBUG < access-control-allow-origin: *
+18:11:40,642 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:11:40,642 httpstream DEBUG < content-length: 37
+18:11:40,642 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:11:40,643 py2neo.cypher INFO stream ()
+18:11:40,649 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 117, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:22:47,420 root INFO ###########Fetching index page###########
+18:22:47,423 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:22:47,423 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:22:47,423 httpstream DEBUG > Host: localhost:7474
+18:22:47,423 httpstream DEBUG > Content-Type: application/json
+18:22:47,423 httpstream DEBUG > X-Stream: true
+18:22:47,424 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:22:47,430 httpstream INFO < 200 OK [3934]
+18:22:47,430 httpstream DEBUG < date: Mon, 03 Oct 2016 18:22:47 GMT
+18:22:47,431 httpstream DEBUG < access-control-allow-origin: *
+18:22:47,431 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:22:47,431 httpstream DEBUG < content-length: 3934
+18:22:47,431 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:22:47,431 py2neo.cypher INFO stream (u'n',)
+18:22:49,282 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r" {}
+18:22:49,282 httpstream INFO > POST http://localhost:7474/db/data/cypher [122]
+18:22:49,283 httpstream DEBUG > Host: localhost:7474
+18:22:49,283 httpstream DEBUG > Content-Type: application/json
+18:22:49,283 httpstream DEBUG > X-Stream: true
+18:22:49,283 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:22:49,310 httpstream INFO < 400 Bad Request [15050]
+18:22:49,310 httpstream DEBUG < date: Mon, 03 Oct 2016 18:22:49 GMT
+18:22:49,310 httpstream DEBUG < access-control-allow-origin: *
+18:22:49,310 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:22:49,310 httpstream DEBUG < content-length: 15050
+18:22:49,310 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:22:49,311 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 116, in upvote
+    x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return r")
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 153, in stream
+    return RecordStream(self.graph, self.post(statement, parameters, **kwparameters))
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 86, in post
+    return self.resource.post(payload)
+  File "/Library/Python/2.7/site-packages/py2neo/core.py", line 316, in post
+    raise_from(self.error_class(message, **content), error)
+  File "/Library/Python/2.7/site-packages/py2neo/util.py", line 235, in raise_from
+    raise exception
+SyntaxException: Invalid input '}': expected whitespace, comment or an expression (line 1, column 74 (offset: 73))
+"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r"
+                                                                          ^
+18:23:43,473 root INFO ###########Fetching index page###########
+18:23:43,476 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:23:43,476 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:23:43,477 httpstream DEBUG > Host: localhost:7474
+18:23:43,477 httpstream DEBUG > Content-Type: application/json
+18:23:43,477 httpstream DEBUG > X-Stream: true
+18:23:43,477 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:23:43,484 httpstream INFO < 200 OK [3934]
+18:23:43,485 httpstream DEBUG < date: Mon, 03 Oct 2016 18:23:43 GMT
+18:23:43,485 httpstream DEBUG < access-control-allow-origin: *
+18:23:43,485 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:23:43,485 httpstream DEBUG < content-length: 3934
+18:23:43,485 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:23:43,487 py2neo.cypher INFO stream (u'n',)
+18:23:45,379 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r" {}
+18:23:45,380 httpstream INFO > POST http://localhost:7474/db/data/cypher [122]
+18:23:45,380 httpstream DEBUG > Host: localhost:7474
+18:23:45,380 httpstream DEBUG > Content-Type: application/json
+18:23:45,380 httpstream DEBUG > X-Stream: true
+18:23:45,380 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:23:45,399 httpstream INFO < 400 Bad Request [15050]
+18:23:45,399 httpstream DEBUG < date: Mon, 03 Oct 2016 18:23:45 GMT
+18:23:45,399 httpstream DEBUG < access-control-allow-origin: *
+18:23:45,399 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:23:45,399 httpstream DEBUG < content-length: 15050
+18:23:45,399 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:23:45,400 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 116, in upvote
+    x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return r")
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 153, in stream
+    return RecordStream(self.graph, self.post(statement, parameters, **kwparameters))
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 86, in post
+    return self.resource.post(payload)
+  File "/Library/Python/2.7/site-packages/py2neo/core.py", line 316, in post
+    raise_from(self.error_class(message, **content), error)
+  File "/Library/Python/2.7/site-packages/py2neo/util.py", line 235, in raise_from
+    raise exception
+SyntaxException: Invalid input '}': expected whitespace, comment or an expression (line 1, column 74 (offset: 73))
+"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r"
+                                                                          ^
+18:24:15,91 root INFO ###########Fetching index page###########
+18:24:15,96 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:24:15,96 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:24:15,97 httpstream DEBUG > Host: localhost:7474
+18:24:15,97 httpstream DEBUG > Content-Type: application/json
+18:24:15,97 httpstream DEBUG > X-Stream: true
+18:24:15,97 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:24:15,108 httpstream INFO < 200 OK [3934]
+18:24:15,109 httpstream DEBUG < date: Mon, 03 Oct 2016 18:24:15 GMT
+18:24:15,109 httpstream DEBUG < access-control-allow-origin: *
+18:24:15,109 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:24:15,109 httpstream DEBUG < content-length: 3934
+18:24:15,109 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:24:15,110 py2neo.cypher INFO stream (u'n',)
+18:24:17,58 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r" {}
+18:24:17,58 httpstream INFO > POST http://localhost:7474/db/data/cypher [122]
+18:24:17,59 httpstream DEBUG > Host: localhost:7474
+18:24:17,59 httpstream DEBUG > Content-Type: application/json
+18:24:17,59 httpstream DEBUG > X-Stream: true
+18:24:17,59 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:24:17,81 httpstream INFO < 400 Bad Request [15050]
+18:24:17,81 httpstream DEBUG < date: Mon, 03 Oct 2016 18:24:17 GMT
+18:24:17,81 httpstream DEBUG < access-control-allow-origin: *
+18:24:17,82 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:24:17,82 httpstream DEBUG < content-length: 15050
+18:24:17,82 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:24:17,82 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 117, in upvote
+    x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return r")
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 153, in stream
+    return RecordStream(self.graph, self.post(statement, parameters, **kwparameters))
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 86, in post
+    return self.resource.post(payload)
+  File "/Library/Python/2.7/site-packages/py2neo/core.py", line 316, in post
+    raise_from(self.error_class(message, **content), error)
+  File "/Library/Python/2.7/site-packages/py2neo/util.py", line 235, in raise_from
+    raise exception
+SyntaxException: Invalid input '}': expected whitespace, comment or an expression (line 1, column 74 (offset: 73))
+"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }), (p)-[r]->(e) return r"
+                                                                          ^
+18:25:19,859 root INFO ###########Fetching index page###########
+18:25:19,864 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:25:19,864 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:25:19,865 httpstream DEBUG > Host: localhost:7474
+18:25:19,865 httpstream DEBUG > Content-Type: application/json
+18:25:19,865 httpstream DEBUG > X-Stream: true
+18:25:19,865 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:25:19,871 httpstream INFO < 200 OK [3934]
+18:25:19,871 httpstream DEBUG < date: Mon, 03 Oct 2016 18:25:19 GMT
+18:25:19,872 httpstream DEBUG < access-control-allow-origin: *
+18:25:19,872 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:25:19,872 httpstream DEBUG < content-length: 3934
+18:25:19,872 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:25:19,872 py2neo.cypher INFO stream (u'n',)
+18:25:21,643 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }) CREATE (p)-[:UPVOTED]->(e)" {}
+18:25:21,643 httpstream INFO > POST http://localhost:7474/db/data/cypher [126]
+18:25:21,643 httpstream DEBUG > Host: localhost:7474
+18:25:21,643 httpstream DEBUG > Content-Type: application/json
+18:25:21,643 httpstream DEBUG > X-Stream: true
+18:25:21,643 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:25:21,667 httpstream INFO < 400 Bad Request [15058]
+18:25:21,667 httpstream DEBUG < date: Mon, 03 Oct 2016 18:25:21 GMT
+18:25:21,667 httpstream DEBUG < access-control-allow-origin: *
+18:25:21,667 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:25:21,667 httpstream DEBUG < content-length: 15058
+18:25:21,667 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:25:21,668 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 120, in upvote
+    x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }) CREATE (p)-[:UPVOTED]->(e)")
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 153, in stream
+    return RecordStream(self.graph, self.post(statement, parameters, **kwparameters))
+  File "/Library/Python/2.7/site-packages/py2neo/cypher/core.py", line 86, in post
+    return self.resource.post(payload)
+  File "/Library/Python/2.7/site-packages/py2neo/core.py", line 316, in post
+    raise_from(self.error_class(message, **content), error)
+  File "/Library/Python/2.7/site-packages/py2neo/util.py", line 235, in raise_from
+    raise exception
+SyntaxException: Invalid input '}': expected whitespace, comment or an expression (line 1, column 74 (offset: 73))
+"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id:  }) CREATE (p)-[:UPVOTED]->(e)"
+                                                                          ^
+18:27:07,373 root INFO ###########Fetching index page###########
+18:27:07,377 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:27:07,377 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:27:07,377 httpstream DEBUG > Host: localhost:7474
+18:27:07,377 httpstream DEBUG > Content-Type: application/json
+18:27:07,378 httpstream DEBUG > X-Stream: true
+18:27:07,378 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:27:07,385 httpstream INFO < 200 OK [3934]
+18:27:07,385 httpstream DEBUG < date: Mon, 03 Oct 2016 18:27:07 GMT
+18:27:07,385 httpstream DEBUG < access-control-allow-origin: *
+18:27:07,385 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:27:07,385 httpstream DEBUG < content-length: 3934
+18:27:07,385 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:27:07,386 py2neo.cypher INFO stream (u'n',)
+18:27:10,556 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return r" {}
+18:27:10,556 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+18:27:10,556 httpstream DEBUG > Host: localhost:7474
+18:27:10,556 httpstream DEBUG > Content-Type: application/json
+18:27:10,556 httpstream DEBUG > X-Stream: true
+18:27:10,556 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:27:10,577 httpstream INFO < 200 OK [524]
+18:27:10,577 httpstream DEBUG < date: Mon, 03 Oct 2016 18:27:10 GMT
+18:27:10,577 httpstream DEBUG < access-control-allow-origin: *
+18:27:10,577 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:27:10,577 httpstream DEBUG < content-length: 524
+18:27:10,577 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:27:10,577 py2neo.cypher INFO stream (u'r',)
+18:27:10,584 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 121, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:27:10,594 py2neo.cypher INFO execute u'MATCH (a) WHERE id(a)={a}\nRETURN a,labels(a)' {u'a': 10}
+18:27:10,594 httpstream INFO > POST http://localhost:7474/db/data/cypher [75]
+18:27:10,595 httpstream DEBUG > Host: localhost:7474
+18:27:10,595 httpstream DEBUG > Content-Type: application/json
+18:27:10,595 httpstream DEBUG > X-Stream: true
+18:27:10,595 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:27:10,667 httpstream INFO < 200 OK [1454]
+18:27:10,667 httpstream DEBUG < date: Mon, 03 Oct 2016 18:27:10 GMT
+18:27:10,667 httpstream DEBUG < access-control-allow-origin: *
+18:27:10,667 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:27:10,667 httpstream DEBUG < content-length: 1454
+18:27:10,667 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:27:10,668 py2neo.cypher INFO execute u'MATCH (a) WHERE id(a)={a}\nRETURN a,labels(a)' {u'a': 74}
+18:27:10,668 httpstream INFO > POST http://localhost:7474/db/data/cypher [75]
+18:27:10,668 httpstream DEBUG > Host: localhost:7474
+18:27:10,668 httpstream DEBUG > Content-Type: application/json
+18:27:10,668 httpstream DEBUG > X-Stream: true
+18:27:10,668 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:27:10,671 httpstream INFO < 200 OK [1374]
+18:27:10,671 httpstream DEBUG < date: Mon, 03 Oct 2016 18:27:10 GMT
+18:27:10,671 httpstream DEBUG < access-control-allow-origin: *
+18:27:10,671 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:27:10,671 httpstream DEBUG < content-length: 1374
+18:27:10,671 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:28:29,270 root INFO ###########Fetching index page###########
+18:28:29,272 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:28:29,272 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:28:29,272 httpstream DEBUG > Host: localhost:7474
+18:28:29,272 httpstream DEBUG > Content-Type: application/json
+18:28:29,272 httpstream DEBUG > X-Stream: true
+18:28:29,272 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:28:29,279 httpstream INFO < 200 OK [3934]
+18:28:29,279 httpstream DEBUG < date: Mon, 03 Oct 2016 18:28:29 GMT
+18:28:29,279 httpstream DEBUG < access-control-allow-origin: *
+18:28:29,279 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:28:29,279 httpstream DEBUG < content-length: 3934
+18:28:29,279 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:28:29,280 py2neo.cypher INFO stream (u'n',)
+18:28:31,766 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:28:31,767 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:28:31,767 httpstream DEBUG > Host: localhost:7474
+18:28:31,767 httpstream DEBUG > Content-Type: application/json
+18:28:31,767 httpstream DEBUG > X-Stream: true
+18:28:31,767 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:28:31,831 httpstream INFO < 200 OK [63]
+18:28:31,831 httpstream DEBUG < date: Mon, 03 Oct 2016 18:28:31 GMT
+18:28:31,831 httpstream DEBUG < access-control-allow-origin: *
+18:28:31,831 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:28:31,831 httpstream DEBUG < content-length: 63
+18:28:31,831 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:28:31,832 py2neo.cypher INFO stream (u'type(r)',)
+18:28:31,843 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 121, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:28:55,325 root INFO ###########Fetching index page###########
+18:28:55,328 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:28:55,329 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:28:55,329 httpstream DEBUG > Host: localhost:7474
+18:28:55,329 httpstream DEBUG > Content-Type: application/json
+18:28:55,329 httpstream DEBUG > X-Stream: true
+18:28:55,329 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:28:55,338 httpstream INFO < 200 OK [3934]
+18:28:55,338 httpstream DEBUG < date: Mon, 03 Oct 2016 18:28:55 GMT
+18:28:55,338 httpstream DEBUG < access-control-allow-origin: *
+18:28:55,339 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:28:55,339 httpstream DEBUG < content-length: 3934
+18:28:55,339 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:28:55,339 py2neo.cypher INFO stream (u'n',)
+18:28:57,76 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:28:57,76 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:28:57,76 httpstream DEBUG > Host: localhost:7474
+18:28:57,76 httpstream DEBUG > Content-Type: application/json
+18:28:57,76 httpstream DEBUG > X-Stream: true
+18:28:57,76 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:28:57,82 httpstream INFO < 200 OK [63]
+18:28:57,82 httpstream DEBUG < date: Mon, 03 Oct 2016 18:28:57 GMT
+18:28:57,82 httpstream DEBUG < access-control-allow-origin: *
+18:28:57,82 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:28:57,82 httpstream DEBUG < content-length: 63
+18:28:57,82 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:28:57,82 py2neo.cypher INFO stream (u'type(r)',)
+18:28:57,88 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 121, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:29:23,126 root INFO ###########Fetching index page###########
+18:29:23,129 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:29:23,130 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:29:23,130 httpstream DEBUG > Host: localhost:7474
+18:29:23,130 httpstream DEBUG > Content-Type: application/json
+18:29:23,130 httpstream DEBUG > X-Stream: true
+18:29:23,130 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:29:23,138 httpstream INFO < 200 OK [3934]
+18:29:23,138 httpstream DEBUG < date: Mon, 03 Oct 2016 18:29:23 GMT
+18:29:23,138 httpstream DEBUG < access-control-allow-origin: *
+18:29:23,138 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:29:23,139 httpstream DEBUG < content-length: 3934
+18:29:23,139 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:29:23,140 py2neo.cypher INFO stream (u'n',)
+18:29:24,706 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return r" {}
+18:29:24,706 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+18:29:24,706 httpstream DEBUG > Host: localhost:7474
+18:29:24,706 httpstream DEBUG > Content-Type: application/json
+18:29:24,706 httpstream DEBUG > X-Stream: true
+18:29:24,706 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:29:24,713 httpstream INFO < 200 OK [524]
+18:29:24,713 httpstream DEBUG < date: Mon, 03 Oct 2016 18:29:24 GMT
+18:29:24,713 httpstream DEBUG < access-control-allow-origin: *
+18:29:24,713 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:29:24,713 httpstream DEBUG < content-length: 524
+18:29:24,713 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:29:24,713 py2neo.cypher INFO stream (u'r',)
+18:29:24,715 py2neo.cypher INFO execute u'MATCH (a) WHERE id(a)={a}\nRETURN a,labels(a)' {u'a': 10}
+18:29:24,715 httpstream INFO > POST http://localhost:7474/db/data/cypher [75]
+18:29:24,715 httpstream DEBUG > Host: localhost:7474
+18:29:24,715 httpstream DEBUG > Content-Type: application/json
+18:29:24,715 httpstream DEBUG > X-Stream: true
+18:29:24,715 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:29:24,717 httpstream INFO < 200 OK [1454]
+18:29:24,717 httpstream DEBUG < date: Mon, 03 Oct 2016 18:29:24 GMT
+18:29:24,717 httpstream DEBUG < access-control-allow-origin: *
+18:29:24,717 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:29:24,717 httpstream DEBUG < content-length: 1454
+18:29:24,717 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:29:24,718 py2neo.cypher INFO execute u'MATCH (a) WHERE id(a)={a}\nRETURN a,labels(a)' {u'a': 74}
+18:29:24,719 httpstream INFO > POST http://localhost:7474/db/data/cypher [75]
+18:29:24,719 httpstream DEBUG > Host: localhost:7474
+18:29:24,719 httpstream DEBUG > Content-Type: application/json
+18:29:24,719 httpstream DEBUG > X-Stream: true
+18:29:24,719 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:29:24,721 httpstream INFO < 200 OK [1374]
+18:29:24,722 httpstream DEBUG < date: Mon, 03 Oct 2016 18:29:24 GMT
+18:29:24,722 httpstream DEBUG < access-control-allow-origin: *
+18:29:24,722 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:29:24,722 httpstream DEBUG < content-length: 1374
+18:29:24,722 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:29:24,729 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 121, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:45:41,347 root INFO ###########Fetching index page###########
+18:45:41,355 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:45:41,356 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:45:41,356 httpstream DEBUG > Host: localhost:7474
+18:45:41,356 httpstream DEBUG > Content-Type: application/json
+18:45:41,356 httpstream DEBUG > X-Stream: true
+18:45:41,356 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:45:41,360 httpstream INFO < 200 OK [3934]
+18:45:41,360 httpstream DEBUG < date: Mon, 03 Oct 2016 18:45:41 GMT
+18:45:41,360 httpstream DEBUG < access-control-allow-origin: *
+18:45:41,360 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:45:41,360 httpstream DEBUG < content-length: 3934
+18:45:41,360 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:45:41,361 py2neo.cypher INFO stream (u'n',)
+18:45:44,678 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:45:44,678 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:45:44,678 httpstream DEBUG > Host: localhost:7474
+18:45:44,678 httpstream DEBUG > Content-Type: application/json
+18:45:44,679 httpstream DEBUG > X-Stream: true
+18:45:44,679 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:45:44,684 httpstream INFO < 200 OK [63]
+18:45:44,684 httpstream DEBUG < date: Mon, 03 Oct 2016 18:45:44 GMT
+18:45:44,684 httpstream DEBUG < access-control-allow-origin: *
+18:45:44,684 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:45:44,684 httpstream DEBUG < content-length: 63
+18:45:44,684 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:45:44,685 py2neo.cypher INFO stream (u'type(r)',)
+18:45:44,685 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }) CREATE (p)-[:UPVOTED]->(e)" {}
+18:45:44,685 httpstream INFO > POST http://localhost:7474/db/data/cypher [128]
+18:45:44,685 httpstream DEBUG > Host: localhost:7474
+18:45:44,685 httpstream DEBUG > Content-Type: application/json
+18:45:44,685 httpstream DEBUG > X-Stream: true
+18:45:44,685 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:45:44,711 httpstream INFO < 200 OK [37]
+18:45:44,711 httpstream DEBUG < date: Mon, 03 Oct 2016 18:45:44 GMT
+18:45:44,711 httpstream DEBUG < access-control-allow-origin: *
+18:45:44,711 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:45:44,711 httpstream DEBUG < content-length: 37
+18:45:44,711 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:45:44,712 py2neo.cypher INFO stream ()
+18:45:44,712 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 135, in upvote
+    expression.total_upvotes = expression.total_upvotes + 1
+AttributeError: 'QuerySet' object has no attribute 'total_upvotes'
+18:47:55,686 root INFO ###########Fetching index page###########
+18:47:55,690 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:47:55,690 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:47:55,690 httpstream DEBUG > Host: localhost:7474
+18:47:55,690 httpstream DEBUG > Content-Type: application/json
+18:47:55,690 httpstream DEBUG > X-Stream: true
+18:47:55,690 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:47:55,700 httpstream INFO < 200 OK [3934]
+18:47:55,700 httpstream DEBUG < date: Mon, 03 Oct 2016 18:47:55 GMT
+18:47:55,700 httpstream DEBUG < access-control-allow-origin: *
+18:47:55,700 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:47:55,700 httpstream DEBUG < content-length: 3934
+18:47:55,700 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:47:55,700 py2neo.cypher INFO stream (u'n',)
+18:47:59,741 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:47:59,741 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:47:59,741 httpstream DEBUG > Host: localhost:7474
+18:47:59,741 httpstream DEBUG > Content-Type: application/json
+18:47:59,741 httpstream DEBUG > X-Stream: true
+18:47:59,741 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:47:59,748 httpstream INFO < 200 OK [78]
+18:47:59,748 httpstream DEBUG < date: Mon, 03 Oct 2016 18:47:59 GMT
+18:47:59,748 httpstream DEBUG < access-control-allow-origin: *
+18:47:59,748 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:47:59,748 httpstream DEBUG < content-length: 78
+18:47:59,748 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:47:59,748 py2neo.cypher INFO stream (u'type(r)',)
+18:47:59,749 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r:UPVOTED]->(e) DELETE r" {}
+18:47:59,749 httpstream INFO > POST http://localhost:7474/db/data/cypher [132]
+18:47:59,749 httpstream DEBUG > Host: localhost:7474
+18:47:59,749 httpstream DEBUG > Content-Type: application/json
+18:47:59,750 httpstream DEBUG > X-Stream: true
+18:47:59,750 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:47:59,992 httpstream INFO < 200 OK [37]
+18:47:59,993 httpstream DEBUG < date: Mon, 03 Oct 2016 18:47:59 GMT
+18:47:59,993 httpstream DEBUG < access-control-allow-origin: *
+18:47:59,993 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:47:59,993 httpstream DEBUG < content-length: 37
+18:47:59,993 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:47:59,994 py2neo.cypher INFO stream ()
+18:47:59,994 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 129, in upvote
+    for expression in expressions:
+UnboundLocalError: local variable 'expressions' referenced before assignment
+18:48:27,307 root INFO ###########Fetching index page###########
+18:48:27,314 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:48:27,314 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:48:27,314 httpstream DEBUG > Host: localhost:7474
+18:48:27,314 httpstream DEBUG > Content-Type: application/json
+18:48:27,314 httpstream DEBUG > X-Stream: true
+18:48:27,315 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:27,330 httpstream INFO < 200 OK [3934]
+18:48:27,331 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:27 GMT
+18:48:27,331 httpstream DEBUG < access-control-allow-origin: *
+18:48:27,331 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:27,331 httpstream DEBUG < content-length: 3934
+18:48:27,331 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:27,331 py2neo.cypher INFO stream (u'n',)
+18:48:30,970 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:48:30,970 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:48:30,970 httpstream DEBUG > Host: localhost:7474
+18:48:30,970 httpstream DEBUG > Content-Type: application/json
+18:48:30,970 httpstream DEBUG > X-Stream: true
+18:48:30,970 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:30,976 httpstream INFO < 200 OK [63]
+18:48:30,976 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:30 GMT
+18:48:30,977 httpstream DEBUG < access-control-allow-origin: *
+18:48:30,977 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:30,977 httpstream DEBUG < content-length: 63
+18:48:30,977 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:30,977 py2neo.cypher INFO stream (u'type(r)',)
+18:48:30,977 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }) CREATE (p)-[:UPVOTED]->(e)" {}
+18:48:30,978 httpstream INFO > POST http://localhost:7474/db/data/cypher [128]
+18:48:30,978 httpstream DEBUG > Host: localhost:7474
+18:48:30,978 httpstream DEBUG > Content-Type: application/json
+18:48:30,978 httpstream DEBUG > X-Stream: true
+18:48:30,978 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:30,984 httpstream INFO < 200 OK [37]
+18:48:30,984 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:30 GMT
+18:48:30,984 httpstream DEBUG < access-control-allow-origin: *
+18:48:30,984 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:30,984 httpstream DEBUG < content-length: 37
+18:48:30,984 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:30,985 py2neo.cypher INFO stream ()
+18:48:30,994 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 142, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+18:48:45,921 root INFO ###########Fetching index page###########
+18:48:45,923 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+18:48:45,923 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+18:48:45,924 httpstream DEBUG > Host: localhost:7474
+18:48:45,924 httpstream DEBUG > Content-Type: application/json
+18:48:45,924 httpstream DEBUG > X-Stream: true
+18:48:45,924 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:45,930 httpstream INFO < 200 OK [3934]
+18:48:45,931 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:45 GMT
+18:48:45,931 httpstream DEBUG < access-control-allow-origin: *
+18:48:45,931 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:45,931 httpstream DEBUG < content-length: 3934
+18:48:45,931 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:45,932 py2neo.cypher INFO stream (u'n',)
+18:48:48,6 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r]->(e) return type(r)" {}
+18:48:48,6 httpstream INFO > POST http://localhost:7474/db/data/cypher [130]
+18:48:48,6 httpstream DEBUG > Host: localhost:7474
+18:48:48,6 httpstream DEBUG > Content-Type: application/json
+18:48:48,6 httpstream DEBUG > X-Stream: true
+18:48:48,6 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:48,12 httpstream INFO < 200 OK [78]
+18:48:48,12 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:48 GMT
+18:48:48,12 httpstream DEBUG < access-control-allow-origin: *
+18:48:48,12 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:48,12 httpstream DEBUG < content-length: 78
+18:48:48,12 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:48,13 py2neo.cypher INFO stream (u'type(r)',)
+18:48:48,13 py2neo.cypher INFO execute u"MATCH (p:Person{person_id:'asd123'}), (e:ExpressionGraph{expression_id: 12 }), (p)-[r:UPVOTED]->(e) DELETE r" {}
+18:48:48,13 httpstream INFO > POST http://localhost:7474/db/data/cypher [132]
+18:48:48,13 httpstream DEBUG > Host: localhost:7474
+18:48:48,13 httpstream DEBUG > Content-Type: application/json
+18:48:48,13 httpstream DEBUG > X-Stream: true
+18:48:48,13 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+18:48:48,20 httpstream INFO < 200 OK [37]
+18:48:48,20 httpstream DEBUG < date: Mon, 03 Oct 2016 18:48:48 GMT
+18:48:48,20 httpstream DEBUG < access-control-allow-origin: *
+18:48:48,21 httpstream DEBUG < content-type: application/json; charset=UTF-8
+18:48:48,21 httpstream DEBUG < content-length: 37
+18:48:48,21 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+18:48:48,21 py2neo.cypher INFO stream ()
+18:48:48,31 django.request ERROR Internal Server Error: /expression/upvote/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 142, in upvote
+    return render(request, "index.html", {})
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Library/Python/2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Library/Python/2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Library/Python/2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Library/Python/2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Library/Python/2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'

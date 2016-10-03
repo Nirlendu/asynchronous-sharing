@@ -90,6 +90,7 @@ def index(request, template="index.html", page_template="feed.html"):
 		expressions = Expression.objects.filter(id = record[0]['expression_id'])
 		for expression in expressions:
 			a = {}
+			a['expression_id'] = expression.id
 			a['expression_owner'] = expression.expression_owner_id
 			a['expression_content'] = expression.expression_content
 			a['expression_image'] = expression.expression_imagefile
