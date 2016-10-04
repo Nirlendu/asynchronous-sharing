@@ -26,7 +26,7 @@ from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 class ExpressionGraph(StructuredNode):
 	expression_id = IntegerProperty(unique_index=True)
 	expression_owner = RelationshipFrom(Person, 'EXPRESSED')
-	broadcast_owner = RelationshipFrom(Person, 'BROADCASTED')
+	broadcast_of = RelationshipTo('ExpressionGraph', 'BROADCAST_OF')
 	upvoter = RelationshipFrom(Person, 'UPVOTED')
 	downvoter = RelationshipFrom(Person, 'DOWNVOTED')
 	in_topic = RelationshipTo(Topic, 'IN_TOPIC')
@@ -56,11 +56,12 @@ class ExpressionManager(models.Manager):
 							total_downvotes = total_downvotes,
 							total_broadcasts = total_broadcasts
 							)
+			return expression.id
 		except:
 			#TODO some fault
 			logger.log('Could not create Expression')
 			expression = None
-		return expression.id
+		return
 
 
 

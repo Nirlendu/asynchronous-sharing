@@ -72,7 +72,10 @@ def update(request):
 			expression_id = expression_id,
 			).save()
 		person = Person.nodes.get(person_id=request.session['person_id'])
-		expression.expression_owner.connect(person)
+		#print person.person_id
+		#expression.expression_owner.connect(person)
+		graph = Graph()
+		graph.cypher.stream("MATCH (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }), (p:Person{person_id: '" + request.session['person_id'] + "' }) CREATE (p)-[:EXPRESSED]->(e)")
 		try:
 			topic = Topic.nodes.get(name=request.POST.get('express_tag'))
 			expression.in_topic.connect(topic)
@@ -136,9 +139,48 @@ def upvote(request):
 		expressions = Expression.objects.filter(id = expression_id)
 		for expression in expressions:
 				expression.total_upvotes = expression.total_upvotes + 1
-				expression.total_downvotes = expression.total_downvotes - 1
 				expression.save()
 				break
 	return render(request, "index.html", {})
+
+
+
+@ensure_csrf_cookie
+def broadcast(request):
+	print 'express txt is' + request.POST.get('broadcast_text')
+	#print 'express id is' + request.POST.get('expression_id')
+	expression_id = Expression.objects.store_expression(
+				expression_owner_id = request.session['person_id'], 
+				expression_content = request.POST.get('broadcast_text'), 
+				broadcast_parent_id = request.POST.get('expression_id')
+			)
+	expression = ExpressionGraph(
+		expression_id = expression_id,
+		).save()
+	person = Person.nodes.get(person_id=request.session['person_id'])
+	expression.expression_owner.connect(person)
+	try:
+		topic = Topic.nodes.get(name=request.POST.get('broadcast_tag'))
+		expression.in_topic.connect(topic)
+	except:
+		pass
+	#broadcast_parent = ExpressionGraph.nodes.get(expression_id = request.POST.get('expression_id'))
+	#print "BROADACST PARENT ID : " + type(broadcast_parent)
+	#transaction.rollback()
+	#print "Expression ID is : " + str(expression.expression_id)
+	graph = Graph()
+	graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
+	#expression.broadcast_of.connect(broadcast_parent)
+	# for x in broadcast_parent:
+	# 	expression.broadcast_of.connect(x)
+	# 	break
+	return render(request, "index.html", {})
+
+
+
+
+
+
+
 
 

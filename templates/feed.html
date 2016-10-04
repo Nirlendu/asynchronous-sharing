@@ -50,6 +50,60 @@
 			</div>
 		{% endif %}
 
+
+		{% if entry.broadcast_of %}
+			<div class="well-custom feed-express-area">
+			<div class = "feed-express-header">
+				<div class = "feed-express-profile-img">
+				<div class="feed-express-profile-image-resize">
+					<img src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+				</div>
+				<div class = "feed-express-profile-details">
+				<div class="feed-express-background">                             
+				</div>
+				<div class="profile-name">
+					{{entry.broadcast_of.expression_owner}}
+				</div>
+				<div class="topic-name">
+					Topic Name!
+				</div>
+				</div>
+			</div>
+			<div class = "feed-express-body">
+				<div class = "well feed-express-contents">
+				<div class="feed-express-text-box">
+					{{entry.broadcast_of.expression_content}}
+				</div>
+
+				{% if entry.broadcast_of.expression_image %}
+					<div class="feed-express-image-resize">
+					<img src="{{entry.broadcast_of.expression_image}}" class="img-rounded"/>
+					</div>
+				{% endif %}
+
+				{% if entry.broadcast_of.expression_link_title %}
+					<div onclick="window.open('{{entry.broadcast_of.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+					<div class = "link-preview-img">
+						<div class="link-preview-image-resize">
+						<img src="{{entry.broadcast_of.expression_link_image}}" class="img-rounded"/>
+						</div>
+					</div>
+					<div class = "link-preview-details">
+						<div class="link-preview-title">    
+						{{entry.broadcast_of.expression_link_title}}                         
+						</div>
+						<div class="link-preview-parent-name">
+						{{entry.broadcast_of.parent_domain}}
+						</div>
+					</div>
+					</div>
+				{% endif %}
+				</div> 
+			</div>
+			</div>
+		{% endif %}
+
 		</div> 
 	</div>
 	<div class = "feed-express-footer">
@@ -57,9 +111,156 @@
 		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
 		<input type='button' class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
 		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm' value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm' value='Broadcast'/>
+		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
 		</div>
 	</div>
 	</div>
+
+
+
+	<!-- Modal 1 -->
+	<div class="modal fade" id="broadcastModal{{entry.expression_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+				</div>
+				<form id="post_form{{entry.expression_id}}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="modal-body">
+					<input type="textarea" id="tagareaID{{entry.expression_id}}" class="form-control" placeholder="Tag it">
+					</br>
+					<!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+					<input type="textarea" id="textareaID{{entry.expression_id}}" class="form-control">
+					<label class="control-label"> </label>
+					
+					<!-- Start of broadcast parent -->
+						<div class="well-custom feed-express-area">
+						<div class = "feed-express-header">
+							<div class = "feed-express-profile-img">
+							<div class="feed-express-profile-image-resize">
+								<img src="/media/test2.jpg" class="img-rounded"/>
+							</div>
+							</div>
+							<div class = "feed-express-profile-details">
+							<div class="feed-express-background">                             
+							</div>
+							<div class="profile-name">
+								{{entry.expression_owner}}
+							</div>
+							<div class="topic-name">
+								Topic Name!
+							</div>
+							</div>
+						</div>
+						<div class = "feed-express-body">
+							<div class = "well feed-express-contents">
+							<div class="feed-express-text-box">
+								{{entry.expression_content}}
+							</div>
+
+							{% if entry.expression_image %}
+								<div class="feed-express-image-resize">
+								<img src="{{entry.expression_image}}" class="img-rounded"/>
+								</div>
+							{% endif %}
+
+							{% if entry.expression_link_title %}
+								<div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+								<div class = "link-preview-img">
+									<div class="link-preview-image-resize">
+									<img src="{{entry.expression_link_image}}" class="img-rounded"/>
+									</div>
+								</div>
+								<div class = "link-preview-details">
+									<div class="link-preview-title">    
+									{{entry.expression_link_title}}                         
+									</div>
+									<div class="link-preview-parent-name">
+									{{entry.parent_domain}}
+									</div>
+								</div>
+								</div>
+							{% endif %}
+
+							</div> 
+						</div>
+						</div>
+					<!-- End of broadcast parent -->
+
+
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+					<input type="submit" value="Post!" class="btn btn-primary">
+				</div>
+				</form>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<script type="text/javascript">
+
+		//console.log('THis lods')
+		$(function() {
+		     $('#post_form{{entry.expression_id}}').submit(postExpression{{entry.expression_id}});
+		});
+
+
+		function postExpression{{entry.expression_id}}()
+		{
+		    event.preventDefault();
+		    $('#broadcastModal{{entry.expression_id}}').modal('toggle');
+		    var csrftoken = $.cookie('csrftoken');
+
+		    //console.log('WE ARE HERE!');
+		    
+		    function csrfSafeMethod(method) {
+		        // these HTTP methods do not require CSRF protection
+		        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		    }
+
+		    $.ajaxSetup({
+		        beforeSend: function(xhr, settings) {
+		            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		            }
+		        }
+		    });
+
+		    var formData = new FormData();
+
+		    //console.log($('#textareaID1').val());
+		    //formData['express_text'] = $('#textareaID1').val();
+		    formData.append('broadcast_tag', $('#tagareaID{{entry.expression_id}}').val())
+		    formData.append('broadcast_text', $('#textareaID{{entry.expression_id}}').val())
+
+		    //console.log('TXT ARE DATA : ' + $('#textareaID{{entry.expression_id}}').val());
+		    //console.log(formData);
+			formData.append('expression_id', {{entry.expression_id}});
+			$.ajax({
+				url: '/expression/broadcast/',
+				type: 'POST',
+				data: formData,
+				cache: false,
+				processData: false, // Don't process the files
+				contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+				success: function(data, textStatus, jqXHR)
+				{
+					if(typeof data.error === 'undefined')
+					{
+						console.log('Broadcasted!');
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrown)
+				{
+					console.log('ERRORS: ' + textStatus);
+				}
+			});
+		}
+	</script>
+
 {% endfor %}
 {% show_more %}

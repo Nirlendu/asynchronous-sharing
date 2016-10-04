@@ -86,6 +86,7 @@ def index(request, template="index.html", page_template="feed.html"):
 	entry = []
 	graph = Graph()
 	express = graph.cypher.stream("MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+	#express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
 	for record in express:
 		expressions = Expression.objects.filter(id = record[0]['expression_id'])
 		for expression in expressions:
@@ -103,6 +104,28 @@ def index(request, template="index.html", page_template="feed.html"):
 					a['expression_link_title'] = x.link_name
 					a['expression_link_image'] = x.link_image
 					a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+			
+			q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+			if (q != None):
+				for x in q:
+					broadcasts = Expression.objects.filter(id = x[0]['expression_id'])
+					for broadcast in broadcasts:
+						b = {}
+						b['expression_id'] = broadcast.id
+						b['expression_owner'] = broadcast.expression_owner_id
+						b['expression_content'] = broadcast.expression_content
+						b['expression_image'] = broadcast.expression_imagefile
+						#expression_link
+						#expression_link_title
+						#parent_domain		
+						if (broadcast.expression_link_id != None):
+							entries = Link.objects.filter(id = expression.expression_link_id)
+							for x in entries:
+								b['expression_link_title'] = x.link_name
+								b['expression_link_image'] = x.link_image
+								b['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+					a['broadcast_of'] = b
+			
 			entry.append(a)
 	if mobileBrowser(request):
 		return render(request, "mobile/index_dev_m.html", {})
