@@ -107,7 +107,8 @@ def index(request, template="index.html", page_template="feed.html"):
 					a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
 			
 			q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-			if (q != None):
+			if (q):
+				#print 'SHARED!'
 				for x in q:
 					broadcasts = Expression.objects.filter(id = x[0]['expression_id'])
 					for broadcast in broadcasts:
@@ -118,10 +119,14 @@ def index(request, template="index.html", page_template="feed.html"):
 						b['expression_image'] = broadcast.expression_imagefile
 						#expression_link
 						#expression_link_title
-						#parent_domain		
-						if (broadcast.expression_link_id != None):
-							entries = Link.objects.filter(id = expression.expression_link_id)
+						#parent_domain
+						#print 'Link ID' + str(broadcast.expression_link_id)	
+						#print 'broadcast conent' + str(broadcast.expression_content)
+						if (broadcast.expression_link_id!= None):
+							print 'IT DOES HAVE LINKS!'
+							entries = Link.objects.filter(id = broadcast.expression_link_id)
 							for x in entries:
+								#print 'IT DOES HAVE LINKS!'
 								b['expression_link_title'] = x.link_name
 								b['expression_link_image'] = x.link_image
 								b['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]

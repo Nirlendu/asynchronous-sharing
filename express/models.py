@@ -115,7 +115,7 @@ class LinkManager(models.Manager):
 		link_desc=None, 
 		link_image=None
 		):
-		log.log('Link create operation')
+		log.debug('Link create operation')
 		try:
 			existing_link = Link.objects.filter(link_url=link_url)
 			if(
@@ -126,7 +126,7 @@ class LinkManager(models.Manager):
 				existing_link.link_desc != link_desc or
 				existing_link.link_image != link_image
 				)):
-				logger.debug('Link present')
+				log.debug('Link present')
 				link = existing_link.update(
 					link_url=link_url, 
 					link_name=link_name, 
@@ -135,7 +135,7 @@ class LinkManager(models.Manager):
 					link_updated=datetime.datetime.now()
 					)
 			else:
-				logger.log('Link absent - creating one')
+				log.debug('Link absent - creating one')
 				link = self.create(
 					link_url=link_url, 
 					link_name=link_name, 

@@ -2,15 +2,8 @@ import logging, datetime, os
 
 def init():
 	filename = 'logs/app.log'
-	try:
-		statinfo = os.stat(filename).st_size
-	except:
-		file = open(filename, 'a')
-		file.close()
-	if (statinfo > 500,000):
-		os.rename(filename, filename + str(datetime.datetime.now()))
-		file = open(filename, 'a')
-		file.close()
+	file = open(filename, 'a')
+	file.close()
 	logging.basicConfig(filename=filename,
                         filemode='a',
                         format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
