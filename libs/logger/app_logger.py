@@ -2,8 +2,6 @@ import logging, datetime, os
 
 def init():
 	filename = 'logs/app.log'
-	file = open(filename, 'a')
-	file.close()
 	logging.basicConfig(filename=filename,
                         filemode='a',
                         format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',

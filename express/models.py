@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import sys
 import datetime
 from django.db import models
 from app_base.models import Person, Topic
@@ -44,6 +45,8 @@ class ExpressionManager(models.Manager):
 		total_downvotes=0,
 		total_broadcasts=0,
 		):
+		log.info('IN' + sys._getframe().f_code.co_name)
+		log.info('FROM' + sys._getframe(1).f_code.co_name)
 		try:
 			log.debug('Expression create operation')
 			expression = self.create(
@@ -59,8 +62,7 @@ class ExpressionManager(models.Manager):
 			return expression.id
 		except Exception:
 			log.exception('Could not create Expression')
-			expression = None
-		return
+		return 
 
 
 
@@ -115,6 +117,8 @@ class LinkManager(models.Manager):
 		link_desc=None, 
 		link_image=None
 		):
+		log.info('IN' + sys._getframe().f_code.co_name)
+		log.info('FROM' + sys._getframe(1).f_code.co_name)
 		log.debug('Link create operation')
 		try:
 			existing_link = Link.objects.filter(link_url=link_url)

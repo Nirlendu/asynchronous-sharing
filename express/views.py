@@ -16,7 +16,9 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from express.models import Link, Expression, ExpressionGraph
 from app_base.models import Topic, Person
 from libs.image_processor import compressimages
+from app_core import core_interface as core
 import re
+from libs.logger import app_logger as log
 
 
 @ensure_csrf_cookie
@@ -25,11 +27,10 @@ def update(request):
 		try:
 			for filename, file in request.FILES.iteritems():
 				data = file
-			path = default_storage.save('tmp/somename.jpg', ContentFile(data.read()))
-			tmp_file = os.path.join(settings.MEDIA_URL, path)
-			compressimages.image_upload(tmp_file)
+			log.debug('Uploaded file present')
+			filename = core.new_upload_file(data)
 		except:
-			tmp_file = None
+			filename = None
 		text = request.POST.get('express_text')
 		link = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
 		try:
@@ -38,23 +39,6 @@ def update(request):
 		except:
 			trimmed_text = text
 			text_url = ''
-		# #print 'TRIMEED TEXT IS :' + trimmed_text
-		# #print link[0]
-		# expression = Expression(
-		# 	expression_id = str(round(time.time() * 1000)),
-		# 	expression_content = trimmed_text, 
-		# 	expression_image = tmp_file, 
-		# 	expression_link = text_url
-		# 	).save()
-		# person = Person.nodes.get(person_id=request.session['person_id'])
-		# expression.expression_owner.connect(person)
-		# try:
-		# 	topic = Topic.nodes.get(name=request.POST.get('express_tag'))
-		# 	#print 'EXPRESS TAG!' + request.POST.get('express_tag')
-		# 	#topic.related_posts.connect(expression)
-		# 	expression.in_topic.connect(topic)
-		# except:
-		# 	pass
 		if(text_url!=''):
 			link = Link.objects.filter(link_url = text_url)
 			for entries in link:
@@ -62,25 +46,15 @@ def update(request):
 				break;
 		else:
 			link_id = None
-		expression_id = Expression.objects.store_expression(
-				expression_owner_id = request.session['person_id'], 
-				expression_content = trimmed_text, 
-				expression_link_id = link_id, 
-				expression_imagefile = tmp_file,
-			)
-		expression = ExpressionGraph(
-			expression_id = expression_id,
-			).save()
-		person = Person.nodes.get(person_id=request.session['person_id'])
-		#print person.person_id
-		#expression.expression_owner.connect(person)
-		graph = Graph()
-		graph.cypher.stream("MATCH (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }), (p:Person{person_id: '" + request.session['person_id'] + "' }) CREATE (p)-[:EXPRESSED]->(e)")
-		try:
-			topic = Topic.nodes.get(name=request.POST.get('express_tag'))
-			expression.in_topic.connect(topic)
-		except:
-			pass
+		topics = []
+		topics.append(request.POST.get('express_tag'))
+		core.new_expression(
+					expression_owner_id = request.session['person_id'], 
+					expression_content = trimmed_text, 
+					expression_link_id = link_id, 
+					expression_imagefile = filename,
+					topics = topics,
+				)
 		return render(request, "index.html", {})
 
 
@@ -147,8 +121,6 @@ def upvote(request):
 
 @ensure_csrf_cookie
 def broadcast(request):
-	print 'express txt is' + request.POST.get('broadcast_text')
-	#print 'express id is' + request.POST.get('expression_id')
 	expression_id = Expression.objects.store_expression(
 				expression_owner_id = request.session['person_id'], 
 				expression_content = request.POST.get('broadcast_text'), 
@@ -164,42 +136,11 @@ def broadcast(request):
 		expression.in_topic.connect(topic)
 	except:
 		pass
-	#broadcast_parent = ExpressionGraph.nodes.get(expression_id = request.POST.get('expression_id'))
-	#print "BROADACST PARENT ID : " + type(broadcast_parent)
-	#transaction.rollback()
-	#print "Expression ID is : " + str(expression.expression_id)
-	
-
-
-
-	# print 'REQUEST ID'
-	# print request.POST.get('expression_id')
-	# graph = Graph()
-	# z = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-	# if(z!=None):
-	# 	print 'IT EXISTS!'
-	# 	for x in z:
-	# 		#print x[0]['expression_id']
-	# 		graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(x[0]['expression_id']) + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
-	# else:
-	# 	print 'SHARE LINK!'
-	# 	graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
-	
-
-
-
-	#graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
-	#expression.broadcast_of.connect(broadcast_parent)
-	# for x in broadcast_parent:
-	# 	expression.broadcast_of.connect(x)
-	# 	break
 	graph = Graph()
 	z = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
 	for x in z:
-		#print x[0]['expression_id']
 		graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(x[0]['expression_id']) + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
 		return render(request, "index.html", {})
-	#print 'SHARE LINK!'
 	graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
 	return render(request, "index.html", {})
 
