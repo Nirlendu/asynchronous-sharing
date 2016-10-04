@@ -6,4 +6,4 @@ env/
 requirements.txt
 var/
 server_logs/
-*.log
+logs/*
