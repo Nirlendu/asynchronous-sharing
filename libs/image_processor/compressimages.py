@@ -59,6 +59,7 @@ def image_upload(file):
         # Check that we've actually made it smaller
         origsize = getsize(backupname)
         newsize = getsize(filename)
+        #move(backupname, )
 
         if newsize >= origsize:
             print 'Cannot further compress "' + filename + '".'

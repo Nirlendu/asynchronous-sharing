@@ -22,6 +22,7 @@ from libs.logger import app_logger as log
 
 
 @ensure_csrf_cookie
+
 def update(request):
 	if request.method == 'POST':
 		try:
@@ -59,7 +60,6 @@ def update(request):
 
 
 
-@ensure_csrf_cookie
 def store_link(request):
 	if request.method == 'POST':
 		try:
@@ -83,7 +83,6 @@ def store_link(request):
 
 
 
-@ensure_csrf_cookie
 def upvote(request):
 	expression_id = request.POST.get('expression_id')
 	person_id = request.session['person_id']
@@ -119,7 +118,6 @@ def upvote(request):
 
 
 
-@ensure_csrf_cookie
 def broadcast(request):
 	expression_id = Expression.objects.store_expression(
 				expression_owner_id = request.session['person_id'], 
