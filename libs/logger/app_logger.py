@@ -1,10 +1,34 @@
-import logging
+import logging, datetime, os
 
-def log(log_string):
-	logging.basicConfig(filename='logs/app.log',
-                            filemode='a',
-                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                            datefmt='%H:%M:%S',
-                            level=logging.DEBUG)
+def init():
+	filename = 'logs/app.log'
+	try:
+		statinfo = os.stat(filename).st_size
+	except:
+		file = open(filename, 'a')
+		file.close()
+	if (statinfo > 500,000):
+		os.rename(filename, filename + str(datetime.datetime.now()))
+		file = open(filename, 'a')
+		file.close()
+	logging.basicConfig(filename=filename,
+                        filemode='a',
+                        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S',
+                        level=logging.DEBUG)
+	return
+
+def info(log_string):
+	init()
 	logging.info('###########' + log_string + '###########')
+	return
+
+def debug(log_string):
+	init()
+	logging.debug('###########' + log_string + '###########')
+	return	
+
+def exception(log_string):
+	init()
+	logging.exception('###########' + log_string + '###########')
 	return

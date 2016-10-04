@@ -5,7 +5,7 @@ import datetime
 from django.db import models
 from app_base.models import Person, Topic
 #from feed.models import Topic
-from libs.logger import app_logger as logger
+from libs.logger import app_logger as log
 from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 	RelationshipTo, RelationshipFrom)
 
@@ -45,7 +45,7 @@ class ExpressionManager(models.Manager):
 		total_broadcasts=0,
 		):
 		try:
-			logger.log('Expression create operation')
+			log.debug('Expression create operation')
 			expression = self.create(
 							expression_owner_id = expression_owner_id,
 							expression_content = expression_content,
@@ -57,9 +57,8 @@ class ExpressionManager(models.Manager):
 							total_broadcasts = total_broadcasts
 							)
 			return expression.id
-		except:
-			#TODO some fault
-			logger.log('Could not create Expression')
+		except Exception:
+			log.exception('Could not create Expression')
 			expression = None
 		return
 
@@ -69,11 +68,9 @@ class ExpressionManager(models.Manager):
 class Expression(models.Model):
 	expression_owner_id = models.CharField(
 		max_length = 30,
-		#required = True,
 		)
 	expression_content = models.CharField(
 		max_length = 10000,
-		#required = True,
 		)
 	expression_link_id = models.CharField(
 		max_length = 30,
@@ -118,7 +115,7 @@ class LinkManager(models.Manager):
 		link_desc=None, 
 		link_image=None
 		):
-		logger.log('Link create operation')
+		log.log('Link create operation')
 		try:
 			existing_link = Link.objects.filter(link_url=link_url)
 			if(
@@ -129,7 +126,7 @@ class LinkManager(models.Manager):
 				existing_link.link_desc != link_desc or
 				existing_link.link_image != link_image
 				)):
-				logger.log('Link present')
+				logger.debug('Link present')
 				link = existing_link.update(
 					link_url=link_url, 
 					link_name=link_name, 
@@ -145,9 +142,8 @@ class LinkManager(models.Manager):
 					link_desc=link_desc, 
 					link_image=link_image
 					)
-		except:
-			#TODO Raise Exception
-			logger.log('Could not insert link')
+		except Exception:
+			log.exception('Could not insert Link')
 			link = None
 		return link
 
@@ -157,7 +153,6 @@ class LinkManager(models.Manager):
 class Link(models.Model):
 	link_url = models.CharField(
 		max_length=150, 
-		#required=True, 
 		unique=True,
 		)
 	link_name = models.CharField(
