@@ -154,3 +154,10 @@ def topic(request):
 		return render(request, "mobile/index_dev_m.html", {})
 	return render(request, "topic_dev.html", {})
 
+@ensure_csrf_cookie
+def discuss(request):
+	return render(request, "discuss_dev.html", {})
+
+
+
+

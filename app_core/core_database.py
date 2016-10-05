@@ -55,7 +55,10 @@ def new_expression_database(
 		final_transaction.process()
 	except:
 		final_transaction.rollback()
+		log.info('New expression creating FAILED')
 		raise Exception
+
+	log.info('New expression creating SUCCESS')
 	final_transaction.commit()
 	return
 
@@ -68,6 +71,8 @@ def find_url_id_database(url):
 	log.debug('Find URL database')
 
 	return expressed_url.find_url_id(url = url)
+
+
 
 
 @transaction.atomic
@@ -89,6 +94,8 @@ def store_url_database(
 							url_desc = url_desc,
 							url_imagefile = url_imagefile,
 						)
+
+
 
 
 @transaction.atomic
@@ -157,7 +164,10 @@ def new_broadcast_database(
 		final_transaction.process()
 	except:
 		final_transaction.rollback()
+		log.info('New Broadcast creating FAILED')
 		raise Exception
+
+	log.info('New Broadcast creating SUCESSFUL')
 	final_transaction.commit()
 	return
 
