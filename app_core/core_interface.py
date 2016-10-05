@@ -91,7 +91,7 @@ def store_url(
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
 	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New URL INSERT')
-	
+
 	return core.store_url_logic(
 						url = url,
 						url_header = url_header,
@@ -110,5 +110,34 @@ def find_url_id(url):
 	return core.find_url_id_logic(url = url)
 
 
+
+def new_broadcast(
+			broadcast_owner_id, 
+			broadcast_content,
+			broadcast_parent_id, 
+			expression_link_id=None, 
+			expression_imagefile=None,
+			total_upvotes=0,
+			total_downvotes=0,
+			total_broadcasts=0,
+			topics = [],
+		):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('New Broadcast Interface')
+
+	return core.new_broadcast_logic(
+				broadcast_owner_id = broadcast_owner_id, 
+				broadcast_content = broadcast_content,
+				expression_link_id = expression_link_id, 
+				expression_imagefile = expression_imagefile,
+				broadcast_parent_id = broadcast_parent_id,
+				total_upvotes = total_upvotes,
+				total_downvotes = total_downvotes,
+				total_broadcasts = total_broadcasts,
+				topics = topics,
+			)
 
 

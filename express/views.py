@@ -22,13 +22,13 @@ from libs.logger import app_logger as log
 
 
 
-
 def get_url(text):
 	urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
 	try:
 		return urls[0]
 	except:
 		return None
+
 
 @ensure_csrf_cookie
 def update(request):
@@ -49,7 +49,8 @@ def update(request):
 			expression_content = expresssion_text
 			link_id = None
 		topics = []
-		topics.append(request.POST.get('express_tag'))
+		if(request.POST.get('express_tag')):
+			topics.append(request.POST.get('express_tag'))
 		core.new_expression(
 					expression_owner_id = request.session['person_id'], 
 					expression_content = expression_content, 
@@ -112,29 +113,40 @@ def upvote(request):
 	return render(request, "index.html", {})
 
 
+
+
 @ensure_csrf_cookie
 def broadcast(request):
-	expression_id = Expression.objects.store_expression(
-				expression_owner_id = request.session['person_id'], 
-				expression_content = request.POST.get('broadcast_text'), 
-				broadcast_parent_id = request.POST.get('expression_id')
-			)
-	expression = ExpressionGraph(
-		expression_id = expression_id,
-		).save()
-	person = Person.nodes.get(person_id=request.session['person_id'])
-	expression.expression_owner.connect(person)
-	try:
-		topic = Topic.nodes.get(name=request.POST.get('broadcast_tag'))
-		expression.in_topic.connect(topic)
-	except:
-		pass
-	graph = Graph()
-	z = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-	for x in z:
-		graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(x[0]['expression_id']) + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
-		return render(request, "index.html", {})
-	graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
+	# expression_id = Expression.objects.store_expression(
+	# 			expression_owner_id = request.session['person_id'], 
+	# 			expression_content = request.POST.get('broadcast_text'), 
+	# 			broadcast_parent_id = request.POST.get('expression_id')
+	# 		)
+	# expression = ExpressionGraph(
+	# 	expression_id = expression_id,
+	# 	).save()
+	# person = Person.nodes.get(person_id=request.session['person_id'])
+	# expression.expression_owner.connect(person)
+	# try:
+	# 	topic = Topic.nodes.get(name=request.POST.get('broadcast_tag'))
+	# 	expression.in_topic.connect(topic)
+	# except:
+	# 	pass
+	# graph = Graph()
+	# z = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+	# for x in z:
+	# 	graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(x[0]['expression_id']) + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
+	# 	return render(request, "index.html", {})
+	# graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + request.POST.get('expression_id') + " }), (e:ExpressionGraph{expression_id: " + str(expression.expression_id) + " }) CREATE (e)-[:BROADCAST_OF]->(p)")
+	topics = []
+	if(request.POST.get('broadcast_tag')):
+		topics.append(request.POST.get('broadcast_tag'))
+	core.new_broadcast(
+					broadcast_owner_id = request.session['person_id'], 
+					broadcast_content = request.POST.get('broadcast_text'), 
+					broadcast_parent_id = request.POST.get('expression_id'),
+					topics = topics,
+				)
 	return render(request, "index.html", {})
 
 
