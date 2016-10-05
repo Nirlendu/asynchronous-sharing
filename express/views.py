@@ -21,8 +21,16 @@ import re
 from libs.logger import app_logger as log
 
 
-@ensure_csrf_cookie
 
+
+def get_url(text):
+	urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
+	try:
+		return urls[0]
+	except:
+		return None
+
+@ensure_csrf_cookie
 def update(request):
 	if request.method == 'POST':
 		try:
@@ -32,26 +40,16 @@ def update(request):
 			filename = core.new_upload_file(data)
 		except:
 			filename = None
-		text = request.POST.get('express_text')
-		link = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
-		try:
-			trimmed_text = text.replace(link[0],'')
-			text_url = link[0]
-		except:
-			trimmed_text = text
-			text_url = ''
-		if(text_url!=''):
-			link = Link.objects.filter(link_url = text_url)
-			for entries in link:
-				link_id = entries.pk;
-				break;
-		else:
-			link_id = None
+		expresssion_text = request.POST.get('express_text')
+		url = get_url(expresssion_text)
+		if(url):
+			expression_content = expresssion_text.replace(url,'')
+			link_id = core.find_url_id(url)
 		topics = []
 		topics.append(request.POST.get('express_tag'))
 		core.new_expression(
 					expression_owner_id = request.session['person_id'], 
-					expression_content = trimmed_text, 
+					expression_content = expression_content, 
 					expression_link_id = link_id, 
 					expression_imagefile = filename,
 					topics = topics,
@@ -59,30 +57,24 @@ def update(request):
 		return render(request, "index.html", {})
 
 
-
+@ensure_csrf_cookie
 def store_link(request):
 	if request.method == 'POST':
-		try:
-			image_file = str(round(time.time() * 1000)) + '.jpg'
-			urllib.urlretrieve(request.POST.get('link_image'), os.path.join(settings.MEDIA_ROOT, image_file))
-			image_file_name = os.path.join(settings.MEDIA_URL, image_file)
-			#compressimages.image_upload(tmp_file)
-		except:
-			image_file_name = ''
-		#print 'LINK URL IS : ' + request.POST.get('link_url')
-		link = Link.objects.store_link(
-				request.POST.get('link_url'),
-				request.POST.get('link_name'),
-				request.POST.get('link_desc'),
-				image_file_name
+		url_imagefile = core.store_url_imagefile(
+								image_url = request.POST.get('link_image')
+							)
+		core.store_url(
+				url = request.POST.get('link_url'),
+				url_header = request.POST.get('link_name'),
+				url_desc = request.POST.get('link_desc')[:(len(request.POST.get('link_desc'))%199)],
+				url_imagefile = url_imagefile
 			)
-		#print "LINK IS STRED MAYBE:"  + link.link_url
 		template = "index.html"
 		context = {}
 		return render(request, template, context)
 
 
-
+@ensure_csrf_cookie
 def upvote(request):
 	expression_id = request.POST.get('expression_id')
 	person_id = request.session['person_id']
@@ -117,7 +109,7 @@ def upvote(request):
 	return render(request, "index.html", {})
 
 
-
+@ensure_csrf_cookie
 def broadcast(request):
 	expression_id = Expression.objects.store_expression(
 				expression_owner_id = request.session['person_id'], 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os, sys, urllib, uuid
 
 from django.conf import settings
 from django.core.files.base import ContentFile
@@ -12,6 +12,7 @@ from libs.logger import app_logger as log
 import core_logic as core
 
 
+
 def new_upload_file(file_content):
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -20,6 +21,7 @@ def new_upload_file(file_content):
 	filename = os.path.join(settings.MEDIA_URL, path)
 	compressimages.image_upload(filename)
 	return filename
+
 
 
 def new_expression(
@@ -50,4 +52,48 @@ def new_expression(
 					total_broadcasts = total_broadcasts,
 					topics = topics,
 				)
+
+
+
+def store_url_imagefile(image_url):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('Store URL Imagefile')
+	try:
+		image_file = 'url_images/' + str(uuid.uuid4())[:8] + '.jpg'
+		urllib.urlretrieve(image_url , os.path.join(settings.MEDIA_ROOT, image_file))
+		return os.path.join(settings.MEDIA_URL, image_file)
+	except:
+		return None
+
+
+
+def store_url(
+			url,
+			url_header,
+			url_desc,
+			url_imagefile,
+		):
+	# TODO
+	# Some checks on the url
+	# Some data about the url
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('New URL INSERT')
+	return core.store_url_logic(
+						url = url,
+						url_header = url_header,
+						url_desc = url_desc,
+						url_imagefile = url_imagefile
+					)
+
+
+def find_url_id(url):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('Find URL')
+	return core.find_url_id_logic(url = url)
+
+
+
 

@@ -4,7 +4,7 @@ import sys
 from py2neo import Graph
 from libs.logger import app_logger as log
 from django.db import transaction
-from app_core_database import new_expression
+from app_core_database import new_expression, expressed_url
 
 
 @transaction.atomic
@@ -55,4 +55,35 @@ def new_expression_database(
 		raise Exception
 	final_transaction.commit()
 	return
+
+
+def find_url_id_database(url):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('Find URL database')
+	return expressed_url.find_url_id(url = url)
+
+
+@transaction.atomic
+def store_url_database(
+					url,
+					url_header,
+					url_desc,
+					url_imagefile,
+				):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('New URL insert database')
+	return expressed_url.store_url(
+							url = url,
+							url_header = url_header,
+							url_desc = url_desc,
+							url_imagefile = url_imagefile,
+						)
+
+
+
+
+
+
 

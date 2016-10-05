@@ -102,6 +102,7 @@ def index(request, template="index.html", page_template="feed.html"):
 			if (expression.expression_link_id != None):
 				entries = Link.objects.filter(id = expression.expression_link_id)
 				for x in entries:
+					a['expression_link'] = x.link_url
 					a['expression_link_title'] = x.link_name
 					a['expression_link_image'] = x.link_image
 					a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
@@ -127,6 +128,7 @@ def index(request, template="index.html", page_template="feed.html"):
 							entries = Link.objects.filter(id = broadcast.expression_link_id)
 							for x in entries:
 								#print 'IT DOES HAVE LINKS!'
+								b['expression_link'] = x.link_url
 								b['expression_link_title'] = x.link_name
 								b['expression_link_image'] = x.link_image
 								b['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]

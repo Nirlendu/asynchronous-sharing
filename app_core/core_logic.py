@@ -35,4 +35,31 @@ def new_expression_logic(
 					topics = topics,
 				)
 	return
-	
+
+
+def find_url_id_logic(url):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('Find URL logic')
+	return core.find_url_id_database(url = url)
+
+
+
+
+def store_url_logic(
+				url,
+				url_header,
+				url_desc,
+				url_imagefile,
+			):
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.debug('New URL insert logic')
+	return core.store_url_database(
+							url = url,
+							url_header = url_header,
+							url_desc = url_desc,
+							url_imagefile = url_imagefile
+						)
+
+

@@ -121,43 +121,22 @@ class LinkManager(models.Manager):
 		log.info('FROM' + sys._getframe(1).f_code.co_name)
 		log.debug('Link create operation')
 		try:
-			existing_link = Link.objects.filter(link_url=link_url)
-			if(
-				existing_link and
-				(
-				existing_link.link_url != link_url or
-				existing_link.link_name != link_name or
-				existing_link.link_desc != link_desc or
-				existing_link.link_image != link_image
-				)):
-				log.debug('Link present')
-				link = existing_link.update(
-					link_url=link_url, 
-					link_name=link_name, 
-					link_desc=link_desc, 
-					link_image=link_image,
-					link_updated=datetime.datetime.now()
-					)
-			else:
-				log.debug('Link absent - creating one')
-				link = self.create(
-					link_url=link_url, 
-					link_name=link_name, 
-					link_desc=link_desc, 
-					link_image=link_image
-					)
+			Link.objects.update_or_create(
+					link_url = link_url, 
+					link_name = link_name, 
+					link_desc = link_desc, 
+					link_image = link_image,
+				)
 		except Exception:
 			log.exception('Could not insert Link')
-			link = None
-		return link
-
+		return
 
 
 
 class Link(models.Model):
 	link_url = models.CharField(
-		max_length=150, 
-		unique=True,
+		max_length=150,
+		unique = True,
 		)
 	link_name = models.CharField(
 		max_length=150, 
@@ -169,7 +148,7 @@ class Link(models.Model):
 		null = True,
 		)
 	link_image = models.CharField(
-		max_length=30, 
+		max_length=60, 
 		default=None,
 		null = True,
 		)
