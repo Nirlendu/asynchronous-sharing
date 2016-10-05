@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys
+import sys, inspect
 from py2neo import Graph
 from libs.logger import app_logger as log
 from django.db import transaction
@@ -19,9 +19,12 @@ def new_expression_database(
 			total_broadcasts,
 			topics,
 		):
+
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New Expression Core Database')
+
 	expression_id = new_expression.new_expression_insert(
 										expression_owner_id = expression_owner_id, 
 										expression_content = expression_content, 
@@ -58,9 +61,12 @@ def new_expression_database(
 
 
 def find_url_id_database(url):
+
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('Find URL database')
+
 	return expressed_url.find_url_id(url = url)
 
 
@@ -71,9 +77,12 @@ def store_url_database(
 					url_desc,
 					url_imagefile,
 				):
+
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New URL insert database')
+
 	return expressed_url.store_url(
 							url = url,
 							url_header = url_header,

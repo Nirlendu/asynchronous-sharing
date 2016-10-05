@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys
+import sys, inspect
 import core_database as core
 from libs.logger import app_logger as log
 
@@ -22,7 +22,9 @@ def new_expression_logic(
 	# 2) Check if all the topics are present in DB
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New Expression Logic')
+
 	core.new_expression_database(
 					expression_owner_id = expression_owner_id, 
 					expression_content = expression_content, 
@@ -37,10 +39,15 @@ def new_expression_logic(
 	return
 
 
+
+
 def find_url_id_logic(url):
+
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('Find URL logic')
+	
 	return core.find_url_id_database(url = url)
 
 
@@ -52,9 +59,12 @@ def store_url_logic(
 				url_desc,
 				url_imagefile,
 			):
+
 	log.info('IN - ' + sys._getframe().f_code.co_name)
 	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New URL insert logic')
+
 	return core.store_url_database(
 							url = url,
 							url_header = url_header,

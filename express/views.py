@@ -34,9 +34,9 @@ def get_url(text):
 def update(request):
 	if request.method == 'POST':
 		try:
+			log.debug('Uploaded file check')
 			for filename, file in request.FILES.iteritems():
 				data = file
-			log.debug('Uploaded file present')
 			filename = core.new_upload_file(data)
 		except:
 			filename = None
@@ -45,6 +45,9 @@ def update(request):
 		if(url):
 			expression_content = expresssion_text.replace(url,'')
 			link_id = core.find_url_id(url)
+		else:
+			expression_content = expresssion_text
+			link_id = None
 		topics = []
 		topics.append(request.POST.get('express_tag'))
 		core.new_expression(

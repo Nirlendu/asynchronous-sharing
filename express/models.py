@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-import sys
+import sys, inspect
 import datetime
 from django.db import models
 from app_base.models import Person, Topic
@@ -45,8 +45,11 @@ class ExpressionManager(models.Manager):
 		total_downvotes=0,
 		total_broadcasts=0,
 		):
-		log.info('IN' + sys._getframe().f_code.co_name)
-		log.info('FROM' + sys._getframe(1).f_code.co_name)
+
+		log.info('IN - ' + sys._getframe().f_code.co_name)
+		log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+		log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
 		try:
 			log.debug('Expression create operation')
 			expression = self.create(
@@ -117,9 +120,12 @@ class LinkManager(models.Manager):
 		link_desc=None, 
 		link_image=None
 		):
-		log.info('IN' + sys._getframe().f_code.co_name)
-		log.info('FROM' + sys._getframe(1).f_code.co_name)
+
+		log.info('IN - ' + sys._getframe().f_code.co_name)
+		log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+		log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 		log.debug('Link create operation')
+
 		try:
 			Link.objects.update_or_create(
 					link_url = link_url, 
