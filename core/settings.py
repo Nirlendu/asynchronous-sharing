@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app_base',
     'express',
     'el_pagination',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -153,5 +154,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # from django.conf.global_settings import TEMPLATES
-
-# TEMPLATES[0]['OPTIONS']['context_processors'].insert(0, 'django.core.context_processors.request')
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}

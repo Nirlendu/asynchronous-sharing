@@ -158,6 +158,10 @@ def topic(request):
 def discuss(request):
 	return render(request, "discuss_dev.html", {})
 
+@ensure_csrf_cookie
+def test(request):
+	return render(request, "test.html", {})
+
 
 
 

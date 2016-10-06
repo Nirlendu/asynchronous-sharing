@@ -10,3 +10,5 @@ server_logs/
 logs/
 migrations/
 dependencies/
+webpack-stats*
+node_modules/
