@@ -129,6 +129,16 @@ def broadcast(request):
 	return render(request, "index.html", {})
 
 
+@ensure_csrf_cookie
+def discuss(request):
+	if request.method == 'POST':
+		core.new_discussion_expression(
+				discussion_parent_id = request.POST.get('expression_id'),
+				discussion_expression_owner_id = request.session['person_id'],
+				discussion_expression_content = request.POST.get('discussion_expression_content'),
+			)
+		return render(request, "index.html", {})
+
 
 
 

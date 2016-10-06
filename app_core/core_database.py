@@ -4,7 +4,7 @@ import sys, inspect
 from py2neo import Graph
 from libs.logger import app_logger as log
 from django.db import transaction
-from app_core_database import new_expression, expressed_url, new_broadcast
+from app_core_database import new_expression, expressed_url, new_broadcast, new_discussion_expression
 
 
 @transaction.atomic
@@ -172,6 +172,57 @@ def new_broadcast_database(
 	return
 
 
+
+@transaction.atomic
+def new_discussion_expression_database(
+				discussion_parent_id,
+				discussion_expression_owner_id, 
+				discussion_expression_content, 
+				discussion_expression_link_id, 
+				discussion_expression_imagefile,
+				total_upvotes,
+				total_downvotes,
+			):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('New discussion expression database')
+
+	discussion_expression_id = new_discussion_expression.new_discussion_expression_insert(
+													discussion_parent_id = discussion_parent_id,
+													discussion_expression_owner_id = discussion_expression_owner_id, 
+													discussion_expression_content = discussion_expression_content, 
+													discussion_expression_link_id = discussion_expression_link_id, 
+													discussion_expression_imagefile = discussion_expression_imagefile,
+													total_upvotes = total_upvotes,
+													total_downvotes = total_downvotes,
+												)
+	graph = Graph()
+	intial_transaction = graph.cypher.begin()
+
+	expression_node_transaction = new_discussion_expression.new_discussion_expression_node(
+																	transaction = intial_transaction,
+																	discussion_expression_id = str(discussion_expression_id),
+																)
+
+	final_transaction = new_discussion_expression.new_discussion_expression_relation(
+																	transaction = intial_transaction,
+																	discussion_expression_owner_id = discussion_expression_owner_id,
+																	discussion_expression_id = str(discussion_expression_id),
+																	discussion_parent_id = discussion_parent_id,
+															)
+	try:
+		final_transaction.process()
+	except:
+		final_transaction.rollback()
+		log.info('New discussion expression creating FAILED')
+		raise Exception
+
+	log.info('New discussion expression creating SUCESSFUL')
+	final_transaction.commit()
+	return
+	
 
 
 

@@ -111,6 +111,79 @@ class Expression(models.Model):
 
 
 
+# TODO
+# Implement Image upload and URL share
+class DiscussionExpressionManager(models.Manager):
+	def store_discussion_expression(
+		self, 
+		discussion_parent_id,
+		discussion_expression_owner_id, 
+		discussion_expression_content, 
+		discussion_expression_link_id=None, 
+		discussion_expression_imagefile=None,
+		total_upvotes=0,
+		total_downvotes=0,
+		):
+
+		log.info('IN - ' + sys._getframe().f_code.co_name)
+		log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+		log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+		try:
+			log.debug('Discussion Expression create operation')
+			discussion_expression = self.create(
+										discussion_parent_id = discussion_parent_id,
+										discussion_expression_owner_id = discussion_expression_owner_id,
+										discussion_expression_content = discussion_expression_content,
+										discussion_expression_link_id = discussion_expression_link_id,
+										discussion_expression_imagefile = discussion_expression_imagefile,
+										total_upvotes = total_upvotes,
+										total_downvotes = total_downvotes,
+										)
+			return discussion_expression.id
+		except Exception:
+			log.exception('Could not create Discussion Expression')
+		return
+
+
+
+
+class Discussion_Expression(models.Model):
+	discussion_parent_id = models.CharField(
+			max_length = 30,
+		)
+	discussion_expression_owner_id = models.CharField(
+			max_length = 30,
+		)
+	discussion_expression_content = models.CharField(
+			max_length = 10000,
+		)
+	discussion_expression_link_id = models.CharField(
+		max_length = 30,
+		default = None,
+		null = True,
+		)
+	discussion_expression_imagefile = models.CharField(
+		max_length = 30,
+		default = None,
+		null = True,
+		)
+	total_upvotes = models.IntegerField(
+		default = 0,
+		)
+	total_downvotes = models.IntegerField(
+		default = 0,
+		)
+	discussion_expression_updated = models.DateTimeField ( 
+		auto_now_add = True,
+		)
+	discussion_expression_created =  models.DateTimeField ( 
+		auto_now_add = True,
+		)
+	objects = DiscussionExpressionManager()
+
+
+
 
 class LinkManager(models.Manager):
 	def store_link(

@@ -105,4 +105,29 @@ def new_broadcast_logic(
 
 
 
+def new_discussion_expression_logic(
+				discussion_parent_id,
+				discussion_expression_owner_id, 
+				discussion_expression_content, 
+				discussion_expression_link_id, 
+				discussion_expression_imagefile,
+				total_upvotes,
+				total_downvotes,
+			):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('New discussion expression Logic')	
+
+	return core.new_discussion_expression_database(
+				discussion_parent_id = discussion_parent_id,
+				discussion_expression_owner_id = discussion_expression_owner_id, 
+				discussion_expression_content = discussion_expression_content, 
+				discussion_expression_link_id = discussion_expression_link_id, 
+				discussion_expression_imagefile = discussion_expression_imagefile,
+				total_upvotes = total_upvotes,
+				total_downvotes = total_downvotes,
+			)
+
 

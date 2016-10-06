@@ -336,9 +336,7 @@
                                         <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
 
                                 </div>
-                                <p>
                                 This discussion has to look good! Gordon.
-                                </p>
                             </div>
                         </li>
                         <!--each discussions end-->
@@ -347,25 +345,87 @@
                 </div>
                 <!--The discussion panel end-->
 
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /> <span class="input-group-btn">
+               <!--  <div class="panel-footer"> -->
+                    <!-- <div class="input-group">
+                        <input id="btn-input-discuss{{entry.expression_id}}" type="text" class="form-control input-sm" placeholder="Type your message here..." /> <span class="input-group-btn">
                             <button class="btn btn-primary btn-sm" >
                                 Send</button>
                         </span>
-
-                    </div>
-                </div>
+                    </div> -->
+	                    <!-- <form id="post_form_discuss{{entry.expression_id}}" enctype="multipart/form-data"> -->
+							<!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+						<div class="modal-footer">
+							<input type="textarea" id="discussareaID{{entry.expression_id}}" class="form-control" placeholder="Express yourself!">
+							<label class="control-label"> </label>
+							</br>
+							<!-- <input type="submit" value="Express!" class="btn btn-primary"> -->
+							<input type='button' onclick="discussExpression{{entry.expression_id}}()" class='btn btn-upvote btn-primary btn-sm' value='Express!'/>
+							<button id = "closebutton" type="button" class="btn btn-upvote btn-primary btn-sm" data-dismiss="modal">Discard</button>
+						</div>
+						<!-- </form> -->
+                <!-- </div> -->
             </div>
         </div>
     </div>
 <!--End of discussion modal!-->
 
 
-
 	<script type="text/javascript">
 
 		//console.log('THis lods')
+		// $(function() {
+		//      $('#post_form_discuss{{entry.expression_id}}').submit(postExpression{{entry.expression_id}});
+		// });
+
+
+		function discussExpression{{entry.expression_id}}()
+		{
+		    event.preventDefault();
+		    $('#discussModal{{entry.expression_id}}').modal('toggle');
+		    var csrftoken = $.cookie('csrftoken');
+
+		    console.log('WE ARE HERE! FOR DISCUSS');
+		    
+		    function csrfSafeMethod(method) {
+		        // these HTTP methods do not require CSRF protection
+		        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		    }
+
+		    $.ajaxSetup({
+		        beforeSend: function(xhr, settings) {
+		            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		            }
+		        }
+		    });
+
+		    var formData = new FormData();
+		    //console.log('THE DISCUSSION!' + $('#discussareaID{{entry.expression_id}}').val());
+		    formData.append('discussion_expression_content', $('#discussareaID{{entry.expression_id}}').val());
+		    formData.append('expression_id', {{entry.expression_id}});
+		    $.ajax({
+				url: '/expression/discuss/',
+				type: 'POST',
+				data: formData,
+				cache: false,
+				processData: false, // Don't process the files
+				contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+				success: function(data, textStatus, jqXHR)
+				{
+					if(typeof data.error === 'undefined')
+					{
+						console.log('discussed!');
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrown)
+				{
+					console.log('ERRORS: ' + textStatus);
+				}
+			});
+		}
+
+		//function for broadcast
+
 		$(function() {
 		     $('#post_form{{entry.expression_id}}').submit(postExpression{{entry.expression_id}});
 		});
@@ -422,6 +482,9 @@
 				}
 			});
 		}
+
+
+
 	</script>
 
 {% endfor %}
