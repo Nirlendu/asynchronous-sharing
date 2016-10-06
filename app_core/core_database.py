@@ -234,7 +234,6 @@ def new_discussion_expression_database(
     
 
 
-
 @transaction.atomic
 def upvote_expression_database(
                     upvoter,
@@ -253,7 +252,6 @@ def upvote_expression_database(
 
     graph = Graph()
     intial_transaction = graph.cypher.begin()
-
 
     if(prev_relation == 'UPVOTED'):
         final_transaction = expression.create_upvote_rel(
@@ -302,6 +300,81 @@ def upvote_expression_database(
     log.info('Upvote expression SUCESSFUL')
     final_transaction.commit()
     return
+
+
+
+
+
+@transaction.atomic
+def downvote_expression_database(
+                    downvoter,
+                    expression_id,
+                ):
+    
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Downvote expression database')
+
+    prev_relation = expression.downvote_prev_check(
+                                expression_id = expression_id,
+                                downvoter = downvoter,
+                            )
+
+    graph = Graph()
+    intial_transaction = graph.cypher.begin()
+
+    if(prev_relation == 'UPVOTED'):
+        final_transaction = expression.create_downvote_rel(
+                                        transaction = intial_transaction,
+                                        expression_id = expression_id,
+                                        downvoter = downvoter,
+                                        condition = 'PREV_UPVOTE',
+                                    )
+        expression.update_downvote_count(
+                            expression_id = expression_id,
+                            condition = 'PREV_UPVOTE',
+                        )
+
+    if(prev_relation == 'DOWNVOTED'):
+        final_transaction =  expression.create_downvote_rel(
+                                        transaction = intial_transaction,
+                                        expression_id = expression_id,
+                                        downvoter = downvoter,
+                                        condition = 'PREV_DOWNVOTE',
+                                    )
+        expression.update_downvote_count(
+                            expression_id = expression_id,
+                            condition = 'PREV_DOWNVOTE',
+                        )
+
+    else:
+        if(not prev_relation):
+            final_transaction = expression.create_downvote_rel(
+                                            transaction = intial_transaction,
+                                            expression_id = expression_id,
+                                            downvoter = downvoter,
+                                        )
+            expression.update_downvote_count(
+                                expression_id = expression_id,
+                            )
+        else:
+            final_transaction = intial_transaction
+
+    try:
+        final_transaction.process()
+    except:
+        final_transaction.rollback()
+        log.info('Downvote expression FAILED')
+        raise Exception
+
+    log.info('Downvote expression SUCESSFUL')
+    final_transaction.commit()
+    return
+
+
+
+
 
 
 

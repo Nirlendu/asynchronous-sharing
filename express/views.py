@@ -96,6 +96,18 @@ def upvote(request):
 
 
 @ensure_csrf_cookie
+def downvote(request):
+	if request.method == 'POST':
+		core.downvote_expression(
+				downvoter = request.session['person_id'],
+				expression_id = request.POST.get('expression_id'),
+			)
+		return render(request, "index.html", {})
+
+
+
+
+@ensure_csrf_cookie
 def broadcast(request):
 	if request.method == 'POST':
 		topics = []

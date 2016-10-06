@@ -204,6 +204,88 @@ def update_upvote_count(
 
 
 
+def downvote_prev_check(
+			expression_id,
+			downvoter,
+		):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Prev Downvote Check')
+
+	graph = Graph()
+	x = graph.cypher.stream("MATCH (p:Person{person_id:'" + downvoter + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return type(r)")
+	for i in x:
+		if( i[0] == 'UPVOTED' or i[0] == 'DOWNVOTED'):
+			return i[0]
+	return None
+
+
+
+def create_downvote_rel(
+			transaction,
+			expression_id,
+			downvoter,
+			condition = None,
+		):
+
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Downvote create Relation')
+
+	if(not condition):
+		transaction.append("MATCH (p:Person{person_id:'" + downvoter + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }) CREATE (p)-[:DOWNVOTED]->(e)")
+		return transaction
+
+	if(condition == 'PREV_DOWNVOTE'):
+		transaction.append("MATCH (p:Person{person_id:'" + downvoter + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:DOWNVOTED]->(e) DELETE r")
+		return transaction
+
+	if(condition == 'PREV_UPVOTE'):
+		transaction.append("MATCH (p:Person{person_id:'" + downvoter + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:UPVOTED]->(e) DELETE r CREATE (p)-[:DOWNVOTED]->(e)")
+		return transaction
+
+
+
+def update_downvote_count(
+			expression_id ,
+			condition = None,
+		):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Downvote changing count')
+
+	if(not condition):
+		expressions = Expression.objects.filter(id = expression_id)
+		for expression in expressions:
+				expression.total_downvotes = expression.total_downvotes + 1
+				expression.save()
+				return
+		return
+
+	if(condition == 'PREV_DOWNVOTE'):
+		expressions = Expression.objects.filter(id = expression_id)
+		for expression in expressions:
+			expression.total_downvotes = expression.total_downvotes - 1
+			expression.save()
+			return
+		return
+
+	if(condition == 'PREV_UPVOTE'):
+		expressions = Expression.objects.filter(id = expression_id)
+		for expression in expressions:
+			expression.total_downvotes = expression.total_downvotes + 1
+			expression.total_upvotes = expression.total_upvotes - 1
+			expression.save()
+			return
+		return
+
+
+
 
 
 

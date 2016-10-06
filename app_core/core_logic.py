@@ -152,5 +152,21 @@ def upvote_expression_logic(
 				)
 
 
+def downvote_expression_logic(
+				downvoter,
+				expression_id ,
+			):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Downvote expression Logic')
+
+	return core.downvote_expression_database(
+					downvoter = downvoter,
+					expression_id = expression_id,
+				)
+
+
 
 
