@@ -4,7 +4,7 @@ import sys, inspect
 from py2neo import Graph
 from libs.logger import app_logger as log
 from django.db import transaction
-from app_core_database import new_expression, expressed_url, new_broadcast, new_discussion_expression
+from app_core_database import expression, expressed_url, broadcast, discussion_expression
 
 
 @transaction.atomic
@@ -17,6 +17,7 @@ def new_expression_database(
 			total_upvotes,
 			total_downvotes,
 			total_broadcasts,
+			total_discussions,
 			topics,
 		):
 
@@ -25,7 +26,7 @@ def new_expression_database(
 	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New Expression Core Database')
 
-	expression_id = new_expression.new_expression_insert(
+	expression_id = expression.new_expression_insert(
 										expression_owner_id = expression_owner_id, 
 										expression_content = expression_content, 
 										expression_link_id = expression_link_id, 
@@ -34,19 +35,20 @@ def new_expression_database(
 										total_upvotes = total_upvotes,
 										total_downvotes = total_downvotes,
 										total_broadcasts = total_broadcasts,
+										total_discussions = total_discussions,
 									)
 	graph = Graph()
 	intial_transaction = graph.cypher.begin()
-	expression_node_transaction = new_expression.new_expression_node(
+	expression_node_transaction = expression.new_expression_node(
 													transaction = intial_transaction,
 													expression_id = str(expression_id),
 												)
-	expression_relationship_transaction = new_expression.new_expression_relationship(
+	expression_relationship_transaction = expression.new_expression_relationship(
 															transaction = expression_node_transaction,
 															expression_node_id = str(expression_id),
 															expression_owner_id = expression_owner_id
 														)
-	final_transaction = new_expression.new_expression_topics(
+	final_transaction = expression.new_expression_topics(
 											transaction = expression_relationship_transaction,
 											topics = topics,
 											expression_node_id = str(expression_id),
@@ -116,7 +118,7 @@ def new_broadcast_database(
 	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New Broadcast database')
 
-	expression_id = new_expression.new_expression_insert(
+	expression_id = expression.new_expression_insert(
 										expression_owner_id = broadcast_owner_id, 
 										expression_content = broadcast_content, 
 										expression_link_id = expression_link_id, 
@@ -126,36 +128,39 @@ def new_broadcast_database(
 										total_downvotes = total_downvotes,
 										total_broadcasts = total_broadcasts,
 									)
+	expression.new_broadcast_update_count(
+							expression_id = discussion_parent_id,
+						)
 	graph = Graph()
 	intial_transaction = graph.cypher.begin()
-	expression_node_transaction = new_expression.new_expression_node(
+	expression_node_transaction = expression.new_expression_node(
 													transaction = intial_transaction,
 													expression_id = str(expression_id),
 												)
-	expression_relationship_transaction = new_expression.new_expression_relationship(
+	expression_relationship_transaction = expression.new_expression_relationship(
 															transaction = expression_node_transaction,
 															expression_node_id = str(expression_id),
 															expression_owner_id = broadcast_owner_id
 														)
-	new_broadcast_transaction = new_expression.new_expression_topics(
+	new_broadcast_transaction = expression.new_expression_topics(
 											transaction = expression_relationship_transaction,
 											topics = topics,
 											expression_node_id = str(expression_id),
 										)
 	# TODO
 	# MAKE THE FOLLOWING 3 QUERIES IN 1 TRANSACTION
-	is_parent_broadcast = new_broadcast.check_parent_broadcast(
+	is_parent_broadcast = broadcast.check_parent_broadcast(
 										broadcast_parent_id = broadcast_parent_id,
 									)
 
 	if(not is_parent_broadcast):
-		final_transaction = new_broadcast.new_broadcast_relation(
+		final_transaction = broadcast.new_broadcast_relation(
 										transaction = new_broadcast_transaction,
 										expression_id = str(expression_id),
 										broadcast_parent_id = broadcast_parent_id,
 									)
 	else:
-		final_transaction = new_broadcast.new_broadcast_relation(
+		final_transaction = broadcast.new_broadcast_relation(
 											transaction = new_broadcast_transaction,
 											expression_id = str(expression_id),
 											broadcast_parent_id = str(is_parent_broadcast),
@@ -189,7 +194,7 @@ def new_discussion_expression_database(
 	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 	log.debug('New discussion expression database')
 
-	discussion_expression_id = new_discussion_expression.new_discussion_expression_insert(
+	discussion_expression_id = discussion_expression.new_discussion_expression_insert(
 													discussion_parent_id = discussion_parent_id,
 													discussion_expression_owner_id = discussion_expression_owner_id, 
 													discussion_expression_content = discussion_expression_content, 
@@ -198,15 +203,18 @@ def new_discussion_expression_database(
 													total_upvotes = total_upvotes,
 													total_downvotes = total_downvotes,
 												)
+	expression.new_discussion_update_count(
+							expression_id = discussion_parent_id,
+						)
 	graph = Graph()
 	intial_transaction = graph.cypher.begin()
 
-	expression_node_transaction = new_discussion_expression.new_discussion_expression_node(
+	expression_node_transaction = discussion_expression.new_discussion_expression_node(
 																	transaction = intial_transaction,
 																	discussion_expression_id = str(discussion_expression_id),
 																)
 
-	final_transaction = new_discussion_expression.new_discussion_expression_relation(
+	final_transaction = discussion_expression.new_discussion_expression_relation(
 																	transaction = intial_transaction,
 																	discussion_expression_owner_id = discussion_expression_owner_id,
 																	discussion_expression_id = str(discussion_expression_id),
@@ -225,5 +233,16 @@ def new_discussion_expression_database(
 	
 
 
+@transaction.atomic
+def upvote_expression_database(
+					upvoter,
+					expression_id,
+				):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Upvote expression database')
 
+	return
 

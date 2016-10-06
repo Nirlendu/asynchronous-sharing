@@ -4,7 +4,7 @@ import sys, inspect
 from py2neo import Graph
 from libs.logger import app_logger as log
 from django.db import transaction
-from express.models import Discussion_Expression
+from express.models import Discussion_Expression, Expression
 
 
 def new_discussion_expression_insert(
@@ -32,6 +32,7 @@ def new_discussion_expression_insert(
 													total_downvotes = total_downvotes,
 												)
 	return discussion_expression_id
+
 
 
 

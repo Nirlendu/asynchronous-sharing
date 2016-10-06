@@ -15,6 +15,7 @@ def new_expression_logic(
 			total_upvotes,
 			total_downvotes,
 			total_broadcasts,
+			total_discussions,
 			topics,
 		):
 	# TODO 
@@ -34,6 +35,7 @@ def new_expression_logic(
 					total_upvotes = total_upvotes,
 					total_downvotes = total_downvotes,
 					total_broadcasts = total_broadcasts,
+					total_discussions = total_discussions,
 					topics = topics,
 				)
 	return
@@ -105,6 +107,7 @@ def new_broadcast_logic(
 
 
 
+
 def new_discussion_expression_logic(
 				discussion_parent_id,
 				discussion_expression_owner_id, 
@@ -129,5 +132,25 @@ def new_discussion_expression_logic(
 				total_upvotes = total_upvotes,
 				total_downvotes = total_downvotes,
 			)
+
+
+
+
+def upvote_expression_logic(
+				upvoter,
+				expression_id ,
+			):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('Upvote expression Logic')
+
+	return core.upvote_expression_database(
+					upvoter = upvoter,
+					expression_id = expression_id,
+				)
+
+
 
 

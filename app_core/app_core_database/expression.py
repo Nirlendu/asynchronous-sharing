@@ -7,6 +7,7 @@ from django.db import transaction
 from express.models import Expression
 
 
+
 def new_expression_insert(
 		expression_owner_id, 
 		expression_content, 
@@ -16,6 +17,7 @@ def new_expression_insert(
 		total_upvotes,
 		total_downvotes,
 		total_broadcasts,
+		total_discussions,
 		):
 
 	log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -32,8 +34,11 @@ def new_expression_insert(
 		total_upvotes = total_upvotes,
 		total_downvotes = total_downvotes,
 		total_broadcasts = total_broadcasts,
+		total_discussions = total_discussions,
 	)
 	return expression_id
+
+
 
 
 def new_expression_node(
@@ -50,6 +55,8 @@ def new_expression_node(
 	return transaction
 
 
+
+
 def new_expression_relationship(
 			transaction,
 			expression_node_id,
@@ -63,6 +70,43 @@ def new_expression_relationship(
 
 	transaction.append("MATCH (e:ExpressionGraph{expression_id: " + expression_node_id + " }), (p:Person{person_id: '" + expression_owner_id + "' }) CREATE (p)-[:EXPRESSED]->(e)")
 	return transaction
+
+
+
+
+def new_discussion_update_count(
+					expression_id,
+				):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('New discussion expression update count')
+
+	expressions = Expression.objects.filter(id = expression_id)
+	for expression in expressions:
+		expression.total_discussions = expression.total_discussions + 1
+		expression.save()
+		return
+	return
+
+
+def new_broadcast_update_count(
+					expression_id,
+				):
+	
+	log.info('IN - ' + sys._getframe().f_code.co_name)
+	log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+	log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+	log.debug('New discussion expression update count')
+
+	expressions = Expression.objects.filter(id = expression_id)
+	for expression in expressions:
+		expression.total_broadcasts = expression.total_broadcasts + 1
+		expression.save()
+		return
+	return
+
 
 def new_expression_topics(
 					transaction,

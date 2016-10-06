@@ -10,18 +10,6 @@ from libs.logger import app_logger as log
 from neomodel import (StructuredNode, StringProperty, IntegerProperty,
 	RelationshipTo, RelationshipFrom)
 
-# Create your models here.
-
-# class Expression(StructuredNode):
-# 	expression_id = StringProperty(unique_index=True)
-# 	expression_content = StringProperty()
-# 	expression_image = StringProperty(default='')
-# 	expression_link = StringProperty(default='')
-# 	expression_owner = RelationshipFrom(Person, 'EXPRESSED')
-# 	broadcast_owner = RelationshipFrom(Person, 'BROADCASTED')
-# 	upvoter = RelationshipFrom(Person, 'UPVOTED')
-# 	downvoter = RelationshipFrom(Person, 'DOWNVOTED')
-# 	in_topic = RelationshipTo(Topic, 'IN_TOPIC')
 
 
 class ExpressionGraph(StructuredNode):
@@ -44,6 +32,7 @@ class ExpressionManager(models.Manager):
 		total_upvotes=0,
 		total_downvotes=0,
 		total_broadcasts=0,
+		total_discussions=0,
 		):
 
 		log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -60,7 +49,8 @@ class ExpressionManager(models.Manager):
 							broadcast_parent_id = broadcast_parent_id,
 							total_upvotes = total_upvotes,
 							total_downvotes = total_downvotes,
-							total_broadcasts = total_broadcasts
+							total_broadcasts = total_broadcasts,
+							total_discussions = total_discussions,
 							)
 			return expression.id
 		except Exception:
@@ -99,6 +89,9 @@ class Expression(models.Model):
 		default = 0,
 		)
 	total_broadcasts = models.IntegerField(
+		default = 0,
+		)
+	total_discussions = models.IntegerField(
 		default = 0,
 		)
 	expression_updated = models.DateTimeField ( 

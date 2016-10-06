@@ -30,6 +30,7 @@ def get_url(text):
 		return None
 
 
+
 @ensure_csrf_cookie
 def update(request):
 	if request.method == 'POST':
@@ -61,6 +62,8 @@ def update(request):
 		return render(request, "index.html", {})
 
 
+
+
 @ensure_csrf_cookie
 def store_link(request):
 	if request.method == 'POST':
@@ -78,55 +81,65 @@ def store_link(request):
 		return render(request, template, context)
 
 
+
+
 @ensure_csrf_cookie
 def upvote(request):
-	expression_id = request.POST.get('expression_id')
-	person_id = request.session['person_id']
-	graph = Graph()
-	x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return type(r)")
-	is_exist = False
-	for i in x:
-		if i[0] == 'DOWNVOTED':
-			graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:DOWNVOTED]->(e) DELETE r CREATE (p)-[:UPVOTED]->(e)")
-			expressions = Expression.objects.filter(id = expression_id)
-			for expression in expressions:
-				expression.total_upvotes = expression.total_upvotes + 1
-				expression.total_downvotes = expression.total_downvotes - 1
-				expression.save()
-				is_exist = True
-				break
-		if i[0] == 'UPVOTED':
-			graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:UPVOTED]->(e) DELETE r")
-			expressions = Expression.objects.filter(id = expression_id)
-			for expression in expressions:
-				expression.total_upvotes = expression.total_upvotes - 1
-				expression.save()
-				is_exist = True
-				break
-	if(not is_exist):
-		graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }) CREATE (p)-[:UPVOTED]->(e)")
-		expressions = Expression.objects.filter(id = expression_id)
-		for expression in expressions:
-				expression.total_upvotes = expression.total_upvotes + 1
-				expression.save()
-				break
-	return render(request, "index.html", {})
+	if request.method == 'POST':
+		#expression_id = request.POST.get('expression_id')
+		#person_id = request.session['person_id']
+		# graph = Graph()
+		# x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return type(r)")
+		# is_exist = False
+		# for i in x:
+		# 	if i[0] == 'DOWNVOTED':
+		# 		graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:DOWNVOTED]->(e) DELETE r CREATE (p)-[:UPVOTED]->(e)")
+		# 		expressions = Expression.objects.filter(id = expression_id)
+		# 		for expression in expressions:
+		# 			expression.total_upvotes = expression.total_upvotes + 1
+		# 			expression.total_downvotes = expression.total_downvotes - 1
+		# 			expression.save()
+		# 			is_exist = True
+		# 			break
+		# 	if i[0] == 'UPVOTED':
+		# 		graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:UPVOTED]->(e) DELETE r")
+		# 		expressions = Expression.objects.filter(id = expression_id)
+		# 		for expression in expressions:
+		# 			expression.total_upvotes = expression.total_upvotes - 1
+		# 			expression.save()
+		# 			is_exist = True
+		# 			break
+		# if(not is_exist):
+		# 	graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }) CREATE (p)-[:UPVOTED]->(e)")
+		# 	expressions = Expression.objects.filter(id = expression_id)
+		# 	for expression in expressions:
+		# 			expression.total_upvotes = expression.total_upvotes + 1
+		# 			expression.save()
+		# 			break
+		core.upvote_expression(
+				upvoter = request.session['person_id'],
+				expression_id = request.POST.get('expression_id'),
+			)
+		return render(request, "index.html", {})
 
 
 
 
 @ensure_csrf_cookie
 def broadcast(request):
-	topics = []
-	if(request.POST.get('broadcast_tag')):
-		topics.append(request.POST.get('broadcast_tag'))
-	core.new_broadcast(
-					broadcast_owner_id = request.session['person_id'], 
-					broadcast_content = request.POST.get('broadcast_text'), 
-					broadcast_parent_id = request.POST.get('expression_id'),
-					topics = topics,
-				)
-	return render(request, "index.html", {})
+	if request.method == 'POST':
+		topics = []
+		if(request.POST.get('broadcast_tag')):
+			topics.append(request.POST.get('broadcast_tag'))
+		core.new_broadcast(
+						broadcast_owner_id = request.session['person_id'], 
+						broadcast_content = request.POST.get('broadcast_text'), 
+						broadcast_parent_id = request.POST.get('expression_id'),
+						topics = topics,
+					)
+		return render(request, "index.html", {})
+
+
 
 
 @ensure_csrf_cookie
