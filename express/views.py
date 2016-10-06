@@ -86,36 +86,6 @@ def store_link(request):
 @ensure_csrf_cookie
 def upvote(request):
 	if request.method == 'POST':
-		#expression_id = request.POST.get('expression_id')
-		#person_id = request.session['person_id']
-		# graph = Graph()
-		# x = graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r]->(e) return type(r)")
-		# is_exist = False
-		# for i in x:
-		# 	if i[0] == 'DOWNVOTED':
-		# 		graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:DOWNVOTED]->(e) DELETE r CREATE (p)-[:UPVOTED]->(e)")
-		# 		expressions = Expression.objects.filter(id = expression_id)
-		# 		for expression in expressions:
-		# 			expression.total_upvotes = expression.total_upvotes + 1
-		# 			expression.total_downvotes = expression.total_downvotes - 1
-		# 			expression.save()
-		# 			is_exist = True
-		# 			break
-		# 	if i[0] == 'UPVOTED':
-		# 		graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }), (p)-[r:UPVOTED]->(e) DELETE r")
-		# 		expressions = Expression.objects.filter(id = expression_id)
-		# 		for expression in expressions:
-		# 			expression.total_upvotes = expression.total_upvotes - 1
-		# 			expression.save()
-		# 			is_exist = True
-		# 			break
-		# if(not is_exist):
-		# 	graph.cypher.stream("MATCH (p:Person{person_id:'" + person_id + "'}), (e:ExpressionGraph{expression_id: " + expression_id + " }) CREATE (p)-[:UPVOTED]->(e)")
-		# 	expressions = Expression.objects.filter(id = expression_id)
-		# 	for expression in expressions:
-		# 			expression.total_upvotes = expression.total_upvotes + 1
-		# 			expression.save()
-		# 			break
 		core.upvote_expression(
 				upvoter = request.session['person_id'],
 				expression_id = request.POST.get('expression_id'),
