@@ -1,12 +1,11 @@
-from PIL import Image, ImageFile
-from sys import exit, stderr
-from os.path import getsize, isfile, isdir, join, dirname
-from os import remove, rename, walk, stat
-from stat import S_IWRITE
 from shutil import move
-from argparse import ArgumentParser
-from abc import ABCMeta, abstractmethod
- 
+from sys import stderr
+
+from PIL import Image, ImageFile
+from os import rename, stat
+from os.path import getsize, isfile, join, dirname
+from stat import S_IWRITE
+
 
 def image_upload(file):
     """Renames the specified image to a backup path,
@@ -19,7 +18,7 @@ def image_upload(file):
         if (not stat(filename)[0] & S_IWRITE):
             print 'Ignoring read-only file "' + filename + '".'
             return False
-        
+
         print filename
         # Create a backup
         backupname = filename + '.' + 'backupextension'
@@ -49,17 +48,17 @@ def image_upload(file):
             # This line avoids problems that can arise saving larger JPEG files with PIL
             ImageFile.MAXBLOCK = img.size[0] * img.size[1]
 
-            #print img.size[0]
-            #print img.size[1]
+            # print img.size[0]
+            # print img.size[1]
 
             # The 'quality' option is ignored for PNG files
-            img = img.resize((700,((img.size[1]*700)/img.size[0])), Image.ANTIALIAS)
+            img = img.resize((700, ((img.size[1] * 700) / img.size[0])), Image.ANTIALIAS)
             img.save(filename, quality=90, optimize=True)
 
         # Check that we've actually made it smaller
         origsize = getsize(backupname)
         newsize = getsize(filename)
-        #move(backupname, )
+        # move(backupname, )
 
         if newsize >= origsize:
             print 'Cannot further compress "' + filename + '".'
