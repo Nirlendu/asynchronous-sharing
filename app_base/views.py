@@ -13,7 +13,6 @@ from express.models import Expression, Link, ExpressionGraph
 from py2neo import Graph
 from django.conf import settings
 import re
-from react.render import render_component
 from libs.logger import app_logger as log
 # from feed.models import 
 #from posts.models import Posts

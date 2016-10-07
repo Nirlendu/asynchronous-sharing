@@ -1,5 +1,4 @@
 {% load staticfiles %}
-<!-- {% load render_bundle from webpack_loader %} -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +14,6 @@
 </head>
 <body>
 
-<!-- <div id="container">
-	{% render_bundle 'main' %} 
-</div>
- -->
 {% block content %}
   <div id="myapp">
   	{{ rendered_html|safe }}

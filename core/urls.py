@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls import url
 from app_base.views import index, topic, test, dev, get_index_data
 from express.views import update, store_link, upvote, downvote, broadcast, discuss
+from app_test.views import react_webpack_test, react_pre_render_test
 from django.conf.urls.static import static
 #from neo4django import admin as neo_admin
 
@@ -15,7 +16,8 @@ urlpatterns = [
 	url(r'expression/upvote/$', upvote),
 	url(r'expression/downvote/$', downvote),
 	url(r'expression/broadcast/$', broadcast),
-	url(r'test/$', test),
+	url(r'test/react-webpack-test/$', react_webpack_test),
+	url(r'test/react-pre-render-test/$', react_pre_render_test),
 	url(r'expression/discuss/$', discuss),
 	url(r'dev/$', dev),
 	url(r'api/get_index_data',get_index_data),
