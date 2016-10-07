@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'express',
     'el_pagination',
     'webpack_loader',
+    'react',
 ]
 
 MIDDLEWARE = [
@@ -159,4 +160,9 @@ WEBPACK_LOADER = {
         'BUNDLE_DIR_NAME': 'bundles/',
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
+}
+
+REACT = {
+    'RENDER': True,
+    'RENDER_URL': 'http://127.0.0.1:9009',
 }
