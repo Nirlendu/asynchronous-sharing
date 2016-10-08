@@ -52,7 +52,7 @@
 
 
 		{% if entry.broadcast_of %}
-			<div class="well-custom well-broadcast feed-express-area">
+			<div class="well-custom feed-express-area">
 			<div class = "feed-express-header">
 				<div class = "feed-express-profile-img">
 				<div class="feed-express-profile-image-resize">
@@ -70,9 +70,9 @@
 				</div>
 				</div>
 			</div>
-			<div class = "feed-express-body broadcast-body">
-				<div class = "feed-express-contents broadcast-content">
-				<div class="feed-express-text-box broadcast-text-box">
+			<div class = "feed-express-body">
+				<div class = "well feed-express-contents">
+				<div class="feed-express-text-box">
 					{{entry.broadcast_of.expression_content}}
 				</div>
 
@@ -106,29 +106,20 @@
 
 		</div> 
 	</div>
-
 	<div class = "feed-express-footer">
 		<div class = "well feed-express-action">
 		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
 		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' onclick="discussModal('{{entry}}')" id="discuss{{entry.expression_id}}" class='btn btn-feed-express btn-discuss btn-primary btn-sm' value='Discuss'/>
+		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
 		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
 		</div>
 	</div>
 	</div>
 
-	<script type="text/javascript">
-		function discussModal(dict){
-			//console.log('IN HERE' + dict);
-			var property = document.getElementById("discuss" + dict.expression_id);
-			//property.style.data-target = "'#broadcastModal" + dict + "'";
 
-
-		}
-	</script>
 
 	<!-- Modal 1 -->
-	<div class="modal fade" id="broadcastModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="broadcastModal{{entry.expression_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

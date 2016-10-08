@@ -5,7 +5,6 @@
 	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-	<title>Feed</title>
 	<link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
 	<link rel="stylesheet" href=" {% static 'css/index-page.css' %}">
@@ -219,6 +218,9 @@
 		{% include page_template %}
 
 		{% block js %}
+		    <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+		    <!-- <script src="{{ STATIC_URL }}js/endless-pagination.js"></script> -->
+		    <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
 		    <script src="{% static 'js/el-pagination.js' %}"></script>
 		    <script>
 		    	$.endlessPaginate({
@@ -232,7 +234,6 @@
 		
 		function upvoteExpression(expression_id){
 			event.preventDefault();
-			event.stopPropagation();
 			var csrftoken = $.cookie('csrftoken');
 		
 			function csrfSafeMethod(method) {
