@@ -15,6 +15,19 @@ from libs.image_processor import compressimages
 from libs.logger import app_logger as log
 
 
+def get_expressions(
+            person_id,
+        ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Fetching expressions interface..')
+
+    return core.get_expressions_logic(
+        person_id=person_id,
+    )
+
+
 def new_upload_file(file_content):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -38,7 +51,7 @@ def new_expression(
         total_broadcasts=0,
         total_discussions=0,
         topics=[],
-):
+    ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))

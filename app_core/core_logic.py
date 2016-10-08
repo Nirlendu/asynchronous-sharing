@@ -7,6 +7,31 @@ import core_database as core
 from libs.logger import app_logger as log
 
 
+def get_expressions_logic(
+                person_id,
+            ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Get Expressions Logic')
+
+    # TODO
+    # Get stuff from discover
+
+    expressions_ids = core.get_expressions_database(
+        person_id=person_id,
+    )
+
+    # Rank stuff here using all expression_ids and the weight of each
+
+    # Assuming sorted expression_ids
+    # expressions = core.get_expressions_database(
+    #     expressions_ids=expressions_ids,
+    # )
+
+    return expressions
+
+
 def new_expression_logic(
         expression_owner_id,
         expression_content,

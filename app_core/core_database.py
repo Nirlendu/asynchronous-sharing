@@ -6,8 +6,100 @@ import sys
 from django.db import transaction
 from py2neo import Graph
 
-from app_core_database import expression, expressed_url, broadcast, discussion_expression
+from app_core_database import expression, expressed_url, broadcast, discussion_expression, get_expressions
 from libs.logger import app_logger as log
+
+
+@transaction.atomic
+def get_expressions_database(
+                person_id,
+            ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Get Expression Core Database')
+
+    # TODO
+    # people = get_the_people_followed(
+    #           person_id = person_id,
+    # )
+
+    # TODO
+    # channels = get_the_channels_followed(
+    #               person_id = person_id,
+    # )
+
+    # For the time being
+    people = [person_id]
+    streams = ['naarada']
+
+    expressions = get_expressions.get_expressions(
+        people=people,
+        streams=streams,
+    )
+
+    if expressions:
+        for expression in expressions:
+            pass
+
+    return None
+
+
+
+# def get_index_data(request):
+#     entry = []
+#     graph = Graph()
+#     express = graph.cypher.stream(
+#         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(t:Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[
+#             'person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+#     # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+#     for record in express:
+#         expressions = Expression.objects.filter(id=record[0]['expression_id'])
+#         for expression in expressions:
+#             a = {}
+#             a['expression_id'] = expression.id
+#             a['expression_owner'] = expression.expression_owner_id
+#             a['expression_content'] = expression.expression_content
+#             a['expression_image'] = expression.expression_imagefile
+#             # expression_link
+#             # expression_link_title
+#             # parent_domain
+#             if (expression.expression_link_id != None):
+#                 entries = Link.objects.filter(id=expression.expression_link_id)
+#                 for x in entries:
+#                     a['expression_link'] = x.link_url
+#                     a['expression_link_title'] = x.link_name
+#                     a['expression_link_image'] = x.link_image
+#                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
+#                         0]
+#
+#             q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(
+#                 expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+#             if (q):
+#                 # print 'SHARED!'
+#                 for x in q:
+#                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
+#                     for broadcast in broadcasts:
+#                         b = {}
+#                         b['expression_id'] = broadcast.id
+#                         b['expression_owner'] = broadcast.expression_owner_id
+#                         b['expression_content'] = broadcast.expression_content
+#                         b['expression_image'] = broadcast.expression_imagefile
+#                         if (broadcast.expression_link_id != None):
+#                             entries = Link.objects.filter(id=broadcast.expression_link_id)
+#                             for x in entries:
+#                                 # print 'IT DOES HAVE LINKS!'
+#                                 b['expression_link'] = x.link_url
+#                                 b['expression_link_title'] = x.link_name
+#                                 b['expression_link_image'] = x.link_image
+#                                 b['parent_domain'] = \
+#                                 re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+#                     a['broadcast_of'] = b
+#
+#             entry.append(a)
+#     return entry
+
+
 
 
 @transaction.atomic
@@ -124,7 +216,7 @@ def new_broadcast_database(
         total_broadcasts=total_broadcasts,
     )
     expression.new_broadcast_update_count(
-        expression_id=discussion_parent_id,
+        expression_id=broadcast_parent_id,
     )
     graph = Graph()
     intial_transaction = graph.cypher.begin()
@@ -167,7 +259,7 @@ def new_broadcast_database(
         log.info('New Broadcast creating FAILED')
         raise Exception
 
-    log.info('New Broadcast creating SUCESSFUL')
+    log.info('New Broadcast creating SUCCESSFUL')
     final_transaction.commit()
     return
 
@@ -209,7 +301,7 @@ def new_discussion_expression_database(
     )
 
     final_transaction = discussion_expression.new_discussion_expression_relation(
-        transaction=intial_transaction,
+        transaction=expression_node_transaction,
         discussion_expression_owner_id=discussion_expression_owner_id,
         discussion_expression_id=str(discussion_expression_id),
         discussion_parent_id=discussion_parent_id,
