@@ -9,7 +9,7 @@ from django.db import models
 # from neomodel import (StructuredNode, IntegerProperty,
 #                       RelationshipTo, RelationshipFrom)
 
-from app_base.models import Person, Topic
+#from app_base.models import Person, Topic
 from libs.logger import app_logger as log
 
 
