@@ -29,7 +29,6 @@ python-dateutil==2.2
 react==3.0.1
 redis==2.10.5
 requests==2.7.0
-svn==0.3.36
 ujson==1.35
 uWSGI==2.0.13.1
 virtualenv==15.0.3
