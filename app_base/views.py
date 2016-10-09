@@ -10,6 +10,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from py2neo import Graph
 
 from express.models import Expression, Link
+from py2neo import ServiceRoot
 from libs.logger import app_logger as log
 
 # from feed.models import
@@ -72,7 +73,9 @@ def index(request, template="index.html", page_template="feed.html"):
 
 def get_index_data(request):
     entry = []
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
+    #graph = Graph()
     express = graph.cypher.stream(
         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[
             'person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
