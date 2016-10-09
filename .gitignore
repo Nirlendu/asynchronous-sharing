@@ -1,6 +1,7 @@
 *.pyc
 *.rdb
 *.idea
+*keypair*
 erl_crash*
 media/
 database
