@@ -156,7 +156,17 @@ WEBPACK_LOADER = {
     }
 }
 
+# For the react lib for server side webpage rendering
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
+
+# For message brokers in Celery - Using Rabbit MQ now
+BROKER_URL = 'amqp://nirlendu:nirlendu@localhost:5672/vhost'
+
+# Some temp setting, will come back to this later
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'

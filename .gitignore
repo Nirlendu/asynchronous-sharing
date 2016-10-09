@@ -1,6 +1,7 @@
 *.pyc
 *.rdb
 *.idea
+erl_crash*
 media/
 database
 .DS_Store

@@ -6,6 +6,9 @@ import inspect
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
+from celery.task.schedules import crontab
+from celery.decorators import periodic_task
+
 from app_core import core_interface as core
 
 from libs.logger import app_logger as log
@@ -35,6 +38,14 @@ def init_session(request):
 
     return
 
+
+# A periodic task that will run every minute (the symbol "*" means every)
+@periodic_task(run_every=(crontab(hour="*", minute="*", day_of_week="*")))
+def celery_test():
+    log.info('Celery task started')
+    # now = datetime.now()
+    # result = scrapers.scraper_example(now.day, now.minute)
+    # logger.info("Task finished: result = %i" % result)
 
 @ensure_csrf_cookie
 def index(request, template="index.html", page_template="feed.html"):
