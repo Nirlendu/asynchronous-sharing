@@ -15,7 +15,7 @@ def info(log_string):
     try:
         init()
     except:
-        file = open('logs/app.log', 'w')
+        file = open('logs/app.log', 'w+')
         file.close()
         init()
     logging.info('########### ' + log_string + ' ###########')
@@ -26,7 +26,7 @@ def debug(log_string):
     try:
         init()
     except:
-        file = open('logs/app.log', 'w')
+        file = open('logs/app.log', 'w+')
         file.close()
         init()
     logging.debug('########### ' + log_string + ' ###########')
@@ -37,7 +37,7 @@ def exception(log_string):
     try:
         init()
     except:
-        file = open('logs/app.log', 'w')
+        file = open('logs/app.log', 'w+')
         file.close()
         init()
     logging.exception('########### ' + log_string + ' ###########')
