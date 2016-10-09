@@ -15,7 +15,8 @@ def info(log_string):
     try:
         init()
     except:
-        touch 'logs/app.log'
+        file = open('logs/app.log', 'w')
+        file.close()
     logging.info('########### ' + log_string + ' ###########')
     return
 
@@ -24,7 +25,8 @@ def debug(log_string):
     try:
         init()
     except:
-        touch 'logs/app.log'
+        file = open('logs/app.log', 'w')
+        file.close()
     logging.debug('########### ' + log_string + ' ###########')
     return
 
@@ -33,6 +35,7 @@ def exception(log_string):
     try:
         init()
     except:
-        touch 'logs/app.log'
+        file = open('logs/app.log', 'w')
+        file.close()
     logging.exception('########### ' + log_string + ' ###########')
     return
