@@ -1,11 +1,12 @@
 *.pyc
 *.rdb
 *.idea
+env/
 media/
+*keypair*
+*erl_crash*
 database
 .DS_Store
-env/
-requirements.txt
 var/
 server_logs/
 logs/
