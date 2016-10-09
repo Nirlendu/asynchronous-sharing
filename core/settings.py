@@ -93,9 +93,9 @@ DATABASES = {
 
 NEO4J_DATABASES = {
     'default': {
-        'HOST': 'localhost',
-        'PORT': 7474,
-        'ENDPOINT': '/db/data'
+        'HOST': 'app57701423-8gEB8r:J2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com',
+        'PORT': 24789,
+        'ENDPOINT': ''
     }
 }
 
