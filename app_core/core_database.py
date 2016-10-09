@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import inspect
-import sys
+import sys, os
 
 from django.db import transaction
-from py2neo import Graph
+from py2neo import Graph, ServiceRoot
 
 from app_core_database import expression, expressed_url, broadcast, discussion_expression
 from libs.logger import app_logger as log
@@ -39,7 +39,8 @@ def new_expression_database(
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
     )
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -126,7 +127,8 @@ def new_broadcast_database(
     expression.new_broadcast_update_count(
         expression_id=discussion_parent_id,
     )
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -200,7 +202,8 @@ def new_discussion_expression_database(
     expression.new_discussion_update_count(
         expression_id=discussion_parent_id,
     )
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
     intial_transaction = graph.cypher.begin()
 
     expression_node_transaction = discussion_expression.new_discussion_expression_node(
@@ -241,7 +244,8 @@ def upvote_expression_database(
         upvoter=upvoter,
     )
 
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
     intial_transaction = graph.cypher.begin()
 
     if (prev_relation == 'UPVOTED'):
@@ -308,7 +312,8 @@ def downvote_expression_database(
         downvoter=downvoter,
     )
 
-    graph = Graph()
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+    graph = ServiceRoot(graphenedb_url).graph
     intial_transaction = graph.cypher.begin()
 
     if (prev_relation == 'UPVOTED'):
