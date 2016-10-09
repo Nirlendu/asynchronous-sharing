@@ -9,7 +9,6 @@ media/
 .DS_Store
 var/
 server_logs/
-app.log
 dependencies/
 webpack-stats*
 node_modules/
