@@ -5,7 +5,6 @@ media/
 *env/
 *keypair*
 *erl_crash*
-database
 .DS_Store
 var/
 server_logs/
