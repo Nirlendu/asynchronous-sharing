@@ -1,7 +1,7 @@
 *.pyc
 *.rdb
 *.idea
-env/
+*env/
 media/
 *keypair*
 *erl_crash*
