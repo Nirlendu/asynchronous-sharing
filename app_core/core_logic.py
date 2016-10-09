@@ -29,7 +29,8 @@ def get_expressions_logic(
     #     expressions_ids=expressions_ids,
     # )
 
-    return expressions
+    #TODO ONLY FOR TESTING!
+    return core.get_index_data(person_id)
 
 
 def new_expression_logic(

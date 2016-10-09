@@ -9,6 +9,8 @@ from py2neo import Graph
 from app_core_database import expression, expressed_url, broadcast, discussion_expression, get_expressions
 from libs.logger import app_logger as log
 
+# TODO Remove this!
+from express.models import Expression
 
 @transaction.atomic
 def get_expressions_database(
@@ -45,59 +47,55 @@ def get_expressions_database(
     return None
 
 
+# TODO Only for testing!
+def get_index_data( person_id):
+    entry = []
+    graph = Graph()
+    express = graph.cypher.stream(
+        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(t:Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
+    for record in express:
+        expressions = Expression.objects.filter(id=record[0]['expression_id'])
+        for expression in expressions:
+            a = {}
+            a['expression_id'] = expression.id
+            a['expression_owner'] = expression.expression_owner_id
+            a['expression_content'] = expression.expression_content
+            a['expression_image'] = expression.expression_imagefile
+            # expression_link
+            # expression_link_title
+            # parent_domain
+            if (expression.expression_link_id != None):
+                entries = Link.objects.filter(id=expression.expression_link_id)
+                for x in entries:
+                    a['expression_link'] = x.link_url
+                    a['expression_link_title'] = x.link_name
+                    a['expression_link_image'] = x.link_image
+                    a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
+                        0]
 
-# def get_index_data(request):
-#     entry = []
-#     graph = Graph()
-#     express = graph.cypher.stream(
-#         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(t:Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[
-#             'person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
-#     # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
-#     for record in express:
-#         expressions = Expression.objects.filter(id=record[0]['expression_id'])
-#         for expression in expressions:
-#             a = {}
-#             a['expression_id'] = expression.id
-#             a['expression_owner'] = expression.expression_owner_id
-#             a['expression_content'] = expression.expression_content
-#             a['expression_image'] = expression.expression_imagefile
-#             # expression_link
-#             # expression_link_title
-#             # parent_domain
-#             if (expression.expression_link_id != None):
-#                 entries = Link.objects.filter(id=expression.expression_link_id)
-#                 for x in entries:
-#                     a['expression_link'] = x.link_url
-#                     a['expression_link_title'] = x.link_name
-#                     a['expression_link_image'] = x.link_image
-#                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
-#                         0]
-#
-#             q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(
-#                 expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-#             if (q):
-#                 # print 'SHARED!'
-#                 for x in q:
-#                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
-#                     for broadcast in broadcasts:
-#                         b = {}
-#                         b['expression_id'] = broadcast.id
-#                         b['expression_owner'] = broadcast.expression_owner_id
-#                         b['expression_content'] = broadcast.expression_content
-#                         b['expression_image'] = broadcast.expression_imagefile
-#                         if (broadcast.expression_link_id != None):
-#                             entries = Link.objects.filter(id=broadcast.expression_link_id)
-#                             for x in entries:
-#                                 # print 'IT DOES HAVE LINKS!'
-#                                 b['expression_link'] = x.link_url
-#                                 b['expression_link_title'] = x.link_name
-#                                 b['expression_link_image'] = x.link_image
-#                                 b['parent_domain'] = \
-#                                 re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
-#                     a['broadcast_of'] = b
-#
-#             entry.append(a)
-#     return entry
+            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(
+                expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+            if (q):
+                for x in q:
+                    broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
+                    for broadcast in broadcasts:
+                        b = {}
+                        b['expression_id'] = broadcast.id
+                        b['expression_owner'] = broadcast.expression_owner_id
+                        b['expression_content'] = broadcast.expression_content
+                        b['expression_image'] = broadcast.expression_imagefile
+                        if (broadcast.expression_link_id != None):
+                            entries = Link.objects.filter(id=broadcast.expression_link_id)
+                            for x in entries:
+                                b['expression_link'] = x.link_url
+                                b['expression_link_title'] = x.link_name
+                                b['expression_link_image'] = x.link_image
+                                b['parent_domain'] = \
+                                re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+                    a['broadcast_of'] = b
+
+            entry.append(a)
+    return entry
 
 
 
