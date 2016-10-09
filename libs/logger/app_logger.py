@@ -12,18 +12,27 @@ def init():
 
 
 def info(log_string):
-    #init()
-    #logging.info('########### ' + log_string + ' ###########')
+    try:
+        init()
+    except:
+        touch 'logs/app.log'
+    logging.info('########### ' + log_string + ' ###########')
     return
 
 
 def debug(log_string):
-    #init()
-    #logging.debug('########### ' + log_string + ' ###########')
+    try:
+        init()
+    except:
+        touch 'logs/app.log'
+    logging.debug('########### ' + log_string + ' ###########')
     return
 
 
 def exception(log_string):
-    #init()
-    #logging.exception('########### ' + log_string + ' ###########')
+    try:
+        init()
+    except:
+        touch 'logs/app.log'
+    logging.exception('########### ' + log_string + ' ###########')
     return
