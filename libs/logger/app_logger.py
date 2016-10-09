@@ -12,18 +12,18 @@ def init():
 
 
 def info(log_string):
-    init()
-    logging.info('########### ' + log_string + ' ###########')
+    #init()
+    #logging.info('########### ' + log_string + ' ###########')
     return
 
 
 def debug(log_string):
-    init()
-    logging.debug('########### ' + log_string + ' ###########')
+    #init()
+    #logging.debug('########### ' + log_string + ' ###########')
     return
 
 
 def exception(log_string):
-    init()
-    logging.exception('########### ' + log_string + ' ###########')
+    #init()
+    #logging.exception('########### ' + log_string + ' ###########')
     return
