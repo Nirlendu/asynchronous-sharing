@@ -100,11 +100,11 @@ def get_index_data(request):
                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
                         0]
 
-            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(
-                expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
             if (q):
-                # print 'SHARED!'
+                #print 'SHARED!'
                 for x in q:
+                    #print 'ID ARE: ' + str(x[0]['expression_id'])
                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
                     for broadcast in broadcasts:
                         b = {}
@@ -126,7 +126,7 @@ def get_index_data(request):
                                 b['expression_link_title'] = x.link_name
                                 b['expression_link_image'] = x.link_image
                                 b['parent_domain'] = \
-                                re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+                                    re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
                     a['broadcast_of'] = b
 
             entry.append(a)

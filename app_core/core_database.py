@@ -107,6 +107,7 @@ def new_broadcast_database(
         total_upvotes,
         total_downvotes,
         total_broadcasts,
+        total_discussions,
         topics,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -123,9 +124,10 @@ def new_broadcast_database(
         total_upvotes=total_upvotes,
         total_downvotes=total_downvotes,
         total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
     )
     expression.new_broadcast_update_count(
-        expression_id=discussion_parent_id,
+        expression_id=broadcast_parent_id,
     )
     graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
@@ -141,8 +143,8 @@ def new_broadcast_database(
     )
     new_broadcast_transaction = expression.new_expression_topics(
         transaction=expression_relationship_transaction,
-        topics=topics,
         expression_node_id=str(expression_id),
+        topics=topics,
     )
     # TODO
     # MAKE THE FOLLOWING 3 QUERIES IN 1 TRANSACTION
