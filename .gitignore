@@ -3,6 +3,8 @@
 *.idea
 *heroku_*
 *env/
+runtime.txt
+*npm_debug*
 *keypair*
 *erl_crash*
 database
