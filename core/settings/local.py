@@ -145,7 +145,6 @@ WEBPACK_LOADER = {
     }
 }
 
-<<<<<<< HEAD:core/settings.py
 # For the react lib for server side webpage rendering
 REACT = {
     'RENDER': True,
@@ -160,7 +159,7 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kolkata'
-=======
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
 
 os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
@@ -170,4 +169,3 @@ REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
->>>>>>> deploy-heroku:core/settings/local.py

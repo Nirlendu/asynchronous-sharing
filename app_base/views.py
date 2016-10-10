@@ -9,7 +9,6 @@ import re, os
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 

@@ -18,8 +18,9 @@ def check_parent_broadcast(
 
     graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
-    is_parent_broadcast = graph.cypher.stream(
-        "MATCH (p:ExpressionGraph{expression_id: " + broadcast_parent_id + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+
+    query = "MATCH (p:ExpressionGraph{expression_id:{broadcast_parent_id}}), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e"
+    is_parent_broadcast = graph.cypher.stream(query, parameters={'broadcast_parent_id': broadcast_parent_id})
     for each in is_parent_broadcast:
         return each[0]['expression_id']
     return None

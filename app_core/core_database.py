@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import inspect
-import sys, os
+import sys, os, re
 
 from django.db import transaction
 from py2neo import Graph, ServiceRoot
@@ -10,7 +10,7 @@ from app_core_database import expression, expressed_url, broadcast, discussion_e
 from libs.logger import app_logger as log
 
 # TODO Remove this!
-from express.models import Expression
+from express.models import Expression, Link
 
 @transaction.atomic
 def get_expressions_database(
@@ -32,30 +32,29 @@ def get_expressions_database(
     # )
 
     # For the time being
-    people = [person_id]
-    streams = ['naarada']
+    # people = [person_id]
+    # streams = ['naarada']
+    #
+    # expressions = get_expressions.get_expressions(
+    #     people=people,
+    #     streams=streams,
+    # )
+    #
+    # if expressions:
+    #     for expression in expressions:
+    #         pass
 
-    expressions = get_expressions.get_expressions(
-        people=people,
-        streams=streams,
-    )
-
-    if expressions:
-        for expression in expressions:
-            pass
-
-    return None
+    return get_index_data(person_id)
 
 
 # TODO Only for testing!
-def get_index_data( person_id):
+def get_index_data(person_id):
     entry = []
     graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     # graph = Graph()
     express = graph.cypher.stream(
-        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[
-            'person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
     # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
     for record in express:
         expressions = Expression.objects.filter(id=record[0]['expression_id'])
@@ -254,7 +253,7 @@ def new_broadcast_database(
         broadcast_parent_id=broadcast_parent_id,
     )
 
-    if (not is_parent_broadcast):
+    if not is_parent_broadcast:
         final_transaction = broadcast.new_broadcast_relation(
             transaction=new_broadcast_transaction,
             expression_id=str(expression_id),
@@ -352,7 +351,7 @@ def upvote_expression_database(
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
-    if (prev_relation == 'UPVOTED'):
+    if prev_relation == 'UPVOTED':
         final_transaction = expression.create_upvote_rel(
             transaction=intial_transaction,
             expression_id=expression_id,
@@ -364,7 +363,7 @@ def upvote_expression_database(
             condition='PREV_UPVOTE',
         )
 
-    if (prev_relation == 'DOWNVOTED'):
+    if prev_relation == 'DOWNVOTED':
         final_transaction = expression.create_upvote_rel(
             transaction=intial_transaction,
             expression_id=expression_id,
@@ -377,7 +376,7 @@ def upvote_expression_database(
         )
 
     else:
-        if (not prev_relation):
+        if not prev_relation:
             final_transaction = expression.create_upvote_rel(
                 transaction=intial_transaction,
                 expression_id=expression_id,
@@ -420,7 +419,7 @@ def downvote_expression_database(
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
-    if (prev_relation == 'UPVOTED'):
+    if prev_relation == 'UPVOTED':
         final_transaction = expression.create_downvote_rel(
             transaction=intial_transaction,
             expression_id=expression_id,
@@ -432,7 +431,7 @@ def downvote_expression_database(
             condition='PREV_UPVOTE',
         )
 
-    if (prev_relation == 'DOWNVOTED'):
+    if prev_relation == 'DOWNVOTED':
         final_transaction = expression.create_downvote_rel(
             transaction=intial_transaction,
             expression_id=expression_id,
@@ -445,7 +444,7 @@ def downvote_expression_database(
         )
 
     else:
-        if (not prev_relation):
+        if not prev_relation:
             final_transaction = expression.create_downvote_rel(
                 transaction=intial_transaction,
                 expression_id=expression_id,
