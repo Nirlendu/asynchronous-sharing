@@ -8,11 +8,10 @@ database
 .DS_Store
 *heroku_*
 *env/
-requirements.txt
 *heroku_*
 *env/
 runtime.txt
-*npm_debug*
+*npm_debug.log
 *keypair*
 *erl_crash*
 database
