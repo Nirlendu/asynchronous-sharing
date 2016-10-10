@@ -4,7 +4,7 @@ import inspect
 import sys
 
 from django.db import transaction
-from py2neo import Graph
+from py2neo import Graph, ServiceRoot
 
 from app_core_database import expression, expressed_url, broadcast, discussion_expression, get_expressions
 from libs.logger import app_logger as log
@@ -50,9 +50,13 @@ def get_expressions_database(
 # TODO Only for testing!
 def get_index_data( person_id):
     entry = []
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
+    # graph = Graph()
     express = graph.cypher.stream(
-        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(t:Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
+        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[
+            'person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
+    # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
     for record in express:
         expressions = Expression.objects.filter(id=record[0]['expression_id'])
         for expression in expressions:
@@ -73,10 +77,12 @@ def get_index_data( person_id):
                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
                         0]
 
-            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: " + str(
-                expression.id) + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(
+                expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
             if (q):
+                # print 'SHARED!'
                 for x in q:
+                    # print 'ID ARE: ' + str(x[0]['expression_id'])
                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
                     for broadcast in broadcasts:
                         b = {}
@@ -84,19 +90,25 @@ def get_index_data( person_id):
                         b['expression_owner'] = broadcast.expression_owner_id
                         b['expression_content'] = broadcast.expression_content
                         b['expression_image'] = broadcast.expression_imagefile
+                        # expression_link
+                        # expression_link_title
+                        # parent_domain
+                        # print 'Link ID' + str(broadcast.expression_link_id)
+                        # print 'broadcast conent' + str(broadcast.expression_content)
                         if (broadcast.expression_link_id != None):
+                            print 'IT DOES HAVE LINKS!'
                             entries = Link.objects.filter(id=broadcast.expression_link_id)
                             for x in entries:
+                                # print 'IT DOES HAVE LINKS!'
                                 b['expression_link'] = x.link_url
                                 b['expression_link_title'] = x.link_name
                                 b['expression_link_image'] = x.link_image
                                 b['parent_domain'] = \
-                                re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+                                    re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
                     a['broadcast_of'] = b
 
             entry.append(a)
     return entry
-
 
 
 
@@ -129,7 +141,8 @@ def new_expression_database(
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
     )
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -196,6 +209,7 @@ def new_broadcast_database(
         total_upvotes,
         total_downvotes,
         total_broadcasts,
+        total_discussions,
         topics,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -212,11 +226,13 @@ def new_broadcast_database(
         total_upvotes=total_upvotes,
         total_downvotes=total_downvotes,
         total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
     )
     expression.new_broadcast_update_count(
         expression_id=broadcast_parent_id,
     )
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -229,8 +245,8 @@ def new_broadcast_database(
     )
     new_broadcast_transaction = expression.new_expression_topics(
         transaction=expression_relationship_transaction,
-        topics=topics,
         expression_node_id=str(expression_id),
+        topics=topics,
     )
     # TODO
     # MAKE THE FOLLOWING 3 QUERIES IN 1 TRANSACTION
@@ -257,7 +273,7 @@ def new_broadcast_database(
         log.info('New Broadcast creating FAILED')
         raise Exception
 
-    log.info('New Broadcast creating SUCCESSFUL')
+    log.info('New Broadcast creating SUCESSFUL')
     final_transaction.commit()
     return
 
@@ -290,7 +306,8 @@ def new_discussion_expression_database(
     expression.new_discussion_update_count(
         expression_id=discussion_parent_id,
     )
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
     expression_node_transaction = discussion_expression.new_discussion_expression_node(
@@ -331,7 +348,8 @@ def upvote_expression_database(
         upvoter=upvoter,
     )
 
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
     if (prev_relation == 'UPVOTED'):
@@ -398,7 +416,8 @@ def downvote_expression_database(
         downvoter=downvoter,
     )
 
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
     if (prev_relation == 'UPVOTED'):

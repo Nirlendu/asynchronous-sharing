@@ -6,7 +6,8 @@ erl_crash*
 media/
 database
 .DS_Store
-env/
+*heroku_*
+*env/
 requirements.txt
 var/
 server_logs/
