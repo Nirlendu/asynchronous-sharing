@@ -3050,3 +3050,199 @@ TypeError: cannot concatenate 'str' and 'int' objects
 2016-10-10 22:19:45,779 py2neo.cypher INFO stream (u'e',)
 2016-10-10 22:19:46,56 django.request WARNING Not Found: /None
 2016-10-10 22:19:46,158 django.request WARNING Not Found: /None
+2016-10-10 22:57:39,138 root INFO ########### Fetching index page ###########
+2016-10-10 22:57:39,153 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 22:57:39,153 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,153 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,153 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,156 httpstream INFO < 200 OK [730]
+2016-10-10 22:57:39,156 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,156 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,156 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,156 httpstream DEBUG < content-length: 730
+2016-10-10 22:57:39,156 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,156 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 22:57:39,157 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 22:57:39,157 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,157 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,157 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,157 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,161 httpstream INFO < 200 OK [7924]
+2016-10-10 22:57:39,161 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,161 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,161 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,161 httpstream DEBUG < content-length: 7924
+2016-10-10 22:57:39,161 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,164 py2neo.cypher INFO stream (u'n',)
+2016-10-10 22:57:39,167 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,167 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,167 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,167 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,167 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,167 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,172 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,172 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,172 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,172 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,172 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,172 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,172 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,176 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,176 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,176 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,176 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,177 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,177 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,180 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,180 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,180 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,180 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,180 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,180 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,181 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,184 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,185 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,185 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,185 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,185 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,185 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,188 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,188 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,188 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,188 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,188 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,188 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,189 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,194 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '24' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,195 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,195 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,195 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,195 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,195 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,198 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,198 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,198 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,198 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,198 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,198 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,199 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,203 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '22' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,204 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,204 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,204 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,204 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,204 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,206 httpstream INFO < 200 OK [41]
+2016-10-10 22:57:39,206 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,206 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,206 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,206 httpstream DEBUG < content-length: 41
+2016-10-10 22:57:39,206 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,207 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,208 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '18' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,209 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,209 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,209 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,209 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,209 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,212 httpstream INFO < 200 OK [41]
+2016-10-10 22:57:39,212 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,212 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,212 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,212 httpstream DEBUG < content-length: 41
+2016-10-10 22:57:39,212 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,212 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,755 root INFO ########### Fetching index page ###########
+2016-10-10 22:57:39,763 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 22:57:39,763 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 22:57:39,763 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,763 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,763 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,763 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,770 httpstream INFO < 200 OK [7924]
+2016-10-10 22:57:39,770 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,770 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,770 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,770 httpstream DEBUG < content-length: 7924
+2016-10-10 22:57:39,770 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,771 py2neo.cypher INFO stream (u'n',)
+2016-10-10 22:57:39,774 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,775 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,775 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,775 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,775 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,775 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,779 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,779 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,779 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,779 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,779 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,779 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,780 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,783 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,784 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,784 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,784 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,784 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,784 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,787 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,787 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,788 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,788 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,788 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,788 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,788 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,792 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,792 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,792 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,792 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,792 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,792 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,794 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,794 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,795 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,795 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,795 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,795 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,795 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,801 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '24' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,801 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,801 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,801 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,801 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,801 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,805 httpstream INFO < 200 OK [1354]
+2016-10-10 22:57:39,805 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,805 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,805 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,805 httpstream DEBUG < content-length: 1354
+2016-10-10 22:57:39,805 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,805 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,810 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '22' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,810 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,810 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,810 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,810 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,810 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,813 httpstream INFO < 200 OK [41]
+2016-10-10 22:57:39,813 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,813 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,814 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,814 httpstream DEBUG < content-length: 41
+2016-10-10 22:57:39,814 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,814 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:39,816 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '18' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-10 22:57:39,816 httpstream INFO > POST http://localhost:7474/db/data/cypher [127]
+2016-10-10 22:57:39,816 httpstream DEBUG > Host: localhost:7474
+2016-10-10 22:57:39,816 httpstream DEBUG > Content-Type: application/json
+2016-10-10 22:57:39,816 httpstream DEBUG > X-Stream: true
+2016-10-10 22:57:39,816 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 22:57:39,819 httpstream INFO < 200 OK [41]
+2016-10-10 22:57:39,819 httpstream DEBUG < date: Mon, 10 Oct 2016 17:27:39 GMT
+2016-10-10 22:57:39,819 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 22:57:39,819 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 22:57:39,819 httpstream DEBUG < content-length: 41
+2016-10-10 22:57:39,820 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 22:57:39,820 py2neo.cypher INFO stream (u'e',)
+2016-10-10 22:57:40,69 django.request WARNING Not Found: /None
+2016-10-10 22:57:40,193 django.request WARNING Not Found: /None

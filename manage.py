@@ -4,18 +4,6 @@ import sys
 import os
 
 if __name__ == "__main__":
-    #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.local")
-    if os.environ['DJANGO_SETTINGS_MODULE'] == 'core.settings.local':
-        try:
-            os.environ['GRAPH_DATABASE_URL']
-        except:
-            os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
-        try:
-            os.environ['DATABASE_URL']
-        except:
-            os.environ['DATABASE_URL'] = 'localhost'
-    if os.environ['DJANGO_SETTINGS_MODULE'] == 'core.settings.heroku':
-        os.environ['GRAPHDB_URL'] = os.environ['GRAPHENEDB_URL']
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

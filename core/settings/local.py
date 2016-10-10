@@ -145,6 +145,9 @@ WEBPACK_LOADER = {
     }
 }
 
+os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
+os.environ['DATABASE_URL'] = 'localhost'
+
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
