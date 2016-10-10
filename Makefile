@@ -1,5 +1,6 @@
 init-env:
 	virtualenv env --system-site-packages
+
 server-start:
 	python manage.py collectstatic
 	sudo nginx

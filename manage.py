@@ -15,15 +15,7 @@ if __name__ == "__main__":
         except:
             os.environ['DATABASE_URL'] = 'localhost'
     if os.environ['DJANGO_SETTINGS_MODULE'] == 'core.settings.heroku':
-        try:
-            os.environ['GRAPH_DATABASE_URL']
-        except:
-            try:
-                os.environ['GRAPH_DATABASE_URL'] = os.environ['GRAPHENEDB_URL']
-            except:
-                raise Exception
-        if not os.environ['DATABASE_URL']:
-            raise Exception
+        os.environ['GRAPH_DATABASE_URL'] = os.environ['GRAPHENEDB_URL']
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
