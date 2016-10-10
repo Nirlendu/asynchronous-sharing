@@ -86,10 +86,33 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'database'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'the_thing',
+        'USER':'nirlendu',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends',
+#         'NAME': 'django',
+#         'USER':'xdgbebuaffmylf',
+#         'PASSWORD':'-G28-m_dPleL-QkJIegucz_sAL',
+#         'HOST': 'ec2-54-225-81-90.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#         'ENDPOINT': 'dg5hjgkck37rr'
+#     }
+# }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'postgres://xdgbebuaffmylf:-G28-m_dPleL-QkJIegucz_sAL@ec2-54-225-81-90.compute-1.amazonaws.com:5432/dg5hjgkck37rr',
+#         'NAME' : os.path.join(BASE_DIR, 'database'),
+#     }
+# }
 
 NEO4J_DATABASES = {
     'default': {

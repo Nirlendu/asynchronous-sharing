@@ -6,6 +6,7 @@ django-webpack-loader==0.3.3
 enum==0.4.6
 gunicorn==19.6.0
 kombu==3.0.37
+psycopg2==2.6.2
 python-resize-image==1.1.10
 librabbitmq==1.6.1
 lucene-querybuilder==0.2

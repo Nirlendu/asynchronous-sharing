@@ -63,7 +63,7 @@ def new_expression_relationship(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('New Expression Node Owner Relation')
 
-    query = "MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:'expression_owner_id'})"\
+    query = "MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}})"\
             " CREATE (p)-[:EXPRESSED]->(e)"
 
     transaction.append(query, parameters={'expression_node_id': expression_node_id,
@@ -116,7 +116,7 @@ def new_expression_topics(
     log.debug('New Expression Node Stream Relation')
 
     for stream in topics:
-        query = "MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:'{stream}'}) " \
+        query = "MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) " \
                 "CREATE (e)-[:IN_TOPIC]->(t)"
         transaction.append(query, parameters={'expression_node_id': expression_node_id, 'stream': stream})
 
@@ -134,7 +134,7 @@ def upvote_prev_check(
 
     graph = Graph()
     x = graph.cypher.stream(
-        "MATCH (p:Person{person_id:'{upvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}), "
+        "MATCH (p:Person{person_id:{upvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), "
         "(p)-[r]->(e)"
         "return type(r)"
         , parameters={'upvoter': upvoter, 'expression_id': expression_id}
@@ -158,16 +158,16 @@ def create_upvote_rel(
     log.debug('Upvote create Relation')
 
     if not condition:
-        query = "MATCH (p:Person{person_id:'{upvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}) " \
+        query = "MATCH (p:Person{person_id:{upvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}) " \
                 "CREATE (p)-[:UPVOTED]->(e)"
 
     if condition == 'PREV_UPVOTE':
-        query = "MATCH (p:Person{person_id:'{upvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
+        query = "MATCH (p:Person{person_id:{upvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
                 "(p)-[r:UPVOTED]->(e) " \
                 "DELETE r"
 
     if condition == 'PREV_DOWNVOTE':
-        query = "MATCH (p:Person{person_id:'{upvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
+        query = "MATCH (p:Person{person_id:{upvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
                 "(p)-[r:DOWNVOTED]->(e) " \
                 "DELETE r " \
                 "CREATE (p)-[:UPVOTED]->(e)"
@@ -222,7 +222,7 @@ def downvote_prev_check(
 
     graph = Graph()
     x = graph.cypher.stream(
-        "MATCH (p:Person{person_id:'{downvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}), "
+        "MATCH (p:Person{person_id:{downvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), "
         "(p)-[r]->(e) "
         "return type(r)"
         , parameters={'downvoter': downvoter, 'expression_id': expression_id}
@@ -245,16 +245,16 @@ def create_downvote_rel(
     log.debug('Downvote create Relation')
 
     if not condition:
-        query = "MATCH (p:Person{person_id:'{downvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}) " \
+        query = "MATCH (p:Person{person_id:{downvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}) " \
                 "CREATE (p)-[:DOWNVOTED]->(e)"
 
     if condition == 'PREV_DOWNVOTE':
-        query = "MATCH (p:Person{person_id:'{downvoter}'}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
+        query = "MATCH (p:Person{person_id:{downvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), " \
                 "(p)-[r:DOWNVOTED]->(e) " \
                 "DELETE r"
 
     if condition == 'PREV_UPVOTE':
-        query = "MATCH (p:Person{person_id:'{downvoter}'), (e:ExpressionGraph{expression_id:{expression_id}), " \
+        query = "MATCH (p:Person{person_id:{downvoter}), (e:ExpressionGraph{expression_id:{expression_id}), " \
                 "(p)-[r:UPVOTED]->(e) " \
                 "DELETE r " \
                 "CREATE (p)-[:DOWNVOTED]->(e)"
