@@ -153,6 +153,8 @@ REACT = {
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.heroku'
+
 os.environ['GRAPHDB_URL'] = os.environ['GRAPHENEDB_URL']
 
 import dj_database_url
