@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 
 # Quick-start development settings - unsuitable for production
@@ -29,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*", ]
 
 # Application definition
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +75,9 @@ TEMPLATES = [
     },
 ]
 
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'templates'),
+# )
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
@@ -83,8 +88,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'the_thing',
-        'USER':'nirlendu',
-        'HOST': 'localhost',
     }
 }
 
@@ -149,3 +152,6 @@ REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()

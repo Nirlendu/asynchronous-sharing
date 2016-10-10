@@ -73,7 +73,7 @@ def index(request, template="index.html", page_template="feed.html"):
 
 def get_index_data(request):
     entry = []
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     #graph = Graph()
     express = graph.cypher.stream(

@@ -39,7 +39,7 @@ def new_expression_database(
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
     )
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
@@ -127,7 +127,7 @@ def new_broadcast_database(
     expression.new_broadcast_update_count(
         expression_id=discussion_parent_id,
     )
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
@@ -202,7 +202,7 @@ def new_discussion_expression_database(
     expression.new_discussion_update_count(
         expression_id=discussion_parent_id,
     )
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
@@ -244,7 +244,7 @@ def upvote_expression_database(
         upvoter=upvoter,
     )
 
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 
@@ -312,7 +312,7 @@ def downvote_expression_database(
         downvoter=downvoter,
     )
 
-    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graphdb_url = os.environ.get('GRAPHDB_URL')
     graph = ServiceRoot(graphdb_url).graph
     intial_transaction = graph.cypher.begin()
 

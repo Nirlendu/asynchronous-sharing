@@ -3,7 +3,7 @@
 import inspect
 import sys
 
-from py2neo import Graph
+from py2neo import Graph, ServiceRoot
 
 from libs.logger import app_logger as log
 
@@ -16,7 +16,8 @@ def check_parent_broadcast(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Checking parent broadcast')
 
-    graph = Graph()
+    graphdb_url = os.environ.get('GRAPHDB_URL')
+    graph = ServiceRoot(graphdb_url).graph
     is_parent_broadcast = graph.cypher.stream(
         "MATCH (p:ExpressionGraph{expression_id: " + broadcast_parent_id + " }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
     for each in is_parent_broadcast:
