@@ -4,7 +4,7 @@ import sys
 import os
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.local")
+    #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.local")
     if os.environ['DJANGO_SETTINGS_MODULE'] == 'core.settings.local':
         try:
             os.environ['GRAPH_DATABASE_URL']
