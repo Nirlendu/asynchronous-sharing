@@ -73,8 +73,8 @@ def index(request, template="index.html", page_template="feed.html"):
 
 def get_index_data(request):
     entry = []
-    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
-    graph = ServiceRoot(graphenedb_url).graph
+    graphdb_url = os.environ.get('GRAPH_DATABASE_URL')
+    graph = ServiceRoot(graphdb_url).graph
     #graph = Graph()
     express = graph.cypher.stream(
         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + request.session[

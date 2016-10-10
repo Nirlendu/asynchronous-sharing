@@ -72,7 +72,7 @@ class Expression(models.Model):
         null=True,
     )
     expression_imagefile = models.CharField(
-        max_length=30,
+        max_length=50,
         default=None,
         null=True,
     )

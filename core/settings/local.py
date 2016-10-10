@@ -15,8 +15,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
+BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -89,14 +88,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-# NEO4J_DATABASES = {
-#     'default': {
-#         'HOST': 'app57701423-8gEB8r:J2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com',
-#         'PORT': 24789,
-#         'ENDPOINT': ''
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

@@ -16,7 +16,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
+BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -75,10 +75,6 @@ TEMPLATES = [
     },
 ]
 
-# TEMPLATE_DIRS = (
-#     os.path.join(BASE_DIR, 'templates'),
-# )
-
 WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
@@ -94,25 +90,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends',
-#         'NAME': 'django',
-#         'USER':'xdgbebuaffmylf',
-#         'PASSWORD':'-G28-m_dPleL-QkJIegucz_sAL',
-#         'HOST': 'ec2-54-225-81-90.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#         'ENDPOINT': 'dg5hjgkck37rr'
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'postgres://xdgbebuaffmylf:-G28-m_dPleL-QkJIegucz_sAL@ec2-54-225-81-90.compute-1.amazonaws.com:5432/dg5hjgkck37rr',
-#         'NAME' : os.path.join(BASE_DIR, 'database'),
-#     }
-# }
 
 NEO4J_DATABASES = {
     'default': {

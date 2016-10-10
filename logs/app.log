@@ -2189,3 +2189,1377 @@ Traceback (most recent call last):
   File "/Library/Python/2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
     with io.open(origin.name, encoding=self.engine.file_charset) as fp:
 IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 18:33:43,972 root INFO ########### Fetching index page ###########
+2016-10-10 18:33:43,992 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 18:33:43,992 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:33:43,992 httpstream DEBUG > X-Stream: true
+2016-10-10 18:33:43,992 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:33:44,3 httpstream INFO < 200 OK [730]
+2016-10-10 18:33:44,3 httpstream DEBUG < date: Mon, 10 Oct 2016 13:03:43 GMT
+2016-10-10 18:33:44,3 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:33:44,3 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:33:44,3 httpstream DEBUG < content-length: 730
+2016-10-10 18:33:44,3 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:33:44,4 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 18:33:44,4 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 18:33:44,4 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:33:44,4 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:33:44,4 httpstream DEBUG > X-Stream: true
+2016-10-10 18:33:44,4 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:33:44,20 httpstream INFO < 200 OK [2666]
+2016-10-10 18:33:44,20 httpstream DEBUG < date: Mon, 10 Oct 2016 13:03:44 GMT
+2016-10-10 18:33:44,21 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:33:44,21 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:33:44,21 httpstream DEBUG < content-length: 2666
+2016-10-10 18:33:44,21 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:33:44,28 py2neo.cypher INFO stream (u'n',)
+2016-10-10 18:33:44,32 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:33:44,32 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:33:44,32 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:33:44,32 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:33:44,33 httpstream DEBUG > X-Stream: true
+2016-10-10 18:33:44,33 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:33:44,41 httpstream INFO < 200 OK [41]
+2016-10-10 18:33:44,41 httpstream DEBUG < date: Mon, 10 Oct 2016 13:03:44 GMT
+2016-10-10 18:33:44,41 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:33:44,41 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:33:44,41 httpstream DEBUG < content-length: 41
+2016-10-10 18:33:44,41 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:33:44,42 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:33:44,44 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:33:44,44 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:33:44,44 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:33:44,44 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:33:44,44 httpstream DEBUG > X-Stream: true
+2016-10-10 18:33:44,44 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:33:44,47 httpstream INFO < 200 OK [41]
+2016-10-10 18:33:44,47 httpstream DEBUG < date: Mon, 10 Oct 2016 13:03:44 GMT
+2016-10-10 18:33:44,47 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:33:44,47 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:33:44,47 httpstream DEBUG < content-length: 41
+2016-10-10 18:33:44,47 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:33:44,48 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:33:44,56 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 71, in index
+    return render(request, template, context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: index.html
+2016-10-10 18:34:56,784 root INFO ########### Fetching index page ###########
+2016-10-10 18:34:56,798 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 18:34:56,799 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 18:34:56,799 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:34:56,799 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:34:56,799 httpstream DEBUG > X-Stream: true
+2016-10-10 18:34:56,799 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:34:56,804 httpstream INFO < 200 OK [2666]
+2016-10-10 18:34:56,804 httpstream DEBUG < date: Mon, 10 Oct 2016 13:04:56 GMT
+2016-10-10 18:34:56,804 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:34:56,804 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:34:56,804 httpstream DEBUG < content-length: 2666
+2016-10-10 18:34:56,804 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:34:56,805 py2neo.cypher INFO stream (u'n',)
+2016-10-10 18:34:56,807 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:34:56,807 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:34:56,808 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:34:56,808 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:34:56,808 httpstream DEBUG > X-Stream: true
+2016-10-10 18:34:56,808 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:34:56,811 httpstream INFO < 200 OK [41]
+2016-10-10 18:34:56,811 httpstream DEBUG < date: Mon, 10 Oct 2016 13:04:56 GMT
+2016-10-10 18:34:56,812 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:34:56,812 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:34:56,812 httpstream DEBUG < content-length: 41
+2016-10-10 18:34:56,812 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:34:56,812 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:34:56,814 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:34:56,814 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:34:56,814 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:34:56,815 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:34:56,815 httpstream DEBUG > X-Stream: true
+2016-10-10 18:34:56,815 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:34:56,818 httpstream INFO < 200 OK [41]
+2016-10-10 18:34:56,818 httpstream DEBUG < date: Mon, 10 Oct 2016 13:04:56 GMT
+2016-10-10 18:34:56,818 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:34:56,818 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:34:56,818 httpstream DEBUG < content-length: 41
+2016-10-10 18:34:56,818 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:34:56,818 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:34:56,819 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 71, in index
+    return render(request, template, context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: index.html
+2016-10-10 18:36:15,233 root INFO ########### Fetching index page ###########
+2016-10-10 18:36:15,244 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 18:36:15,244 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:36:15,244 httpstream DEBUG > X-Stream: true
+2016-10-10 18:36:15,244 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:36:15,249 httpstream INFO < 200 OK [730]
+2016-10-10 18:36:15,249 httpstream DEBUG < date: Mon, 10 Oct 2016 13:06:15 GMT
+2016-10-10 18:36:15,249 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:36:15,249 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:36:15,249 httpstream DEBUG < content-length: 730
+2016-10-10 18:36:15,249 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:36:15,250 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 18:36:15,250 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 18:36:15,250 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:36:15,250 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:36:15,250 httpstream DEBUG > X-Stream: true
+2016-10-10 18:36:15,250 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:36:15,254 httpstream INFO < 200 OK [2666]
+2016-10-10 18:36:15,254 httpstream DEBUG < date: Mon, 10 Oct 2016 13:06:15 GMT
+2016-10-10 18:36:15,254 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:36:15,254 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:36:15,254 httpstream DEBUG < content-length: 2666
+2016-10-10 18:36:15,254 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:36:15,255 py2neo.cypher INFO stream (u'n',)
+2016-10-10 18:36:15,258 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:36:15,258 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:36:15,258 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:36:15,258 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:36:15,258 httpstream DEBUG > X-Stream: true
+2016-10-10 18:36:15,258 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:36:15,262 httpstream INFO < 200 OK [41]
+2016-10-10 18:36:15,262 httpstream DEBUG < date: Mon, 10 Oct 2016 13:06:15 GMT
+2016-10-10 18:36:15,262 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:36:15,262 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:36:15,262 httpstream DEBUG < content-length: 41
+2016-10-10 18:36:15,262 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:36:15,263 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:36:15,265 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:36:15,265 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:36:15,265 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:36:15,266 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:36:15,266 httpstream DEBUG > X-Stream: true
+2016-10-10 18:36:15,266 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:36:15,269 httpstream INFO < 200 OK [41]
+2016-10-10 18:36:15,269 httpstream DEBUG < date: Mon, 10 Oct 2016 13:06:15 GMT
+2016-10-10 18:36:15,269 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:36:15,269 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:36:15,269 httpstream DEBUG < content-length: 41
+2016-10-10 18:36:15,269 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:36:15,269 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:36:15,275 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 71, in index
+    return render(request, template, context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: index.html
+2016-10-10 18:39:46,896 root INFO ########### Fetching index page ###########
+2016-10-10 18:39:46,908 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 18:39:46,908 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:39:46,908 httpstream DEBUG > X-Stream: true
+2016-10-10 18:39:46,908 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:39:46,915 httpstream INFO < 200 OK [730]
+2016-10-10 18:39:46,915 httpstream DEBUG < date: Mon, 10 Oct 2016 13:09:46 GMT
+2016-10-10 18:39:46,915 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:39:46,915 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:39:46,915 httpstream DEBUG < content-length: 730
+2016-10-10 18:39:46,915 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:39:46,915 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 18:39:46,916 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 18:39:46,916 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:39:46,916 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:39:46,916 httpstream DEBUG > X-Stream: true
+2016-10-10 18:39:46,916 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:39:46,919 httpstream INFO < 200 OK [2666]
+2016-10-10 18:39:46,920 httpstream DEBUG < date: Mon, 10 Oct 2016 13:09:46 GMT
+2016-10-10 18:39:46,920 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:39:46,920 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:39:46,920 httpstream DEBUG < content-length: 2666
+2016-10-10 18:39:46,920 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:39:46,923 py2neo.cypher INFO stream (u'n',)
+2016-10-10 18:39:46,926 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:39:46,927 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:39:46,927 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:39:46,927 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:39:46,927 httpstream DEBUG > X-Stream: true
+2016-10-10 18:39:46,927 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:39:46,931 httpstream INFO < 200 OK [41]
+2016-10-10 18:39:46,931 httpstream DEBUG < date: Mon, 10 Oct 2016 13:09:46 GMT
+2016-10-10 18:39:46,931 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:39:46,931 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:39:46,931 httpstream DEBUG < content-length: 41
+2016-10-10 18:39:46,931 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:39:46,932 py2neo.cypher INFO stream (u'e',)
+2016-10-10 18:39:46,934 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 18:39:46,934 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 18:39:46,934 httpstream DEBUG > Host: localhost:7474
+2016-10-10 18:39:46,934 httpstream DEBUG > Content-Type: application/json
+2016-10-10 18:39:46,934 httpstream DEBUG > X-Stream: true
+2016-10-10 18:39:46,934 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 18:39:46,937 httpstream INFO < 200 OK [41]
+2016-10-10 18:39:46,937 httpstream DEBUG < date: Mon, 10 Oct 2016 13:09:46 GMT
+2016-10-10 18:39:46,937 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 18:39:46,937 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 18:39:46,937 httpstream DEBUG < content-length: 41
+2016-10-10 18:39:46,937 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 18:39:46,938 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:11:58,462 root INFO ########### Fetching index page ###########
+2016-10-10 19:11:58,485 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 19:11:58,485 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,486 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,486 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,490 httpstream INFO < 200 OK [730]
+2016-10-10 19:11:58,490 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,490 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,490 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,490 httpstream DEBUG < content-length: 730
+2016-10-10 19:11:58,490 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,490 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:11:58,490 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:11:58,490 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,490 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,491 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,491 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,494 httpstream INFO < 200 OK [2666]
+2016-10-10 19:11:58,494 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,494 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,495 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,495 httpstream DEBUG < content-length: 2666
+2016-10-10 19:11:58,495 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,496 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:11:58,499 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:11:58,500 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:11:58,500 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,500 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,500 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,500 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,504 httpstream INFO < 200 OK [41]
+2016-10-10 19:11:58,504 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,505 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,505 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,505 httpstream DEBUG < content-length: 41
+2016-10-10 19:11:58,505 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,505 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:11:58,508 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:11:58,509 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:11:58,509 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,509 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,509 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,509 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,511 httpstream INFO < 200 OK [41]
+2016-10-10 19:11:58,511 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,512 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,512 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,512 httpstream DEBUG < content-length: 41
+2016-10-10 19:11:58,512 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,512 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:11:58,893 root INFO ########### Fetching index page ###########
+2016-10-10 19:11:58,900 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:11:58,900 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:11:58,901 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,901 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,901 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,901 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,905 httpstream INFO < 200 OK [2666]
+2016-10-10 19:11:58,906 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,906 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,906 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,906 httpstream DEBUG < content-length: 2666
+2016-10-10 19:11:58,906 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,906 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:11:58,908 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:11:58,909 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:11:58,909 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,909 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,909 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,909 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,912 httpstream INFO < 200 OK [41]
+2016-10-10 19:11:58,912 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,912 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,912 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,912 httpstream DEBUG < content-length: 41
+2016-10-10 19:11:58,913 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,913 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:11:58,915 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:11:58,915 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:11:58,915 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:11:58,915 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:11:58,915 httpstream DEBUG > X-Stream: true
+2016-10-10 19:11:58,915 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:11:58,918 httpstream INFO < 200 OK [41]
+2016-10-10 19:11:58,918 httpstream DEBUG < date: Mon, 10 Oct 2016 13:41:58 GMT
+2016-10-10 19:11:58,918 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:11:58,918 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:11:58,918 httpstream DEBUG < content-length: 41
+2016-10-10 19:11:58,918 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:11:58,918 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:12:31,931 root DEBUG ########### Uploaded file check ###########
+2016-10-10 19:12:31,944 root INFO ########### IN - new_expression ###########
+2016-10-10 19:12:31,945 root INFO ########### FROM - update ###########
+2016-10-10 19:12:31,945 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:31,945 root DEBUG ########### New Expression Interface ###########
+2016-10-10 19:12:31,945 root INFO ########### IN - new_expression_logic ###########
+2016-10-10 19:12:31,945 root INFO ########### FROM - new_expression ###########
+2016-10-10 19:12:31,945 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:31,945 root DEBUG ########### New Expression Logic ###########
+2016-10-10 19:12:31,945 root INFO ########### IN - new_expression_database ###########
+2016-10-10 19:12:31,946 root INFO ########### FROM - inner ###########
+2016-10-10 19:12:31,946 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:31,946 root DEBUG ########### New Expression Core Database ###########
+2016-10-10 19:12:31,946 root INFO ########### IN - new_expression_insert ###########
+2016-10-10 19:12:31,946 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:31,946 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_link_id': None, 'expression_imagefile': None, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:31,946 root DEBUG ########### New Expression Insert Operation ###########
+2016-10-10 19:12:31,946 root INFO ########### IN - store_expression ###########
+2016-10-10 19:12:31,946 root INFO ########### FROM - new_expression_insert ###########
+2016-10-10 19:12:31,946 root INFO ########### HAS - ArgInfo(args=['self', 'expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_link_id': None, 'expression_imagefile': None, 'self': <express.models.ExpressionManager object at 0x10eab5550>, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:31,947 root DEBUG ########### Expression create operation ###########
+2016-10-10 19:12:31,951 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 19:12:31,951 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:31,952 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:31,952 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:31,956 httpstream INFO < 200 OK [730]
+2016-10-10 19:12:31,957 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:31 GMT
+2016-10-10 19:12:31,957 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:31,957 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:31,957 httpstream DEBUG < content-length: 730
+2016-10-10 19:12:31,957 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:31,957 py2neo.cypher INFO begin
+2016-10-10 19:12:31,958 root INFO ########### IN - new_expression_node ###########
+2016-10-10 19:12:31,958 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:31,958 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_id'], varargs=None, keywords=None, locals={'expression_id': '8', 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10f890b90>}) ###########
+2016-10-10 19:12:31,958 root DEBUG ########### New Expression Node Creation ###########
+2016-10-10 19:12:31,958 py2neo.cypher INFO append u'CREATE (a:ExpressionGraph{expression_id:{expression_id}})' {'expression_id': '8'}
+2016-10-10 19:12:31,958 root INFO ########### IN - new_expression_relationship ###########
+2016-10-10 19:12:31,958 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:31,958 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_node_id', 'expression_owner_id'], varargs=None, keywords=None, locals={'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10f890b90>, 'expression_owner_id': u'asd123', 'expression_node_id': '8'}) ###########
+2016-10-10 19:12:31,958 root DEBUG ########### New Expression Node Owner Relation ###########
+2016-10-10 19:12:31,958 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}}) CREATE (p)-[:EXPRESSED]->(e)' {'expression_node_id': '8', 'expression_owner_id': u'asd123'}
+2016-10-10 19:12:31,959 root INFO ########### IN - new_expression_topics ###########
+2016-10-10 19:12:31,959 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:31,959 root INFO ########### HAS - ArgInfo(args=['transaction', 'topics', 'expression_node_id'], varargs=None, keywords=None, locals={'topics': [u'naarada'], 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10f890b90>, 'expression_node_id': '8'}) ###########
+2016-10-10 19:12:31,959 root DEBUG ########### New Expression Node Stream Relation ###########
+2016-10-10 19:12:31,959 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) CREATE (e)-[:IN_TOPIC]->(t)' {'expression_node_id': '8', 'stream': u'naarada'}
+2016-10-10 19:12:31,959 py2neo.cypher INFO process
+2016-10-10 19:12:31,960 httpstream INFO > POST http://localhost:7474/db/data/transaction [628]
+2016-10-10 19:12:31,960 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:31,960 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:31,960 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:31,960 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:31,977 httpstream INFO < 201 Created [224]
+2016-10-10 19:12:31,977 httpstream DEBUG < content-length: 224
+2016-10-10 19:12:31,978 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:31,978 httpstream DEBUG < location: http://localhost:7474/db/data/transaction/206
+2016-10-10 19:12:31,978 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:31 GMT
+2016-10-10 19:12:31,978 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:31,978 httpstream DEBUG < content-type: application/json
+2016-10-10 19:12:31,978 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:31,978 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:31,978 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:31,978 root INFO ########### New expression creating SUCCESS ###########
+2016-10-10 19:12:31,978 py2neo.cypher INFO commit
+2016-10-10 19:12:31,978 httpstream INFO > POST http://localhost:7474/db/data/transaction/206/commit [17]
+2016-10-10 19:12:31,978 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:31,979 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:31,979 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:31,979 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:32,17 httpstream INFO < 200 OK [26]
+2016-10-10 19:12:32,17 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:31 GMT
+2016-10-10 19:12:32,17 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:32,17 httpstream DEBUG < content-type: application/json
+2016-10-10 19:12:32,17 httpstream DEBUG < content-length: 26
+2016-10-10 19:12:32,17 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:32,29 django.request ERROR Internal Server Error: /express/update/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 49, in update
+    return render(request, "index.html", {})
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:12:33,244 root INFO ########### Fetching index page ###########
+2016-10-10 19:12:33,252 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:12:33,252 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:12:33,252 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:33,252 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:33,252 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:33,253 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:33,257 httpstream INFO < 200 OK [3979]
+2016-10-10 19:12:33,257 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:33 GMT
+2016-10-10 19:12:33,257 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:33,257 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:33,257 httpstream DEBUG < content-length: 3979
+2016-10-10 19:12:33,257 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:33,258 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:12:33,260 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 8 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:12:33,260 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:12:33,261 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:33,261 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:33,261 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:33,261 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:33,278 httpstream INFO < 200 OK [41]
+2016-10-10 19:12:33,278 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:33 GMT
+2016-10-10 19:12:33,278 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:33,278 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:33,278 httpstream DEBUG < content-length: 41
+2016-10-10 19:12:33,278 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:33,279 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:12:33,281 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 7 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:12:33,281 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:12:33,281 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:33,281 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:33,281 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:33,281 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:33,283 httpstream INFO < 200 OK [41]
+2016-10-10 19:12:33,284 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:33 GMT
+2016-10-10 19:12:33,284 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:33,284 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:33,284 httpstream DEBUG < content-length: 41
+2016-10-10 19:12:33,284 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:33,284 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:12:33,287 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 6 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:12:33,287 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:12:33,287 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:33,287 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:33,287 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:33,287 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:33,289 httpstream INFO < 200 OK [41]
+2016-10-10 19:12:33,289 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:33 GMT
+2016-10-10 19:12:33,289 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:33,289 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:33,289 httpstream DEBUG < content-length: 41
+2016-10-10 19:12:33,289 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:33,290 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:12:53,827 root DEBUG ########### Uploaded file check ###########
+2016-10-10 19:12:53,828 root INFO ########### IN - new_upload_file ###########
+2016-10-10 19:12:53,828 root INFO ########### FROM - update ###########
+2016-10-10 19:12:53,828 root INFO ########### HAS - ArgInfo(args=['file_content'], varargs=None, keywords=None, locals={'file_content': <InMemoryUploadedFile: DSC_0652.JPG (image/jpeg)>}) ###########
+2016-10-10 19:12:53,828 root DEBUG ########### File Uploading.. ###########
+2016-10-10 19:12:54,687 root INFO ########### IN - new_expression ###########
+2016-10-10 19:12:54,687 root INFO ########### FROM - update ###########
+2016-10-10 19:12:54,687 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': u'/media/upload/upload_i1p5ZTQ.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:54,687 root DEBUG ########### New Expression Interface ###########
+2016-10-10 19:12:54,687 root INFO ########### IN - new_expression_logic ###########
+2016-10-10 19:12:54,687 root INFO ########### FROM - new_expression ###########
+2016-10-10 19:12:54,687 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': u'/media/upload/upload_i1p5ZTQ.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:54,687 root DEBUG ########### New Expression Logic ###########
+2016-10-10 19:12:54,687 root INFO ########### IN - new_expression_database ###########
+2016-10-10 19:12:54,687 root INFO ########### FROM - inner ###########
+2016-10-10 19:12:54,687 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_imagefile': u'/media/upload/upload_i1p5ZTQ.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:54,687 root DEBUG ########### New Expression Core Database ###########
+2016-10-10 19:12:54,687 root INFO ########### IN - new_expression_insert ###########
+2016-10-10 19:12:54,687 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:54,687 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_link_id': None, 'expression_imagefile': u'/media/upload/upload_i1p5ZTQ.jpg', 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:54,688 root DEBUG ########### New Expression Insert Operation ###########
+2016-10-10 19:12:54,688 root INFO ########### IN - store_expression ###########
+2016-10-10 19:12:54,688 root INFO ########### FROM - new_expression_insert ###########
+2016-10-10 19:12:54,688 root INFO ########### HAS - ArgInfo(args=['self', 'expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'refactoring check!', 'expression_link_id': None, 'expression_imagefile': u'/media/upload/upload_i1p5ZTQ.jpg', 'self': <express.models.ExpressionManager object at 0x10eab5550>, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:12:54,688 root DEBUG ########### Expression create operation ###########
+2016-10-10 19:12:54,691 root ERROR ########### Could not create Expression ###########
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/express/models.py", line 54, in store_expression
+    total_discussions=total_discussions,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 399, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 908, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 947, in _do_insert
+    using=using, raw=raw)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1045, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1054, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+DataError: value too long for type character varying(30)
+
+2016-10-10 19:12:54,697 py2neo.cypher INFO begin
+2016-10-10 19:12:54,697 root INFO ########### IN - new_expression_node ###########
+2016-10-10 19:12:54,697 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:54,697 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_id'], varargs=None, keywords=None, locals={'expression_id': 'None', 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10fd69c50>}) ###########
+2016-10-10 19:12:54,697 root DEBUG ########### New Expression Node Creation ###########
+2016-10-10 19:12:54,697 py2neo.cypher INFO append u'CREATE (a:ExpressionGraph{expression_id:{expression_id}})' {'expression_id': 'None'}
+2016-10-10 19:12:54,697 root INFO ########### IN - new_expression_relationship ###########
+2016-10-10 19:12:54,697 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:54,697 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_node_id', 'expression_owner_id'], varargs=None, keywords=None, locals={'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10fd69c50>, 'expression_owner_id': u'asd123', 'expression_node_id': 'None'}) ###########
+2016-10-10 19:12:54,697 root DEBUG ########### New Expression Node Owner Relation ###########
+2016-10-10 19:12:54,697 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}}) CREATE (p)-[:EXPRESSED]->(e)' {'expression_node_id': 'None', 'expression_owner_id': u'asd123'}
+2016-10-10 19:12:54,698 root INFO ########### IN - new_expression_topics ###########
+2016-10-10 19:12:54,698 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:12:54,698 root INFO ########### HAS - ArgInfo(args=['transaction', 'topics', 'expression_node_id'], varargs=None, keywords=None, locals={'topics': [u'naarada'], 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x10fd69c50>, 'expression_node_id': 'None'}) ###########
+2016-10-10 19:12:54,698 root DEBUG ########### New Expression Node Stream Relation ###########
+2016-10-10 19:12:54,698 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) CREATE (e)-[:IN_TOPIC]->(t)' {'expression_node_id': 'None', 'stream': u'naarada'}
+2016-10-10 19:12:54,698 py2neo.cypher INFO process
+2016-10-10 19:12:54,698 httpstream INFO > POST http://localhost:7474/db/data/transaction [637]
+2016-10-10 19:12:54,698 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:54,698 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:54,698 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:54,698 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:54,714 httpstream INFO < 201 Created [224]
+2016-10-10 19:12:54,714 httpstream DEBUG < content-length: 224
+2016-10-10 19:12:54,714 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:54,714 httpstream DEBUG < location: http://localhost:7474/db/data/transaction/207
+2016-10-10 19:12:54,714 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:54 GMT
+2016-10-10 19:12:54,714 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:54,714 httpstream DEBUG < content-type: application/json
+2016-10-10 19:12:54,715 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:54,715 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:54,715 py2neo.cypher INFO result [] 0
+2016-10-10 19:12:54,715 root INFO ########### New expression creating SUCCESS ###########
+2016-10-10 19:12:54,715 py2neo.cypher INFO commit
+2016-10-10 19:12:54,715 httpstream INFO > POST http://localhost:7474/db/data/transaction/207/commit [17]
+2016-10-10 19:12:54,715 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:54,715 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:54,715 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:54,715 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:54,743 httpstream INFO < 200 OK [26]
+2016-10-10 19:12:54,743 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:54 GMT
+2016-10-10 19:12:54,743 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:54,743 httpstream DEBUG < content-type: application/json
+2016-10-10 19:12:54,743 httpstream DEBUG < content-length: 26
+2016-10-10 19:12:54,743 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:54,752 django.request ERROR Internal Server Error: /express/update/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 49, in update
+    return render(request, "index.html", {})
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:12:56,10 root INFO ########### Fetching index page ###########
+2016-10-10 19:12:56,19 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:12:56,20 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:12:56,20 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:12:56,20 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:12:56,20 httpstream DEBUG > X-Stream: true
+2016-10-10 19:12:56,20 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:12:56,66 httpstream INFO < 200 OK [5295]
+2016-10-10 19:12:56,66 httpstream DEBUG < date: Mon, 10 Oct 2016 13:42:56 GMT
+2016-10-10 19:12:56,66 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:12:56,66 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:12:56,66 httpstream DEBUG < content-length: 5295
+2016-10-10 19:12:56,66 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:12:56,67 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:12:56,68 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 63, in index
+    entry = get_index_data(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 84, in get_index_data
+    expressions = Expression.objects.filter(id=record[0]['expression_id'])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 796, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 814, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1083, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/lookups.py", line 59, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'None'
+2016-10-10 19:14:06,390 root INFO ########### Fetching index page ###########
+2016-10-10 19:14:06,399 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:14:06,400 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:14:06,400 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:14:06,400 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:14:06,400 httpstream DEBUG > X-Stream: true
+2016-10-10 19:14:06,400 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:14:06,406 httpstream INFO < 200 OK [5295]
+2016-10-10 19:14:06,406 httpstream DEBUG < date: Mon, 10 Oct 2016 13:44:06 GMT
+2016-10-10 19:14:06,406 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:14:06,406 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:14:06,406 httpstream DEBUG < content-length: 5295
+2016-10-10 19:14:06,406 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:14:06,407 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:14:06,408 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 63, in index
+    entry = get_index_data(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 84, in get_index_data
+    expressions = Expression.objects.filter(id=record[0]['expression_id'])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 796, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 814, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1083, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/lookups.py", line 59, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'None'
+2016-10-10 19:20:47,293 root INFO ########### Fetching index page ###########
+2016-10-10 19:20:47,304 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-10 19:20:47,305 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:20:47,305 httpstream DEBUG > X-Stream: true
+2016-10-10 19:20:47,305 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:20:47,308 httpstream INFO < 200 OK [730]
+2016-10-10 19:20:47,308 httpstream DEBUG < date: Mon, 10 Oct 2016 13:50:47 GMT
+2016-10-10 19:20:47,308 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:20:47,308 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:20:47,308 httpstream DEBUG < content-length: 730
+2016-10-10 19:20:47,308 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:20:47,309 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:20:47,309 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:20:47,309 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:20:47,309 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:20:47,309 httpstream DEBUG > X-Stream: true
+2016-10-10 19:20:47,309 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:20:47,346 httpstream INFO < 200 OK [41]
+2016-10-10 19:20:47,346 httpstream DEBUG < date: Mon, 10 Oct 2016 13:50:47 GMT
+2016-10-10 19:20:47,346 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:20:47,346 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:20:47,346 httpstream DEBUG < content-length: 41
+2016-10-10 19:20:47,346 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:20:47,348 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:21:07,767 root DEBUG ########### Uploaded file check ###########
+2016-10-10 19:21:07,784 root INFO ########### IN - new_expression ###########
+2016-10-10 19:21:07,784 root INFO ########### FROM - update ###########
+2016-10-10 19:21:07,784 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:07,785 root DEBUG ########### New Expression Interface ###########
+2016-10-10 19:21:07,785 root INFO ########### IN - new_expression_logic ###########
+2016-10-10 19:21:07,785 root INFO ########### FROM - new_expression ###########
+2016-10-10 19:21:07,785 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:07,785 root DEBUG ########### New Expression Logic ###########
+2016-10-10 19:21:07,785 root INFO ########### IN - new_expression_database ###########
+2016-10-10 19:21:07,785 root INFO ########### FROM - inner ###########
+2016-10-10 19:21:07,785 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1', 'expression_imagefile': None, 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:07,785 root DEBUG ########### New Expression Core Database ###########
+2016-10-10 19:21:07,785 root INFO ########### IN - new_expression_insert ###########
+2016-10-10 19:21:07,786 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:07,786 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1', 'expression_link_id': None, 'expression_imagefile': None, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:07,787 root DEBUG ########### New Expression Insert Operation ###########
+2016-10-10 19:21:07,787 root INFO ########### IN - store_expression ###########
+2016-10-10 19:21:07,787 root INFO ########### FROM - new_expression_insert ###########
+2016-10-10 19:21:07,787 root INFO ########### HAS - ArgInfo(args=['self', 'expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1', 'expression_link_id': None, 'expression_imagefile': None, 'self': <express.models.ExpressionManager object at 0x1043c1550>, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:07,787 root DEBUG ########### Expression create operation ###########
+2016-10-10 19:21:07,789 py2neo.cypher INFO begin
+2016-10-10 19:21:07,790 root INFO ########### IN - new_expression_node ###########
+2016-10-10 19:21:07,790 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:07,790 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_id'], varargs=None, keywords=None, locals={'expression_id': '9', 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1051649d0>}) ###########
+2016-10-10 19:21:07,790 root DEBUG ########### New Expression Node Creation ###########
+2016-10-10 19:21:07,790 py2neo.cypher INFO append u'CREATE (a:ExpressionGraph{expression_id:{expression_id}})' {'expression_id': '9'}
+2016-10-10 19:21:07,790 root INFO ########### IN - new_expression_relationship ###########
+2016-10-10 19:21:07,790 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:07,790 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_node_id', 'expression_owner_id'], varargs=None, keywords=None, locals={'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1051649d0>, 'expression_owner_id': u'asd123', 'expression_node_id': '9'}) ###########
+2016-10-10 19:21:07,790 root DEBUG ########### New Expression Node Owner Relation ###########
+2016-10-10 19:21:07,790 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}}) CREATE (p)-[:EXPRESSED]->(e)' {'expression_node_id': '9', 'expression_owner_id': u'asd123'}
+2016-10-10 19:21:07,791 root INFO ########### IN - new_expression_topics ###########
+2016-10-10 19:21:07,791 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:07,791 root INFO ########### HAS - ArgInfo(args=['transaction', 'topics', 'expression_node_id'], varargs=None, keywords=None, locals={'topics': [u'naarada'], 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1051649d0>, 'expression_node_id': '9'}) ###########
+2016-10-10 19:21:07,791 root DEBUG ########### New Expression Node Stream Relation ###########
+2016-10-10 19:21:07,791 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) CREATE (e)-[:IN_TOPIC]->(t)' {'expression_node_id': '9', 'stream': u'naarada'}
+2016-10-10 19:21:07,791 py2neo.cypher INFO process
+2016-10-10 19:21:07,791 httpstream INFO > POST http://localhost:7474/db/data/transaction [628]
+2016-10-10 19:21:07,791 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:07,791 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:07,791 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:07,791 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:07,803 httpstream INFO < 201 Created [224]
+2016-10-10 19:21:07,804 httpstream DEBUG < content-length: 224
+2016-10-10 19:21:07,804 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:07,804 httpstream DEBUG < location: http://localhost:7474/db/data/transaction/237
+2016-10-10 19:21:07,804 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:07 GMT
+2016-10-10 19:21:07,804 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:07,804 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:07,805 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:07,805 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:07,805 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:07,805 root INFO ########### New expression creating SUCCESS ###########
+2016-10-10 19:21:07,806 py2neo.cypher INFO commit
+2016-10-10 19:21:07,806 httpstream INFO > POST http://localhost:7474/db/data/transaction/237/commit [17]
+2016-10-10 19:21:07,806 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:07,806 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:07,806 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:07,806 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:07,830 httpstream INFO < 200 OK [26]
+2016-10-10 19:21:07,830 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:07 GMT
+2016-10-10 19:21:07,830 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:07,830 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:07,831 httpstream DEBUG < content-length: 26
+2016-10-10 19:21:07,831 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:07,847 django.request ERROR Internal Server Error: /express/update/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 49, in update
+    return render(request, "index.html", {})
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:21:09,916 root INFO ########### Fetching index page ###########
+2016-10-10 19:21:09,924 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:21:09,924 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:21:09,924 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:09,924 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:09,924 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:09,924 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:09,966 httpstream INFO < 200 OK [1353]
+2016-10-10 19:21:09,966 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:09 GMT
+2016-10-10 19:21:09,966 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:09,966 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:09,966 httpstream DEBUG < content-length: 1353
+2016-10-10 19:21:09,966 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:09,966 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:21:09,971 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 9 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:09,971 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:21:09,971 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:09,971 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:09,971 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:09,971 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:09,981 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:09,981 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:09 GMT
+2016-10-10 19:21:09,981 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:09,981 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:09,981 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:09,981 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:09,982 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:21:23,388 root DEBUG ########### Uploaded file check ###########
+2016-10-10 19:21:23,389 root INFO ########### IN - new_upload_file ###########
+2016-10-10 19:21:23,389 root INFO ########### FROM - update ###########
+2016-10-10 19:21:23,389 root INFO ########### HAS - ArgInfo(args=['file_content'], varargs=None, keywords=None, locals={'file_content': <InMemoryUploadedFile: DSC_0652.JPG (image/jpeg)>}) ###########
+2016-10-10 19:21:23,389 root DEBUG ########### File Uploading.. ###########
+2016-10-10 19:21:24,171 root INFO ########### IN - new_expression ###########
+2016-10-10 19:21:24,171 root INFO ########### FROM - update ###########
+2016-10-10 19:21:24,172 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1 Image', 'expression_imagefile': u'/media/upload/upload_ZO5woaO.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:24,172 root DEBUG ########### New Expression Interface ###########
+2016-10-10 19:21:24,172 root INFO ########### IN - new_expression_logic ###########
+2016-10-10 19:21:24,172 root INFO ########### FROM - new_expression ###########
+2016-10-10 19:21:24,172 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1 Image', 'expression_imagefile': u'/media/upload/upload_ZO5woaO.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:24,172 root DEBUG ########### New Expression Logic ###########
+2016-10-10 19:21:24,172 root INFO ########### IN - new_expression_database ###########
+2016-10-10 19:21:24,172 root INFO ########### FROM - inner ###########
+2016-10-10 19:21:24,172 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1 Image', 'expression_imagefile': u'/media/upload/upload_ZO5woaO.jpg', 'expression_link_id': None, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:24,172 root DEBUG ########### New Expression Core Database ###########
+2016-10-10 19:21:24,172 root INFO ########### IN - new_expression_insert ###########
+2016-10-10 19:21:24,172 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:24,172 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1 Image', 'expression_link_id': None, 'expression_imagefile': u'/media/upload/upload_ZO5woaO.jpg', 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:24,173 root DEBUG ########### New Expression Insert Operation ###########
+2016-10-10 19:21:24,173 root INFO ########### IN - store_expression ###########
+2016-10-10 19:21:24,173 root INFO ########### FROM - new_expression_insert ###########
+2016-10-10 19:21:24,173 root INFO ########### HAS - ArgInfo(args=['self', 'expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One-1 Image', 'expression_link_id': None, 'expression_imagefile': u'/media/upload/upload_ZO5woaO.jpg', 'self': <express.models.ExpressionManager object at 0x1043c1550>, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:24,173 root DEBUG ########### Expression create operation ###########
+2016-10-10 19:21:24,175 py2neo.cypher INFO begin
+2016-10-10 19:21:24,175 root INFO ########### IN - new_expression_node ###########
+2016-10-10 19:21:24,175 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:24,175 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_id'], varargs=None, keywords=None, locals={'expression_id': '10', 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x105130790>}) ###########
+2016-10-10 19:21:24,175 root DEBUG ########### New Expression Node Creation ###########
+2016-10-10 19:21:24,175 py2neo.cypher INFO append u'CREATE (a:ExpressionGraph{expression_id:{expression_id}})' {'expression_id': '10'}
+2016-10-10 19:21:24,175 root INFO ########### IN - new_expression_relationship ###########
+2016-10-10 19:21:24,175 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:24,176 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_node_id', 'expression_owner_id'], varargs=None, keywords=None, locals={'transaction': <py2neo.cypher.core.CypherTransaction object at 0x105130790>, 'expression_owner_id': u'asd123', 'expression_node_id': '10'}) ###########
+2016-10-10 19:21:24,176 root DEBUG ########### New Expression Node Owner Relation ###########
+2016-10-10 19:21:24,176 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}}) CREATE (p)-[:EXPRESSED]->(e)' {'expression_node_id': '10', 'expression_owner_id': u'asd123'}
+2016-10-10 19:21:24,176 root INFO ########### IN - new_expression_topics ###########
+2016-10-10 19:21:24,176 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:24,176 root INFO ########### HAS - ArgInfo(args=['transaction', 'topics', 'expression_node_id'], varargs=None, keywords=None, locals={'topics': [u'naarada'], 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x105130790>, 'expression_node_id': '10'}) ###########
+2016-10-10 19:21:24,176 root DEBUG ########### New Expression Node Stream Relation ###########
+2016-10-10 19:21:24,176 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) CREATE (e)-[:IN_TOPIC]->(t)' {'expression_node_id': '10', 'stream': u'naarada'}
+2016-10-10 19:21:24,176 py2neo.cypher INFO process
+2016-10-10 19:21:24,176 httpstream INFO > POST http://localhost:7474/db/data/transaction [631]
+2016-10-10 19:21:24,176 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:24,176 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:24,176 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:24,176 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:24,184 httpstream INFO < 201 Created [224]
+2016-10-10 19:21:24,184 httpstream DEBUG < content-length: 224
+2016-10-10 19:21:24,184 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:24,184 httpstream DEBUG < location: http://localhost:7474/db/data/transaction/238
+2016-10-10 19:21:24,184 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:24 GMT
+2016-10-10 19:21:24,184 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:24,185 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:24,185 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:24,185 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:24,185 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:24,185 root INFO ########### New expression creating SUCCESS ###########
+2016-10-10 19:21:24,185 py2neo.cypher INFO commit
+2016-10-10 19:21:24,185 httpstream INFO > POST http://localhost:7474/db/data/transaction/238/commit [17]
+2016-10-10 19:21:24,185 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:24,185 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:24,185 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:24,185 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:24,206 httpstream INFO < 200 OK [26]
+2016-10-10 19:21:24,207 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:24 GMT
+2016-10-10 19:21:24,207 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:24,207 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:24,207 httpstream DEBUG < content-length: 26
+2016-10-10 19:21:24,207 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:24,216 django.request ERROR Internal Server Error: /express/update/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 49, in update
+    return render(request, "index.html", {})
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:21:25,418 root INFO ########### Fetching index page ###########
+2016-10-10 19:21:25,426 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:21:25,427 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:21:25,427 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:25,427 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:25,427 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:25,427 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:25,471 httpstream INFO < 200 OK [2667]
+2016-10-10 19:21:25,471 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:25 GMT
+2016-10-10 19:21:25,471 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:25,471 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:25,471 httpstream DEBUG < content-length: 2667
+2016-10-10 19:21:25,471 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:25,472 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:21:25,474 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 10 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:25,475 httpstream INFO > POST http://localhost:7474/db/data/cypher [125]
+2016-10-10 19:21:25,475 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:25,475 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:25,475 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:25,475 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:25,504 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:25,504 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:25 GMT
+2016-10-10 19:21:25,504 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:25,504 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:25,504 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:25,504 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:25,505 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:21:25,507 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 9 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:25,507 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:21:25,507 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:25,507 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:25,507 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:25,507 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:25,510 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:25,510 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:25 GMT
+2016-10-10 19:21:25,510 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:25,510 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:25,510 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:25,510 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:25,510 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:21:42,253 root INFO ########### IN - store_url_imagefile ###########
+2016-10-10 19:21:42,253 root INFO ########### FROM - store_link ###########
+2016-10-10 19:21:42,253 root INFO ########### HAS - ArgInfo(args=['image_url'], varargs=None, keywords=None, locals={'image_url': u'http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&a'}) ###########
+2016-10-10 19:21:42,253 root DEBUG ########### Store URL Imagefile ###########
+2016-10-10 19:21:42,640 root INFO ########### IN - store_url_imagefile ###########
+2016-10-10 19:21:42,641 root INFO ########### FROM - store_link ###########
+2016-10-10 19:21:42,641 root INFO ########### HAS - ArgInfo(args=['image_url'], varargs=None, keywords=None, locals={'image_url': u'http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&a'}) ###########
+2016-10-10 19:21:42,641 root DEBUG ########### Store URL Imagefile ###########
+2016-10-10 19:21:42,776 root INFO ########### IN - store_url ###########
+2016-10-10 19:21:42,776 root INFO ########### FROM - store_link ###########
+2016-10-10 19:21:42,776 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/61ccd434-b43a-41.jpg'}) ###########
+2016-10-10 19:21:42,776 root DEBUG ########### New URL INSERT ###########
+2016-10-10 19:21:42,776 root INFO ########### IN - store_url_logic ###########
+2016-10-10 19:21:42,776 root INFO ########### FROM - store_url ###########
+2016-10-10 19:21:42,776 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/61ccd434-b43a-41.jpg'}) ###########
+2016-10-10 19:21:42,777 root DEBUG ########### New URL insert logic ###########
+2016-10-10 19:21:42,786 root INFO ########### IN - store_url_database ###########
+2016-10-10 19:21:42,786 root INFO ########### FROM - inner ###########
+2016-10-10 19:21:42,787 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/61ccd434-b43a-41.jpg'}) ###########
+2016-10-10 19:21:42,787 root DEBUG ########### New URL insert database ###########
+2016-10-10 19:21:42,787 root INFO ########### IN - store_url ###########
+2016-10-10 19:21:42,787 root INFO ########### FROM - store_url_database ###########
+2016-10-10 19:21:42,787 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/61ccd434-b43a-41.jpg'}) ###########
+2016-10-10 19:21:42,787 root DEBUG ########### New URL INSERT CORE ###########
+2016-10-10 19:21:42,787 root INFO ########### IN - store_link ###########
+2016-10-10 19:21:42,787 root INFO ########### FROM - store_url ###########
+2016-10-10 19:21:42,787 root INFO ########### HAS - ArgInfo(args=['self', 'link_url', 'link_name', 'link_desc', 'link_image'], varargs=None, keywords=None, locals={'link_desc': u"I'm f", 'link_url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'link_name': u'The local psql command could not be located', 'link_image': '/media/url_images/61ccd434-b43a-41.jpg', 'self': <express.models.LinkManager object at 0x1043ce6d0>}) ###########
+2016-10-10 19:21:42,787 root DEBUG ########### Link create operation ###########
+2016-10-10 19:21:42,804 django.request ERROR Internal Server Error: /store/link/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 66, in store_link
+    return render(request, template, context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:21:43,38 root INFO ########### IN - store_url ###########
+2016-10-10 19:21:43,38 root INFO ########### FROM - store_link ###########
+2016-10-10 19:21:43,38 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/6f6a18e1-6f5c-43.jpg'}) ###########
+2016-10-10 19:21:43,38 root DEBUG ########### New URL INSERT ###########
+2016-10-10 19:21:43,38 root INFO ########### IN - store_url_logic ###########
+2016-10-10 19:21:43,39 root INFO ########### FROM - store_url ###########
+2016-10-10 19:21:43,39 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/6f6a18e1-6f5c-43.jpg'}) ###########
+2016-10-10 19:21:43,39 root DEBUG ########### New URL insert logic ###########
+2016-10-10 19:21:43,44 root INFO ########### IN - store_url_database ###########
+2016-10-10 19:21:43,44 root INFO ########### FROM - inner ###########
+2016-10-10 19:21:43,44 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/6f6a18e1-6f5c-43.jpg'}) ###########
+2016-10-10 19:21:43,44 root DEBUG ########### New URL insert database ###########
+2016-10-10 19:21:43,44 root INFO ########### IN - store_url ###########
+2016-10-10 19:21:43,45 root INFO ########### FROM - store_url_database ###########
+2016-10-10 19:21:43,45 root INFO ########### HAS - ArgInfo(args=['url', 'url_header', 'url_desc', 'url_imagefile'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'url_desc': u"I'm f", 'url_header': u'The local psql command could not be located', 'url_imagefile': '/media/url_images/6f6a18e1-6f5c-43.jpg'}) ###########
+2016-10-10 19:21:43,45 root DEBUG ########### New URL INSERT CORE ###########
+2016-10-10 19:21:43,45 root INFO ########### IN - store_link ###########
+2016-10-10 19:21:43,45 root INFO ########### FROM - store_url ###########
+2016-10-10 19:21:43,45 root INFO ########### HAS - ArgInfo(args=['self', 'link_url', 'link_name', 'link_desc', 'link_image'], varargs=None, keywords=None, locals={'link_desc': u"I'm f", 'link_url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located', 'link_name': u'The local psql command could not be located', 'link_image': '/media/url_images/6f6a18e1-6f5c-43.jpg', 'self': <express.models.LinkManager object at 0x1043ce6d0>}) ###########
+2016-10-10 19:21:43,45 root DEBUG ########### Link create operation ###########
+2016-10-10 19:21:43,53 root ERROR ########### Could not insert Link ###########
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/express/models.py", line 194, in store_link
+    link_image=link_image,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 490, in update_or_create
+    obj, created = self._create_object_from_params(lookup, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 513, in _create_object_from_params
+    six.reraise(*exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 505, in _create_object_from_params
+    obj = self.create(**params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 399, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 908, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/base.py", line 947, in _do_insert
+    using=using, raw=raw)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1045, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1054, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+IntegrityError: duplicate key value violates unique constraint "express_link_link_url_164c9ff8_uniq"
+DETAIL:  Key (link_url)=(http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located) already exists.
+
+2016-10-10 19:21:43,65 django.request ERROR Internal Server Error: /store/link/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 66, in store_link
+    return render(request, template, context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:21:44,671 root DEBUG ########### Uploaded file check ###########
+2016-10-10 19:21:44,672 root INFO ########### IN - find_url_id ###########
+2016-10-10 19:21:44,672 root INFO ########### FROM - update ###########
+2016-10-10 19:21:44,672 root INFO ########### HAS - ArgInfo(args=['url'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located'}) ###########
+2016-10-10 19:21:44,672 root DEBUG ########### Find URL ###########
+2016-10-10 19:21:44,672 root INFO ########### IN - find_url_id_logic ###########
+2016-10-10 19:21:44,672 root INFO ########### FROM - find_url_id ###########
+2016-10-10 19:21:44,672 root INFO ########### HAS - ArgInfo(args=['url'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located'}) ###########
+2016-10-10 19:21:44,672 root DEBUG ########### Find URL logic ###########
+2016-10-10 19:21:44,672 root INFO ########### IN - find_url_id_database ###########
+2016-10-10 19:21:44,672 root INFO ########### FROM - find_url_id_logic ###########
+2016-10-10 19:21:44,673 root INFO ########### HAS - ArgInfo(args=['url'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located'}) ###########
+2016-10-10 19:21:44,673 root DEBUG ########### Find URL database ###########
+2016-10-10 19:21:44,673 root INFO ########### IN - find_url_id ###########
+2016-10-10 19:21:44,673 root INFO ########### FROM - find_url_id_database ###########
+2016-10-10 19:21:44,673 root INFO ########### HAS - ArgInfo(args=['url'], varargs=None, keywords=None, locals={'url': u'http://stackoverflow.com/questions/15576064/the-local-psql-command-could-not-be-located'}) ###########
+2016-10-10 19:21:44,673 root DEBUG ########### Find URL CORE ###########
+2016-10-10 19:21:44,707 root INFO ########### IN - new_expression ###########
+2016-10-10 19:21:44,707 root INFO ########### FROM - update ###########
+2016-10-10 19:21:44,707 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One- link ', 'expression_imagefile': None, 'expression_link_id': 1, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:44,707 root DEBUG ########### New Expression Interface ###########
+2016-10-10 19:21:44,707 root INFO ########### IN - new_expression_logic ###########
+2016-10-10 19:21:44,707 root INFO ########### FROM - new_expression ###########
+2016-10-10 19:21:44,707 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One- link ', 'expression_imagefile': None, 'expression_link_id': 1, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:44,707 root DEBUG ########### New Expression Logic ###########
+2016-10-10 19:21:44,707 root INFO ########### IN - new_expression_database ###########
+2016-10-10 19:21:44,707 root INFO ########### FROM - inner ###########
+2016-10-10 19:21:44,708 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions', 'topics'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One- link ', 'expression_imagefile': None, 'expression_link_id': 1, 'topics': [u'naarada'], 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:44,708 root DEBUG ########### New Expression Core Database ###########
+2016-10-10 19:21:44,708 root INFO ########### IN - new_expression_insert ###########
+2016-10-10 19:21:44,708 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:44,708 root INFO ########### HAS - ArgInfo(args=['expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One- link ', 'expression_link_id': 1, 'expression_imagefile': None, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:44,708 root DEBUG ########### New Expression Insert Operation ###########
+2016-10-10 19:21:44,708 root INFO ########### IN - store_expression ###########
+2016-10-10 19:21:44,708 root INFO ########### FROM - new_expression_insert ###########
+2016-10-10 19:21:44,708 root INFO ########### HAS - ArgInfo(args=['self', 'expression_owner_id', 'expression_content', 'expression_link_id', 'expression_imagefile', 'broadcast_parent_id', 'total_upvotes', 'total_downvotes', 'total_broadcasts', 'total_discussions'], varargs=None, keywords=None, locals={'total_discussions': 0, 'expression_content': u'Status One- link ', 'expression_link_id': 1, 'expression_imagefile': None, 'self': <express.models.ExpressionManager object at 0x1043c1550>, 'broadcast_parent_id': None, 'total_upvotes': 0, 'total_downvotes': 0, 'total_broadcasts': 0, 'expression_owner_id': u'asd123'}) ###########
+2016-10-10 19:21:44,708 root DEBUG ########### Expression create operation ###########
+2016-10-10 19:21:44,710 py2neo.cypher INFO begin
+2016-10-10 19:21:44,710 root INFO ########### IN - new_expression_node ###########
+2016-10-10 19:21:44,710 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:44,710 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_id'], varargs=None, keywords=None, locals={'expression_id': '11', 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1063c0b90>}) ###########
+2016-10-10 19:21:44,710 root DEBUG ########### New Expression Node Creation ###########
+2016-10-10 19:21:44,711 py2neo.cypher INFO append u'CREATE (a:ExpressionGraph{expression_id:{expression_id}})' {'expression_id': '11'}
+2016-10-10 19:21:44,711 root INFO ########### IN - new_expression_relationship ###########
+2016-10-10 19:21:44,711 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:44,711 root INFO ########### HAS - ArgInfo(args=['transaction', 'expression_node_id', 'expression_owner_id'], varargs=None, keywords=None, locals={'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1063c0b90>, 'expression_owner_id': u'asd123', 'expression_node_id': '11'}) ###########
+2016-10-10 19:21:44,711 root DEBUG ########### New Expression Node Owner Relation ###########
+2016-10-10 19:21:44,711 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}),(p:Person{person_id:{expression_owner_id}}) CREATE (p)-[:EXPRESSED]->(e)' {'expression_node_id': '11', 'expression_owner_id': u'asd123'}
+2016-10-10 19:21:44,712 root INFO ########### IN - new_expression_topics ###########
+2016-10-10 19:21:44,713 root INFO ########### FROM - new_expression_database ###########
+2016-10-10 19:21:44,713 root INFO ########### HAS - ArgInfo(args=['transaction', 'topics', 'expression_node_id'], varargs=None, keywords=None, locals={'topics': [u'naarada'], 'transaction': <py2neo.cypher.core.CypherTransaction object at 0x1063c0b90>, 'expression_node_id': '11'}) ###########
+2016-10-10 19:21:44,713 root DEBUG ########### New Expression Node Stream Relation ###########
+2016-10-10 19:21:44,713 py2neo.cypher INFO append u'MATCH (e:ExpressionGraph{expression_id:{expression_node_id}}), (t:Topic{name:{stream}}) CREATE (e)-[:IN_TOPIC]->(t)' {'expression_node_id': '11', 'stream': u'naarada'}
+2016-10-10 19:21:44,713 py2neo.cypher INFO process
+2016-10-10 19:21:44,714 httpstream INFO > POST http://localhost:7474/db/data/transaction [631]
+2016-10-10 19:21:44,714 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:44,714 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:44,714 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:44,714 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:44,726 httpstream INFO < 201 Created [224]
+2016-10-10 19:21:44,726 httpstream DEBUG < content-length: 224
+2016-10-10 19:21:44,726 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:44,726 httpstream DEBUG < location: http://localhost:7474/db/data/transaction/239
+2016-10-10 19:21:44,726 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:44 GMT
+2016-10-10 19:21:44,726 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:44,726 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:44,727 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:44,727 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:44,727 py2neo.cypher INFO result [] 0
+2016-10-10 19:21:44,727 root INFO ########### New expression creating SUCCESS ###########
+2016-10-10 19:21:44,727 py2neo.cypher INFO commit
+2016-10-10 19:21:44,727 httpstream INFO > POST http://localhost:7474/db/data/transaction/239/commit [17]
+2016-10-10 19:21:44,728 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:44,728 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:44,728 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:44,728 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:44,766 httpstream INFO < 200 OK [26]
+2016-10-10 19:21:44,766 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:44 GMT
+2016-10-10 19:21:44,766 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:44,766 httpstream DEBUG < content-type: application/json
+2016-10-10 19:21:44,767 httpstream DEBUG < content-length: 26
+2016-10-10 19:21:44,767 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:44,779 django.request ERROR Internal Server Error: /express/update/
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/express/views.py", line 49, in update
+    return render(request, "index.html", {})
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 24, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/nirlendu/Documents/Codes/myApp/templates'
+2016-10-10 19:21:47,427 root INFO ########### Fetching index page ###########
+2016-10-10 19:21:47,436 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-10 19:21:47,436 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-10 19:21:47,436 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:47,436 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:47,436 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:47,436 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:47,441 httpstream INFO < 200 OK [3981]
+2016-10-10 19:21:47,441 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:47 GMT
+2016-10-10 19:21:47,441 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:47,441 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:47,441 httpstream DEBUG < content-length: 3981
+2016-10-10 19:21:47,441 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:47,442 py2neo.cypher INFO stream (u'n',)
+2016-10-10 19:21:47,446 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 11 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:47,446 httpstream INFO > POST http://localhost:7474/db/data/cypher [125]
+2016-10-10 19:21:47,446 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:47,446 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:47,446 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:47,446 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:47,457 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:47,457 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:47 GMT
+2016-10-10 19:21:47,457 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:47,458 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:47,458 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:47,458 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:47,458 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:21:47,460 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 10 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:47,460 httpstream INFO > POST http://localhost:7474/db/data/cypher [125]
+2016-10-10 19:21:47,460 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:47,460 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:47,460 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:47,460 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:47,464 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:47,464 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:47 GMT
+2016-10-10 19:21:47,464 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:47,464 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:47,464 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:47,464 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:47,465 py2neo.cypher INFO stream (u'e',)
+2016-10-10 19:21:47,467 py2neo.cypher INFO execute 'MATCH (p:ExpressionGraph{expression_id: 9 }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e' {}
+2016-10-10 19:21:47,468 httpstream INFO > POST http://localhost:7474/db/data/cypher [124]
+2016-10-10 19:21:47,468 httpstream DEBUG > Host: localhost:7474
+2016-10-10 19:21:47,468 httpstream DEBUG > Content-Type: application/json
+2016-10-10 19:21:47,468 httpstream DEBUG > X-Stream: true
+2016-10-10 19:21:47,468 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-10 19:21:47,471 httpstream INFO < 200 OK [41]
+2016-10-10 19:21:47,471 httpstream DEBUG < date: Mon, 10 Oct 2016 13:51:47 GMT
+2016-10-10 19:21:47,471 httpstream DEBUG < access-control-allow-origin: *
+2016-10-10 19:21:47,471 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-10 19:21:47,472 httpstream DEBUG < content-length: 41
+2016-10-10 19:21:47,472 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-10 19:21:47,472 py2neo.cypher INFO stream (u'e',)
