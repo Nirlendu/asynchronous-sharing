@@ -6,20 +6,20 @@ import inspect
 import sys
 
 from django.db import models
-from neomodel import (StructuredNode, IntegerProperty,
-                      RelationshipTo, RelationshipFrom)
+# from neomodel import (StructuredNode, IntegerProperty,
+#                       RelationshipTo, RelationshipFrom)
 
-from app_base.models import Person, Topic
+#from app_base.models import Person, Topic
 from libs.logger import app_logger as log
 
 
-class ExpressionGraph(StructuredNode):
-    expression_id = IntegerProperty(unique_index=True)
-    expression_owner = RelationshipFrom(Person, 'EXPRESSED')
-    broadcast_of = RelationshipTo('ExpressionGraph', 'BROADCAST_OF')
-    upvoter = RelationshipFrom(Person, 'UPVOTED')
-    downvoter = RelationshipFrom(Person, 'DOWNVOTED')
-    in_topic = RelationshipTo(Topic, 'IN_TOPIC')
+# class ExpressionGraph(StructuredNode):
+#     expression_id = IntegerProperty(unique_index=True)
+#     expression_owner = RelationshipFrom(Person, 'EXPRESSED')
+#     broadcast_of = RelationshipTo('ExpressionGraph', 'BROADCAST_OF')
+#     upvoter = RelationshipFrom(Person, 'UPVOTED')
+#     downvoter = RelationshipFrom(Person, 'DOWNVOTED')
+#     in_topic = RelationshipTo(Topic, 'IN_TOPIC')
 
 
 class ExpressionManager(models.Manager):
@@ -72,7 +72,7 @@ class Expression(models.Model):
         null=True,
     )
     expression_imagefile = models.CharField(
-        max_length=30,
+        max_length=50,
         default=None,
         null=True,
     )

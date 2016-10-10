@@ -16,7 +16,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
+BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -75,10 +75,6 @@ TEMPLATES = [
     },
 ]
 
-# TEMPLATE_DIRS = (
-#     os.path.join(BASE_DIR, 'templates'),
-# )
-
 WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
@@ -86,16 +82,20 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'database'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'the_thing',
+        'USER':'nirlendu',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
+
 NEO4J_DATABASES = {
     'default': {
-        'HOST': 'localhost',
-        'PORT': 7474,
-        'ENDPOINT': '/db/data'
+        'HOST': 'app57701423-8gEB8r:J2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com',
+        'PORT': 24789,
+        'ENDPOINT': ''
     }
 }
 
@@ -156,17 +156,10 @@ WEBPACK_LOADER = {
     }
 }
 
-# For the react lib for server side webpage rendering
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
 
-# For message brokers in Celery - Using Rabbit MQ now
-BROKER_URL = 'amqp://nirlendu:nirlendu@localhost:5672/vhost'
-
-# Some temp setting, will come back to this later
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kolkata'
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()

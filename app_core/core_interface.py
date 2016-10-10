@@ -129,6 +129,7 @@ def new_broadcast(
         total_upvotes=0,
         total_downvotes=0,
         total_broadcasts=0,
+        total_discussions=0,
         topics=[],
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -145,6 +146,7 @@ def new_broadcast(
         total_upvotes=total_upvotes,
         total_downvotes=total_downvotes,
         total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
         topics=topics,
     )
 
