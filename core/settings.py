@@ -183,3 +183,6 @@ REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()

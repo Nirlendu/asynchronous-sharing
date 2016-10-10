@@ -73,7 +73,7 @@ def index(request, template="index.html", page_template="feed.html"):
 
 def get_index_data(request):
     entry = []
-    graphenedb_url = os.environ.get("http://app57701423-8gEB8r:J2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789")
+    graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
     graph = ServiceRoot(graphenedb_url).graph
     #graph = Graph()
     express = graph.cypher.stream(
