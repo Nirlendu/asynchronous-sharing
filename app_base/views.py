@@ -20,6 +20,10 @@ import ujson
 import redis
 
 
+# import logging
+# logger = logging.getLogger(__name__)
+
+
 def mobile_browser(request):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -36,7 +40,7 @@ def init_session(request):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.info('Init the session data')
+    log.debug('Init the session data')
 
     request.session['person_name'] = 'Nirlendu Saha'
     request.session['person_id'] = 'asd123'

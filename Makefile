@@ -11,7 +11,6 @@ heroku-server-start:
 
 dev-server:
 	export DJANGO_SETTINGS_MODULE='core.settings.local'
-	echo $$DJANGO_SETTINGS_MODULE
 	python manage.py runserver --settings=core.settings.local
 
 heroku-server:
