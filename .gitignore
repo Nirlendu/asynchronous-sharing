@@ -4,6 +4,7 @@
 *keypair*
 erl_crash*
 media/
+logs/
 database
 .DS_Store
 *heroku_*

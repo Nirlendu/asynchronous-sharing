@@ -4,7 +4,7 @@ import os
 from celery import Celery
 
 # Indicate Celery to use the default Django settings module
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.production')
 
 from django.conf import settings
 
@@ -12,6 +12,8 @@ app = Celery('core',
              backend='amqp',
              broker='amqp://nirlendu:nirlendu@localhost:5672/vhost'
              )
+#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.local')
+
 app.config_from_object('django.conf:settings')
 
 # This line will tell Celery to autodiscover all your tasks.py that are in your app folders

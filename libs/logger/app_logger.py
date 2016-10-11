@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import logging
 
 
@@ -14,31 +16,25 @@ def init():
 def info(log_string):
     try:
         init()
+        logging.info('########### ' + log_string + ' ###########')
     except:
-        file = open('logs/app.log', 'w+')
-        file.close()
-        init()
-    logging.info('########### ' + log_string + ' ###########')
+       pass
     return
 
 
 def debug(log_string):
     try:
         init()
+        logging.debug('########### ' + log_string + ' ###########')
     except:
-        file = open('logs/app.log', 'w+')
-        file.close()
-        init()
-    logging.debug('########### ' + log_string + ' ###########')
+        pass
     return
 
 
 def exception(log_string):
     try:
         init()
+        logging.exception('########### ' + log_string + ' ###########')
     except:
-        file = open('logs/app.log', 'w+')
-        file.close()
-        init()
-    logging.exception('########### ' + log_string + ' ###########')
+        pass
     return
