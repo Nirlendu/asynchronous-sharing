@@ -14,7 +14,7 @@ app = Celery('core',
              )
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.local')
 
-app.config_from_object('django.conf:settings')
+app.config_from_object('core.config.celery')
 
 # This line will tell Celery to autodiscover all your tasks.py that are in your app folders
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

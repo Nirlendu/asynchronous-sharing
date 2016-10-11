@@ -3,8 +3,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'f23u9)dk)c$61q(hi65^^^&8y9cv4#hwkx5r+2*!9qrw-g(8r+'
@@ -119,12 +117,3 @@ REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
-
-# For message brokers in Celery - Using Rabbit MQ now
-BROKER_URL = 'amqp://nirlendu:nirlendu@localhost:5672/vhost'
-
-# Some temp setting, will come back to this later
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kolkata'

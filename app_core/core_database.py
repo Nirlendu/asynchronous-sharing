@@ -105,7 +105,6 @@ def get_index_data(person_id):
                                 b['parent_domain'] = \
                                     re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
                     a['broadcast_of'] = b
-
             entry.append(a)
     return entry
 

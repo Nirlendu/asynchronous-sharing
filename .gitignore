@@ -12,6 +12,7 @@ description.txt
 *env/
 *heroku_*
 *env/
+*celerybeat*
 runtime.txt
 *npm_debug.log
 *keypair*
