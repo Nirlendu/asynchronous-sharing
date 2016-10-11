@@ -18,9 +18,9 @@ def get_expressions_logic(
     # TODO
     # Get stuff from discover
 
-    expressions_ids = core.get_expressions_database(
-        person_id=person_id,
-    )
+    # expressions_ids = core.get_expressions_database(
+    #     person_id=person_id,
+    # )
 
     # Rank stuff here using all expression_ids and the weight of each
 

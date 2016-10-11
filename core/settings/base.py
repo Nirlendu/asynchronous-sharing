@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'el_pagination',
     'webpack_loader',
     'react',
+    'cache_operations',
 ]
 
 MIDDLEWARE = [

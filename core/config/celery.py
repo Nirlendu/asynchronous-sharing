@@ -10,9 +10,13 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kolkata'
 
+CELERY_IMPORTS = (
+    "cache_operations.views",
+)
+
 CELERYBEAT_SCHEDULE = {
-    'test-celery-task': {
-        'task': 'app_base.views.celery_test',
+    'update_graph_cache': {
+        'task': 'cache_operations.views.update_graph_cache',
         'schedule': timedelta(seconds=5),
     },
 }

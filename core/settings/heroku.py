@@ -20,8 +20,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", ]
 
-DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}
-
 os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.heroku'
 
-os.environ['GRAPHDB_URL'] = os.environ['GRAPHENEDB_URL']
+
+# For the Postgre
+DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}
+
+# For the Graph
+GRAPHDB_URL = os.environ['GRAPHENEDB_URL']

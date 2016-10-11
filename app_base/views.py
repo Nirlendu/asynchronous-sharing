@@ -3,14 +3,11 @@
 import sys
 import inspect
 
-
 import re, os
 
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-# from celery.task.schedules import crontab
-# from celery.decorators import periodic_task
 from celery import shared_task
 
 from app_core import core_interface as core
@@ -19,6 +16,8 @@ from express.models import Expression, Link
 from py2neo import ServiceRoot
 
 from libs.logger import app_logger as log
+import ujson
+import redis
 
 
 def mobile_browser(request):
@@ -46,16 +45,6 @@ def init_session(request):
     return
 
 
-# A periodic task that will run every minute (the symbol "*" means every)
-#@periodic_task(run_every=(crontab(hour="*", minute="*", day_of_week="*")))
-@shared_task
-def celery_test():
-    log.info('Celery task started')
-    print 'RUNNING CELERY TASKS! :)'
-    # now = datetime.now()
-    # result = scrapers.scraper_example(now.day, now.minute)
-    # logger.info("Task finished: result = %i" % result)
-
 @ensure_csrf_cookie
 def index(request, template="index.html", page_template="feed.html"):
     log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -65,9 +54,14 @@ def index(request, template="index.html", page_template="feed.html"):
 
     init_session(request)
 
-    expressions = core.get_expressions(
-        person_id=request.session['person_id'],
-    )
+    try:
+        redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
+        expressions = ujson.loads(redis_cache.hget('asd123','asd123'))
+        print "REDIS PRESENT"
+    except:
+        expressions = core.get_expressions(
+            person_id=request.session['person_id'],
+        )
 
     context = {
         'Expressions': expressions,
