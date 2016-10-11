@@ -31,8 +31,6 @@ DATABASES = {
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
 
-
-
 #VERY IMPORTANT! - This is referred everywhere
 GRAPHDB_URL = 'http://localhost:7474/'
 
