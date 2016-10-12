@@ -13,15 +13,10 @@
   <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
   <script type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
+  <script type="text/javascript" src=" {% static 'mobile/js/jquery.js' %}"></script>
   <link rel="stylesheet" href=" {% static 'css/fileinput.css' %}">
   <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
   <style type="text/css">
-    .launch-modal {
-      margin: 20px;
-    }
-    div.modal-footer{
-      text-align: right;
-    }
     html, body {
       height: 100%;
       /*overflow-x: scroll;
@@ -30,7 +25,7 @@
       font-family: Verdana,Geneva,Tahoma,Arial,Helvetica,sans-serif!important;
       font-weight: 400;
       line-height: 1.5;
-      font-size: 20px;
+      font-size: 35px;
     }
     p, h3 {
         padding: 1em 0 .5em 0;
@@ -65,17 +60,22 @@
       width:90%;
       /*margin-right: calc(((100% - 1000px) * 1.6)/2.6);
       margin-left: calc((100% - 1000px)/2.6);*/
+      padding-top: 5%
+      height: 100%;
       margin: auto;
     }
     .ele>li>a {
       padding-left: 0px;
     }
+    .nav-p {
+      padding: 2%;
+    }
   </style>
-  <nav class="navbar navbar-inverse nav-fixed navbar-fixed-top">
+  <nav class="navbar nav-p navbar-inverse nav-fixed navbar-fixed-top">
     <nav class="top-nav ">
         <ul class="nav ele navbar-nav">
-            <li role = "presentation"><a href="#">Home</a></li>
-            <li role = "presentation"><a href="#">Profile</a></li>
+            <li role = "presentation"><a href="/">Home</a></li>
+            <li role = "presentation"><a href="/channel">Channel</a></li>
         </ul>
     </nav>
   </nav>
@@ -97,10 +97,10 @@
         padding-left: 0px;
         padding-right: 0px;
         border-width: 0px;
-        padding-top: 5px;
+        padding-top: 6%;
     }
     .status-box{
-      padding : 2%;
+      padding : 1.5%;
       margin-bottom: 5px;
     }
     .well-custom{
@@ -111,25 +111,26 @@
     }
     .post-header{
       width: 100% ;
-      height : 50px;
+      height : 70px;
     }
     .post-profile-img{
-      width: 50px;
-      height : 50px;
+      width: 70px;
+      height : 70px;
       display: inline-block;
     }
     .post-profile-details{
       vertical-align: top;
-      height : 50px;
+      height : 100px;
       /*width: 89%;*/
-      width: calc(100% - 58px);
+      width: calc(100% - 85px);
       display: inline-block;
       border: thin;
+      font-size: smaller;
     }
     .post-profile-image-resize img{
       vertical-align: top;
-      width: 50px; /* you can use % */
-      height: 50px;
+      width: 70px; /* you can use % */
+      height: 70px;
     }
     .post_background{
       height:30px;
@@ -139,13 +140,13 @@
       margin-left: 5px;
     }
     .profile-name{
-      height:20px;
+      height:50px;
       width:50%;
       padding-left: 5px;
       display: inline-block;
     }
     .topic-name{
-      height:20px;
+      height:50px;
       width:48%;
       /*padding-right: 5px;*/
       text-align: right;
@@ -156,7 +157,7 @@
       width:100%;
     }
     .post-body{
-      margin-top: 5px;
+      margin-top: 10px;
       margin-bottom: 5px;
       width: inherit;
     }
@@ -191,9 +192,10 @@
     }
     .btn-upvote{
       /*width: 24.26%;*/
-      width: calc(25% - 6px);
+      width: calc(25% - 10px);
       background-color: white;
       color: black;
+      font-size: x-large;
     }
     .link-preview-box{
       /*padding-top: 0px;
@@ -206,32 +208,32 @@
       background-color: rgba(0, 0, 0, 0.04);
     }
     .link-preview-img{
-      width: 100px;
-      height : 100px;
+      width: 200px;
+      height : 200px;
       display: inline-block;
     }
     .link-preview-details{
       vertical-align: top;
-      height : 100px;
+      height : 200px;
       /*width: 79.2%;*/
-      width: calc(100% - 107.5px);
+      width: calc(100% - 215px);
       display: inline-block;
       border: 0px;
       background-color: rgba(0, 0, 0, 0.04);
     }
     .link-preview-image-resize img{
       vertical-align: top;
-      width: 100px; /* you can use % */
-      height: 100px;
+      width: 200px; /* you can use % */
+      height: 200px;
     }
     .link-preview-title{
       padding-top: 5px;
       padding-left: 5px;
-      height:70px;
+      height:150px;
       width:100%;
     }
     .link-parent-name{
-      height:20px;
+      height:50px;
       width:100%;
       padding-right: 5px;
       text-align: right;
@@ -365,7 +367,7 @@
               <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Upvote'/>
               <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Downvote'/>
               <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
-              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Share'/>
+              <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Broadcast '/>
             </div>
           </div>
         </div>
@@ -397,6 +399,7 @@
       width: 85%;
       height: 100%;
       border: 0px;
+      font-size: smaller;
     }
     .follow-button{
       position: absolute;
@@ -424,20 +427,20 @@
       border: none !important;
     }
     .left-topic-follow-resize{
-      width: 25px;
-      height : 25px;
+      width: 50px;
+      height : 50px;
       display: inline-block;
     }
     .left-topic-follow-resize img{
       vertical-align: top;
       display: inline-block;
-      width: 25px; /* you can use % */
-      height: 25px;
+      width: 50px; /* you can use % */
+      height: 50px;
     }
     .left-follow-topic-name{
       vertical-align: top;
       display: inline-block;
-      width: calc(100% - 32.1px); /* you can use % */
+      width: calc(100% - 65px); /* you can use % */
       height: 100%;
       border: none !important;
       margin-top: 5px;
@@ -461,7 +464,7 @@
       margin-bottom: 0px;
       display: inline-block;
       padding: 0px;
-      width: 49.5%;
+      width: 49%;
     }
 
 </style>
@@ -488,7 +491,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -511,7 +514,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -548,7 +551,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -571,7 +574,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -609,7 +612,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -632,7 +635,7 @@
                                                         <img src="/media/test2.jpg" class="img-rounded"/>
                                                       </div> 
                                                       <div class="left-follow-topic-name">
-                                                        Greek History
+                                                        Greece
                                                       </div>         
                                                     </div>
                                                     <div class="well topic-side-follow-info-head">
@@ -652,9 +655,22 @@
                                     </div>
                                 </div>
 
+                                <style type="text/css">
+                                  .carousel-sign{
+                                    font-size: larger;
+                                    color: black; 
+                                    padding-top: 20px;
+                                  }
+                                  .ca-left{
+                                     padding-right: 20px;
+                                  }
+                                  .ca-right{
+                                      padding-left: 20px;
+                                  }
+                                </style>
                             </div>
-                            <a class="left carousel-slide carousel-control" href="#eventCarousel" data-slide="prev"></a>
-                            <a class="right carousel-slide carousel-control" href="#eventCarousel" data-slide="next"></a>
+                            <a class="left carousel-slide carousel-control carousel-sign ca-left" href="#eventCarousel" data-slide="prev"><</a>
+                            <a class="right carousel-slide carousel-control carousel-sign ca-right" href="#eventCarousel" data-slide="next">></a>
                         </div>
                         <!--/carousel-inner-->
                     </div><!--/myCarousel-->
@@ -665,8 +681,133 @@
 
     </div>
   </div>
+
+    <style type="text/css">
+      .top-nav{
+        width:90%;
+        /*margin-right: calc(((100% - 1000px) * 1.6)/2.6);
+        margin-left: calc((100% - 1000px)/2.6);*/
+        padding-top: 5%
+        height: 100%;
+        margin: auto;
+      }
+      .ele>li>a {
+        padding-left: 0px;
+        text-align: center;
+      }
+      .nav-b {
+        text-align: center;
+      }
+      .m-bottom-express-btn{
+        width: 50%;
+        font-size: inherit;
+        margin: 3px;
+     }
+    </style>
+    <nav class="navbar nav-b navbar-inverse nav-fixed navbar-fixed-bottom">
+      <nav class="top-nav ">
+          <!-- <ul class="nav ele navbar-nav">
+              <li role = "presentation">
+                 
+              </li>
+          </ul> -->
+           <button class="btn btn-primary btn-md m-bottom-express-btn launch-modal" data-toggle="modal" data-target="#myMobileModal1">
+                    Express
+            </button>
+      </nav>
+    </nav>
+
+    <style type="text/css">
+      .mobileModal-dialog{
+        width: 80%;
+        margin: auto;
+        margin-top: 5%;
+      }
+      .mobile-form-control-tags{
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 25px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 5px;
+      }
+      .mobile-form-control{
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 5px;
+      }
+      .launch-modal {
+        margin: 20px;
+      }
+      .modal-footer{
+        background-color: rgba(128, 128, 128, 0.32);
+        text-align: center;
+        padding: 3px;
+      }
+      .mobile-modal-express-btn{
+        width: 33%;
+        font-size: x-large;
+        margin-bottom: 3px;
+      }
+      .mobile-modal-header{
+        background-color: rgba(128, 128, 128, 0.32);
+      }
+    </style>
+    <!-- Modal 1 -->
+  <div class="modal fade" id="myMobileModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="mobileModal-dialog">
+      <div class="modal-content">
+        <div class="modal-header mobile-modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <div class="modal-title" id="myModalLabel">Express youself!</div>
+        </div>
+        <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">
+          <input type="textarea" id="tagareaID1" class="mobile-form-control-tags" placeholder="Tag it">
+          
+          <!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+          <input type="textarea" id="textareaID1" class="mobile-form-control" placeholder="How's it going?">
+          <!-- <label class="control-label"> </label> -->
+          <div id="preview-container-parent">
+            <div id="preview-container"></div>
+          </div>
+          <!-- <label class="control-label"> </label> -->
+          <input id="input-20" name= "file" type="file">
+        </div>
+        <div class="modal-footer m-modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+          <!-- <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button> -->
+          <input type="submit" value="Express!" class="btn btn-primary mobile-modal-express-btn">
+        </div>
+        </form>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
 </body>
   <script>
+    $(document).ready(function() {  
+         $("#myCarousel").swiperight(function() {  
+            $(this).carousel('prev');  
+            });  
+         $("#myCarousel").swipeleft(function() {  
+            $(this).carousel('next');  
+       });  
+    });  
     $('#myModal1').on('show.bs.modal', function () {
       $('#textareaID1').focus();
     })

@@ -12,7 +12,7 @@ from express.views import update, store_link, upvote, downvote, broadcast, discu
 
 urlpatterns = [
     url(r'^express/update/$', update),
-    url(r'^topic/$', topic),
+    url(r'^channel/$', topic),
     url(r'^$', index),
     url(r'store/link/$', store_link),
     url(r'expression/upvote/$', upvote),

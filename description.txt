@@ -1,0 +1,355 @@
+Share something in a topic. Suggest to change the topic by others. So we get refined stuff, by the people,.
+More upvotes, more responses, will push to the topic main page.
+
+Bad UI of Wikipedia. Need something faar better.
+
+Why do you have to seach something to see good results. Think News. 
+If you don't need taxi, it doesn't mean you should not know what Uber is. Big flaw with Google!
+Use it for promoting websites too. 
+
+Facebook has the data, but doesn't use it to create the knowledge base. 
+
+
+
+SR 1-79154039616
+
+
+
+New age Wiki
+
+
+From here the 
+Entry : Shared
+Pictures : Shared
+Vidoes : Shared
+Articles : Shared
+
+
+
+
+You share something, and it goes to change the world knowledge! And discussions.
+
+
+
+
+Home page -> Topic -> Wiki
+
+Home page : People share stuff here. Questions, discussions, articles, posts, suggested reads/topics/wiki, suggested websites. Features are simple. Follow, Share, Discuss and Upvote. That's all
+
+They link to the topic page with the pinned wiki.
+
+
++ mark for follow, tick for followed/unfollow
+Show more on each sidebar topics
+Improve for the entries
+Review Requests
+
+
+Link Preview DB as SQL. No need for graph for that
+
+
+Profile  =  /Post, Edit, Delete
+Like, comment and share
+Wiki entries = Edit, Post Photo, Add Links. Something like above
+
+
+
+/Auth
+/Notification
+/Home
+/Topic
+/Profile
+/People
+/Wiki
+/Opinions
+/Discuss
+
+
+
+Things to be careful about:
+
+- Placing Staticfiles properly, review all the settings. 
+- Staticfiles rendered from local static directories, not the static root!
+- Disabling Cache while development in Chrome in Inspect - Network - Disable Cache. 
+- Not using cache for development, but for staging and production.
+- Same for Templates and Media. See for comments and values at /core/settings.py
+
+- Take care of the CORS issue. That’s one biggie
+- Load the Angular, Bootstrap and JQuery from Google’s server coz they are cached in the user’s browser, and less request to your own server resulting in slight increase in bandwidth. But include it incase of failures, e.g., Iran and China cannot access Google.
+
+
+- Neo4j : THIS IS THE MOST COMPLICATED STUFF
+- Use neomodel, as neo4django uses django 1.4, which is super old
+- write export NEO4J_REST_URL=http://user:password@localhost:7474/db/data/
+- use http and not https
+
+Neo4j auth:
+- Info stored in graphdb/dbms/auth
+- Delete the file to reset
+- neo4j.properties has the stuffs to control
+- dbms.security.auth_enabled=true (add in neo4j.properties according to the needs)
+
+- Install pip install python-resize-image,
+- pip install django_mobile
+
+
+sudo apachectl start - start apache server
+
+
+
+
+
+
+
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36
+
+
+
+
+Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36
+
+
+
+battleOfMarathon
+battle_of_marathon
+r/battleOfMarathon
+r.battleOfMarathon
+
+
+CREATE (a:RootTopic{name:’people’})-[:CHILD_TOPIC]->(b:Topic{name:’naarada’})
+WHERE a.name = ‘people’, b.name = ‘naarada’
+
+
+
+27 per users for 9 seconds.
+
+x = users.
+
+0.009x = no. of posts.
+
+27 = 0.009x
+
+x = 27000/9
+x = 3000
+
+import ast
+
+def reading(self):
+    s = open('deed.txt', 'r').read()
+    self.whip = ast.literal_eval(s)
+
+import json
+from pprint import pprint
+
+with open('data.json') as data_file:    
+    data = json.load(data_file)
+
+pprint(data)
+
+
+MATCH (n:Expression) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123’})-[:EXPRESSED]->(n) RETURN n, a.person_name
+
+
+CREATE (a:Person), (b:Expression), (a)-[:UPVOTED]->(b) WHERE a.person_id =
+
+
+upvoteExpression('+ {entry.expression_id} + ")'"
+
+MATCH (p:Person{person_id:}), (e:Expression{expression_id:}) CREATE (p)-[:UPVOTED]->(e) 
+
+
+
+
+LoadModule wsgi_module /usr/local/Cellar/mod_wsgi/4.5.7/libexec/mod_wsgi.so
+
+
+
+
+
+Using Nginx with django - uwsgi
+uwsgi --http :8000 --module myApp.wsgi
+
+
+/usr/local/etc/nginx/nginx.conf to 8080
+
+
+Doc root /usr/local/var/www
+
+nginx will load all files in /usr/local/etc/nginx/servers/
+
+
+Using gunicorn now
+
+	
+ps -ef |grep nginx Linux
+ps -ax | grep nginx Skype
+
+create server/server_logs
+gunicorn -c server/gunicorn.conf.py core.wsgi
+
+gunicorn -c gunicorn.conf.py core.wsgi first
+then sudo nginx
+
+then to localhost:8080 / Not to 8000
+
+
+
+GIT
+
+Fixing all gitignore stuff
+
+First, commit EVERYTHING BEFORE DOING THIS!
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
+
+
+
+
+Important DB stuffs!!!!
+
+1) ./manage.py makemigrations to do it all
+2) ./manage.py migrate
+3) Include app name in both if confused
+
+If these don’t work out (migrate gives no migration to apply)
+
+1) ./manage.py flush —————careful, deletes all the data!
+2)  ./manage.py sqlflush —————careful, drops all the tables!
+3) ./manage.py migrate --fake <app-name> zero
+4) ./manage.py dbshell ————————— for the sql shell
+
+
+
+
+MATCH (b:ExpressionGraph{expression_id: 138 }), (e:ExpressionGraph), (b)-[:BROADCAST_OF]->(e), CASE (e) WHEN NULL THEN (MATCH (p:ExpressionGraph{expression_id: 140 }) CREATE (p)-[:BROADCAST_OF]->(b))ELSE (MATCH (p:ExpressionGraph{expression_id: 140 }) CREATE (p)-[:BROADCAST_OF]->(e))	
+
+
+MATCH (b:ExpressionGraph{expression_id: 138 }), (e:ExpressionGraph),(b)-[:BROADCAST_OF]->(e) return CASE (b) WHEN NULL THEN MATCH (p:ExpressionGraph{expression_id: 140 }) CREATE (p)-[:BROADCAST_OF]->(b) ELSE MATCH (p:ExpressionGraph{expression_id: 140 }) CREATE (p)-[:BROADCAST_OF]->(e) END	
+
+
+f_name
+s_name
+email
+age
+gender
+DOB
+
+
+naarada_id
+naarada_name
+email
+password
+
+
+START person=node:persons('Name:*')
+MATCH person->[:Girl]->friend
+WHERE person.Name IN {Names} AND friend.Hair = 'Blond'
+RETURN person.Name, friend.Name
+
+
+RABBIT MQ user@password = nirlendu@nirlendu
+
+ALWAYS use rabbitMQ as sudo!
+sudo rabbitmq-server start -detached
+sudo rabbitmqctl status
+sudo rabbitmqctl stop
+
+
+
+TODO
+
+Have to tweak both Neo4j and Redis for faster performance. Details saved
+Add a profiling service to identify problems
+Deploy to heroku
+Identify if docker is needed
+
+
+
+HEROKU
+git push heroku deploy-heroku:master
+
+
+
+heroku ps
+heroku ps:stop PID
+
+
+HOW TO RUN CELERY
+
+add celery.py in core (THE MAIN PROJECT) —— refer celery docs.
+to init too
+
+make tasks.py in the the project-app
+
+celery -A core worker -l info
+celery -A core beat    —————— starts the beat processes
+
+
+
+celery inspect scheduled
+celery inspect active_queues
+celery inspect stats
+celery inspect
+
+sudo rabbitmqctl list_queues
+
+
+run the django
+Test on the ./manage.py shell
+
+
+For Logs
+supervisord
+supervisorctl tail -f celery ——— stored in the supervisord.config file
+
+
+
+REDIS
+
+export PATH=$PATH:/usr/local/Cellar/redis/3.2.4/bin
+redis-server
+
+
+
+
+POSTGRES
+
+\c db - uses a database
+\dt shows all tables
+
+
+
+For check ———————— First - Create the node!
+graph.cypher.stream("CREATE (t:Topic{name:'naarada'})") 
+graph.cypher.stream("CREATE (t:Person{person_id:'asd123'})")
+
+
+ ——————————————
+CHECK Graph DB in Heroku
+import os
+from py2neo import ServiceRoot
+
+graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+graph = ServiceRoot(graphenedb_url).graph
+graph.cypher.query(“WHATEVER THE QUERY”)
+
+python manage.py --settings=core.settings.local
+
+
+
+
+TODO
+
+1. Figure out a way to design the python settings file properly. core/config/celery and core/wsgi are both using them. DO IT ASAP
+
+2. Figure out a way for server logging
+
+
+
+
+
+
+
+
+
