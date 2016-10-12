@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<script async type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
+<link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
+<!-- Modal 1 -->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+				</div>
+				<form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="modal-body">
+					<input type="textarea" id="tagareaID1" class="form-control" placeholder="Tag it">
+					</br>
+					<!-- <textarea id="textareaID1" class="form-control"></textarea> -->
+					<input type="textarea" id="textareaID1" class="form-control">
+					<label class="control-label"> </label>
+					<div id="preview-container-parent">
+						<div id="preview-container"></div>
+					</div>
+					<!-- <label class="control-label"> </label> -->
+					<input id="input-20" name= "file" type="file">
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+					<input type="submit" value="Post!" class="btn btn-primary">
+				</div>
+				</form>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+	<script>
+		$('#myModal1').on('show.bs.modal', function () {
+			$('#textareaID1').focus();
+		})
+		$(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
+			$(this).find('form').trigger('reset');
+			$('#preview-container').remove();
+			$('#preview-container-parent').append('<div id=' + '"preview-container"' + '></div>');
+		});
+		$(document).on('ready', function() {
+			$("#input-20").fileinput({
+				browseClass: "btn btn-primary btn-block",
+				showCaption: false,
+				showRemove: false,
+				showUpload: false
+			});
+		});
+		window.onload=function(){
+			$('#myModal').on('shown.bs.modal', function () {
+				var elem = document.getElementById('reverse_scroll');
+				elem.scrollTop = elem.scrollHeight;
+			});
+		}
+	</script>
+
+    <script async type="text/javascript" src=" {% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+
+    <script id="loadcss">
+		loadCSS( "{% static 'css/fileinput.css' %}");
+	</script>
