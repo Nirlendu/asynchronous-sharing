@@ -104,7 +104,7 @@ def get_index_data(request):
 
 
 @ensure_csrf_cookie
-def topic(request):
+def channel(request):
     if mobile_browser(request):
         return render(request, "mobile/index_dev_m.html", {})
     return render(request, "topic_dev.html", {})

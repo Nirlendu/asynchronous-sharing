@@ -14,7 +14,7 @@
     }
     .status-box{
         padding : 1.5%;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
     }
     .well-custom{
         border: 1px solid;
@@ -124,12 +124,13 @@
         width: 200px;
         height : 200px;
         display: inline-block;
+        vertical-align: top;
     }
     .link-preview-details{
         vertical-align: top;
         height : 200px;
         /*width: 79.2%;*/
-        width: calc(100% - 218px);
+        width: calc(100% - 220px);
         display: inline-block;
         border: 0px;
         background-color: rgba(0, 0, 0, 0.04);
@@ -191,5 +192,14 @@
     {% endblock %}
     {% include "../commons/m-discover-box.html" %}
     </br>
-
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+     $("#myCarousel").swiperight(function() {
+        $(this).carousel('prev');
+        });
+     $("#myCarousel").swipeleft(function() {
+        $(this).carousel('next');
+   });
+});
+</script>
