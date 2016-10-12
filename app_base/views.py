@@ -18,6 +18,7 @@ from express.models import Expression, Link
 from py2neo import ServiceRoot
 
 from libs.logger import app_logger as log
+from libs.device_data import device_data as device
 
 
 def mobile_browser(request):
@@ -66,7 +67,8 @@ def index(request):
         person_id=request.session['person_id'],
     )
 
-    if mobile_browser(request):
+    #if mobile_browser(request):
+    if device.get_device_data(request).detectTierIphone():
         mobile_template = "m-index.html"
         mobile_page_template = "m-feed-elements.html"
         mobile_context = {
