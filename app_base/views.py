@@ -66,21 +66,29 @@ def index(request):
         person_id=request.session['person_id'],
     )
 
-    template = "index.html"
-    page_template = "feed-elements.html"
-    mobile_template = "m_index.html"
-
-    context = {
-        'Expressions': expressions,
-        'page_template': page_template,
-    }
-
-
     if mobile_browser(request):
-        return render(request, mobile_template, {})
-    if request.is_ajax():
-        template = page_template
-    return render(request, template, context)
+        mobile_template = "m-index.html"
+        mobile_page_template = "m-feed-elements.html"
+        mobile_context = {
+            'Expressions': expressions,
+            'page_template': mobile_page_template,
+        }
+        if request.is_ajax():
+            mobile_template = mobile_page_template
+        return render(request, mobile_template, mobile_context)
+
+    else:
+        template = "index.html"
+        page_template = "feed-elements.html"
+
+        context = {
+            'Expressions': expressions,
+            'page_template': page_template,
+        }
+
+        if request.is_ajax():
+            template = page_template
+        return render(request, template, context)
 
 
 @ensure_csrf_cookie

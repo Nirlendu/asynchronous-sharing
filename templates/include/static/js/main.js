@@ -16,7 +16,7 @@ $(function() {
 function postExpression()
 {
     event.preventDefault();
-    $('#myModal1').modal('toggle');
+    $('#expressModal').modal('toggle');
     var csrftoken = $.cookie('csrftoken');
     
     function csrfSafeMethod(method) {

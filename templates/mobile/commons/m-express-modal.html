@@ -48,7 +48,7 @@
 }
 </style>
     <!-- Modal 1 -->
-<div class="modal fade" id="myMobileModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="expressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="mobileModal-dialog">
         <div class="modal-content">
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
         $(this).carousel('next');
    });
 });
-$('#myModal1').on('show.bs.modal', function () {
+$('#expressModal').on('show.bs.modal', function () {
   $('#textareaID1').focus();
 })
 $(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
@@ -111,10 +111,15 @@ $(document).on('ready', function() {
     });
 });
 window.onload=function(){
-  $('#myModal').on('shown.bs.modal', function () {
+  $('#expressModal').on('shown.bs.modal', function () {
       var elem = document.getElementById('reverse_scroll');
       elem.scrollTop = elem.scrollHeight;
   });
 }
 </script>
 <script type="text/javascript" src=" {% static 'js/main.js' %}"></script>
+<script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+
+<script id="loadcss">
+    loadCSS( "{% static 'css/fileinput.css' %}");
+</script>

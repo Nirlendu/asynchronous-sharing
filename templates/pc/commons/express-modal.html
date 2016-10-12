@@ -2,7 +2,7 @@
 <script async type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
 <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
 <!-- Modal 1 -->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="expressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -35,7 +35,7 @@
 
 
 	<script>
-		$('#myModal1').on('show.bs.modal', function () {
+		$('#expressModal').on('show.bs.modal', function () {
 			$('#textareaID1').focus();
 		})
 		$(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
@@ -52,7 +52,7 @@
 			});
 		});
 		window.onload=function(){
-			$('#myModal').on('shown.bs.modal', function () {
+			$('#expressModal').on('shown.bs.modal', function () {
 				var elem = document.getElementById('reverse_scroll');
 				elem.scrollTop = elem.scrollHeight;
 			});

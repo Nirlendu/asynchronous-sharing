@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <style type="text/css">
     #content {
         position: static;
@@ -128,7 +129,7 @@
         vertical-align: top;
         height : 200px;
         /*width: 79.2%;*/
-        width: calc(100% - 215px);
+        width: calc(100% - 216px);
         display: inline-block;
         border: 0px;
         background-color: rgba(0, 0, 0, 0.04);
@@ -175,8 +176,20 @@
       Hey, Nirlendu!
     </div>
 
-    {% include "../commons/m-feed-elements.html" %}
+    <!--{% include "../commons/m-feed-elements.html" %}-->
 
+    {% include page_template %}
+
+    {% block js %}
+        <script src="{% static 'js/el-pagination.js' %}"></script>
+        <script>
+            $.endlessPaginate({
+                paginateOnScroll: true,
+                paginateOnScrollMargin: 20,
+            });
+        </script>
+    {% endblock %}
     {% include "../commons/m-discover-box.html" %}
+    </br>
 
 </div>
