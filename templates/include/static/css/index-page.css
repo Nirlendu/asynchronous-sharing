@@ -339,3 +339,7 @@ html, body {
 .broadcast-text-box{
   margin-top: 10px;
 }
+.express-modal-header{
+    color: white;
+    background-color: #337ab7;
+}

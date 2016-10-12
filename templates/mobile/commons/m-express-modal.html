@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <style type="text/css">
 .mobileModal-dialog{
-    width: 80%;
+    width: 98%;
     margin: auto;
     margin-top: 5%;
 }
@@ -16,7 +16,7 @@
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 .mobile-form-control{
     display: block;
@@ -33,7 +33,7 @@
 .launch-modal {
     margin: 20px;
 }
-.modal-footer{
+.m-modal-footer{
     background-color: rgba(128, 128, 128, 0.32);
     text-align: center;
     padding: 3px;
@@ -42,11 +42,14 @@
     width: 33%;
     font-size: x-large;
     margin-bottom: 3px;
+    background-color:rgba(0, 0, 0, 0.4)
 }
 .mobile-modal-header{
-    background-color: rgba(128, 128, 128, 0.32);
+    background-color: #337ab7;
+    color: white;
 }
 </style>
+<script async type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
     <!-- Modal 1 -->
 <div class="modal fade" id="expressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="mobileModal-dialog">
@@ -63,7 +66,7 @@
                 <div class="modal-body">
                     <input type="textarea" id="tagareaID1" class="mobile-form-control-tags" placeholder="Tag it">
 
-                    <input type="textarea" id="textareaID1" class="mobile-form-control" placeholder="How's it going?">
+                    <textarea id="textareaID1" class="mobile-form-control" placeholder="How's it going?"></textarea>
 
                     <div id="preview-container-parent">
                         <div id="preview-container"></div>
@@ -86,14 +89,6 @@
 
 
 <script>
-$(document).ready(function() {
-     $("#myCarousel").swiperight(function() {
-        $(this).carousel('prev');
-        });
-     $("#myCarousel").swipeleft(function() {
-        $(this).carousel('next');
-   });
-});
 $('#expressModal').on('show.bs.modal', function () {
   $('#textareaID1').focus();
 })
