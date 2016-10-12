@@ -2,7 +2,6 @@
 *.rdb
 *.idea
 *keypair*
-logs/
 erl_crash*
 database
 .DS_Store
