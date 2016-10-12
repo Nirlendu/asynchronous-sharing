@@ -2,6 +2,7 @@
 *.rdb
 *.idea
 *keypair*
+logs/
 erl_crash*
 media/
 database

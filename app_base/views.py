@@ -54,7 +54,7 @@ def celery_test():
     # logger.info("Task finished: result = %i" % result)
 
 @ensure_csrf_cookie
-def index(request, template="pc/index/index.html", page_template="pc/commons/feed-elements.html"):
+def index(request):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
@@ -66,13 +66,18 @@ def index(request, template="pc/index/index.html", page_template="pc/commons/fee
         person_id=request.session['person_id'],
     )
 
+    template = "index.html"
+    page_template = "feed-elements.html"
+    mobile_template = "m_index.html"
+
     context = {
         'Expressions': expressions,
         'page_template': page_template,
     }
 
+
     if mobile_browser(request):
-        return render(request, "mobile/m_index.html", {})
+        return render(request, mobile_template, {})
     if request.is_ajax():
         template = page_template
     return render(request, template, context)

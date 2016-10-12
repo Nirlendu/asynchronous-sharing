@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
+    <script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'mobile/js/jquery.js' %}"></script>
+    <link rel="stylesheet" href=" {% static 'mobile/css/mobile.main.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/fileinput.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
+</head>
+<body>
+
+    {% include "../commons/m-top-header.html" %}
+
+    <div id="wrapper">
+
+        {% include "../commons/m-feed.html" %}
+
+    </div>
+
+    {% include "../commons/m-base.html" %}
+
+    {% include "../commons/m-express-modal.html" %}
+</body>
+</html>

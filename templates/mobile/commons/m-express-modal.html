@@ -1,0 +1,120 @@
+{% load staticfiles %}
+<style type="text/css">
+.mobileModal-dialog{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+.mobile-form-control-tags{
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 25px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+.mobile-form-control{
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+.launch-modal {
+    margin: 20px;
+}
+.modal-footer{
+    background-color: rgba(128, 128, 128, 0.32);
+    text-align: center;
+    padding: 3px;
+}
+.mobile-modal-express-btn{
+    width: 33%;
+    font-size: x-large;
+    margin-bottom: 3px;
+}
+.mobile-modal-header{
+    background-color: rgba(128, 128, 128, 0.32);
+}
+</style>
+    <!-- Modal 1 -->
+<div class="modal fade" id="myMobileModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="mobileModal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header mobile-modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <div class="modal-title" id="myModalLabel">Express youself!</div>
+            </div>
+
+            <form id="post_form" action="/express/update/" method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <div class="modal-body">
+                    <input type="textarea" id="tagareaID1" class="mobile-form-control-tags" placeholder="Tag it">
+
+                    <input type="textarea" id="textareaID1" class="mobile-form-control" placeholder="How's it going?">
+
+                    <div id="preview-container-parent">
+                        <div id="preview-container"></div>
+                    </div>
+
+                    <input id="input-20" name= "file" type="file">
+
+                </div>
+
+                <div class="modal-footer m-modal-footer">
+                    <!-- <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button> -->
+                    <input type="submit" value="Express!" class="btn btn-primary mobile-modal-express-btn">
+                </div>
+
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script>
+$(document).ready(function() {
+     $("#myCarousel").swiperight(function() {
+        $(this).carousel('prev');
+        });
+     $("#myCarousel").swipeleft(function() {
+        $(this).carousel('next');
+   });
+});
+$('#myModal1').on('show.bs.modal', function () {
+  $('#textareaID1').focus();
+})
+$(document).on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
+    $(this).find('form').trigger('reset');
+    $('#preview-container').remove();
+    $('#preview-container-parent').append('<div id=' + '"preview-container"' + '></div>');
+});
+$(document).on('ready', function() {
+    $("#input-20").fileinput({
+        browseClass: "btn btn-primary btn-block",
+        showCaption: false,
+        showRemove: false,
+        showUpload: false
+    });
+});
+window.onload=function(){
+  $('#myModal').on('shown.bs.modal', function () {
+      var elem = document.getElementById('reverse_scroll');
+      elem.scrollTop = elem.scrollHeight;
+  });
+}
+</script>
+<script type="text/javascript" src=" {% static 'js/main.js' %}"></script>
