@@ -5,7 +5,9 @@ import sys, os
 
 from py2neo import Graph, ServiceRoot
 
+from django.conf import settings
 from express.models import Expression
+
 from libs.logger import app_logger as log
 
 
@@ -132,8 +134,7 @@ def upvote_prev_check(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Prev Upvote Check')
 
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     x = graph.cypher.stream(
         "MATCH (p:Person{person_id:{upvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), "
         "(p)-[r]->(e)"
@@ -221,8 +222,7 @@ def downvote_prev_check(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Prev Downvote Check')
 
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     x = graph.cypher.stream(
         "MATCH (p:Person{person_id:{downvoter}}), (e:ExpressionGraph{expression_id:{expression_id}}), "
         "(p)-[r]->(e) "

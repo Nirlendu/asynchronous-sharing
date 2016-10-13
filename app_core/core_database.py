@@ -3,6 +3,8 @@
 import inspect
 import sys, os, re
 
+from django.conf import settings
+
 from django.db import transaction
 from py2neo import Graph, ServiceRoot
 
@@ -50,9 +52,7 @@ def get_expressions_database(
 # TODO Only for testing!
 def get_index_data(person_id):
     entry = []
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
-    # graph = Graph()
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     express = graph.cypher.stream(
         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
     # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
@@ -105,7 +105,6 @@ def get_index_data(person_id):
                                 b['parent_domain'] = \
                                     re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
                     a['broadcast_of'] = b
-
             entry.append(a)
     return entry
 
@@ -140,8 +139,7 @@ def new_expression_database(
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
     )
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -230,8 +228,7 @@ def new_broadcast_database(
     expression.new_broadcast_update_count(
         expression_id=broadcast_parent_id,
     )
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     intial_transaction = graph.cypher.begin()
     expression_node_transaction = expression.new_expression_node(
         transaction=intial_transaction,
@@ -305,8 +302,7 @@ def new_discussion_expression_database(
     expression.new_discussion_update_count(
         expression_id=discussion_parent_id,
     )
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     intial_transaction = graph.cypher.begin()
 
     expression_node_transaction = discussion_expression.new_discussion_expression_node(
@@ -347,8 +343,7 @@ def upvote_expression_database(
         upvoter=upvoter,
     )
 
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     intial_transaction = graph.cypher.begin()
 
     if prev_relation == 'UPVOTED':
@@ -415,8 +410,7 @@ def downvote_expression_database(
         downvoter=downvoter,
     )
 
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
     intial_transaction = graph.cypher.begin()
 
     if prev_relation == 'UPVOTED':

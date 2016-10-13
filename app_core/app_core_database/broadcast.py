@@ -5,6 +5,8 @@ import sys, os
 
 from py2neo import Graph, ServiceRoot
 
+from django.conf import settings
+
 from libs.logger import app_logger as log
 
 
@@ -16,8 +18,7 @@ def check_parent_broadcast(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Checking parent broadcast')
 
-    graphdb_url = os.environ.get('GRAPHDB_URL')
-    graph = ServiceRoot(graphdb_url).graph
+    graph = ServiceRoot(settings.GRAPHDB_URL).graph
 
     query = "MATCH (p:ExpressionGraph{expression_id:{broadcast_parent_id}}), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e"
     is_parent_broadcast = graph.cypher.stream(query, parameters={'broadcast_parent_id': broadcast_parent_id})
@@ -34,7 +35,7 @@ def new_broadcast_relation(
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Creating New Broadcast Realationship')
+    log.debug('Creating New Broadcast Relationship')
 
     query = "MATCH (p:ExpressionGraph{expression_id:{broadcast_parent_id}}),(e:ExpressionGraph{expression_id:{expression_id}}) CREATE (e)-[:BROADCAST_OF]->(p)"
 
