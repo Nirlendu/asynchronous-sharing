@@ -341,9 +341,11 @@ python manage.py --settings=core.settings.local
 
 TODO
 
-1. Figure out a way to design the python settings file properly. core/config/celery and core/wsgi are both using them. DO IT ASAP
+1. Figure out a way to design the python settings file properly. core/config/celery and core/wsgi are both using them. DO IT ASAP    ————— DONE
 
 2. Figure out a way for server logging
+
+3. Change the UI for the mobile site
 
 
 

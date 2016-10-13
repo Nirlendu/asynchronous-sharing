@@ -34,23 +34,57 @@
     margin: 20px;
 }
 .m-modal-footer{
-    background-color: rgba(128, 128, 128, 0.32);
+    background-color: rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 3px;
+    height: 100px;
 }
 .mobile-modal-express-btn{
-    width: 33%;
-    font-size: x-large;
+    width: 50%;
+    font-size: xx-large;
+    height: 90%;
+    margin-top: 5px;
     margin-bottom: 3px;
-    background-color:rgba(0, 0, 0, 0.4)
+    background-color:#337ab7;
 }
 .mobile-modal-header{
     background-color: #337ab7;
     color: white;
+    height: 80px;
+    font-size: xx-large;
+}
+textarea#textareaID1{
+    width: 100%;
+    height:240px;
+    border-color: rgba(0,0,0,0.2);
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+textarea#tagareaID1{
+    width: 100%;
+    height: 80px;
+    border-color: rgba(0,0,0,0.2);
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+.express-link{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+.express-elements{
+    /*display: block;*/
 }
 </style>
+
+
+
 <script async type="text/javascript" src=" {% static 'js/bootstrap-linkpreview.js' %}"></script>
-    <!-- Modal 1 -->
+<script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
+<link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap-linkpreview.css' %}">
+
+
+<!-- Modal 1 -->
 <div class="modal fade" id="expressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="mobileModal-dialog">
         <div class="modal-content">
@@ -64,18 +98,24 @@
 
                 {% csrf_token %}
                 <div class="modal-body">
-                    <input type="textarea" id="tagareaID1" class="mobile-form-control-tags" placeholder="Tag it">
+                    <!-- <input type="textarea" id="tagareaID1" class="mobile-form-control-tags" placeholder="Tag it"> -->
+                    <textarea id="tagareaID1" placeholder="Mention some streams"></textarea>
 
-                    <textarea id="textareaID1" class="mobile-form-control" placeholder="How's it going?"></textarea>
+                    <!-- <textarea id="textareaID1" class="mobile-form-control" placeholder="How's it going?"></textarea> -->
+
+                    <textarea id="textareaID1" placeholder="How's it going?"></textarea>
 
                     <div id="preview-container-parent">
                         <div id="preview-container"></div>
                     </div>
 
-                    <input id="input-20" name= "file" type="file">
+                    <div class="express-elements">
+                        <input id="input-20" name= "file" type="file" value="Image">
+                    </div>
 
                 </div>
 
+                </br>
                 <div class="modal-footer m-modal-footer">
                     <!-- <button id = "closebutton" type="button" class="btn btn-primary" data-dismiss="modal">Discard</button> -->
                     <input type="submit" value="Express!" class="btn btn-primary mobile-modal-express-btn">
@@ -105,16 +145,16 @@ $(document).on('ready', function() {
         showUpload: false
     });
 });
-window.onload=function(){
-  $('#expressModal').on('shown.bs.modal', function () {
-      var elem = document.getElementById('reverse_scroll');
-      elem.scrollTop = elem.scrollHeight;
-  });
-}
+// window.onload=function(){
+//   $('#expressModal').on('shown.bs.modal', function () {
+//       var elem = document.getElementById('reverse_scroll');
+//       elem.scrollTop = elem.scrollHeight;
+//   });
+// }
 </script>
 <script type="text/javascript" src=" {% static 'js/main.js' %}"></script>
 <script type="text/javascript" src=" {% static 'js/fileinput.js' %}"></script>
 
 <script id="loadcss">
-    loadCSS( "{% static 'css/fileinput.css' %}");
+    loadCSS( "{% static 'mobile/css/m-fileinput.css' %}");
 </script>
