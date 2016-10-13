@@ -34,30 +34,47 @@
             {% endif %}
 
             {% if entry.expression_link_title %}
-                <div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-                    <div class = "link-preview-img">
-                        <div class="link-preview-image-resize">
-                            <img src="{{entry.expression_link_image}}" class="img-rounded"/>
+
+                {% if entry.expression_link_image %}
+                    <div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+                        <div class = "link-preview-img">
+                            <div class="link-preview-image-resize">
+                                <img src="{{entry.expression_link_image}}" class="img-rounded"/>
+                            </div>
+                        </div>
+                        <div class = "link-preview-details">
+                            <div class="link-preview-title">
+                                {{entry.expression_link_title}}
+                            </div>
+                            <div class="link-parent-name">
+                                {{entry.parent_domain}}
+                            </div>
                         </div>
                     </div>
-                    <div class = "link-preview-details">
-                        <div class="link-preview-title">
-                            {{entry.expression_link_title}}
-                        </div>
-                        <div class="link-parent-name">
-                            {{entry.parent_domain}}
+                {% endif %}
+
+                {% if not entry.expression_link_image %}
+                    <div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+                        <div class = "link-preview-details-max">
+                            <div class="link-preview-title">
+                                {{entry.expression_link_title}}
+                            </div>
+                            <div class="link-parent-name">
+                                {{entry.parent_domain}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
+
             {% endif %}
         </div>
     </div>
     <div class = "post-footer">
         <div class = "well post-action">
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Upvote'/>
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Downvote'/>
+            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Up'/>
             <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Share'/>
+            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Broadcast'/>
+            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Down'/>
         </div>
     </div>
 </div>
