@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 
-from app_base.views import index, channel, dev, get_index_data
+from app_base.views import index, channel, dev, get_index_data, test
 from app_test.views import react_webpack_test, react_pre_render_test
 from express.views import update, store_link, upvote, downvote, broadcast, discuss
 
@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'expression/upvote/$', upvote),
     url(r'expression/downvote/$', downvote),
     url(r'expression/broadcast/$', broadcast),
+    url(r'test/$', test),
     url(r'test/react-webpack-test/$', react_webpack_test),
     url(r'test/react-pre-render-test/$', react_pre_render_test),
     url(r'expression/discuss/$', discuss),

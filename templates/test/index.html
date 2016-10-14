@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<title>Feed</title>
+	<link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href=" {% static 'css/index-page.css' %}">
+	<!--<link rel="stylesheet" type="text/css" href=" {% static 'css/chat.css' %}">-->
+	<script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+	<!--<script async type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}" defer></script>-->
+	<script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src=" {% static 'js/loadCSS.js' %}"></script>
+
+</head>
+
+<body>
+
+	<!--{% include "../pc/commons/express-modal.html" %}-->
+	{% include "../pc/commons/top-header.html" %}
+
+	<div id="wrapper">
+		<div class = "left-info-area">
+			{% include "../pc/index/index-left-panel.html" %}
+		</div>
+
+		<div class="well" id="feed-area">
+
+			<div class="well feed-express-area">
+				Hey, Nirlendu!
+			</div>
+
+            {% include "../test/feed.html" %}
+
+		</div>
+
+		<div class = "right-info-area well">
+			{% include "../pc/index/index-right-panel.html" %}
+		</div>
+
+	</div>
+
+</body>
+
+<!--<script id="loadcss">-->
+	<!--loadCSS( "{% static 'css/chat.css' %}");-->
+<!--</script>-->
+
+</html>
