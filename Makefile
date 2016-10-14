@@ -1,6 +1,13 @@
 init-env:
 	virtualenv venv --system-site-packages
 
+git-clean:
+	git add .
+	git commit -m "saving changes before clean-up"
+	git rm -r --cached .
+	git add .
+	git commit -m "fixed untracked files"
+
 dev-server-start:
 	sudo nginx
 	gunicorn -c server/gunicorn.conf.py core.wsgi.local
@@ -10,7 +17,7 @@ heroku-server-start:
 	gunicorn -c server/gunicorn.conf.py core.wsgi.heroku
 
 dev-server:
-	export DJANGO_SETTINGS_MODULE='core.settings.local'
+	export DJANGO_SETTINGS_MODULE=core.settings.local
 	python manage.py runserver --settings=core.settings.local
 
 heroku-server:
@@ -19,8 +26,8 @@ heroku-server:
 
 staging-server:
 	export DJANGO_SETTINGS_MODULE=core.settings.staging
-	python manage.py runserver
+	python manage.py runserver --settings=core.settings.staging
 
 prod-server:
 	export DJANGO_SETTINGS_MODULE=core.settings.production
-	python manage.py runserver
+	python manage.py runserver --settings=core.settings.production
