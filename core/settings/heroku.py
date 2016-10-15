@@ -21,6 +21,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*", ]
 
 
+WSGI_APPLICATION = 'core.wsgi.heroku.application'
+
 # Static files (CSS, JavaScript, Images) during deployment
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'var/www/static')

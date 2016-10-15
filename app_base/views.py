@@ -61,7 +61,7 @@ def index(request):
 
     init_session(request)
 
-    print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
+    #print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
 
     try:
         redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
