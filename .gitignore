@@ -6,6 +6,8 @@ erl_crash*
 database
 description.txt
 .DS_Store
+logs/
+media/
 *heroku_*
 *env/
 *heroku_*
