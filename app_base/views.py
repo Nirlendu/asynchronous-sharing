@@ -63,6 +63,8 @@ def index(request):
 
     init_session(request)
 
+    print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
+
     expressions = core.get_expressions(
         person_id=request.session['person_id'],
     )

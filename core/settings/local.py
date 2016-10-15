@@ -138,7 +138,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #MEDIA_ROOT = os.path.join('http://s3.ap-south-1.amazonaws.com/the-thing', 'media')
 
 # url to access media files
-MEDIA_URL = 'http://s3.ap-south-1.amazonaws.com/the-thing/'
+MEDIA_URL = '/media/'
 
 AWS_STORAGE_BUCKET_NAME = 'the-thing'
 AWS_ACCESS_KEY_ID = 'AKIAIJV7GGCJGULDTAIA'
@@ -170,12 +170,12 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kolkata'
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
-
-os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
-os.environ['DATABASE_URL'] = 'localhost'
-
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
+
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
+os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
+os.environ['DATABASE_URL'] = 'localhost'
