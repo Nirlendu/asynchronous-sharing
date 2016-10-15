@@ -10,7 +10,7 @@ heroku-server-start:
 	gunicorn -c server/gunicorn.conf.py core.wsgi.heroku
 
 dev-server:
-	export DJANGO_SETTINGS_MODULE='core.settings.local'
+	export DJANGO_SETTINGS_MODULE=core.settings.local
 	python manage.py runserver --settings=core.settings.local
 
 heroku-server:
