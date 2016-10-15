@@ -43,7 +43,21 @@ INSTALLED_APPS = [
     'el_pagination',
     'webpack_loader',
     'react',
+    'storages',
 ]
+
+
+MEDIA_URL = 'http://s3.ap-south-1.amazonaws.com/the-thing/'
+
+AWS_STORAGE_BUCKET_NAME = 'the-thing'
+AWS_ACCESS_KEY_ID = 'AKIAIJV7GGCJGULDTAIA'
+AWS_SECRET_ACCESS_KEY = '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'
+
+
+# place where media files are served wrt base directory
+#MEDIA_ROOT = os.path.join('http://the-thing.s3-website.ap-south-1.amazonaws.com', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,12 +147,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'templates/include/static'),
 )
-
-# place where media files are served wrt base directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# url to access media files
-MEDIA_URL = '/media/'
 
 # from django.conf.global_settings import TEMPLATES
 WEBPACK_LOADER = {

@@ -35,9 +35,42 @@ def new_upload_file(file_content):
     log.debug('File Uploading..')
 
     path = default_storage.save('upload/upload.jpg', ContentFile(file_content.read()))
-    filename = os.path.join(settings.MEDIA_URL, path)
+    filename = os.path.join('/media/', path)
     compressimages.image_upload(filename)
-    return filename
+    boto_storage(filename)
+
+    return settings.MEDIA_URL + filename[1:]
+
+
+def boto_storage(filename):
+    os.environ['S3_USE_SIGV4'] = 'True'
+    import boto
+    from boto.s3.key import Key
+    conn = boto.connect_s3(settings.AWS_ACCESS_KEY_ID, settings.AWS_SECRET_ACCESS_KEY, host='s3.ap-south-1.amazonaws.com')
+    my_key = Key(conn.get_all_buckets()[0], filename)
+    my_key.set_contents_from_filename(os.path.join(settings.BASE_DIR,filename[1:]))
+    my_key.make_public()
+    return
+
+
+def store_url_imagefile(image_url):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Store URL Imagefile')
+
+    try:
+        image_file = 'url_images/' + str(uuid.uuid4())[:16] + '.jpg'
+        urllib.urlretrieve(image_url, os.path.join('media/', image_file))
+        filename =  os.path.join('/media/', image_file)
+        boto_storage(filename)
+        return settings.MEDIA_URL + filename[1:]
+        #return os.path.join(settings.MEDIA_URL, image_file)
+
+    except:
+        return None
+
+
 
 
 def new_expression(
@@ -72,20 +105,6 @@ def new_expression(
         total_discussions=total_discussions,
         topics=topics,
     )
-
-
-def store_url_imagefile(image_url):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Store URL Imagefile')
-
-    try:
-        image_file = 'url_images/' + str(uuid.uuid4())[:16] + '.jpg'
-        urllib.urlretrieve(image_url, os.path.join(settings.MEDIA_ROOT, image_file))
-        return os.path.join(settings.MEDIA_URL, image_file)
-    except:
-        return None
 
 
 def store_url(
