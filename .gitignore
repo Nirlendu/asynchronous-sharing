@@ -4,11 +4,13 @@
 *keypair*
 erl_crash*
 database
+description.txt
 .DS_Store
 *heroku_*
 *env/
 *heroku_*
 *env/
+*celerybeat*
 runtime.txt
 *npm_debug.log
 *keypair*

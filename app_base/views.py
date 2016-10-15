@@ -3,14 +3,12 @@
 import sys
 import inspect
 
-
 import re, os
 
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-from celery.task.schedules import crontab
-from celery.decorators import periodic_task
+from celery import shared_task
 
 from app_core import core_interface as core
 
@@ -18,7 +16,15 @@ from express.models import Expression, Link
 from py2neo import ServiceRoot
 
 from libs.logger import app_logger as log
+
 from libs.device_data import device_data as device
+import ujson
+import redis
+
+
+# import logging
+# logger = logging.getLogger(__name__)
+
 
 
 def mobile_browser(request):
@@ -37,7 +43,7 @@ def init_session(request):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.info('Init the session data')
+    log.debug('Init the session data')
 
     request.session['person_name'] = 'Nirlendu Saha'
     request.session['person_id'] = 'asd123'
@@ -45,14 +51,6 @@ def init_session(request):
 
     return
 
-
-# A periodic task that will run every minute (the symbol "*" means every)
-@periodic_task(run_every=(crontab(hour="*", minute="*", day_of_week="*")))
-def celery_test():
-    log.info('Celery task started')
-    # now = datetime.now()
-    # result = scrapers.scraper_example(now.day, now.minute)
-    # logger.info("Task finished: result = %i" % result)
 
 @ensure_csrf_cookie
 def index(request):
@@ -65,9 +63,14 @@ def index(request):
 
     print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
 
-    expressions = core.get_expressions(
-        person_id=request.session['person_id'],
-    )
+    try:
+        redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
+        expressions = ujson.loads(redis_cache.hget('asd123','asd123'))
+        print "REDIS PRESENT"
+    except:
+        expressions = core.get_expressions(
+            person_id=request.session['person_id'],
+        )
 
     #if mobile_browser(request):
     if device.get_device_data(request).detectTierIphone():

@@ -19,6 +19,6 @@ def xsum(numbers):
 
 @shared_task
 def test():
-    print "CELERY RUNNING!"
+    print "CELERY RUNNING!" 
     return
 
