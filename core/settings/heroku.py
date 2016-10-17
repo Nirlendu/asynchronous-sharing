@@ -20,8 +20,31 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", ]
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.heroku'
 
+WSGI_APPLICATION = 'core.wsgi.heroku.application'
+
+# Static files (CSS, JavaScript, Images) during deployment
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'var/www/static')
+
+# url to access the static files
+STATIC_URL = '/static/'
+
+# static files during development wrt base directory
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'templates/include/static'),
+)
+
+
+MEDIA_URL = 'http://s3.ap-south-1.amazonaws.com/the-thing/'
+
+AWS_STORAGE_BUCKET_NAME = 'the-thing'
+
+# place where media files are served wrt base directory
+#MEDIA_ROOT = os.path.join('http://the-thing.s3-website.ap-south-1.amazonaws.com', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.heroku'
 
 # For the Postgre
 DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}

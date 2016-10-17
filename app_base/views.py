@@ -61,6 +61,8 @@ def index(request):
 
     init_session(request)
 
+    #print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
+
     try:
         redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
         expressions = ujson.loads(redis_cache.hget('asd123','asd123'))
@@ -98,6 +100,8 @@ def index(request):
 
 @ensure_csrf_cookie
 def test(request):
+    if device.get_device_data(request).detectTierIphone():
+        return render(request, 'm-test.html', {})
     return render(request, 'test.html', {})
 
 

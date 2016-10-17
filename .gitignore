@@ -2,13 +2,12 @@
 *.rdb
 *.idea
 *keypair*
-logs/
 erl_crash*
-media/
-logs/
 database
 description.txt
 .DS_Store
+logs/
+media/
 *heroku_*
 *env/
 *heroku_*

@@ -53,9 +53,6 @@ TEMPLATES = [
     },
 ]
 
-
-WSGI_APPLICATION = 'core.wsgi.application'
-
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -87,34 +84,5 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images) during deployment
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'var/www/static')
-
-# url to access the static files
-STATIC_URL = '/static/'
-
-# static files during development wrt base directory
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'templates/include/static'),
-)
-
-# place where media files are served wrt base directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# url to access media files
-MEDIA_URL = '/media/'
-
-# from django.conf.global_settings import TEMPLATES
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'bundles/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
-    }
-}
-
-# For the react lib for server side webpage rendering
-REACT = {
-    'RENDER': True,
-    'RENDER_URL': 'http://127.0.0.1:9009',
-}
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']

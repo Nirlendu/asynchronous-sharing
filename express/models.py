@@ -72,7 +72,7 @@ class Expression(models.Model):
         null=True,
     )
     expression_imagefile = models.CharField(
-        max_length=50,
+        max_length=100,
         default=None,
         null=True,
     )
@@ -213,7 +213,7 @@ class Link(models.Model):
         null=True,
     )
     link_image = models.CharField(
-        max_length=60,
+        max_length=100,
         default=None,
         null=True,
     )

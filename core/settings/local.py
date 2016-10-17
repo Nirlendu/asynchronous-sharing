@@ -18,6 +18,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", ]
 
+WSGI_APPLICATION = 'core.wsgi.local.application'
+
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
@@ -29,12 +31,68 @@ DATABASES = {
     }
 }
 
+
+# Static files (CSS, JavaScript, Images) during deployment
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'var/www/static')
+
+# url to access the static files
+STATIC_URL = '/static/'
+
+# static files during development wrt base directory
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'templates/include/static'),
+)
+
+
+# place where media files are served wrt base directory
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join('http://s3.ap-south-1.amazonaws.com/the-thing', 'media')
+
+# url to access media files
+MEDIA_URL = '/media/'
+
+AWS_STORAGE_BUCKET_NAME = 'the-thing'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+# from django.conf.global_settings import TEMPLATES
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
+
+# For the react lib for server side webpage rendering
+REACT = {
+    'RENDER': True,
+    'RENDER_URL': 'http://127.0.0.1:9009',
+}
+
+# For message brokers in Celery - Using Rabbit MQ now
+BROKER_URL = 'amqp://nirlendu:nirlendu@localhost:5672/vhost'
+
+# Some temp setting, will come back to this later
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
 
 #VERY IMPORTANT! - This is referred everywhere
 GRAPHDB_URL = 'http://localhost:7474/'
 
+
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
+
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
+os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
+os.environ['DATABASE_URL'] = 'localhost'
+
+
