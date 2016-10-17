@@ -13,7 +13,6 @@ border-color: rgba(0,0,0,0.07);
 .feed-discover-footer{
 margin-top: 5px;
 margin-bottom: 5px;
-width: inherit;
 padding-left: 55px;
 }
 .btn-feed-express-color{
@@ -158,6 +157,7 @@ margin-top: 5px;
 margin-bottom: 5px;
 width: inherit;
 padding-left: 55px;
+width: 100%;
 }
 .inline-discover-channel-article-wrapper{
 position: relative;
@@ -175,6 +175,7 @@ padding: 0px;
 padding-left: 0px;*/
 border: 0px;
 height: 285px;
+background-color: rgba(0,0,0,0.07);
 }
 .btn-discover-white{
 width: calc(33.5% - 4px);
@@ -257,43 +258,43 @@ border-color: white;
 					-channel-
 				</div>
 			</div>
+		</div>
 
-
-			<div class = "feed-discover-body">
-				<div class = "well feed-discover-article-content">
-					<div class="inline-discover-channel-article-wrapper">
-						<div class="dicover-url-image">
-							<img src="/media/test2.jpg" class="img-rounded"/>
-						</div>
-						<div class="discover-url-title">
-							Title
-						</div>
-						<div class="discover-url-domain">
-							Domain
-						</div>
-					</div>			
-				</div>
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "feed-discover-body">
+			<div class = "well feed-discover-article-content">
+				<div class="inline-discover-channel-article-wrapper">
+					<div class="dicover-url-image">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+					<div class="discover-url-title">
+						Title
+					</div>
+					<div class="discover-url-domain">
+						Domain
+					</div>
+				</div>	
 			</div>
+		</div>
 
-			<div class = "feed-discover-footer">
-				<div class = "feed-discover-action">
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
 
-					<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
-			        </button>
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-volume-up"></span> 161
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-log-in"></span> 29
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
 
-				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class = "inline-discover-channel">
 		<div class="inline-discover-channel-wrapper">
 			<div class="dicover-url-image">
@@ -313,7 +314,7 @@ border-color: white;
 			<div class="dicover-url-image">
 				<img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
 			</div>
-			<div class="discover-url-title">
+			<div onclick="window.open('','mywindow');" style="cursor: pointer;" class="discover-url-title">
 				Title
 			</div>
 			<div class="discover-channel-footer">
@@ -400,6 +401,9 @@ padding: 2%;
 margin-right: 2px;
 display: inline-block;
 }
+.feed-discover-article{
+	background-color: rgba(0,0,0,0.07);
+}
 </style>
 
 
@@ -407,20 +411,21 @@ display: inline-block;
 
 <div class="well-custom-1 feed-discover-inline">
 	<div class = "well inline-feed-left-discover inline-feed-discover-half">
-		<div class = "feed-express-header">
-			<div class = "feed-express-profile-img">
-				<div class="feed-express-profile-image-resize">
-					<img src="/media/test2.jpg" class="img-rounded"/>
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;">
+			<div  class = "feed-express-header">
+				<div class = "feed-express-profile-img">
+					<div class="feed-express-profile-image-resize">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+				</div>
+				<div class = "feed-express-profile-details">	
+					<div class="feed-express-background">
+					</div>
+					<div class="profile-name">
+						-channel-
+					</div>
 				</div>
 			</div>
-			<div class = "feed-express-profile-details">
-				<div class="feed-express-background">
-				</div>
-				<div class="profile-name">
-					-channel-
-				</div>
-			</div>
-
 			<div class = "feed-discover-body">
 				<div class = "well feed-discover-article-content">
 					<div class="inline-discover-channel-article-wrapper">
@@ -436,23 +441,23 @@ display: inline-block;
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class = "feed-discover-footer">
-				<div class = "feed-discover-action">
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
 
-					<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
-			        </button>
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-volume-up"></span> 161
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-log-in"></span> 29
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
 
-				</div>
 			</div>
 		</div>
 	</div>
@@ -460,17 +465,19 @@ display: inline-block;
 
 
 	<div class = "well inline-feed-discover-half">
-		<div class = "feed-express-header">
-			<div class = "feed-express-profile-img">
-				<div class="feed-express-profile-image-resize">
-					<img src="/media/test2.jpg" class="img-rounded"/>
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;">
+			<div class = "feed-express-header">
+				<div class = "feed-express-profile-img">
+					<div class="feed-express-profile-image-resize">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
 				</div>
-			</div>
-			<div class = "feed-express-profile-details">
-				<div class="feed-express-background">
-				</div>
-				<div class="profile-name">
-					-channel-
+				<div class = "feed-express-profile-details">
+					<div class="feed-express-background">
+					</div>
+					<div class="profile-name">
+						-channel-
+					</div>
 				</div>
 			</div>
 
@@ -489,23 +496,22 @@ display: inline-block;
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
 
-			<div class = "feed-discover-footer">
-				<div class = "feed-discover-action">
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
 
-					<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-volume-up"></span> 161
-			        </button>
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
 
-			        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
-			          <span class="glyphicon glyphicon-log-in"></span> 29
-			        </button>
-
-				</div>
 			</div>
 		</div>
 	</div>
@@ -535,6 +541,13 @@ background-color: white;
 .feed-discover-third-right{
 margin-right: 2px;
 }
+.feed-discover-article-content-third{
+background-color: white;
+margin-bottom: 0px;
+padding: 0px;
+border: 0px;
+height: 285px;
+}
 </style>
 
 
@@ -542,8 +555,8 @@ margin-right: 2px;
 
 <div class="well-custom-1 feed-discover-third-wrapper">
 	<div class = "feed-discover-third feed-discover-third-right">
-		<div class = "well feed-discover-article-content">
-			<div class="inline-discover-channel-article-wrapper">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
 				<div class="dicover-url-image">
 					<img src="/media/test2.jpg" class="img-rounded"/>
 				</div>
@@ -558,8 +571,8 @@ margin-right: 2px;
 	</div>
 
 	<div class = "feed-discover-third feed-discover-third-right">
-		<div class = "well feed-discover-article-content">
-			<div class="inline-discover-channel-article-wrapper">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
 				<div class="dicover-url-image">
 					<img src="/media/test2.jpg" class="img-rounded"/>
 				</div>
@@ -574,8 +587,8 @@ margin-right: 2px;
 	</div>
 
 	<div class = "feed-discover-third">
-		<div class = "well feed-discover-article-content">
-			<div class="inline-discover-channel-article-wrapper">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
 				<div class="dicover-url-image">
 					<img src="/media/test2.jpg" class="img-rounded"/>
 				</div>
