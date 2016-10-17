@@ -8,6 +8,7 @@
 	  border-color: inherit;
 	  border-radius: 5px;
 	  padding-bottom: 0px;
+	  border-color: white;
 	}
 	.feed-express-footer-1{
 	  margin-top: 5px;
@@ -20,13 +21,13 @@
 	  background-color: #337ab7;
 	  color: white;
 	  border-color: white;
+	  /*font-weight: bold;*/
 	}
-	.btn-feed-express-1:hover{
-	  /*width: calc(25% - 4px);*/
-	  background-color: white;
-	  color: red;
-	  font-weight: bold;
-	  /*border-color: white;*/
+	.btn-feed-express-inverted{
+	  width: calc(25% - 4px);
+	  background-color: rgba(0,0,0,0.1);
+	  color: black;
+	  border-color: white;
 	}
 	.feed-express-action-1{
 	  border: 0px;
@@ -36,9 +37,29 @@
 	  /*background-color: rgba(0,0,0,0.1);*/
 	  padding: 0px;
 	}
+	.btn-up:hover{
+	background-color: white;
+	  color: red;
+	  font-weight: bold;
+	}
+	.btn-discuss:hover{
+		background-color: white;
+	  color: #337ab7;
+	  font-weight: bold;
+	}
+	.btn-broadcast:hover{
+		background-color: white;
+	  color: rgba(58, 128, 37, 0.71);
+	  font-weight: bold;
+	}
+	.btn-collect:hover{
+		background-color: white;
+	  color: rgb(177, 136, 46);
+	  font-weight: bold;
+	}
 </style>
 
-	<div class="well-custom-1 feed-express-area">
+	<div class="well-custom feed-express-area">
 	<div class = "feed-express-header">
 		<div class = "feed-express-profile-img">
 		<div class="feed-express-profile-image-resize">
@@ -87,21 +108,21 @@
 		</div>
 	</div>
 		<div class = "feed-express-footer-1">
-			<div class = "well feed-express-action-1">
+			<div class = "feed-express-action-1">
 
-			<button type="button" class='btn btn-feed-express-1 btn-primary btn-sm'>
+			<button type="button" class='btn btn-feed-express-1 btn-up btn-primary btn-sm'>
 	          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
 	        </button>
 
-	        <button type="button" class='btn btn-feed-express-1 btn-primary btn-sm'>
+	        <button type="button" class='btn btn-feed-express-1 btn-discuss btn-primary btn-sm'>
 	          <span class="glyphicon glyphicon-comment"></span> 400
 	        </button>
 
-	        <button type="button" class='btn btn-feed-express-1 btn-primary btn-sm'>
+	        <button type="button" class='btn btn-feed-express-1 btn-broadcast btn-primary btn-sm'>
 	          <span class="glyphicon glyphicon-volume-up"></span> 161
 	        </button>
 
-	        <button type="button" class='btn btn-feed-express-1 btn-primary btn-sm'>
+	        <button type="button" class='btn btn-feed-express-1 btn-collect btn-primary btn-sm'>
 	          <span class="glyphicon glyphicon-log-in"></span> 29
 	        </button>
 
@@ -113,9 +134,10 @@
 
 <style type="text/css">
 .feed-express-area-inline{
-  padding : 2%;
+  /*padding : 2%;*/
   margin-bottom: 5px;
   display: flex;
+  height: 400px;
 }
 .inline-feed-left{
 	margin-right: 1.5%;
@@ -124,6 +146,8 @@
 	width: 61.3%;
 	padding: 0px;
 	margin-bottom: 0px;
+	padding: 2%;
+	/*height: 400px;*/
 }
 .well-custom-2{
   border: 1px solid;
@@ -135,7 +159,60 @@
 
 <!--ELEMENT TWO-->
 
-<div class="well-custom feed-express-area-inline">
+<style type="text/css">
+	.article-vertical{
+		padding: 0px;
+		margin:0px;
+	}
+	.dicover-article-image{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.dicover-article-image img {
+		width: 100%;
+	}
+	.discover-left-article{
+		height: 80%;
+	}
+	.feed-express-body-1{
+		margin-top: 5px;
+		  margin-bottom: 5px;
+		  width: inherit;
+		  padding-left: 55px;
+	}
+	.inline-discover-article-wrapper{
+		position: relative;
+		/*display: block;*/
+		display: flex;
+		flex-direction: column;
+		flex-direction: column;
+		margin-bottom: 5px;
+		border-radius: 3px;
+		/*border-color: rgba(0,0,0,0.08);*/
+		border: 1px solid #e3e3e3;
+		height: 100%;
+	}
+	.feed-left-article-contents{
+	  margin-bottom: 0px;
+	  padding: 5px;
+	  padding-right: 0px;
+	  padding-left: 0px;
+	  border: 0px;
+	  height: 285px;
+	}
+	.btn-feed-discover-1{
+	  width: calc(33.5% - 4px);
+	  background-color: #337ab7;
+	  color: white;
+	  border-color: white;
+	  /*font-weight: bold;*/
+	}
+
+	/*
+</style>
+
+<div class="well-custom-1 feed-express-area-inline">
 <div class = "well inline-feed-left">
 
 
@@ -149,27 +226,53 @@
 			<div class="feed-express-background">
 			</div>
 			<div class="profile-name">
-				Nirlendu Saha
-			</div>
-			<div class="topic-name">
-				Topic Name!
+				-channel-
 			</div>
 		</div>
 
-		<div class = "feed-express-body">
-		<div class = "well feed-express-contents">
-		<div class="feed-express-text-box">
-			Sample expression :)
+
+		<div class = "feed-express-body-1">
+			<div class = "well feed-left-article-contents">
+
+					<div class="inline-discover-article-wrapper">
+						<div class="dicover-url-image">
+							<img src="/media/test2.jpg" class="img-rounded"/>
+						</div>
+						<div class="discover-url-title">
+							Title
+						</div>
+						<div class="discover-url-domain">
+							Domain
+						</div>
+					</div>
+
+				
+			</div>
 		</div>
 
-			<!--<div class="feed-express-image-resize">-->
-			<!--<img src="/media/test2.jpg" class="img-rounded"/>-->
-			<!--</div>-->
+		<div class = "feed-express-footer-1">
+					<div class = "feed-express-action-1">
 
+					<button type="button" class='btn btn-feed-discover-1 btn-up btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+			        </button>
+
+			        <!-- <button type="button" class='btn btn-feed-discover-1 btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-comment"></span> 400
+			        </button> -->
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-broadcast btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-volume-up"></span> 161
+			        </button>
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-collect btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-log-in"></span> 29
+			        </button>
+
+					</div>
+				</div>
 
 		</div>
-	</div>
-
 	</div>
 
 	<style type="text/css">
@@ -181,9 +284,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		vertical-align: top;
-		width: 36.1%;
+		width: 40%;
 		padding: 0px;
 		margin-bottom: 0px;
+		/*height: 400px;*/
 	}
 	.inline-discover-wrapper{
 		position: relative;
@@ -191,6 +295,11 @@
 		display: flex;
 		flex-direction: column;
 		flex-direction: column;
+		margin-bottom: 5px;
+		border-radius: 3px;
+		/*border-color: rgba(0,0,0,0.08);*/
+		border: 1px solid #e3e3e3;
+		height: 49.5%;
 	}
 	/*.dicover-url-image {
 	height : 38%;
@@ -207,6 +316,7 @@
 	}
 	.dicover-url-image img {
 		width: 100%;
+		height: 100%;
 	}
 
 	.discover-url-title{
@@ -220,9 +330,21 @@
 		right: 0;
 		bottom: 0;
 	}
+	.discover-channel-footer{
+		display: block;
+		position: absolute;
+		bottom: 0;
+		margin:4%;
+		width: 92%;
+	}
+	.channel-follow-1{
+		width: 100%;
+		background-color: rgba(0,0,0,0.1);
+		color: black;
+		border-color: white;
+	}
 	</style>
-	</div>
-		<div class = "well inline-discover">
+		<div class = "inline-discover">
 			<div class="inline-discover-wrapper">
 				<div class="dicover-url-image">
 					<img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
@@ -230,10 +352,27 @@
 				<div class="discover-url-title">
 				Title
 				</div>
-				<div class="discover-url-domain">
-					Domain
+				<div class="discover-channel-footer">
+					<button type="button" class='btn btn-primary channel-follow-1'>
+			          <span class="glyphicon glyphicon-plus-sign"></span> 2.3K
+			        </button>
 				</div>
 			</div>
+
+			<div class="inline-discover-wrapper">
+				<div class="dicover-url-image">
+					<img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+				<div class="discover-url-title">
+				Title
+				</div>
+				<div class="discover-channel-footer">
+					<button type="button" class='btn btn-primary channel-follow-1'>
+			          <span class="glyphicon glyphicon-plus-sign"></span> 5K
+			        </button>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
@@ -294,16 +433,174 @@
 	</div>
 	<div class = "feed-express-footer">
 		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
+		<button type="button" class='btn btn-feed-express-inverted btn-up btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-discuss btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-comment"></span> 400
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-broadcast btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-volume-up"></span> 161
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-collect btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-log-in"></span> 29
+	        </button>
 		</div>
 	</div>
 	</div>
 
 
 <!--ELEMENT THREE-->
+
+
+
+
+<style type="text/css">
+.inline-feed-left-half{
+	/*margin-right: 5px;*/
+	display: inline-flex;
+	vertical-align: top;
+	width: 50%;
+	padding: 0px;
+	margin-bottom: 0px;
+	padding: 2%;
+	/*height: 400px;*/
+}
+.inline-feed-left-discover{
+	margin-right: 1.5%;
+}
+</style>
+
+
+
+<div class="well-custom-1 feed-express-area-inline">
+<div class = "well inline-feed-left-discover inline-feed-left-half">
+		<div class = "feed-express-header">
+		<div class = "feed-express-profile-img">
+		<div class="feed-express-profile-image-resize">
+			<img src="/media/test2.jpg" class="img-rounded"/>
+		</div>
+		</div>
+		<div class = "feed-express-profile-details">
+			<div class="feed-express-background">
+			</div>
+			<div class="profile-name">
+				-channel-
+			</div>
+		</div>
+
+
+		<div class = "feed-express-body-1">
+			<div class = "well feed-left-article-contents">
+
+					<div class="inline-discover-article-wrapper">
+						<div class="dicover-url-image">
+							<img src="/media/test2.jpg" class="img-rounded"/>
+						</div>
+						<div class="discover-url-title">
+							Title
+						</div>
+						<div class="discover-url-domain">
+							Domain
+						</div>
+					</div>
+
+				
+			</div>
+		</div>
+
+		<div class = "feed-express-footer-1">
+					<div class = "feed-express-action-1">
+
+					<button type="button" class='btn btn-feed-discover-1 btn-up btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+			        </button>
+
+			        <!-- <button type="button" class='btn btn-feed-discover-1 btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-comment"></span> 400
+			        </button> -->
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-broadcast btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-volume-up"></span> 161
+			        </button>
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-collect btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-log-in"></span> 29
+			        </button>
+
+					</div>
+				</div>
+
+		</div>
+
+</div>
+
+
+<div class = "well inline-feed-left-half">
+		<div class = "feed-express-header">
+		<div class = "feed-express-profile-img">
+		<div class="feed-express-profile-image-resize">
+			<img src="/media/test2.jpg" class="img-rounded"/>
+		</div>
+		</div>
+		<div class = "feed-express-profile-details">
+			<div class="feed-express-background">
+			</div>
+			<div class="profile-name">
+				-channel-
+			</div>
+		</div>
+
+
+		<div class = "feed-express-body-1">
+			<div class = "well feed-left-article-contents">
+
+					<div class="inline-discover-article-wrapper">
+						<div class="dicover-url-image">
+							<img src="/media/test2.jpg" class="img-rounded"/>
+						</div>
+						<div class="discover-url-title">
+							Title
+						</div>
+						<div class="discover-url-domain">
+							Domain
+						</div>
+					</div>
+
+				
+			</div>
+		</div>
+
+		<div class = "feed-express-footer-1">
+					<div class = "feed-express-action-1">
+
+					<button type="button" class='btn btn-feed-discover-1 btn-up btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+			        </button>
+
+			        <!-- <button type="button" class='btn btn-feed-discover-1 btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-comment"></span> 400
+			        </button> -->
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-broadcast btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-volume-up"></span> 161
+			        </button>
+
+			        <button type="button" class='btn btn-feed-discover-1 btn-collect btn-primary btn-sm'>
+			          <span class="glyphicon glyphicon-log-in"></span> 29
+			        </button>
+
+					</div>
+				</div>
+
+		</div>
+
+</div>
+
+</div>
 
 
 
