@@ -55,19 +55,21 @@ def get_index_data(person_id):
     graph = ServiceRoot(settings.GRAPHDB_URL).graph
     express = graph.cypher.stream(
         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
-    # express = graph.cypher.stream("MATCH (n:ExpressionGraph), (a:Person{person_id: '"+ request.session['person_id'] + "'})-[:EXPRESSED]->(n) RETURN n");
     for record in express:
-        expressions = Expression.objects.filter(id=record[0]['expression_id'])
+
+        # A VERY BAD QUERY
+        try:
+            expressions = Expression.objects.filter(id=record[0]['expression_id'])
+        except:
+            log.exception('Inconsistent Data. No entry in SQL for Node')
+            raise Exception
+            return None
+
         for expression in expressions:
-            a = {}
-            a['expression_id'] = expression.id
-            a['expression_owner'] = expression.expression_owner_id
-            a['expression_content'] = expression.expression_content
-            a['expression_image'] = expression.expression_imagefile
-            # expression_link
-            # expression_link_title
-            # parent_domain
-            if (expression.expression_link_id != None):
+            a = {'expression_id': expression.id, 'expression_owner': expression.expression_owner_id,
+                 'expression_content': expression.expression_content,
+                 'expression_image': expression.expression_imagefile}
+            if expression.expression_link_id is not None:
                 entries = Link.objects.filter(id=expression.expression_link_id)
                 for x in entries:
                     a['expression_link'] = x.link_url
@@ -78,27 +80,17 @@ def get_index_data(person_id):
 
             q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(
                 expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-            if (q):
-                # print 'SHARED!'
+            if q:
                 for x in q:
-                    # print 'ID ARE: ' + str(x[0]['expression_id'])
                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
                     for broadcast in broadcasts:
-                        b = {}
-                        b['expression_id'] = broadcast.id
-                        b['expression_owner'] = broadcast.expression_owner_id
-                        b['expression_content'] = broadcast.expression_content
-                        b['expression_image'] = broadcast.expression_imagefile
-                        # expression_link
-                        # expression_link_title
-                        # parent_domain
-                        # print 'Link ID' + str(broadcast.expression_link_id)
-                        # print 'broadcast conent' + str(broadcast.expression_content)
-                        if (broadcast.expression_link_id != None):
+                        b = {'expression_id': broadcast.id, 'expression_owner': broadcast.expression_owner_id,
+                             'expression_content': broadcast.expression_content,
+                             'expression_image': broadcast.expression_imagefile}
+                        if broadcast.expression_link_id is not None:
                             print 'IT DOES HAVE LINKS!'
                             entries = Link.objects.filter(id=broadcast.expression_link_id)
                             for x in entries:
-                                # print 'IT DOES HAVE LINKS!'
                                 b['expression_link'] = x.link_url
                                 b['expression_link_title'] = x.link_name
                                 b['expression_link_image'] = x.link_image
