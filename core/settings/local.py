@@ -20,16 +20,41 @@ ALLOWED_HOSTS = ["*", ]
 
 WSGI_APPLICATION = 'core.wsgi.local.application'
 
+
+from cassandra import ConsistencyLevel
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
-    'default': {
+    'default': {},
+    'postgres': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'the_thing',
         'USER':'nirlendu',
         'HOST': 'localhost',
+    },
+    'cassandra': {
+                'ENGINE': 'django_cassandra_engine',
+                'NAME': 'db',
+                'HOST': '127.0.0.1',
+                'OPTIONS': {
+                    'replication': {
+                        'strategy_class': 'SimpleStrategy',
+                        'replication_factor': 1
+                    },
+                    'connection': {
+                        'consistency': ConsistencyLevel.LOCAL_ONE,
+                        'port': 9042,
+                        'retry_connect': True
+                        # + All connection options for cassandra.cluster.Cluster()
+                    },
+                    'session': {
+                        'default_timeout': 10,
+                        'default_fetch_size': 10000
+                        # + All options for cassandra.cluster.Session()
+                    }
+                }
+            }
     }
-}
 
 
 # Static files (CSS, JavaScript, Images) during deployment
