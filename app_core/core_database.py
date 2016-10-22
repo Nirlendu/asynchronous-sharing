@@ -46,8 +46,8 @@ def get_expressions_database(
     #     for expression in expressions:
     #         pass
 
-    return get_index_data(person_id)
-
+    #return get_index_data(person_id)
+    return []
 
 # TODO Only for testing!
 def get_index_data(person_id):

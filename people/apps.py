@@ -3,5 +3,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class CacheOperationsConfig(AppConfig):
-    name = 'cache_operations'
+class PeopleConfig(AppConfig):
+    name = 'people'

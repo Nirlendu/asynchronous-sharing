@@ -17,11 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_base',
     'express',
-    'sql_backup',
+    'channel',
+    'people',
+    'web',
     'el_pagination',
     'webpack_loader',
     'react',
-    'cache_operations',
     'django_cassandra_engine',
 ]
 
@@ -40,7 +41,6 @@ ROOT_URLCONF = 'core.urls'
 DATABASE_ROUTERS = [
     'express.router.ExpressRouter',
     'app_base.router.AppBaseRouter',
-    'sql_backup.router.SqlBackupRouter',
 ]
 
 TEMPLATES = [

@@ -4,25 +4,22 @@ class AppBaseRouter(object):
     auth application.
     """
 
-    @staticmethod
     def db_for_read(self, model, **hints):
         """
-        Attempts to read app_base models go to cassandra.
+        Attempts to read app_base models go to postgres.
         """
         if model._meta.app_label == 'app_base':
-            return 'cassandra'
+            return 'postgres'
         return None
 
-    @staticmethod
-    def db_for_write(model, **hints):
+    def db_for_write(self, model, **hints):
         """
-        Attempts to write app_base models go to cassandra.
+        Attempts to write app_base models go to postgres.
         """
         if model._meta.app_label == 'app_base':
-            return 'cassandra'
+            return 'postgres'
         return None
 
-    @staticmethod
     def allow_relation(self, obj1, obj2, **hints):
         """
         Allow relations if a model in the app_base app is involved.
@@ -32,12 +29,11 @@ class AppBaseRouter(object):
            return True
         return None
 
-    @staticmethod
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
-        Make sure the app_base app only appears in the 'cassandra'
+        Make sure the app_base app only appears in the 'postgres'
         database.
         """
         if app_label == 'app_base':
-            return db == 'cassandra'
+            return db == 'postgres'
         return None

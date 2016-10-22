@@ -30,7 +30,8 @@ def get_expressions_logic(
     # )
 
     #TODO ONLY FOR TESTING!
-    return core.get_index_data(person_id)
+    #return core.get_index_data(person_id)
+    return core.get_expressions_database(person_id)
 
 
 def new_expression_logic(
