@@ -37,14 +37,14 @@ def get_expressions_logic(
 def new_expression_logic(
         expression_owner_id,
         expression_content,
-        expression_link_id,
+        expression_content_url,
         expression_imagefile,
         broadcast_parent_id,
         total_upvotes,
-        total_downvotes,
+        total_collects,
         total_broadcasts,
         total_discussions,
-        topics,
+        channels,
 ):
     # TODO
     # 1) Do some logic checks in the data
@@ -57,14 +57,14 @@ def new_expression_logic(
     core.new_expression_database(
         expression_owner_id=expression_owner_id,
         expression_content=expression_content,
-        expression_link_id=expression_link_id,
+        expression_content_url=expression_content_url,
         expression_imagefile=expression_imagefile,
         broadcast_parent_id=broadcast_parent_id,
         total_upvotes=total_upvotes,
-        total_downvotes=total_downvotes,
+        total_collects=total_collects,
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
-        topics=topics,
+        channels=channels,
     )
     return
 

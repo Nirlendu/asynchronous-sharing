@@ -12,7 +12,7 @@ from celery import shared_task
 
 from app_core import core_interface as core
 
-from express.models import Expression, Link
+#from express.models import Expression, Link
 from py2neo import ServiceRoot
 
 from libs.logger import app_logger as log

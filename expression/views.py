@@ -30,21 +30,22 @@ def update(request):
             filename = None
         expresssion_text = request.POST.get('express_text')
         url = get_url(expresssion_text)
-        if (url):
+        if url:
             expression_content = expresssion_text.replace(url, '')
             link_id = core.find_url_id(url)
         else:
             expression_content = expresssion_text
             link_id = None
-        topics = []
-        if (request.POST.get('express_tag')):
-            topics.append(request.POST.get('express_tag'))
+        channels = []
+        if request.POST.get('express_tag'):
+            #channels.append(request.POST.get('express_tag'))
+            channels.append('7dea7440-c4b3-4bf0-8568-0b552c9d7bf5')
         core.new_expression(
             expression_owner_id=request.session['person_id'],
             expression_content=expression_content,
-            expression_link_id=link_id,
+            expression_content_url=link_id,
             expression_imagefile=filename,
-            topics=topics,
+            channels=channels,
         )
         return render(request, "index.html", {})
 

@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_base',
-    'express',
+    'app_interface',
+    'expression',
     'channel',
     'people',
     'web',
@@ -37,11 +38,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
-
-DATABASE_ROUTERS = [
-    'express.router.ExpressRouter',
-    'app_base.router.AppBaseRouter',
-]
 
 TEMPLATES = [
     {

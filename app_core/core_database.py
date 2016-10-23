@@ -8,11 +8,15 @@ from django.conf import settings
 from django.db import transaction
 from py2neo import Graph, ServiceRoot
 
-from app_core_database import expression, expressed_url, broadcast, discussion_expression, get_expressions
+#from app_core_database import expression, expressed_url, broadcast, discussion_expression, get_expressions
 from libs.logger import app_logger as log
 
+from expression import database as express
+from channel import database as channel
+from app_interface import database as interface
+
 # TODO Remove this!
-from express.models import Expression, Link
+#from express.models import Expression, Link
 
 @transaction.atomic
 def get_expressions_database(
@@ -50,55 +54,55 @@ def get_expressions_database(
     return []
 
 # TODO Only for testing!
-def get_index_data(person_id):
-    entry = []
-    graph = ServiceRoot(settings.GRAPHDB_URL).graph
-    express = graph.cypher.stream(
-        "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
-    for record in express:
-
-        # A VERY BAD QUERY
-        try:
-            expressions = Expression.objects.filter(id=record[0]['expression_id'])
-        except:
-            log.exception('Inconsistent Data. No entry in SQL for Node')
-            raise Exception
-            return None
-
-        for expression in expressions:
-            a = {'expression_id': expression.id, 'expression_owner': expression.expression_owner_id,
-                 'expression_content': expression.expression_content,
-                 'expression_image': expression.expression_imagefile}
-            if expression.expression_link_id is not None:
-                entries = Link.objects.filter(id=expression.expression_link_id)
-                for x in entries:
-                    a['expression_link'] = x.link_url
-                    a['expression_link_title'] = x.link_name
-                    a['expression_link_image'] = x.link_image
-                    a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
-                        0]
-
-            q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(
-                expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-            if q:
-                for x in q:
-                    broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
-                    for broadcast in broadcasts:
-                        b = {'expression_id': broadcast.id, 'expression_owner': broadcast.expression_owner_id,
-                             'expression_content': broadcast.expression_content,
-                             'expression_image': broadcast.expression_imagefile}
-                        if broadcast.expression_link_id is not None:
-                            print 'IT DOES HAVE LINKS!'
-                            entries = Link.objects.filter(id=broadcast.expression_link_id)
-                            for x in entries:
-                                b['expression_link'] = x.link_url
-                                b['expression_link_title'] = x.link_name
-                                b['expression_link_image'] = x.link_image
-                                b['parent_domain'] = \
-                                    re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
-                    a['broadcast_of'] = b
-            entry.append(a)
-    return entry
+# def get_index_data(person_id):
+#     entry = []
+#     graph = ServiceRoot(settings.GRAPHDB_URL).graph
+#     express = graph.cypher.stream(
+#         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
+#     for record in express:
+#
+#         # A VERY BAD QUERY
+#         try:
+#             expressions = Expression.objects.filter(id=record[0]['expression_id'])
+#         except:
+#             log.exception('Inconsistent Data. No entry in SQL for Node')
+#             raise Exception
+#             return None
+#
+#         for expression in expressions:
+#             a = {'expression_id': expression.id, 'expression_owner': expression.expression_owner_id,
+#                  'expression_content': expression.expression_content,
+#                  'expression_image': expression.expression_imagefile}
+#             if expression.expression_link_id is not None:
+#                 entries = Link.objects.filter(id=expression.expression_link_id)
+#                 for x in entries:
+#                     a['expression_link'] = x.link_url
+#                     a['expression_link_title'] = x.link_name
+#                     a['expression_link_image'] = x.link_image
+#                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
+#                         0]
+#
+#             q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(
+#                 expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
+#             if q:
+#                 for x in q:
+#                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
+#                     for broadcast in broadcasts:
+#                         b = {'expression_id': broadcast.id, 'expression_owner': broadcast.expression_owner_id,
+#                              'expression_content': broadcast.expression_content,
+#                              'expression_image': broadcast.expression_imagefile}
+#                         if broadcast.expression_link_id is not None:
+#                             print 'IT DOES HAVE LINKS!'
+#                             entries = Link.objects.filter(id=broadcast.expression_link_id)
+#                             for x in entries:
+#                                 b['expression_link'] = x.link_url
+#                                 b['expression_link_title'] = x.link_name
+#                                 b['expression_link_image'] = x.link_image
+#                                 b['parent_domain'] = \
+#                                     re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
+#                     a['broadcast_of'] = b
+#             entry.append(a)
+#     return entry
 
 
 
@@ -106,57 +110,126 @@ def get_index_data(person_id):
 def new_expression_database(
         expression_owner_id,
         expression_content,
-        expression_link_id,
+        expression_content_url,
         expression_imagefile,
         broadcast_parent_id,
         total_upvotes,
-        total_downvotes,
+        total_collects,
         total_broadcasts,
         total_discussions,
-        topics,
+        channels,
+        expression_weight=0,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('New Expression Core Database')
 
-    expression_id = expression.new_expression_insert(
+    #try:
+    expression_primary_id = express.new_expresssion(
         expression_owner_id=expression_owner_id,
         expression_content=expression_content,
-        expression_link_id=expression_link_id,
+        expression_content_url=expression_content_url,
         expression_imagefile=expression_imagefile,
         broadcast_parent_id=broadcast_parent_id,
+        expression_weight=expression_weight,
         total_upvotes=total_upvotes,
-        total_downvotes=total_downvotes,
+        total_collects=total_collects,
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
     )
-    graph = ServiceRoot(settings.GRAPHDB_URL).graph
-    intial_transaction = graph.cypher.begin()
-    expression_node_transaction = expression.new_expression_node(
-        transaction=intial_transaction,
-        expression_id=str(expression_id),
-    )
-    expression_relationship_transaction = expression.new_expression_relationship(
-        transaction=expression_node_transaction,
-        expression_node_id=str(expression_id),
-        expression_owner_id=expression_owner_id
-    )
-    final_transaction = expression.new_expression_topics(
-        transaction=expression_relationship_transaction,
-        topics=topics,
-        expression_node_id=str(expression_id),
-    )
-    try:
-        final_transaction.process()
-    except:
-        final_transaction.rollback()
-        log.info('New expression creating FAILED')
-        raise Exception
 
-    log.info('New expression creating SUCCESS')
-    final_transaction.commit()
-    return
+    channel.channel_expression_relationship(
+        channels=channels,
+        expression_id=expression_primary_id,
+    )
+
+    expression_upvote_list = []
+    expression_broadcast_list = []
+    expression_discussion_list = []
+    expression_collection_list = []
+
+    expression_secondary_id = interface.new_expression(
+        expression_primary_id=str(expression_primary_id),
+        expression_content=expression_content,
+        expression_content_url=expression_content_url,
+        expression_imagefile=expression_imagefile,
+        broadcast_parent_id=broadcast_parent_id,
+        total_upvotes=total_upvotes,
+        total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
+        total_collects=total_collects,
+        expression_upvote_list=expression_upvote_list,
+        expression_broadcast_list=expression_broadcast_list,
+        expression_discussion_list=expression_discussion_list,
+        expression_collection_list=expression_collection_list,
+    )
+
+    log.debug('New Expression creation SUCCESS')
+    return expression_secondary_id
+
+    # except:
+    #     log.debug('New Expression creation FAILED')
+    #     raise Exception
+
+    return None
+
+#
+# @transaction.atomic
+# def new_expression_database(
+#         expression_owner_id,
+#         expression_content,
+#         expression_link_id,
+#         expression_imagefile,
+#         broadcast_parent_id,
+#         total_upvotes,
+#         total_downvotes,
+#         total_broadcasts,
+#         total_discussions,
+#         topics,
+# ):
+#     log.info('IN - ' + sys._getframe().f_code.co_name)
+#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+#     log.debug('New Expression Core Database')
+#
+#     expression_id = expression.new_expression_insert(
+#         expression_owner_id=expression_owner_id,
+#         expression_content=expression_content,
+#         expression_link_id=expression_link_id,
+#         expression_imagefile=expression_imagefile,
+#         broadcast_parent_id=broadcast_parent_id,
+#         total_upvotes=total_upvotes,
+#         total_downvotes=total_downvotes,
+#         total_broadcasts=total_broadcasts,
+#         total_discussions=total_discussions,
+#     )
+#     graph = ServiceRoot(settings.GRAPHDB_URL).graph
+#     intial_transaction = graph.cypher.begin()
+#     expression_node_transaction = expression.new_expression_node(
+#         transaction=intial_transaction,
+#         expression_id=str(expression_id),
+#     )
+#     expression_relationship_transaction = expression.new_expression_relationship(
+#         transaction=expression_node_transaction,
+#         expression_node_id=str(expression_id),
+#         expression_owner_id=expression_owner_id
+#     )
+#     final_transaction = expression.new_expression_topics(
+#         transaction=expression_relationship_transaction,
+#         topics=topics,
+#         expression_node_id=str(expression_id),
+#     )
+#     try:
+#         final_transaction.process()
+#     except:
+#         final_transaction.rollback()
+#         log.info('New expression creating FAILED')
+#         raise Exception
+#
+#     log.info('New expression creating SUCCESS')
+#     final_transaction.commit()
+#     return
 
 
 def find_url_id_database(url):
