@@ -80,7 +80,7 @@ def find_url_id_logic(url):
 
 def store_url_logic(
         url,
-        url_header,
+        url_title,
         url_desc,
         url_imagefile,
 ):
@@ -91,7 +91,7 @@ def store_url_logic(
 
     return core.store_url_database(
         url=url,
-        url_header=url_header,
+        url_title=url_title,
         url_desc=url_desc,
         url_imagefile=url_imagefile
     )

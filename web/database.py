@@ -3,7 +3,7 @@
 import inspect
 import sys
 
-from express.models import Link
+from web.models import Link
 from libs.logger import app_logger as log
 
 

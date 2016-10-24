@@ -4,34 +4,33 @@ import sys
 import inspect
 
 import re, os
+import ujson
+import redis
 
 from celery import shared_task
 
 from django.shortcuts import render
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from app_core import core_interface as core
+#from app_interface.models import ChannelSecondary
+#from channel.models import ChannelPrimary
 
-from app_interface.models import ChannelSecondary
-
-from django.shortcuts import render
-from django.views.decorators.csrf import ensure_csrf_cookie
-from channel.models import ChannelPrimary
+from expression import views as expression
+from web import views as web
 
 from libs.logger import app_logger as log
-
+from libs.file_upload import uploader
 from libs.device_data import device_data as device
-import ujson
-import redis
 
-@ensure_csrf_cookie
-def channel(request):
-    channel_id = '2'
-    #idx = ChannelSecondary.objects.create(channel_primary_id=channel_id, channel_expression_list=[])
-    #print idx
-    for i in ChannelSecondary.objects.all():
-        print "HEYY THE CHANNEL IS: "
-    return render(request, "index.html", {})
-
+# @ensure_csrf_cookie
+# def channel(request):
+#     channel_id = '2'
+#     #idx = ChannelSecondary.objects.create(channel_primary_id=channel_id, channel_expression_list=[])
+#     #print idx
+#     for i in ChannelSecondary.objects.all():
+#         print "HEYY THE CHANNEL IS: "
+#     return render(request, "index.html", {})
 
 
 def mobile_browser(request):
@@ -68,8 +67,6 @@ def index(request):
 
     init_session(request)
 
-    #print 'ENV IS : ' + os.environ['DJANGO_SETTINGS_MODULE']
-
     try:
         redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
         expressions = ujson.loads(redis_cache.hget('asd123','asd123'))
@@ -105,6 +102,60 @@ def index(request):
         return render(request, template, context)
 
 
+
+@ensure_csrf_cookie
+def update(request):
+    if request.method == 'POST':
+        try:
+            log.debug('Uploaded file check')
+            for filename, file_data in request.FILES.iteritems():
+                data = file_data
+            filename = uploader.new_upload_file(data)
+        except:
+            filename = None
+        expression_text = request.POST.get('express_text')
+        channels = []
+        if request.POST.get('express_tag'):
+            channels.append(request.POST.get('express_tag'))
+            #channels.append('7dea7440-c4b3-4bf0-8568-0b552c9d7bf5')
+        expression.new_expression(
+            expression_owner_id=request.session['person_id'],
+            expression_text=expression_text,
+            expression_imagefile=filename,
+            channels=channels,
+        )
+        return render(request, "index.html", {})
+
+
+@ensure_csrf_cookie
+def store_link(request):
+    if request.method == 'POST':
+        url_imagefile = uploader.store_url_imagefile(
+            image_url=request.POST.get('link_image')
+        )
+        web.store_url(
+            url=request.POST.get('link_url'),
+            url_title=request.POST.get('link_name'),
+            url_desc=request.POST.get('link_desc')[:(len(request.POST.get('link_desc')) % 199)],
+            url_imagefile=url_imagefile
+        )
+        template = "index.html"
+        context = {}
+        return render(request, template, context)
+
+
+
+
+#
+#
+#
+#
+# Unused till now
+#
+#
+#
+#
+#
 @ensure_csrf_cookie
 def test(request):
     if device.get_device_data(request).detectTierIphone():
@@ -117,13 +168,57 @@ def get_index_data(request):
     return None
 
 
-# @ensure_csrf_cookie
-# def channel(request):
-#     if mobile_browser(request):
-#         return render(request, "mobile/index_dev_m.html", {})
-#     return render(request, "topic_dev.html", {})
+@ensure_csrf_cookie
+def channel(request):
+    if mobile_browser(request):
+        return render(request, "mobile/index_dev_m.html", {})
+    return render(request, "topic_dev.html", {})
 
 
 @ensure_csrf_cookie
 def dev(request):
     return render(request, "index_dev.html", {})
+@ensure_csrf_cookie
+def upvote(request):
+    if request.method == 'POST':
+        core.upvote_expression(
+            upvoter=request.session['person_id'],
+            expression_id=request.POST.get('expression_id'),
+        )
+        return render(request, "index.html", {})
+
+
+@ensure_csrf_cookie
+def downvote(request):
+    if request.method == 'POST':
+        core.downvote_expression(
+            downvoter=request.session['person_id'],
+            expression_id=request.POST.get('expression_id'),
+        )
+        return render(request, "index.html", {})
+
+
+@ensure_csrf_cookie
+def broadcast(request):
+    if request.method == 'POST':
+        topics = []
+        if (request.POST.get('broadcast_tag')):
+            topics.append(request.POST.get('broadcast_tag'))
+        core.new_broadcast(
+            broadcast_owner_id=request.session['person_id'],
+            broadcast_content=request.POST.get('broadcast_text'),
+            broadcast_parent_id=request.POST.get('expression_id'),
+            topics=topics,
+        )
+        return render(request, "index.html", {})
+
+
+@ensure_csrf_cookie
+def discuss(request):
+    if request.method == 'POST':
+        core.new_discussion_expression(
+            discussion_parent_id=request.POST.get('expression_id'),
+            discussion_expression_owner_id=request.session['person_id'],
+            discussion_expression_content=request.POST.get('discussion_expression_content'),
+        )
+        return render(request, "index.html", {})

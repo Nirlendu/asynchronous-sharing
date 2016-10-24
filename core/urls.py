@@ -5,9 +5,8 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 
 # from app_base.views import
-from app_requests.requests import channel, index, dev, get_index_data, test
+from app_requests.requests import channel, index, dev, get_index_data, test, update, store_link, upvote, downvote, broadcast, discuss
 from app_test.views import react_webpack_test, react_pre_render_test
-from expression.views import update, store_link, upvote, downvote, broadcast, discuss
 
 # from neo4django import admin as neo_admin
 
