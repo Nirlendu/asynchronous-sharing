@@ -31,12 +31,6 @@ DATABASES = {
         'USER':'nirlendu',
         'HOST': 'localhost',
     },
-    'postgres': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'the_thing',
-        'USER':'nirlendu',
-        'HOST': 'localhost',
-    },
     'cassandra': {
         'ENGINE': 'django_cassandra_engine',
         'NAME': 'the_thing',

@@ -4,8 +4,8 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 
-from app_base.views import index, channel as topic, dev, get_index_data, test
-from app_interface.views import channel
+#from app_base.views import
+from app_interface.views import channel, index, dev, get_index_data, test
 from app_test.views import react_webpack_test, react_pre_render_test
 from expression.views import update, store_link, upvote, downvote, broadcast, discuss
 
@@ -13,7 +13,7 @@ from expression.views import update, store_link, upvote, downvote, broadcast, di
 
 urlpatterns = [
     url(r'^express/update/$', update),
-    url(r'^topic/$', topic),
+    #url(r'^topic/$', topic),
     url(r'^$', index),
     url(r'store/link/$', store_link),
     url(r'expression/upvote/$', upvote),

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 from react.render import render_component
 
-from app_base.views import get_index_data
+from app_interface.views import get_index_data
 
 
 @ensure_csrf_cookie
