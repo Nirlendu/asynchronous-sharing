@@ -7,24 +7,35 @@ BASE_DIR = os.path.join(os.path.dirname(__file__), '../..')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'f23u9)dk)c$61q(hi65^^^&8y9cv4#hwkx5r+2*!9qrw-g(8r+'
 
-# Application definition
-INSTALLED_APPS = [
+# Application definition settings
+INSTALLED_APPS_SETTINGS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_interface',
-    'expression',
-    'channel',
-    'people',
-    'web',
+]
+
+# Application definition dependencies
+INSTALLED_APPS_DEPENDECIES = [
     'el_pagination',
     'webpack_loader',
     'react',
     'django_cassandra_engine',
 ]
+
+# All the listed applications
+INSTALLED_APPS_APPS = [
+    'app_interface',
+    'expression',
+    'channel',
+    'people',
+    'web',
+]
+
+# Putting everything together
+INSTALLED_APPS = INSTALLED_APPS_APPS + INSTALLED_APPS_SETTINGS + INSTALLED_APPS_DEPENDECIES
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
