@@ -37,3 +37,11 @@ class ExpressionSecondary(ModelCassandra):
     expression_broadcast_list = columns.List(value_type=columns.Text())
     expression_discussion_list = columns.List(value_type=columns.Text())
     expression_collection_list = columns.List(value_type=columns.Text())
+
+class UrlSecondary(ModelCassandra):
+    url_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:16])
+    url = columns.Text()
+    url_title = columns.Text()
+    url_desc = columns.Text()
+    url_imagefile = columns.Text()
+    url_weight = columns.Decimal(default=0)

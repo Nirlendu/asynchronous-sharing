@@ -217,3 +217,48 @@ class ExpressionChannelRelation(models.Model):
         unique_together = ('channel_id', 'expression_id',)
 
     object = ExpressionChannelRelationManager()
+
+
+##
+#
+# Url Channel Relation Manager
+#
+##
+class UrlChannelRelationManager(models.Manager):
+    def create_url_channel_relation(
+            self,
+            channel_id,
+            url_id
+        ):
+        log.info('IN - ' + sys._getframe().f_code.co_name)
+        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+        try:
+            log.debug('Expression Channel Relation create operation')
+            url_channel_relation = self.create(
+                channel_id=channel_id,
+                url_id=url_id,
+            )
+            return url_channel_relation.id
+        except Exception:
+            log.exception('Could not create Expression Channel Relation')
+        return
+
+##
+#
+# Url Channel Relation
+#
+##
+class UrlChannelRelation(models.Model):
+    channel_id = models.CharField(
+        max_length=8,
+    )
+    url_id = models.CharField(
+        max_length=16,
+    )
+
+    class Meta:
+        unique_together = ('channel_id', 'url_id',)
+
+    object = UrlChannelRelationManager()

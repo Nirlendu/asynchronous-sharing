@@ -5,13 +5,14 @@ import sys, os
 
 from libs.logger import app_logger as log
 
-from models import ExpressionSecondary
+from models import ExpressionSecondary, UrlSecondary
 
 def new_expression(
         expression_primary_id,
         expression_content,
         expression_content_url,
         expression_imagefile,
+        expression_weight,
         broadcast_parent_id,
         total_upvotes,
         total_broadcasts,
@@ -33,6 +34,7 @@ def new_expression(
                                     expression_content=expression_content,
                                     expression_content_url=expression_content_url,
                                     expression_imagefile=expression_imagefile,
+                                    expression_weight=expression_weight,
                                     broadcast_parent_id=broadcast_parent_id,
                                     total_upvotes=total_upvotes,
                                     total_broadcasts=total_broadcasts,
@@ -46,6 +48,34 @@ def new_expression(
         return expression_secondary.expression_secondary_id
     except:
         log.info('New expression secondary creating FAILED')
+        raise Exception
+
+    return None
+
+
+def store_url(
+        url_parent_id,
+        url_title,
+        url_desc,
+        url_imagefile,
+        url_weight,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    try:
+        log.debug('New url secondary creating')
+        url_secondary = UrlSecondary.objects.create(
+                                        url_parent_id=url_parent_id,
+                                        url_title=url_title,
+                                        url_desc=url_desc,
+                                        url_imagefile=url_imagefile,
+                                        url_weight=url_weight,
+                                        )
+        return url_secondary.url_secondary_id
+    except:
+        log.info('New url secondary creating FAILED')
         raise Exception
 
     return None

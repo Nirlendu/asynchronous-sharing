@@ -39,6 +39,7 @@ def new_expression_logic(
         expression_content,
         expression_content_url,
         expression_imagefile,
+        expression_weight,
         broadcast_parent_id,
         total_upvotes,
         total_collects,
@@ -59,6 +60,7 @@ def new_expression_logic(
         expression_content=expression_content,
         expression_content_url=expression_content_url,
         expression_imagefile=expression_imagefile,
+        expression_weight=expression_weight,
         broadcast_parent_id=broadcast_parent_id,
         total_upvotes=total_upvotes,
         total_collects=total_collects,
@@ -83,6 +85,7 @@ def store_url_logic(
         url_title,
         url_desc,
         url_imagefile,
+        url_weight,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -93,7 +96,8 @@ def store_url_logic(
         url=url,
         url_title=url_title,
         url_desc=url_desc,
-        url_imagefile=url_imagefile
+        url_imagefile=url_imagefile,
+        url_weight=url_weight,
     )
 
 

@@ -112,13 +112,13 @@ def new_expression_database(
         expression_content,
         expression_content_url,
         expression_imagefile,
+        expression_weight,
         broadcast_parent_id,
         total_upvotes,
         total_collects,
         total_broadcasts,
         total_discussions,
         channels,
-        expression_weight=0,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -154,6 +154,7 @@ def new_expression_database(
             expression_content=expression_content,
             expression_content_url=expression_content_url,
             expression_imagefile=expression_imagefile,
+            expression_weight=expression_weight,
             broadcast_parent_id=broadcast_parent_id,
             total_upvotes=total_upvotes,
             total_broadcasts=total_broadcasts,
@@ -236,7 +237,7 @@ def find_url_id_database(url):
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Find URL database')
 
-    return expressed_url.find_url_id(url=url)
+    return web.find_url_id(url=url)
 
 
 @transaction.atomic
@@ -245,18 +246,30 @@ def store_url_database(
         url_title,
         url_desc,
         url_imagefile,
+        url_weight,
 ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('New URL insert database')
 
-    return web.store_url(
-        url=url,
-        url_title=url_title,
-        url_desc=url_desc,
-        url_imagefile=url_imagefile,
-    )
+    url_parent_id = web.store_url(
+                    url=url,
+                    url_title=url_title,
+                    url_desc=url_desc,
+                    url_imagefile=url_imagefile,
+                    url_weight=url_weight,
+                )
+
+    url_secondary_id = interface.store_url(
+                    url_parent_id=url_parent_id,
+                    url_title=url_title,
+                    url_desc=url_desc,
+                    url_imagefile=url_imagefile,
+                    url_weight=url_weight,
+                )
+
+    return url_secondary_id
 
 #
 # @transaction.atomic

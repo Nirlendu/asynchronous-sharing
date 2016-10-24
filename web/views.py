@@ -22,5 +22,5 @@ def store_url(
         url=url,
         url_title=url_title,
         url_desc=url_desc,
-        url_imagefile=url_imagefile
+        url_imagefile=url_imagefile,
     )

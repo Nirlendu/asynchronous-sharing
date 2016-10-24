@@ -54,6 +54,7 @@ class ExpressionPrimaryManager(models.Manager):
             expression_content,
             expression_content_url=None,
             expression_imagefile=None,
+            expression_weight=0,
             broadcast_parent_id=None,
             total_upvotes=0,
             total_collects=0,

@@ -77,6 +77,7 @@ def new_expression(
         expression_content,
         expression_content_url=None,
         expression_imagefile=None,
+        expression_weight=0,
         broadcast_parent_id=None,
         total_upvotes=0,
         total_collects=0,
@@ -97,6 +98,7 @@ def new_expression(
         expression_content=expression_content,
         expression_content_url=expression_content_url,
         expression_imagefile=expression_imagefile,
+        expression_weight=expression_weight,
         broadcast_parent_id=broadcast_parent_id,
         total_upvotes=total_upvotes,
         total_collects=total_collects,
@@ -109,8 +111,9 @@ def new_expression(
 def store_url_interface(
         url,
         url_title,
-        url_desc,
-        url_imagefile,
+        url_desc=None,
+        url_imagefile=None,
+        url_weight=0,
 ):
     # TODO
     # Some checks on the url
@@ -125,7 +128,8 @@ def store_url_interface(
         url=url,
         url_title=url_title,
         url_desc=url_desc,
-        url_imagefile=url_imagefile
+        url_imagefile=url_imagefile,
+        url_weight=url_weight,
     )
 
 
