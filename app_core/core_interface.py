@@ -15,6 +15,33 @@ from libs.image_processor import compressimages
 from libs.logger import app_logger as log
 
 
+
+def new_person(
+        user_name,
+        person_name,
+        total_followers=0,
+        person_weight=0,
+        person_channel_followee_list=[],
+        person_person_followee_list=[],
+        person_expression_list=[],
+    ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('new person interface..')
+
+    return core.new_person_logic(
+        user_name=user_name,
+        person_name=person_name,
+        person_primary_id=person_primary_id,
+        total_followers=total_followers,
+        person_weight=person_weight,
+        person_channel_followee_list=person_channel_followee_list,
+        person_person_followee_list=person_person_followee_list,
+        person_expression_list=person_expression_list,
+    )
+
+
 def get_expressions(
             person_id,
         ):

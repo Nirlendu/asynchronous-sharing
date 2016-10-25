@@ -7,6 +7,34 @@ import core_database as core
 from libs.logger import app_logger as log
 
 
+def new_person_logic(
+        user_name,
+        person_name,
+        person_primary_id,
+        total_followers,
+        person_weight,
+        person_channel_followee_list,
+        person_person_followee_list,
+        person_expression_list,
+    ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('New Person Logic')
+
+    return core.new_person_database(
+        user_name=user_name,
+        person_name=person_name,
+        person_primary_id=person_primary_id,
+        total_followers=total_followers,
+        person_weight=person_weight,
+        person_channel_followee_list=person_channel_followee_list,
+        person_person_followee_list=person_person_followee_list,
+        person_expression_list=person_expression_list,
+    )
+
+
+
 def get_expressions_logic(
                 person_id,
             ):
@@ -15,7 +43,7 @@ def get_expressions_logic(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Get Expressions Logic')
 
-    # TODO
+    # 1TODO
     # Get stuff from discover
 
     # expressions_ids = core.get_expressions_database(
@@ -29,7 +57,7 @@ def get_expressions_logic(
     #     expressions_ids=expressions_ids,
     # )
 
-    #TODO ONLY FOR TESTING!
+    # ONLY FOR TESTING!
     #return core.get_index_data(person_id)
     return core.get_expressions_database(person_id)
 
@@ -47,7 +75,7 @@ def new_expression_logic(
         total_discussions,
         channels,
 ):
-    # TODO
+    # 1TODO
     # 1) Do some logic checks in the data
     # 2) Check if all the topics are present in DB
     log.info('IN - ' + sys._getframe().f_code.co_name)
@@ -101,87 +129,87 @@ def store_url_logic(
     )
 
 
-def new_broadcast_logic(
-        broadcast_owner_id,
-        broadcast_content,
-        expression_link_id,
-        expression_imagefile,
-        broadcast_parent_id,
-        total_upvotes,
-        total_downvotes,
-        total_broadcasts,
-        total_discussions,
-        topics,
-):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('New broadcast logic')
-
-    return core.new_broadcast_database(
-        broadcast_owner_id=broadcast_owner_id,
-        broadcast_content=broadcast_content,
-        expression_link_id=expression_link_id,
-        expression_imagefile=expression_imagefile,
-        broadcast_parent_id=broadcast_parent_id,
-        total_upvotes=total_upvotes,
-        total_downvotes=total_downvotes,
-        total_broadcasts=total_broadcasts,
-        total_discussions=total_discussions,
-        topics=topics,
-    )
-
-
-def new_discussion_expression_logic(
-        discussion_parent_id,
-        discussion_expression_owner_id,
-        discussion_expression_content,
-        discussion_expression_link_id,
-        discussion_expression_imagefile,
-        total_upvotes,
-        total_downvotes,
-):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('New discussion expression Logic')
-
-    return core.new_discussion_expression_database(
-        discussion_parent_id=discussion_parent_id,
-        discussion_expression_owner_id=discussion_expression_owner_id,
-        discussion_expression_content=discussion_expression_content,
-        discussion_expression_link_id=discussion_expression_link_id,
-        discussion_expression_imagefile=discussion_expression_imagefile,
-        total_upvotes=total_upvotes,
-        total_downvotes=total_downvotes,
-    )
-
-
-def upvote_expression_logic(
-        upvoter,
-        expression_id,
-):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Upvote expression Logic')
-
-    return core.upvote_expression_database(
-        upvoter=upvoter,
-        expression_id=expression_id,
-    )
-
-
-def downvote_expression_logic(
-        downvoter,
-        expression_id,
-):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Downvote expression Logic')
-
-    return core.downvote_expression_database(
-        downvoter=downvoter,
-        expression_id=expression_id,
-    )
+# def new_broadcast_logic(
+#         broadcast_owner_id,
+#         broadcast_content,
+#         expression_link_id,
+#         expression_imagefile,
+#         broadcast_parent_id,
+#         total_upvotes,
+#         total_downvotes,
+#         total_broadcasts,
+#         total_discussions,
+#         topics,
+# ):
+#     log.info('IN - ' + sys._getframe().f_code.co_name)
+#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+#     log.debug('New broadcast logic')
+#
+#     return core.new_broadcast_database(
+#         broadcast_owner_id=broadcast_owner_id,
+#         broadcast_content=broadcast_content,
+#         expression_link_id=expression_link_id,
+#         expression_imagefile=expression_imagefile,
+#         broadcast_parent_id=broadcast_parent_id,
+#         total_upvotes=total_upvotes,
+#         total_downvotes=total_downvotes,
+#         total_broadcasts=total_broadcasts,
+#         total_discussions=total_discussions,
+#         topics=topics,
+#     )
+#
+#
+# def new_discussion_expression_logic(
+#         discussion_parent_id,
+#         discussion_expression_owner_id,
+#         discussion_expression_content,
+#         discussion_expression_link_id,
+#         discussion_expression_imagefile,
+#         total_upvotes,
+#         total_downvotes,
+# ):
+#     log.info('IN - ' + sys._getframe().f_code.co_name)
+#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+#     log.debug('New discussion expression Logic')
+#
+#     return core.new_discussion_expression_database(
+#         discussion_parent_id=discussion_parent_id,
+#         discussion_expression_owner_id=discussion_expression_owner_id,
+#         discussion_expression_content=discussion_expression_content,
+#         discussion_expression_link_id=discussion_expression_link_id,
+#         discussion_expression_imagefile=discussion_expression_imagefile,
+#         total_upvotes=total_upvotes,
+#         total_downvotes=total_downvotes,
+#     )
+#
+#
+# def upvote_expression_logic(
+#         upvoter,
+#         expression_id,
+# ):
+#     log.info('IN - ' + sys._getframe().f_code.co_name)
+#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+#     log.debug('Upvote expression Logic')
+#
+#     return core.upvote_expression_database(
+#         upvoter=upvoter,
+#         expression_id=expression_id,
+#     )
+#
+#
+# def downvote_expression_logic(
+#         downvoter,
+#         expression_id,
+# ):
+#     log.info('IN - ' + sys._getframe().f_code.co_name)
+#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+#     log.debug('Downvote expression Logic')
+#
+#     return core.downvote_expression_database(
+#         downvoter=downvoter,
+#         expression_id=expression_id,
+#     )

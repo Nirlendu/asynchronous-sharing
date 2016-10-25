@@ -17,9 +17,10 @@ from django.db import models
 class PersonPrimaryManager(models.Manager):
     def create_person(
             self,
+            user_name,
             person_name,
-            total_followers,
-            person_weight,
+            total_followers=0,
+            person_weight=0,
         ):
         log.info('IN - ' + sys._getframe().f_code.co_name)
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
@@ -28,6 +29,7 @@ class PersonPrimaryManager(models.Manager):
         try:
             log.debug('Person Create operation')
             person = self.create(
+                user_name=user_name,
                 person_name=person_name,
                 total_followers=total_followers,
                 person_weight=person_weight,
@@ -49,7 +51,8 @@ class PersonPrimaryManager(models.Manager):
 
         try:
             log.debug('Person Update operation')
-            person = self.update_or_create(
+            person = self.update(
+                user_name=user_name,
                 person_name=person_name,
                 total_followers=total_followers,
                 person_weight=person_weight,
@@ -65,6 +68,9 @@ class PersonPrimaryManager(models.Manager):
 #
 ##
 class PersonPrimary(models.Model):
+    user_name = models.CharField(
+        max_length=15,
+    )
     person_name  = models.CharField(
         max_length=30,
     )

@@ -14,6 +14,7 @@ from expression import database as express
 from channel import database as channel
 from app_interface import database as interface
 from web import database as web
+from people import database as people_primary
 
 # TODO Remove this!
 #from express.models import Expression, Link
@@ -50,8 +51,58 @@ def get_expressions_database(
     #     for expression in expressions:
     #         pass
 
-    #return get_index_data(person_id)
+    return get_index_data(person_id)
+    #return []
+
+
+def get_index_data(person_id):
     return []
+
+
+
+@transaction.atomic
+def new_person_database(
+        user_name,
+        person_name,
+        total_followers,
+        person_weight,
+        person_channel_followee_list,
+        person_person_followee_list,
+        person_expression_list,
+    ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    try:
+        log.debug('New Person Core Database')
+        person_primary_id = people_primary.new_person(
+                                user_name=user_name,
+                                person_name=person_name,
+                                total_followers=total_followers,
+                                person_weight=person_weight,
+                            )
+
+        person_secondary_id = interface.new_person(
+            user_name=user_name,
+            person_name=person_name,
+            person_primary_id=person_primary_id,
+            total_followers=total_followers,
+            person_weight=person_weight,
+            person_channel_followee_list=person_channel_followee_list,
+            person_person_followee_list=person_person_followee_list,
+            person_expression_list=person_expression_list,
+        )
+        return person_secondary_id
+
+    except:
+        log.debug('New Person creation FAILED')
+        raise Exception
+
+    return None
+
+
+
 
 # TODO Only for testing!
 # def get_index_data(person_id):

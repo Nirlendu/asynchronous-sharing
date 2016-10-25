@@ -18,6 +18,7 @@ from app_core import core_interface as core
 
 from expression import views as expression
 from web import views as web
+from people import views as people
 
 from libs.logger import app_logger as log
 from libs.file_upload import uploader
@@ -144,6 +145,12 @@ def store_link(request):
         return render(request, template, context)
 
 
+@ensure_csrf_cookie
+def init(request):
+    person_secondary_id = people.new_person(
+        user_name = request.session['person_id'],
+        person_name = 'Nirlendu Saha',
+    )
 
 
 #

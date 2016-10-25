@@ -5,7 +5,7 @@ import sys, os
 
 from libs.logger import app_logger as log
 
-from models import ExpressionSecondary, UrlSecondary
+from models import ExpressionSecondary, UrlSecondary, PersonSecondary
 
 def new_expression(
         expression_primary_id,
@@ -76,6 +76,39 @@ def store_url(
         return url_secondary.url_secondary_id
     except:
         log.info('New url secondary creating FAILED')
+        raise Exception
+
+    return None
+
+def new_person(
+        person_primary_id,
+        user_name,
+        person_name,
+        total_followers,
+        person_weight,
+        person_channel_followee_list,
+        person_person_followee_list,
+        person_expression_list,
+    ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    try:
+        log.debug('New person secondary creating')
+        url_secondary = PersonSecondary.objects.create(
+                                        user_name=user_name,
+                                        person_name=person_name,
+                                        person_primary_id=person_primary_id,
+                                        total_followers=total_followers,
+                                        person_weight=person_weight,
+                                        person_channel_followee_list=person_channel_followee_list,
+                                        person_person_followee_list=person_person_followee_list,
+                                        person_expression_list=person_expression_list,
+                                        )
+        return url_secondary.url_secondary_id
+    except:
+        log.info('New person secondary creating FAILED')
         raise Exception
 
     return None
