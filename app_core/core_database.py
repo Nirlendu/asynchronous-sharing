@@ -233,111 +233,59 @@ def new_expression_database(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    try:
-        log.debug('New Expression Core Database')
-        expression_primary_id = express.new_expresssion(
-            expression_owner_id=expression_owner_id,
-            expression_content=expression_content,
-            expression_content_url=expression_content_url,
-            expression_imagefile=expression_imagefile,
-            broadcast_parent_id=broadcast_parent_id,
-            expression_weight=expression_weight,
-            total_upvotes=total_upvotes,
-            total_collects=total_collects,
-            total_broadcasts=total_broadcasts,
-            total_discussions=total_discussions,
-        )
+    #try:
+    log.debug('New Expression Core Database')
+    expression_primary_id = express.new_expresssion(
+        expression_owner_id=expression_owner_id,
+        expression_content=expression_content,
+        expression_content_url=expression_content_url,
+        expression_imagefile=expression_imagefile,
+        broadcast_parent_id=broadcast_parent_id,
+        expression_weight=expression_weight,
+        total_upvotes=total_upvotes,
+        total_collects=total_collects,
+        total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
+    )
 
-        channel.channel_expression_relationship(
-            channels=channels,
-            expression_id=expression_primary_id,
-        )
+    channel_list = interface.get_channel_list(
+                        expression_id=str(expression_primary_id),
+                        channels=channels,
+                    )
 
-        expression_upvote_list = []
-        expression_broadcast_list = []
-        expression_discussion_list = []
-        expression_collection_list = []
+    channel.channel_expression_relation(
+        channels=channel_list,
+        expression_id=expression_primary_id,
+    )
 
-        expression_secondary_id = interface.new_expression(
-            expression_primary_id=str(expression_primary_id),
-            expression_content=expression_content,
-            expression_content_url=expression_content_url,
-            expression_imagefile=expression_imagefile,
-            expression_weight=expression_weight,
-            broadcast_parent_id=broadcast_parent_id,
-            total_upvotes=total_upvotes,
-            total_broadcasts=total_broadcasts,
-            total_discussions=total_discussions,
-            total_collects=total_collects,
-            expression_upvote_list=expression_upvote_list,
-            expression_broadcast_list=expression_broadcast_list,
-            expression_discussion_list=expression_discussion_list,
-            expression_collection_list=expression_collection_list,
-        )
-        return expression_secondary_id
+    expression_upvote_list = []
+    expression_broadcast_list = []
+    expression_discussion_list = []
+    expression_collection_list = []
 
-    except:
-        log.debug('New Expression creation FAILED')
-        raise Exception
+    expression_secondary_id = interface.new_expression(
+        expression_primary_id=str(expression_primary_id),
+        expression_content=expression_content,
+        expression_content_url=expression_content_url,
+        expression_imagefile=expression_imagefile,
+        expression_weight=expression_weight,
+        broadcast_parent_id=broadcast_parent_id,
+        total_upvotes=total_upvotes,
+        total_broadcasts=total_broadcasts,
+        total_discussions=total_discussions,
+        total_collects=total_collects,
+        expression_upvote_list=expression_upvote_list,
+        expression_broadcast_list=expression_broadcast_list,
+        expression_discussion_list=expression_discussion_list,
+        expression_collection_list=expression_collection_list,
+    )
+    return expression_secondary_id
 
-    return None
-
-#
-# @transaction.atomic
-# def new_expression_database(
-#         expression_owner_id,
-#         expression_content,
-#         expression_link_id,
-#         expression_imagefile,
-#         broadcast_parent_id,
-#         total_upvotes,
-#         total_downvotes,
-#         total_broadcasts,
-#         total_discussions,
-#         topics,
-# ):
-#     log.info('IN - ' + sys._getframe().f_code.co_name)
-#     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-#     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-#     log.debug('New Expression Core Database')
-#
-#     expression_id = expression.new_expression_insert(
-#         expression_owner_id=expression_owner_id,
-#         expression_content=expression_content,
-#         expression_link_id=expression_link_id,
-#         expression_imagefile=expression_imagefile,
-#         broadcast_parent_id=broadcast_parent_id,
-#         total_upvotes=total_upvotes,
-#         total_downvotes=total_downvotes,
-#         total_broadcasts=total_broadcasts,
-#         total_discussions=total_discussions,
-#     )
-#     graph = ServiceRoot(settings.GRAPHDB_URL).graph
-#     intial_transaction = graph.cypher.begin()
-#     expression_node_transaction = expression.new_expression_node(
-#         transaction=intial_transaction,
-#         expression_id=str(expression_id),
-#     )
-#     expression_relationship_transaction = expression.new_expression_relationship(
-#         transaction=expression_node_transaction,
-#         expression_node_id=str(expression_id),
-#         expression_owner_id=expression_owner_id
-#     )
-#     final_transaction = expression.new_expression_topics(
-#         transaction=expression_relationship_transaction,
-#         topics=topics,
-#         expression_node_id=str(expression_id),
-#     )
-#     try:
-#         final_transaction.process()
-#     except:
-#         final_transaction.rollback()
-#         log.info('New expression creating FAILED')
-#         raise Exception
-#
-#     log.info('New expression creating SUCCESS')
-#     final_transaction.commit()
-#     return
+    # except:
+    #     log.debug('New Expression creation FAILED')
+    #     raise Exception
+    #
+    # return None
 
 
 def find_url_id_database(url):

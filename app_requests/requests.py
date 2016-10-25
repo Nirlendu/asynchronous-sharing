@@ -13,8 +13,6 @@ from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 from app_core import core_interface as core
-from app_interface.models import ChannelSecondary
-from channel.models import ChannelPrimary
 
 from expression import views as expression
 from web import views as web
@@ -22,17 +20,7 @@ from people import views as people
 from channel import views as channel
 
 from libs.logger import app_logger as log
-from libs.file_upload import uploader
 from libs.device_data import device_data as device
-
-# @ensure_csrf_cookie
-# def channel(request):
-#     channel_id = '2'
-#     #idx = ChannelSecondary.objects.create(channel_primary_id=channel_id, channel_expression_list=[])
-#     #print idx
-#     for i in ChannelSecondary.objects.all():
-#         print "HEYY THE CHANNEL IS: "
-#     return render(request, "index.html", {})
 
 
 def mobile_browser(request):
@@ -116,7 +104,7 @@ def update(request):
         except:
             filename = None
         expression_text = request.POST.get('express_text')
-        channels = []
+        channels = ['asd321']
         if request.POST.get('express_tag'):
             channels.append(request.POST.get('express_tag'))
             #channels.append('7dea7440-c4b3-4bf0-8568-0b552c9d7bf5')
@@ -197,6 +185,7 @@ def channel_1(request):
 @ensure_csrf_cookie
 def dev(request):
     return render(request, "index_dev.html", {})
+
 @ensure_csrf_cookie
 def upvote(request):
     if request.method == 'POST':

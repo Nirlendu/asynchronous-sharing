@@ -46,9 +46,8 @@ def new_expression(
                                     expression_collection_list=expression_collection_list,
                                 )
         return expression_secondary.expression_secondary_id
-    except:
+    except Exception:
         log.info('New expression secondary creating FAILED')
-        raise Exception
 
     return None
 
@@ -135,9 +134,8 @@ def store_url(
                                         url_weight=url_weight,
                                         )
         return url_secondary.url_secondary_id
-    except:
+    except Exception:
         log.info('New url secondary creating FAILED')
-        raise Exception
 
     return None
 
@@ -173,3 +171,46 @@ def new_person(
         log.info('New person secondary creating FAILED')
 
     return None
+
+
+def get_channel_list(
+        channels,
+        expression_id,
+    ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    #try:
+    log.debug('Getting channel id list')
+    channel_id_list = []
+    for channel in channels:
+        channel_secondary = ChannelSecondary.objects.get(channel_unique_name=channel)
+        channel_id_list.append(channel_secondary.channel_primary_id)
+        channel_expression_relation(
+            channel_secondary=channel_secondary,
+            expression_id=expression_id,
+        )
+    return channel_id_list
+
+    # except Exception:
+    #     log.debug('Getting channel id list FAILED')
+    #
+    # return None
+
+
+def channel_expression_relation(
+        channel_secondary,
+        expression_id,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    #try:
+    log.debug('channel expression interface relation')
+    channel_secondary.channel_expression_list.append(expression_id)
+    channel_secondary.save()
+
+    # except Exception:
+    #     log.debug('channel expression interface relation FAILED')
+    # return

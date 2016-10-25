@@ -31,7 +31,7 @@ def new_expression(
         expression_content = expresssion_text.replace(url, '')
         url_id = core.find_url_id(url)
     else:
-        expression_content = expresssion_text
+        expression_content = expression_text
         url_id = None
     core.new_expression(
                 expression_owner_id=expression_owner_id,
