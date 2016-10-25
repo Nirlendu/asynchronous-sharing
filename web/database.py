@@ -13,13 +13,16 @@ def find_url_id(
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Find URL CORE')
 
-    urls = Url.objects.filter(url=url)
-    for url in urls:
+    try:
+        log.debug('Finding URL')
+        url = Url.objects.get(url=url)
         return url.pk
-    else:
-        return None
+
+    except Exception:
+        log.debug('no URL found')
+
+    return None
 
 
 def store_url(

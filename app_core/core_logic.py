@@ -10,7 +10,6 @@ from libs.logger import app_logger as log
 def new_person_logic(
         user_name,
         person_name,
-        person_primary_id,
         total_followers,
         person_weight,
         person_channel_followee_list,
@@ -25,7 +24,6 @@ def new_person_logic(
     return core.new_person_database(
         user_name=user_name,
         person_name=person_name,
-        person_primary_id=person_primary_id,
         total_followers=total_followers,
         person_weight=person_weight,
         person_channel_followee_list=person_channel_followee_list,
@@ -33,6 +31,40 @@ def new_person_logic(
         person_expression_list=person_expression_list,
     )
 
+def new_channel_logic(
+    channel_name,
+    channel_unique_name,
+    channel_weight,
+    total_followers,
+    channel_expression_list,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('New Channel Logic')
+
+    return core.new_channel_database(
+        channel_name=channel_name,
+        channel_unique_name=channel_unique_name,
+        channel_weight=channel_weight,
+        total_followers=total_followers,
+        channel_expression_list=channel_expression_list,
+    )
+
+
+def channel_person_relation_logic(
+    channel_id,
+    person_id,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Channel Person Relation Logic')
+
+    return core.channel_person_relation_database(
+        channel_id=channel_id,
+        person_id=person_id,
+    )
 
 
 def get_expressions_logic(

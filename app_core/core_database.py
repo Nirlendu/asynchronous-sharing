@@ -14,7 +14,7 @@ from expression import database as express
 from channel import database as channel
 from app_interface import database as interface
 from web import database as web
-from people import database as people_primary
+from people import database as people
 
 # TODO Remove this!
 #from express.models import Expression, Link
@@ -59,7 +59,6 @@ def get_index_data(person_id):
     return []
 
 
-
 @transaction.atomic
 def new_person_database(
         user_name,
@@ -76,7 +75,7 @@ def new_person_database(
 
     try:
         log.debug('New Person Core Database')
-        person_primary_id = people_primary.new_person(
+        person_primary_id = people.new_person(
                                 user_name=user_name,
                                 person_name=person_name,
                                 total_followers=total_followers,
@@ -86,20 +85,79 @@ def new_person_database(
         person_secondary_id = interface.new_person(
             user_name=user_name,
             person_name=person_name,
-            person_primary_id=person_primary_id,
+            person_primary_id=str(person_primary_id),
             total_followers=total_followers,
             person_weight=person_weight,
             person_channel_followee_list=person_channel_followee_list,
             person_person_followee_list=person_person_followee_list,
             person_expression_list=person_expression_list,
         )
-        return person_secondary_id
+        return person_primary_id
 
-    except:
-        log.debug('New Person creation FAILED')
-        raise Exception
+    except Exception:
+        log.exception('New Person creation FAILED')
 
     return None
+
+
+@transaction.atomic
+def new_channel_database(
+    channel_name,
+    channel_unique_name,
+    channel_weight,
+    total_followers,
+    channel_expression_list,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    try:
+        log.debug('New Channel Core Database')
+        channel_primary_id = channel.new_channel(
+                                channel_name=channel_name,
+                                channel_unique_name=channel_unique_name,
+                                channel_weight=channel_weight,
+                                total_followers=total_followers,
+                            )
+
+        channel_secondary_id = interface.new_channel(
+            channel_primary_id=str(channel_primary_id),
+            channel_name=channel_name,
+            channel_unique_name=channel_unique_name,
+            channel_weight=channel_weight,
+            total_followers=total_followers,
+            channel_expression_list=channel_expression_list,
+        )
+        return channel_primary_id
+
+    except Exception:
+        log.debug('New Person creation FAILED')
+
+    return None
+
+
+@transaction.atomic
+def channel_person_relation_database(
+    channel_id,
+    person_id,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
+    channel_person_primary_id = channel.channel_person_relation(
+                            channel_id=channel_id,
+                            person_id=person_id,
+                        )
+
+    channel_person_secondary_id = interface.channel_person_relation(
+                            channel_id=str(channel_id),
+                            person_id=str(person_id),
+                        )
+
+    return channel_person_secondary_id
+
 
 
 

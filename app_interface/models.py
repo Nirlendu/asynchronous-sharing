@@ -9,14 +9,17 @@ from cassandra.cqlengine.models import Model as ModelCassandra
 
 class ChannelSecondary(ModelCassandra):
     channel_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:8])
-    channel_primary_id  = columns.Text()
+    channel_primary_id  = columns.Text(index=True)
+    channel_name = columns.Text()
+    channel_unique_name = columns.Text(index=True)
     channel_weight = columns.Decimal(default=0)
+    total_followers = columns.Integer(default=0)
     channel_expression_list = columns.List(value_type=columns.Text(),default=[])
 
 class PersonSecondary(ModelCassandra):
     person_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:12])
-    user_name = columns.Text()
-    person_primary_id  = columns.Text()
+    user_name = columns.Text(index=True)
+    person_primary_id  = columns.Text(index=True)
     person_name = columns.Text()
     total_followers = columns.Integer(default=0)
     person_weight = columns.Decimal(default=0)
@@ -26,7 +29,7 @@ class PersonSecondary(ModelCassandra):
 
 class ExpressionSecondary(ModelCassandra):
     expression_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:16])
-    expression_primary_id = columns.Text()
+    expression_primary_id = columns.Text(index=True)
     expression_weight = columns.Decimal(default=0)
     expression_content = columns.Text()
     expression_content_url = columns.Text(default=None)
@@ -43,7 +46,7 @@ class ExpressionSecondary(ModelCassandra):
 
 class UrlSecondary(ModelCassandra):
     url_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:16])
-    url = columns.Text()
+    url = columns.Text(index=True)
     url_title = columns.Text()
     url_desc = columns.Text(default=None)
     url_imagefile = columns.Text(default=None)

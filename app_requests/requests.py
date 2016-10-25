@@ -13,12 +13,13 @@ from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 from app_core import core_interface as core
-#from app_interface.models import ChannelSecondary
-#from channel.models import ChannelPrimary
+from app_interface.models import ChannelSecondary
+from channel.models import ChannelPrimary
 
 from expression import views as expression
 from web import views as web
 from people import views as people
+from channel import views as channel
 
 from libs.logger import app_logger as log
 from libs.file_upload import uploader
@@ -147,10 +148,21 @@ def store_link(request):
 
 @ensure_csrf_cookie
 def init(request):
-    person_secondary_id = people.new_person(
+    person_id = people.new_person(
         user_name = request.session['person_id'],
         person_name = 'Nirlendu Saha',
     )
+    channel_id = channel.new_channel(
+        channel_name = 'Sample Channel',
+        channel_unique_name = 'asd321',
+    )
+    person_channel_relation_id = channel.channel_person_relation(
+        person_id =person_id,
+        channel_id=channel_id,
+    )
+
+    if channel_id and person_id and person_channel_relation_id:
+        return render(request, template, context)
 
 
 #
@@ -176,7 +188,7 @@ def get_index_data(request):
 
 
 @ensure_csrf_cookie
-def channel(request):
+def channel_1(request):
     if mobile_browser(request):
         return render(request, "mobile/index_dev_m.html", {})
     return render(request, "topic_dev.html", {})

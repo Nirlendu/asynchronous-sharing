@@ -70,6 +70,7 @@ class PersonPrimaryManager(models.Manager):
 class PersonPrimary(models.Model):
     user_name = models.CharField(
         max_length=15,
+        unique=True,
     )
     person_name  = models.CharField(
         max_length=30,
