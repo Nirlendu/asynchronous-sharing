@@ -74,6 +74,9 @@ def new_person_database(
                             person_weight=person_weight,
                         )
 
+    if not person_primary_id:
+        return None
+
     person_secondary_id = interface.new_person(
         user_name=user_name,
         person_name=person_name,
@@ -84,6 +87,10 @@ def new_person_database(
         person_person_followee_list=person_person_followee_list,
         person_expression_list=person_expression_list,
     )
+
+    if not person_secondary_id:
+        return None
+
     return person_primary_id
 
 
@@ -108,6 +115,9 @@ def new_channel_database(
                             total_followers=total_followers,
                         )
 
+    if not channel_primary_id:
+        return None
+
     channel_secondary_id = interface.new_channel(
         channel_primary_id=str(channel_primary_id),
         channel_name=channel_name,
@@ -116,6 +126,10 @@ def new_channel_database(
         total_followers=total_followers,
         channel_expression_list=channel_expression_list,
     )
+
+    if not channel_secondary_id:
+        return None
+
     return channel_primary_id
 
 
@@ -134,10 +148,16 @@ def channel_person_relation_database(
                             person_id=person_id,
                         )
 
+    if not channel_person_primary_id:
+        return None
+
     channel_person_secondary_id = interface.channel_person_relation(
                             channel_id=str(channel_id),
                             person_id=str(person_id),
                         )
+
+    if not channel_person_secondary_id:
+        return None
 
     return channel_person_primary_id
 
@@ -171,9 +191,9 @@ def get_expression_json(
         expression_content['TOTAL_DISCUSSIONS'] =expression_object.total_discussions
         expression_content['TOTAL_COLLECTS'] = expression_object.total_collects
 
-        if not (expression_object.expression_content_url is None):
+        if expression_object.expression_content_url != 'None':
             url_contents = interface.get_url_objects(
-                url=expression_object.expression_content_url,
+                url_primary_id=str(expression_object.expression_content_url),
             )
             expression_content['URL'] = url_contents.url
             expression_content['URL_TITLE'] = url_contents.url_title
@@ -183,7 +203,7 @@ def get_expression_json(
                 url_contents.url_title,
             )[0]
 
-        if not (expression_object.broadcast_parent_id is None):
+        if expression_object.broadcast_parent_id != None:
             broadcast_object = interface.get_expression_objects(
                 expression_id=expression_object.broadcast_parent_id,
             )
@@ -195,7 +215,7 @@ def get_expression_json(
 
             if not (broadcast_object.expression_content_url is None):
                 url_contents = interface.get_url_objects(
-                    url=broadcast_object.expression_content_url,
+                    url_primary_id=broadcast_object.expression_content_url,
                 )
                 expression_content['BROADCAST_URL'] = url_contents.url
                 expression_content['BROADCAST_URL_TITLE'] = url_contents.url_title
@@ -243,6 +263,9 @@ def new_expression_database(
         total_discussions=total_discussions,
     )
 
+    if not expression_primary_id:
+        return None
+
     channel_list = interface.get_channel_list(
                         expression_id=str(expression_primary_id),
                         channels=channels,
@@ -262,7 +285,7 @@ def new_expression_database(
         expression_primary_id=str(expression_primary_id),
         expression_owner_id=expression_owner_id,
         expression_content=expression_content,
-        expression_content_url=expression_content_url,
+        expression_content_url=str(expression_content_url),
         expression_imagefile=expression_imagefile,
         expression_weight=expression_weight,
         broadcast_parent_id=broadcast_parent_id,
@@ -276,7 +299,11 @@ def new_expression_database(
         expression_discussion_list=expression_discussion_list,
         expression_collection_list=expression_collection_list,
     )
-    return expression_secondary_id
+
+    if not expression_secondary_id:
+        return None
+
+    return expression_primary_id
 
 
 def find_url_id_database(url):
@@ -301,7 +328,7 @@ def store_url_database(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('New URL insert database')
 
-    url_parent_id = web.store_url(
+    url_primary_id = web.store_url(
                     url=url,
                     url_title=url_title,
                     url_desc=url_desc,
@@ -309,17 +336,24 @@ def store_url_database(
                     url_weight=url_weight,
                 )
 
+    if not url_primary_id:
+        return None
+
     url_secondary_id = interface.store_url(
-                    url_parent_id=url_parent_id,
+                    url_primary_id=str(url_primary_id),
+                    url=url,
                     url_title=url_title,
                     url_desc=url_desc,
                     url_imagefile=url_imagefile,
                     url_weight=url_weight,
                 )
 
-    return url_secondary_id
+    if not url_secondary_id:
+        return None
 
-#
+    return url_primary_id
+
+
 # @transaction.atomic
 # def new_broadcast_database(
 #         broadcast_owner_id,

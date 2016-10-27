@@ -36,7 +36,7 @@ def new_expression(
 
     url = get_url(expression_text)
     if url:
-        expression_content = expresssion_text.replace(url, '')
+        expression_content = expression_text.replace(url, '')
         url_id = core.find_url_id(url)
     else:
         expression_content = expression_text

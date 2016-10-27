@@ -13,6 +13,7 @@ import sys
 import inspect
 
 from django.db import models
+from libs.logger import app_logger as log
 
 
 class UrlManager(models.Manager):

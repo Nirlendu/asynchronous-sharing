@@ -29,6 +29,7 @@ from channel import views as channel
 
 from libs.logger import app_logger as log
 from libs.device_data import device_data as device
+from libs.file_upload import uploader
 
 
 def mobile_browser(request):
@@ -63,7 +64,8 @@ def index(request):
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.info('Index page rendering')
 
-    init_session(request)
+    #init_session(request)
+    request.session['person_id'] = '46'
 
     try:
         redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -71,7 +73,7 @@ def index(request):
         print "REDIS PRESENT"
     except:
         expressions = core.get_expressions(
-            person_id='9',
+            person_id=request.session['person_id'],
         )
 
     #if mobile_browser(request):
@@ -111,6 +113,7 @@ def update(request):
             filename = uploader.new_upload_file(data)
         except:
             filename = None
+
         expression_text = request.POST.get('express_text')
         channels = ['asd321']
         if request.POST.get('express_tag'):
@@ -143,7 +146,7 @@ def store_link(request):
 
 
 @ensure_csrf_cookie
-def init(request):
+def initdd(request):
     person_id = people.new_person(
         user_name = request.session['person_id'],
         person_name = 'Nirlendu Saha',
@@ -156,10 +159,11 @@ def init(request):
         person_id =person_id,
         channel_id=channel_id,
     )
-
+    request.session['person_id'] = 'person_id'
+    template = "index.html"
+    context = {}
     if channel_id and person_id and person_channel_relation_id:
-        return render(request, template, context)
-
+        return
 
 #
 #
