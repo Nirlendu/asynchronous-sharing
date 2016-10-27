@@ -6,6 +6,13 @@ import sys
 import core_database as core
 from libs.logger import app_logger as log
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
 
 def new_person_logic(
         user_name,
@@ -75,23 +82,50 @@ def get_expressions_logic(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Get Expressions Logic')
 
-    # 1TODO
-    # Get stuff from discover
+    channel_expression_list = core.get_expressions_channel_database(
+                                                person_id=person_id,
+                                            )
 
-    # expressions_ids = core.get_expressions_database(
-    #     person_id=person_id,
-    # )
+    person_expression_list = core.get_expression_people_database(
+                                                person_id=person_id,
+                                            )
 
-    # Rank stuff here using all expression_ids and the weight of each
+    discover_list = []
 
-    # Assuming sorted expression_ids
-    # expressions = core.get_expressions_database(
-    #     expressions_ids=expressions_ids,
-    # )
+    expression_list = create_expression_list(
+        expression_list = channel_expression_list + person_expression_list + discover_list,
+    )
 
-    # ONLY FOR TESTING!
-    #return core.get_index_data(person_id)
-    return core.get_expressions_database(person_id)
+    return send_json_as_response(
+        expression_list=expression_list,
+    )
+
+
+def create_expression_list(
+    expression_list,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('creating expression list Logic')
+
+    # HAVE TO RANK
+
+    return list(set(expression_list))
+
+
+def send_json_as_response(
+    expression_list,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Sending JSON Response Logic')
+
+    return core.get_expression_json(
+            expression_list=expression_list,
+        )
+
 
 
 def new_expression_logic(

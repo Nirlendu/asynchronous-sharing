@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Nirlendu/asynchronous-sharing/issues"
   },
-  "homepage": "https://github.com/Nirlendu/asynchronous-sharing#readme",
+  "homepage": "https://github.com/Nirlendu/asynchronous-sharing//readme",
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",

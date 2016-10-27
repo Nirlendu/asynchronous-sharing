@@ -1,3 +1,11 @@
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 # BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 bind = '127.0.0.1:8000'  # Don't use port 80 becaue nginx occupied it already. Don't change it even in prod
 

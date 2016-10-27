@@ -1,3 +1,11 @@
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 from react.render import render_component

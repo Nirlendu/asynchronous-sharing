@@ -1,3 +1,11 @@
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 """
 WSGI config for core project.
 

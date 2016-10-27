@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 from __future__ import unicode_literals
 
 import uuid
+from datetime import datetime
+
+
 from cassandra.cqlengine import columns
 from cassandra.cqlengine.models import Model as ModelCassandra
 
@@ -30,11 +41,14 @@ class PersonSecondary(ModelCassandra):
 class ExpressionSecondary(ModelCassandra):
     expression_secondary_id = columns.Text(primary_key=True, default=str(uuid.uuid4()).replace('-','')[:16])
     expression_primary_id = columns.Text(index=True)
+    expression_owner_id = columns.Text()
     expression_weight = columns.Decimal(default=0)
     expression_content = columns.Text()
     expression_content_url = columns.Text(default=None)
     expression_imagefile = columns.Text(default=None)
     broadcast_parent_id = columns.Text(default=None)
+    expression_time = columns.DateTime(default=datetime.now())
+    expression_channel = columns.List(value_type=columns.Text(),default=[])
     total_upvotes = columns.Integer(default=0)
     total_broadcasts = columns.Integer(default=0)
     total_discussions = columns.Integer(default=0)

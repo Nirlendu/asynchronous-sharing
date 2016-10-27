@@ -1,3 +1,11 @@
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 # -*- coding: utf-8 -*-
 
 from django.conf import settings

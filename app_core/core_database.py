@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
+
 import inspect
 import sys, os, re
 
 from django.conf import settings
-
 from django.db import transaction
-from py2neo import Graph, ServiceRoot
 
 from libs.logger import app_logger as log
 
@@ -16,47 +23,33 @@ from app_interface import database as interface
 from web import database as web
 from people import database as people
 
-# TODO Remove this!
-#from express.models import Expression, Link
 
 @transaction.atomic
-def get_expressions_database(
+def get_expressions_channel_database(
                 person_id,
             ):
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    log.debug('Get Expression Core Database')
+    log.debug('Get Expression Channel Core Database')
 
-    # TODO
-    # people = get_the_people_followed(
-    #           person_id = person_id,
-    # )
-
-    # TODO
-    # channels = get_the_channels_followed(
-    #               person_id = person_id,
-    # )
-
-    # For the time being
-    # people = [person_id]
-    # streams = ['naarada']
-    #
-    # expressions = get_expressions.get_expressions(
-    #     people=people,
-    #     streams=streams,
-    # )
-    #
-    # if expressions:
-    #     for expression in expressions:
-    #         pass
-
-    return get_index_data(person_id)
-    #return []
+    return interface.get_channel_person_list(
+                person_id=person_id,
+    )
 
 
-def get_index_data(person_id):
-    return []
+@transaction.atomic
+def get_expression_people_database(
+                person_id,
+            ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Get Expression Channel Core Database')
+
+    return interface.get_person_person_list(
+                person_id=person_id
+    )
 
 
 @transaction.atomic
@@ -73,31 +66,26 @@ def new_person_database(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    try:
-        log.debug('New Person Core Database')
-        person_primary_id = people.new_person(
-                                user_name=user_name,
-                                person_name=person_name,
-                                total_followers=total_followers,
-                                person_weight=person_weight,
-                            )
+    log.debug('New Person Core Database')
+    person_primary_id = people.new_person(
+                            user_name=user_name,
+                            person_name=person_name,
+                            total_followers=total_followers,
+                            person_weight=person_weight,
+                        )
 
-        person_secondary_id = interface.new_person(
-            user_name=user_name,
-            person_name=person_name,
-            person_primary_id=str(person_primary_id),
-            total_followers=total_followers,
-            person_weight=person_weight,
-            person_channel_followee_list=person_channel_followee_list,
-            person_person_followee_list=person_person_followee_list,
-            person_expression_list=person_expression_list,
-        )
-        return person_primary_id
+    person_secondary_id = interface.new_person(
+        user_name=user_name,
+        person_name=person_name,
+        person_primary_id=str(person_primary_id),
+        total_followers=total_followers,
+        person_weight=person_weight,
+        person_channel_followee_list=person_channel_followee_list,
+        person_person_followee_list=person_person_followee_list,
+        person_expression_list=person_expression_list,
+    )
+    return person_primary_id
 
-    except Exception:
-        log.exception('New Person creation FAILED')
-
-    return None
 
 
 @transaction.atomic
@@ -112,29 +100,24 @@ def new_channel_database(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    try:
-        log.debug('New Channel Core Database')
-        channel_primary_id = channel.new_channel(
-                                channel_name=channel_name,
-                                channel_unique_name=channel_unique_name,
-                                channel_weight=channel_weight,
-                                total_followers=total_followers,
-                            )
+    log.debug('New Channel Core Database')
+    channel_primary_id = channel.new_channel(
+                            channel_name=channel_name,
+                            channel_unique_name=channel_unique_name,
+                            channel_weight=channel_weight,
+                            total_followers=total_followers,
+                        )
 
-        channel_secondary_id = interface.new_channel(
-            channel_primary_id=str(channel_primary_id),
-            channel_name=channel_name,
-            channel_unique_name=channel_unique_name,
-            channel_weight=channel_weight,
-            total_followers=total_followers,
-            channel_expression_list=channel_expression_list,
-        )
-        return channel_primary_id
+    channel_secondary_id = interface.new_channel(
+        channel_primary_id=str(channel_primary_id),
+        channel_name=channel_name,
+        channel_unique_name=channel_unique_name,
+        channel_weight=channel_weight,
+        total_followers=total_followers,
+        channel_expression_list=channel_expression_list,
+    )
+    return channel_primary_id
 
-    except Exception:
-        log.debug('New Person creation FAILED')
-
-    return None
 
 
 @transaction.atomic
@@ -156,62 +139,75 @@ def channel_person_relation_database(
                             person_id=str(person_id),
                         )
 
-    return channel_person_secondary_id
+    return channel_person_primary_id
 
 
 
+@transaction.atomic
+def get_expression_json(
+            expression_list,
+        ):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('Get Expression JSON Core Database')
 
+    expression_content_list = []
 
-# TODO Only for testing!
-# def get_index_data(person_id):
-#     entry = []
-#     graph = ServiceRoot(settings.GRAPHDB_URL).graph
-#     express = graph.cypher.stream(
-#         "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: '" + person_id + "'})-[:EXPRESSED]->(n) RETURN n");
-#     for record in express:
-#
-#         # A VERY BAD QUERY
-#         try:
-#             expressions = Expression.objects.filter(id=record[0]['expression_id'])
-#         except:
-#             log.exception('Inconsistent Data. No entry in SQL for Node')
-#             raise Exception
-#             return None
-#
-#         for expression in expressions:
-#             a = {'expression_id': expression.id, 'expression_owner': expression.expression_owner_id,
-#                  'expression_content': expression.expression_content,
-#                  'expression_image': expression.expression_imagefile}
-#             if expression.expression_link_id is not None:
-#                 entries = Link.objects.filter(id=expression.expression_link_id)
-#                 for x in entries:
-#                     a['expression_link'] = x.link_url
-#                     a['expression_link_title'] = x.link_name
-#                     a['expression_link_image'] = x.link_image
-#                     a['parent_domain'] = re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[
-#                         0]
-#
-#             q = graph.cypher.stream("MATCH (p:ExpressionGraph{expression_id: '" + str(
-#                 expression.id) + "' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e")
-#             if q:
-#                 for x in q:
-#                     broadcasts = Expression.objects.filter(id=x[0]['expression_id'])
-#                     for broadcast in broadcasts:
-#                         b = {'expression_id': broadcast.id, 'expression_owner': broadcast.expression_owner_id,
-#                              'expression_content': broadcast.expression_content,
-#                              'expression_image': broadcast.expression_imagefile}
-#                         if broadcast.expression_link_id is not None:
-#                             print 'IT DOES HAVE LINKS!'
-#                             entries = Link.objects.filter(id=broadcast.expression_link_id)
-#                             for x in entries:
-#                                 b['expression_link'] = x.link_url
-#                                 b['expression_link_title'] = x.link_name
-#                                 b['expression_link_image'] = x.link_image
-#                                 b['parent_domain'] = \
-#                                     re.findall('^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)', x.link_url)[0]
-#                     a['broadcast_of'] = b
-#             entry.append(a)
-#     return entry
+    for expression_id in expression_list:
+        expression_content = {}
+        expression_object = interface.get_expression_objects(
+            expression_id=expression_id,
+        )
+
+        expression_content['EXPRESSION_ID'] = expression_object.expression_primary_id
+        expression_content['EXPRESSION_OWNER'] = expression_object.expression_owner_id
+        expression_content['EXPRESSION_CONTENT'] = expression_object.expression_content
+        expression_content['EXPRESSION_IMAGE'] = expression_object.expression_imagefile
+        expression_content['CHANNEL'] = expression_object.expression_channel
+        expression_content['TIME'] = expression_object.expression_time
+        expression_content['TOTAL_UPVOTES'] = expression_object.total_upvotes
+        expression_content['TOTAL_BROADCASTS'] = expression_object.total_broadcasts
+        expression_content['TOTAL_DISCUSSIONS'] =expression_object.total_discussions
+        expression_content['TOTAL_COLLECTS'] = expression_object.total_collects
+
+        if not (expression_object.expression_content_url is None):
+            url_contents = interface.get_url_objects(
+                url=expression_object.expression_content_url,
+            )
+            expression_content['URL'] = url_contents.url
+            expression_content['URL_TITLE'] = url_contents.url_title
+            expression_content['URL_IMAGEFILE'] = url_contents.url_imagefile
+            expression_content['URL_DOMAIN'] = re.findall(
+                '^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)',
+                url_contents.url_title,
+            )[0]
+
+        if not (expression_object.broadcast_parent_id is None):
+            broadcast_object = interface.get_expression_objects(
+                expression_id=expression_object.broadcast_parent_id,
+            )
+            expression_content['BROADCAST_PARENT_OWNER'] = broadcast_object.expression_owner_id
+            expression_content['BROADCAST_CONTENT'] = broadcast_object.expression_content
+            expression_content['BROADCAST_IMAGE'] = broadcast_object.expression_imagefile
+            expression_content['BROADCAST_CHANNEL'] = broadcast_object.expression_channel
+            expression_content['BROADCAST_TIME'] = broadcast_object.expression_time
+
+            if not (broadcast_object.expression_content_url is None):
+                url_contents = interface.get_url_objects(
+                    url=broadcast_object.expression_content_url,
+                )
+                expression_content['BROADCAST_URL'] = url_contents.url
+                expression_content['BROADCAST_URL_TITLE'] = url_contents.url_title
+                expression_content['BROADCAST_URL_IMAGEFILE'] = url_contents.url_imagefile
+                expression_content['BROADCAST_URL_DOMAIN'] = re.findall(
+                    '^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)',
+                    url_contents.url_title,
+                )[0]
+
+        expression_content_list.append(expression_content)
+
+    return expression_content_list
 
 
 
@@ -233,7 +229,6 @@ def new_expression_database(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    #try:
     log.debug('New Expression Core Database')
     expression_primary_id = express.new_expresssion(
         expression_owner_id=expression_owner_id,
@@ -265,11 +260,13 @@ def new_expression_database(
 
     expression_secondary_id = interface.new_expression(
         expression_primary_id=str(expression_primary_id),
+        expression_owner_id=expression_owner_id,
         expression_content=expression_content,
         expression_content_url=expression_content_url,
         expression_imagefile=expression_imagefile,
         expression_weight=expression_weight,
         broadcast_parent_id=broadcast_parent_id,
+        expression_channel=channels,
         total_upvotes=total_upvotes,
         total_broadcasts=total_broadcasts,
         total_discussions=total_discussions,
@@ -280,12 +277,6 @@ def new_expression_database(
         expression_collection_list=expression_collection_list,
     )
     return expression_secondary_id
-
-    # except:
-    #     log.debug('New Expression creation FAILED')
-    #     raise Exception
-    #
-    # return None
 
 
 def find_url_id_database(url):

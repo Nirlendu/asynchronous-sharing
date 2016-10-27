@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 from app_core import core_interface as core
 from libs.logger import app_logger as log
 

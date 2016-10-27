@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 import re, sys, inspect
 
 from app_core import core_interface as core

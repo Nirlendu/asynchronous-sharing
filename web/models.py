@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 from __future__ import unicode_literals
 import sys
 import inspect
