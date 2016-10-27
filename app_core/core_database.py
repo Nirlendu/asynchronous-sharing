@@ -200,7 +200,7 @@ def get_expression_json(
             expression_content['URL_IMAGEFILE'] = url_contents.url_imagefile
             expression_content['URL_DOMAIN'] = re.findall(
                 '^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)',
-                url_contents.url_title,
+                url_contents.url,
             )[0]
 
         if expression_object.broadcast_parent_id is not None:

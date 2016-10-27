@@ -16,7 +16,7 @@
 			{{entry.EXPRESSION_OWNER}}
 		</div>
 		<div class="topic-name">
-			{{entry.CHANNEL}}
+			{{entry.CHANNEL.0}}
 		</div>
 		</div>
 	</div>
@@ -103,16 +103,67 @@
 			</div>
 		{% endif %}
 
-		</div> 
 	</div>
-	<div class = "feed-express-footer">
-		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
+	</div>
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
+
+				{% if not entry.URL_TITLE and not entry.EXPRESSION_IMAGE %}
+					<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+				{% if entry.URL_TITLE and not entry.EXPRESSION_IMAGE %}
+					<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+				{% if entry.EXPRESSION_IMAGE and not entry.URL_TITLE %}
+					<button type="button" class='btn btn-feed-express-inverted btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+			</div>
 		</div>
-	</div>
 	</div>
 
 
