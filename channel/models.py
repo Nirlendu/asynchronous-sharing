@@ -35,18 +35,14 @@ class ChannelPrimaryManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel create operation')
-            channel = self.create(
-                channel_name=channel_name,
-                channel_unique_name=channel_unique_name,
-                total_followers=total_followers,
-                channel_weight=channel_weight,
-            )
-            return channel.id
-        except Exception:
-            log.exception('Could not create Channel')
-        return
+        log.debug('Channel create operation')
+        channel = self.create(
+            channel_name=channel_name,
+            channel_unique_name=channel_unique_name,
+            total_followers=total_followers,
+            channel_weight=channel_weight,
+        )
+        return channel.id
 
     def update_channel(
             self,
@@ -57,17 +53,13 @@ class ChannelPrimaryManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel update operation')
-            channel = self.update_or_create(
-                channel_name=channel_name,
-                total_followers=total_followers,
-                channel_weight=channel_weight,
-            )
-            return channel.id
-        except Exception:
-            log.exception('Could not update Channel')
-        return None
+        log.debug('Channel update operation')
+        channel = self.update_or_create(
+            channel_name=channel_name,
+            total_followers=total_followers,
+            channel_weight=channel_weight,
+        )
+        return channel.id
 
     def get_channel(
             self,
@@ -77,15 +69,11 @@ class ChannelPrimaryManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel get operation')
-            channel = self.get(
-                id=channel_id,
-            )
-            return channel
-        except Exception:
-            log.exception('Could not update Channel')
-        return None
+        log.debug('Channel get operation')
+        channel = self.get(
+            id=channel_id,
+        )
+        return channel
 
 ##
 #
@@ -132,16 +120,13 @@ class ChannelChannelRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel Channel Relation create operation')
-            channel_relation = self.create(
-                channel_id_one=channel_id_one,
-                channel_id_two=channel_id_two,
-            )
-            return channel_relation.id
-        except Exception:
-            log.exception('Could not create Channel Channel Relation')
-        return None
+        log.debug('Channel Channel Relation create operation')
+
+        channel_relation = self.create(
+            channel_id_one=channel_id_one,
+            channel_id_two=channel_id_two,
+        )
+        return channel_relation.id
 
 ##
 #
@@ -177,18 +162,13 @@ class ChannelPersonRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel Person Relation create operation')
-            channel_relation = self.create(
-                channel_id=channel_id,
-                person_id=person_id,
-            )
+        log.debug('Channel Person Relation create operation')
+        channel_relation = self.create(
+            channel_id=channel_id,
+            person_id=person_id,
+        )
 
-            return channel_relation.id
-        except Exception:
-            log.exception('Could not create Channel Person Relation')
-
-        return None
+        return channel_relation.id
 
     def delete_channel_person_relation(
             self,
@@ -199,18 +179,13 @@ class ChannelPersonRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Channel Person Relation delete operation')
-            self.objects.get(
-                channel_id=channel_id,
-                person_id=person_id,
-            ).delete()
+        log.debug('Channel Person Relation delete operation')
+        self.objects.get(
+            channel_id=channel_id,
+            person_id=person_id,
+        ).delete()
 
-            return True
-        except Exception:
-            log.exception('Could not delete Channel Person Relation')
-
-        return None
+        return True
 
 ###
 #
@@ -246,16 +221,13 @@ class ExpressionChannelRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Expression Channel Relation create operation')
-            expression_channel_relation = self.create(
-                channel_id=channel_id,
-                expression_id=expression_id,
-            )
-            return expression_channel_relation.id
-        except Exception:
-            log.exception('Could not create Expression Channel Relation')
-        return None
+        log.debug('Expression Channel Relation create operation')
+        expression_channel_relation = self.create(
+            channel_id=channel_id,
+            expression_id=expression_id,
+        )
+        return expression_channel_relation.id
+
 
 ##
 #
@@ -291,16 +263,12 @@ class UrlChannelRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Expression Channel Relation create operation')
-            url_channel_relation = self.create(
-                channel_id=channel_id,
-                url_id=url_id,
-            )
-            return url_channel_relation.id
-        except Exception:
-            log.exception('Could not create Expression Channel Relation')
-        return None
+        log.debug('Expression Channel Relation create operation')
+        url_channel_relation = self.create(
+            channel_id=channel_id,
+            url_id=url_id,
+        )
+        return url_channel_relation.id
 
 ##
 #

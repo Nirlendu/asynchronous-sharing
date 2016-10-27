@@ -34,18 +34,14 @@ class PersonPrimaryManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Person Create operation')
-            person = self.create(
-                user_name=user_name,
-                person_name=person_name,
-                total_followers=total_followers,
-                person_weight=person_weight,
-            )
-            return person.id
-        except Exception:
-            log.exception('Could not Create Person')
-        return
+        log.debug('Person Create operation')
+        person = self.create(
+            user_name=user_name,
+            person_name=person_name,
+            total_followers=total_followers,
+            person_weight=person_weight,
+        )
+        return person.id
 
     def update_person(
             self,
@@ -57,18 +53,14 @@ class PersonPrimaryManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Person Update operation')
-            person = self.update(
-                user_name=user_name,
-                person_name=person_name,
-                total_followers=total_followers,
-                person_weight=person_weight,
-            )
-            return person.id
-        except Exception:
-            log.exception('Could not Update Person')
-        return
+        log.debug('Person Update operation')
+        person = self.update(
+            user_name=user_name,
+            person_name=person_name,
+            total_followers=total_followers,
+            person_weight=person_weight,
+        )
+        return person.id
 
 ##
 #
@@ -114,16 +106,12 @@ class PersonPersonRelationManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('Person Person Relation create operation')
-            person_relation = self.create(
-                person_follower_id=person_follower_id,
-                person_followee_id=person_followee_id,
-            )
-            return person_relation.id
-        except Exception:
-            log.exception('Could not create Person Person Relation')
-        return
+        log.debug('Person Person Relation create operation')
+        person_relation = self.create(
+            person_follower_id=person_follower_id,
+            person_followee_id=person_followee_id,
+        )
+        return person_relation.id
 
 ##
 #

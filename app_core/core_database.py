@@ -203,7 +203,7 @@ def get_expression_json(
                 url_contents.url_title,
             )[0]
 
-        if expression_object.broadcast_parent_id != None:
+        if expression_object.broadcast_parent_id is not None:
             broadcast_object = interface.get_expression_objects(
                 expression_id=expression_object.broadcast_parent_id,
             )

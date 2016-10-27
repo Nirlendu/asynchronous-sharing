@@ -37,7 +37,6 @@ def new_expression(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    # try:
     log.debug('New expression secondary creating')
     expression_secondary = ExpressionSecondary.objects.create(
                                 expression_secondary_id = str(uuid.uuid4()).replace('-','')[:16],
@@ -59,10 +58,6 @@ def new_expression(
                                 expression_collection_list=expression_collection_list,
                             )
     return expression_secondary.expression_secondary_id
-    # except Exception:
-    #     log.info('New expression secondary creating FAILED')
-    #
-    # return None
 
 
 def new_channel(
@@ -77,7 +72,6 @@ def new_channel(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    # try:
     log.debug('New channel secondary creating')
     channel_secondary = ChannelSecondary.objects.create(
                                         channel_secondary_id = str(uuid.uuid4()).replace('-','')[:8],
@@ -89,10 +83,6 @@ def new_channel(
                                         channel_expression_list=channel_expression_list,
                                     )
     return channel_secondary.channel_secondary_id
-    # except Exception:
-    #     log.info('New channel secondary creating FAILED')
-    #
-    # return None
 
 
 def channel_person_relation(
@@ -103,7 +93,6 @@ def channel_person_relation(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    # try:
     log.debug('New channel person secondary creating')
     person_secondary = PersonSecondary.objects.get(person_primary_id=person_id)
     if channel_id in person_secondary.person_channel_followee_list:
@@ -121,10 +110,6 @@ def channel_person_relation(
         channel_secondary.total_followers += 1
         channel_secondary.save()
     return True
-    # except Exception:
-    #     log.info('New channel person secondary creating FAILED')
-    #
-    # return None
 
 
 def store_url(
@@ -139,7 +124,6 @@ def store_url(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    #try:
     log.debug('New url secondary creating')
     url_secondary = UrlSecondary.objects.create(
                                     url_secondary_id = str(uuid.uuid4()).replace('-','')[:16],
@@ -151,10 +135,6 @@ def store_url(
                                     url_weight=url_weight,
                                     )
     return url_secondary.url_secondary_id
-    # except Exception:
-    #     log.info('New url secondary creating FAILED')
-    #
-    # return None
 
 
 def new_person(
@@ -171,7 +151,6 @@ def new_person(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    # try:
     log.debug('New person secondary creating')
     person_secondary = PersonSecondary.objects.create(
                                     person_secondary_id = str(uuid.uuid4()).replace('-','')[:12],
@@ -185,10 +164,6 @@ def new_person(
                                     person_expression_list=person_expression_list,
                                     )
     return person_secondary.person_secondary_id
-    # except Exception:
-    #     log.info('New person secondary creating FAILED')
-    #
-    # return None
 
 
 def get_channel_list(
@@ -199,7 +174,6 @@ def get_channel_list(
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-    # try:
     log.debug('Getting channel id list')
     channel_id_list = []
     for channel in channels:
@@ -211,11 +185,6 @@ def get_channel_list(
         )
     return channel_id_list
 
-    # except Exception:
-    #     log.debug('Getting channel id list FAILED')
-    #
-    # return None
-
 
 def channel_expression_relation(
         channel_secondary,
@@ -224,14 +193,10 @@ def channel_expression_relation(
     log.info('IN - ' + sys._getframe().f_code.co_name)
     log.info('FROM - ' + sys._getframe(1).f_code.co_name)
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-    # try:
     log.debug('channel expression interface relation')
+
     channel_secondary.channel_expression_list.append(expression_id)
     channel_secondary.save()
-
-    # except Exception:
-    #     log.debug('channel expression interface relation FAILED')
-    # return
 
 
 def get_channel_person_list(
@@ -290,7 +255,4 @@ def get_url_objects(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('get url objects')
 
-    #try:
     return UrlSecondary.objects.get(url_primary_id=url_primary_id)
-    # except:
-    #     return None
