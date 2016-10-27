@@ -13,45 +13,44 @@
 		<div class="feed-express-background">                             
 		</div>
 		<div class="profile-name">
-			{{entry.expression_owner}}
+			{{entry.EXPRESSION_OWNER}}
 		</div>
 		<div class="topic-name">
-			Topic Name!
+			{{entry.CHANNEL}}
 		</div>
 		</div>
 	</div>
 	<div class = "feed-express-body">
 		<div class = "well feed-express-contents">
 		<div class="feed-express-text-box">
-			{{entry.expression_content}}
+			{{entry.EXPRESSION_CONTENT}}
 		</div>
 
-		{% if entry.expression_image %}
+		{% if entry.EXPRESSION_IMAGE %}
 			<div class="feed-express-image-resize">
-			<img src="{{entry.expression_image}}" class="img-rounded"/>
+			<img src="{{entry.EXPRESSION_IMAGE}}" class="img-rounded"/>
 			</div>
 		{% endif %}
 
-		{% if entry.expression_link_title %}
-			<div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+		{% if entry.URL_TITLE %}
+			<div onclick="window.open('{{entry.URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 			<div class = "link-preview-img">
 				<div class="link-preview-image-resize">
-				<img src="{{entry.expression_link_image}}" class="img-rounded"/>
+				<img src="{{entry.URL_IMAGEFILE}}" class="img-rounded"/>
 				</div>
 			</div>
 			<div class = "link-preview-details">
 				<div class="link-preview-title">    
-				{{entry.expression_link_title}}                         
+				{{entry.URL_TITLE}}
 				</div>
 				<div class="link-preview-parent-name">
-				{{entry.parent_domain}}
+				{{entry.URL_DOMAIN}}
 				</div>
 			</div>
 			</div>
 		{% endif %}
 
-
-		{% if entry.broadcast_of %}
+		{% if entry.BROADCAST_PARENT_OWNER %}
 			<div class="well-custom well-broadcast feed-express-area">
 			<div class = "feed-express-header">
 				<div class = "feed-express-profile-img">
@@ -63,38 +62,38 @@
 				<div class="feed-express-background">                             
 				</div>
 				<div class="profile-name">
-					{{entry.broadcast_of.expression_owner}}
+					{{entry.BROADCAST_PARENT_OWNER}}
 				</div>
 				<div class="topic-name">
-					Topic Name!
+					{{entry.BROADCAST_CHANNEL}}
 				</div>
 				</div>
 			</div>
 			<div class = "feed-express-body  broadcast-body">
 				<div class = "feed-express-contents broadcast-content">
 				<div class="feed-express-text-box broadcast-text-box">
-					{{entry.broadcast_of.expression_content}}
+					{{entry.BROADCAST_CONTENT}}
 				</div>
 
-				{% if entry.broadcast_of.expression_image %}
+				{% if entry.BROADCAST_IMAGE %}
 					<div class="feed-express-image-resize">
-					<img src="{{entry.broadcast_of.expression_image}}" class="img-rounded"/>
+					<img src="{{entry.BROADCAST_IMAGE}}" class="img-rounded"/>
 					</div>
 				{% endif %}
 
-				{% if entry.broadcast_of.expression_link_title %}
-					<div onclick="window.open('{{entry.broadcast_of.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+				{% if enrty.BROADCAST_URL_TITLE %}
+					<div onclick="window.open('{{entry.BROADCAST_URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 					<div class = "link-preview-img">
 						<div class="link-preview-image-resize">
-						<img src="{{entry.broadcast_of.expression_link_image}}" class="img-rounded"/>
+						<img src="{{entry.BROADCAST_URL_IMAGEFILE}}" class="img-rounded"/>
 						</div>
 					</div>
 					<div class = "link-preview-details">
 						<div class="link-preview-title">    
-						{{entry.broadcast_of.expression_link_title}}                         
+						{{entry.BROADCAST_URL_TITLE}}
 						</div>
 						<div class="link-preview-parent-name">
-						{{entry.broadcast_of.parent_domain}}
+						{{entry.BROADCAST_URL_DOMAIN}}
 						</div>
 					</div>
 					</div>

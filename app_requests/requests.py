@@ -71,7 +71,7 @@ def index(request):
         print "REDIS PRESENT"
     except:
         expressions = core.get_expressions(
-            person_id=request.session['person_id'],
+            person_id='9',
         )
 
     #if mobile_browser(request):

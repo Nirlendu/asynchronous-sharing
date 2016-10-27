@@ -236,14 +236,13 @@ def get_channel_person_list(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('expression list in channels followed')
 
-    channel_list = PersonSecondary.objects.get(person_primary_id=person_id).person_channel_followee_list
+    person_secondary = PersonSecondary.objects.get(person_primary_id=person_id)
+    channel_list = person_secondary.person_channel_followee_list
 
     channel_expression_list = []
 
     for channel in channel_list:
-        channel_expression_list.append(
-            ChannelSecondary.objects.get(channel_primary_id=channel).channel_expression_list
-        )
+        channel_expression_list += ChannelSecondary.objects.get(channel_primary_id=channel).channel_expression_list
 
     return channel_expression_list
 
@@ -261,9 +260,7 @@ def get_person_person_list(
     person_expression_list = []
 
     for person in person_list:
-        person_expression_list.append(
-            PersonSecondary.objects.get(person_primary_id=person).person_expression_list
-        )
+        person_expression_list += PersonSecondary.objects.get(person_primary_id=person).person_expression_list
 
     return person_expression_list
 
