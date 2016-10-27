@@ -30,19 +30,15 @@ class UrlManager(models.Manager):
         log.info('FROM - ' + sys._getframe(1).f_code.co_name)
         log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
-        try:
-            log.debug('URL create operation')
-            url = Url.objects.create(
-                    url=url,
-                    url_title=url_title,
-                    url_desc=url_desc,
-                    url_imagefile=url_imagefile,
-                    url_weight=url_weight,
-                )
-            return url.pk
-        except Exception:
-            log.exception('Could not insert URL')
-        return
+        log.debug('URL create operation')
+        url = Url.objects.create(
+                url=url,
+                url_title=url_title,
+                url_desc=url_desc,
+                url_imagefile=url_imagefile,
+                url_weight=url_weight,
+            )
+        return url.pk
 
 
 class Url(models.Model):
