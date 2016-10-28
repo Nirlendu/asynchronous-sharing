@@ -256,3 +256,31 @@ def get_url_objects(
     log.debug('get url objects')
 
     return UrlSecondary.objects.get(url_primary_id=url_primary_id)
+
+
+def get_expression_owner_name(
+        person_id,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('get person name')
+
+    return PersonSecondary.objects.get(person_primary_id=person_id).person_name
+
+
+def get_expression_channel_name(
+        channel_list,
+):
+    log.info('IN - ' + sys._getframe().f_code.co_name)
+    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
+    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    log.debug('get channel name')
+
+    channel_name_list = []
+    for channel_unique_name in channel_list:
+        channel_name_list.append(
+            ChannelSecondary.objects.get(channel_unique_name=channel_unique_name).channel_name
+        )
+
+    return channel_name_list

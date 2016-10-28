@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import inspect
-import sys
-
-import core_database as core
-from libs.logger import app_logger as log
-
 #############
 #
 # Copyright - Nirlendu Saha
@@ -13,6 +7,15 @@ from libs.logger import app_logger as log
 # author - nirlendu@gmail.com
 #
 #############
+
+import inspect
+import sys
+
+import core_database as core
+
+from discover import logic as discover
+
+from libs.logger import app_logger as log
 
 def new_person_logic(
         user_name,
@@ -37,6 +40,7 @@ def new_person_logic(
         person_person_followee_list=person_person_followee_list,
         person_expression_list=person_expression_list,
     )
+
 
 def new_channel_logic(
     channel_name,
@@ -90,7 +94,9 @@ def get_expressions_logic(
                                                 person_id=person_id,
                                             )
 
-    discover_list = []
+    discover_list = discover.get_discovery(
+                            person_id = person_id,
+                        )
 
     expression_list = create_expression_list(
         expression_list = channel_expression_list + person_expression_list + discover_list,
@@ -114,6 +120,7 @@ def create_expression_list(
     return list(set(expression_list))
 
 
+
 def send_json_as_response(
     expression_list,
 ):
@@ -125,7 +132,6 @@ def send_json_as_response(
     return core.get_expression_json(
             expression_list=expression_list,
         )
-
 
 
 def new_expression_logic(

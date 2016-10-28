@@ -34,8 +34,7 @@
             {% endif %}
 
             {% if entry.URL_TITLE %}
-
-                {% if entry.expression_link_image %}
+                {% if entry.URL_IMAGEFILE %}
                     <div onclick="window.open('{{entry.URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
                         <div class = "link-preview-img">
                             <div class="link-preview-image-resize">
@@ -52,26 +51,26 @@
                         </div>
                     </div>
                 {% endif %}
-
             {% endif %}
+
         </div>
     </div>
     <div class = "post-footer">
         <div class = "well post-action">
             <button type="button" class='btn btn-express-white btn-up btn-primary btn-sm'>
-              <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+              <span class="glyphicon glyphicon-chevron-up"></span>{{entry.TOTAL_UPVOTES}}
             </button>
 
              <button type="button" class='btn btn-express-white btn-discuss btn-primary btn-sm'>
-              <span class="glyphicon glyphicon-comment"></span> 1.2K
+              <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
             </button>
 
             <button type="button" class='btn btn-express-white btn-broadcast btn-primary btn-sm'>
-              <span class="glyphicon glyphicon-volume-up"></span> 161
+              <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
             </button>
 
             <button type="button" class='btn btn-express-white btn-collect btn-primary btn-sm'>
-              <span class="glyphicon glyphicon-log-in"></span> 29
+              <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
             </button>
         </div>
     </div>

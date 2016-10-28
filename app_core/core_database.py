@@ -181,10 +181,14 @@ def get_expression_json(
         )
 
         expression_content['EXPRESSION_ID'] = expression_object.expression_primary_id
-        expression_content['EXPRESSION_OWNER'] = expression_object.expression_owner_id
+        expression_content['EXPRESSION_OWNER'] = interface.get_expression_owner_name(
+                                                    person_id=expression_object.expression_owner_id,
+                                                )
         expression_content['EXPRESSION_CONTENT'] = expression_object.expression_content
         expression_content['EXPRESSION_IMAGE'] = expression_object.expression_imagefile
-        expression_content['CHANNEL'] = expression_object.expression_channel
+        expression_content['CHANNEL'] = interface.get_expression_channel_name(
+                                                    channel_list=expression_object.expression_channel,
+                                                )
         expression_content['TIME'] = expression_object.expression_time
         expression_content['TOTAL_UPVOTES'] = expression_object.total_upvotes
         expression_content['TOTAL_BROADCASTS'] = expression_object.total_broadcasts
