@@ -8,7 +8,7 @@ description.txt
 .DS_Store
 *heroku_*
 *env/
-*.backupextension
+*.jpg.backupextension
 *heroku_*
 *celerybeat*
 runtime.txt
