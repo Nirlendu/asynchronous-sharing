@@ -13,6 +13,8 @@ import sys
 
 from libs.logger import app_logger as log
 
+import database as discover
+
 def get_discovery(
         person_id,
     ):
@@ -21,4 +23,10 @@ def get_discovery(
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Get Discovery Logic')
 
-    return []
+    # Do some calculation about which list is to be taken
+    if person_id:
+        discover_bucket=None
+
+    return discover.get_discover_items(
+        discover_bucket=discover_bucket,
+    )

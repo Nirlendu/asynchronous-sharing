@@ -23,6 +23,8 @@ from app_interface import database as interface
 from web import database as web
 from people import database as people
 
+from discover import database as discover
+
 
 @transaction.atomic
 def get_expressions_channel_database(
@@ -176,6 +178,12 @@ def get_expression_json(
 
     for expression_id in expression_list:
         expression_content = {}
+
+        if expression_id.find('D') != -1:
+            expression_content = discover.get_discovery_json(ids=expression_id)
+            expression_content_list.append(expression_content)
+            continue
+
         expression_object = interface.get_expression_objects(
             expression_id=expression_id,
         )
