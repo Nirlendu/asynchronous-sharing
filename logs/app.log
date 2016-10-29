@@ -1,0 +1,812 @@
+2016-10-29 20:15:32,664 root INFO ########### IN - index ###########
+2016-10-29 20:15:32,664 root INFO ########### FROM - _wrapped_view ###########
+2016-10-29 20:15:32,664 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-29 20:15:32,665 root INFO ########### Index page rendering ###########
+2016-10-29 20:15:32,666 root INFO ########### IN - get_expressions ###########
+2016-10-29 20:15:32,666 root INFO ########### FROM - index ###########
+2016-10-29 20:15:32,666 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,666 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-29 20:15:32,666 root INFO ########### IN - get_expressions_logic ###########
+2016-10-29 20:15:32,666 root INFO ########### FROM - get_expressions ###########
+2016-10-29 20:15:32,666 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,666 root DEBUG ########### Get Expressions Logic ###########
+2016-10-29 20:15:32,675 root INFO ########### IN - get_expressions_channel_database ###########
+2016-10-29 20:15:32,675 root INFO ########### FROM - inner ###########
+2016-10-29 20:15:32,675 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,676 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:15:32,676 root INFO ########### IN - get_channel_person_list ###########
+2016-10-29 20:15:32,676 root INFO ########### FROM - get_expressions_channel_database ###########
+2016-10-29 20:15:32,676 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,676 root DEBUG ########### expression list in channels followed ###########
+2016-10-29 20:15:32,678 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,686 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,689 root INFO ########### IN - get_expression_people_database ###########
+2016-10-29 20:15:32,689 root INFO ########### FROM - inner ###########
+2016-10-29 20:15:32,689 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,689 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:15:32,689 root INFO ########### IN - get_person_person_list ###########
+2016-10-29 20:15:32,689 root INFO ########### FROM - get_expression_people_database ###########
+2016-10-29 20:15:32,689 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,689 root DEBUG ########### expression list in people followed ###########
+2016-10-29 20:15:32,690 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,692 root INFO ########### IN - get_discovery ###########
+2016-10-29 20:15:32,692 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:15:32,692 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:15:32,692 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:15:32,693 root INFO ########### IN - get_discover_items ###########
+2016-10-29 20:15:32,693 root INFO ########### FROM - get_discovery ###########
+2016-10-29 20:15:32,693 root INFO ########### HAS - ArgInfo(args=['discover_bucket'], varargs=None, keywords=None, locals={'discover_bucket': None}) ###########
+2016-10-29 20:15:32,693 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:15:32,693 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.url_secondary LIMIT 10000
+2016-10-29 20:15:32,696 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.expression_secondary LIMIT 10000
+2016-10-29 20:15:32,700 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.person_secondary LIMIT 10000
+2016-10-29 20:15:32,703 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.channel_secondary LIMIT 10000
+2016-10-29 20:15:32,705 root INFO ########### IN - create_expression_list ###########
+2016-10-29 20:15:32,705 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:15:32,705 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'49', u'50', u'51', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'DE52-DE50-', u'DAE52-DAP46-DAC38-']}) ###########
+2016-10-29 20:15:32,705 root DEBUG ########### creating expression list Logic ###########
+2016-10-29 20:15:32,705 root INFO ########### IN - send_json_as_response ###########
+2016-10-29 20:15:32,705 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:15:32,705 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'DE52-DE50-', u'DAE52-DAP46-DAC38-', u'50', u'48', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'51', u'49']}) ###########
+2016-10-29 20:15:32,705 root DEBUG ########### Sending JSON Response Logic ###########
+2016-10-29 20:15:32,706 root INFO ########### IN - get_expression_json ###########
+2016-10-29 20:15:32,706 root INFO ########### FROM - inner ###########
+2016-10-29 20:15:32,706 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'DE52-DE50-', u'DAE52-DAP46-DAC38-', u'50', u'48', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'51', u'49']}) ###########
+2016-10-29 20:15:32,706 root DEBUG ########### Get Expression JSON Core Database ###########
+2016-10-29 20:15:32,706 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,709 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,709 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,709 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,710 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,710 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,712 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,712 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,712 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,712 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,712 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,714 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:15:32,714 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,715 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:15:32,715 root DEBUG ########### get url objects ###########
+2016-10-29 20:15:32,715 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,718 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,720 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,721 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,721 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,721 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,721 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,724 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,724 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,724 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,724 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,725 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,728 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:15:32,728 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,728 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:15:32,728 root DEBUG ########### get url objects ###########
+2016-10-29 20:15:32,728 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,731 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,733 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,734 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,734 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,734 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,734 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,736 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,736 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,736 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,736 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,737 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,739 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:15:32,739 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:15:32,739 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:15:32,739 root DEBUG ########### get url objects ###########
+2016-10-29 20:15:32,739 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,741 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,743 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,745 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:15:32,745 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,745 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'50'}) ###########
+2016-10-29 20:15:32,746 root DEBUG ########### get expression objects ###########
+2016-10-29 20:15:32,746 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,748 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,748 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,748 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,748 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,749 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,751 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,751 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,751 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,751 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,751 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,753 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:15:32,753 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,753 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:15:32,754 root DEBUG ########### get url objects ###########
+2016-10-29 20:15:32,754 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,756 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:15:32,756 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,756 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'48'}) ###########
+2016-10-29 20:15:32,756 root DEBUG ########### get expression objects ###########
+2016-10-29 20:15:32,757 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,759 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,759 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,759 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,759 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,759 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,761 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,762 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,762 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,762 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,762 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,764 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:15:32,764 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,764 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'52'}) ###########
+2016-10-29 20:15:32,764 root DEBUG ########### get expression objects ###########
+2016-10-29 20:15:32,765 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,767 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,767 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,767 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,767 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,767 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,769 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,770 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,770 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,770 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,770 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,772 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:15:32,772 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,772 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:15:32,772 root DEBUG ########### get url objects ###########
+2016-10-29 20:15:32,772 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,774 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,776 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,778 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,780 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,782 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,784 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,786 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:15:32,786 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,786 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'51'}) ###########
+2016-10-29 20:15:32,786 root DEBUG ########### get expression objects ###########
+2016-10-29 20:15:32,787 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,789 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,789 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,789 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,789 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,790 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,792 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,792 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,792 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,792 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,793 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,797 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:15:32,797 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,797 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'49'}) ###########
+2016-10-29 20:15:32,797 root DEBUG ########### get expression objects ###########
+2016-10-29 20:15:32,798 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,800 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:15:32,801 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,801 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:15:32,801 root DEBUG ########### get person name ###########
+2016-10-29 20:15:32,801 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:15:32,803 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:15:32,803 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:15:32,803 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:15:32,803 root DEBUG ########### get channel name ###########
+2016-10-29 20:15:32,804 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:15:35,931 django.request WARNING Not Found: /favicon.ico
+2016-10-29 20:15:44,391 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:15:44,392 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:16:00,822 root INFO ########### IN - index ###########
+2016-10-29 20:16:00,822 root INFO ########### FROM - _wrapped_view ###########
+2016-10-29 20:16:00,822 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-29 20:16:00,822 root INFO ########### Index page rendering ###########
+2016-10-29 20:16:00,832 root INFO ########### IN - get_expressions ###########
+2016-10-29 20:16:00,832 root INFO ########### FROM - index ###########
+2016-10-29 20:16:00,832 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,832 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-29 20:16:00,832 root INFO ########### IN - get_expressions_logic ###########
+2016-10-29 20:16:00,833 root INFO ########### FROM - get_expressions ###########
+2016-10-29 20:16:00,833 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,833 root DEBUG ########### Get Expressions Logic ###########
+2016-10-29 20:16:00,833 root INFO ########### IN - get_expressions_channel_database ###########
+2016-10-29 20:16:00,833 root INFO ########### FROM - inner ###########
+2016-10-29 20:16:00,833 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,833 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:16:00,833 root INFO ########### IN - get_channel_person_list ###########
+2016-10-29 20:16:00,833 root INFO ########### FROM - get_expressions_channel_database ###########
+2016-10-29 20:16:00,833 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,833 root DEBUG ########### expression list in channels followed ###########
+2016-10-29 20:16:00,833 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,836 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,837 root INFO ########### IN - get_expression_people_database ###########
+2016-10-29 20:16:00,838 root INFO ########### FROM - inner ###########
+2016-10-29 20:16:00,838 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,838 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:16:00,838 root INFO ########### IN - get_person_person_list ###########
+2016-10-29 20:16:00,838 root INFO ########### FROM - get_expression_people_database ###########
+2016-10-29 20:16:00,838 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,838 root DEBUG ########### expression list in people followed ###########
+2016-10-29 20:16:00,838 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,840 root INFO ########### IN - get_discovery ###########
+2016-10-29 20:16:00,840 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:16:00,840 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:16:00,840 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:16:00,840 root INFO ########### IN - get_discover_items ###########
+2016-10-29 20:16:00,840 root INFO ########### FROM - get_discovery ###########
+2016-10-29 20:16:00,840 root INFO ########### HAS - ArgInfo(args=['discover_bucket'], varargs=None, keywords=None, locals={'discover_bucket': None}) ###########
+2016-10-29 20:16:00,840 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:16:00,841 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.url_secondary LIMIT 10000
+2016-10-29 20:16:00,843 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.expression_secondary LIMIT 10000
+2016-10-29 20:16:00,850 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.person_secondary LIMIT 10000
+2016-10-29 20:16:00,853 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.channel_secondary LIMIT 10000
+2016-10-29 20:16:00,854 root INFO ########### IN - create_expression_list ###########
+2016-10-29 20:16:00,854 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:16:00,855 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'49', u'50', u'51', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'DE52-DE50-', u'DAE52-DAP46-DAC38-']}) ###########
+2016-10-29 20:16:00,855 root DEBUG ########### creating expression list Logic ###########
+2016-10-29 20:16:00,855 root INFO ########### IN - send_json_as_response ###########
+2016-10-29 20:16:00,855 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:16:00,855 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'50', u'49', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'48', u'DAE52-DAP46-DAC38-', u'52', u'DE52-DE50-', u'51']}) ###########
+2016-10-29 20:16:00,855 root DEBUG ########### Sending JSON Response Logic ###########
+2016-10-29 20:16:00,855 root INFO ########### IN - get_expression_json ###########
+2016-10-29 20:16:00,855 root INFO ########### FROM - inner ###########
+2016-10-29 20:16:00,855 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'50', u'49', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'48', u'DAE52-DAP46-DAC38-', u'52', u'DE52-DE50-', u'51']}) ###########
+2016-10-29 20:16:00,855 root DEBUG ########### Get Expression JSON Core Database ###########
+2016-10-29 20:16:00,855 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:16:00,855 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,855 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'50'}) ###########
+2016-10-29 20:16:00,855 root DEBUG ########### get expression objects ###########
+2016-10-29 20:16:00,855 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,858 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,858 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,858 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,858 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,858 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,860 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,861 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,861 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,861 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,861 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,863 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:16:00,863 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,863 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:16:00,863 root DEBUG ########### get url objects ###########
+2016-10-29 20:16:00,863 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,865 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:16:00,865 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,865 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'49'}) ###########
+2016-10-29 20:16:00,866 root DEBUG ########### get expression objects ###########
+2016-10-29 20:16:00,866 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,868 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,868 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,868 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,868 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,869 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,871 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,871 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,871 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,871 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,871 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,874 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,876 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,878 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,880 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,882 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,884 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,886 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:16:00,886 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,887 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'48'}) ###########
+2016-10-29 20:16:00,887 root DEBUG ########### get expression objects ###########
+2016-10-29 20:16:00,887 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,889 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,889 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,890 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,890 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,890 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,892 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,892 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,892 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,892 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,893 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,895 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,897 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,897 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,898 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,898 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,898 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,900 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,900 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,901 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,901 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,901 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,903 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:16:00,903 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,903 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:16:00,903 root DEBUG ########### get url objects ###########
+2016-10-29 20:16:00,904 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,906 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,909 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,911 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:16:00,911 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,912 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'52'}) ###########
+2016-10-29 20:16:00,912 root DEBUG ########### get expression objects ###########
+2016-10-29 20:16:00,912 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,915 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,915 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,915 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,915 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,915 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,918 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,918 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,918 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,918 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,919 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,921 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:16:00,921 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,921 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:16:00,921 root DEBUG ########### get url objects ###########
+2016-10-29 20:16:00,921 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,923 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,926 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,926 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,926 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,926 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,926 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,928 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,928 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,929 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,929 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,929 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,931 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:16:00,931 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,931 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:16:00,931 root DEBUG ########### get url objects ###########
+2016-10-29 20:16:00,932 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,934 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,937 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,937 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,937 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,937 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,937 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,940 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,940 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,940 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,940 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,940 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,942 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:16:00,942 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:16:00,942 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:16:00,942 root DEBUG ########### get url objects ###########
+2016-10-29 20:16:00,943 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,945 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:16:00,945 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,945 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'51'}) ###########
+2016-10-29 20:16:00,945 root DEBUG ########### get expression objects ###########
+2016-10-29 20:16:00,945 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,948 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:16:00,948 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,948 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:16:00,948 root DEBUG ########### get person name ###########
+2016-10-29 20:16:00,948 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:16:00,950 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:16:00,950 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:16:00,951 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:16:00,951 root DEBUG ########### get channel name ###########
+2016-10-29 20:16:00,951 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:16:14,393 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:16:14,395 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:16:44,397 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4541994064) 127.0.0.1
+2016-10-29 20:16:44,399 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:16:44,400 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:16:44,400 cassandra.connection DEBUG Received options response on connection (4541994064) from 127.0.0.1
+2016-10-29 20:17:14,398 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4541994064) 127.0.0.1
+2016-10-29 20:17:14,398 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:17:14,399 cassandra.connection DEBUG Received options response on connection (4541994064) from 127.0.0.1
+2016-10-29 20:17:14,400 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:17:44,402 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4541994064) 127.0.0.1
+2016-10-29 20:17:44,403 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:17:44,404 cassandra.connection DEBUG Received options response on connection (4541994064) from 127.0.0.1
+2016-10-29 20:17:44,404 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:17:50,179 root INFO ########### IN - index ###########
+2016-10-29 20:17:50,180 root INFO ########### FROM - _wrapped_view ###########
+2016-10-29 20:17:50,180 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-29 20:17:50,180 root INFO ########### Index page rendering ###########
+2016-10-29 20:17:50,181 root INFO ########### IN - get_expressions ###########
+2016-10-29 20:17:50,181 root INFO ########### FROM - index ###########
+2016-10-29 20:17:50,181 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,181 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-29 20:17:50,181 root INFO ########### IN - get_expressions_logic ###########
+2016-10-29 20:17:50,182 root INFO ########### FROM - get_expressions ###########
+2016-10-29 20:17:50,182 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,182 root DEBUG ########### Get Expressions Logic ###########
+2016-10-29 20:17:50,192 root INFO ########### IN - get_expressions_channel_database ###########
+2016-10-29 20:17:50,192 root INFO ########### FROM - inner ###########
+2016-10-29 20:17:50,192 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,192 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:17:50,192 root INFO ########### IN - get_channel_person_list ###########
+2016-10-29 20:17:50,192 root INFO ########### FROM - get_expressions_channel_database ###########
+2016-10-29 20:17:50,193 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,193 root DEBUG ########### expression list in channels followed ###########
+2016-10-29 20:17:50,193 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,196 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,198 root INFO ########### IN - get_expression_people_database ###########
+2016-10-29 20:17:50,198 root INFO ########### FROM - inner ###########
+2016-10-29 20:17:50,198 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,198 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:17:50,198 root INFO ########### IN - get_person_person_list ###########
+2016-10-29 20:17:50,198 root INFO ########### FROM - get_expression_people_database ###########
+2016-10-29 20:17:50,199 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,199 root DEBUG ########### expression list in people followed ###########
+2016-10-29 20:17:50,199 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,201 root INFO ########### IN - get_discovery ###########
+2016-10-29 20:17:50,201 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:17:50,201 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:17:50,201 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:17:50,201 root INFO ########### IN - get_discover_items ###########
+2016-10-29 20:17:50,201 root INFO ########### FROM - get_discovery ###########
+2016-10-29 20:17:50,201 root INFO ########### HAS - ArgInfo(args=['discover_bucket'], varargs=None, keywords=None, locals={'discover_bucket': None}) ###########
+2016-10-29 20:17:50,201 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:17:50,202 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.url_secondary LIMIT 10000
+2016-10-29 20:17:50,204 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.expression_secondary LIMIT 10000
+2016-10-29 20:17:50,207 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.person_secondary LIMIT 10000
+2016-10-29 20:17:50,209 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.channel_secondary LIMIT 10000
+2016-10-29 20:17:50,211 root INFO ########### IN - create_expression_list ###########
+2016-10-29 20:17:50,211 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:17:50,211 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'49', u'50', u'51', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'DE52-DE50-', u'DAE52-DAP46-DAC38-']}) ###########
+2016-10-29 20:17:50,211 root DEBUG ########### creating expression list Logic ###########
+2016-10-29 20:17:50,212 root INFO ########### IN - send_json_as_response ###########
+2016-10-29 20:17:50,212 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:17:50,212 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'52', u'DAE52-DAP46-DAC38-', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'51', u'50', u'49', u'DE52-DE50-']}) ###########
+2016-10-29 20:17:50,212 root DEBUG ########### Sending JSON Response Logic ###########
+2016-10-29 20:17:50,212 root INFO ########### IN - get_expression_json ###########
+2016-10-29 20:17:50,212 root INFO ########### FROM - inner ###########
+2016-10-29 20:17:50,212 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'52', u'DAE52-DAP46-DAC38-', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'51', u'50', u'49', u'DE52-DE50-']}) ###########
+2016-10-29 20:17:50,212 root DEBUG ########### Get Expression JSON Core Database ###########
+2016-10-29 20:17:50,212 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:17:50,212 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,212 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'48'}) ###########
+2016-10-29 20:17:50,212 root DEBUG ########### get expression objects ###########
+2016-10-29 20:17:50,212 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,215 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,215 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,215 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,215 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,215 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,217 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,218 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,218 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,218 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,218 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,220 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:17:50,220 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,221 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'52'}) ###########
+2016-10-29 20:17:50,221 root DEBUG ########### get expression objects ###########
+2016-10-29 20:17:50,221 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,224 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,224 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,224 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,224 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,225 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,227 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,227 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,227 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,227 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,227 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,230 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:17:50,230 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,230 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:17:50,230 root DEBUG ########### get url objects ###########
+2016-10-29 20:17:50,230 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,232 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,234 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,235 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,235 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,235 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,235 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,237 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,237 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,237 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,237 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,238 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,240 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:17:50,240 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,240 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:17:50,240 root DEBUG ########### get url objects ###########
+2016-10-29 20:17:50,241 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,243 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,245 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,249 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,252 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,254 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,256 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,259 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,261 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,263 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:17:50,263 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,263 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'51'}) ###########
+2016-10-29 20:17:50,263 root DEBUG ########### get expression objects ###########
+2016-10-29 20:17:50,264 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,267 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,267 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,267 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,267 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,267 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,270 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,270 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,270 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,270 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,270 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,273 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:17:50,273 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,273 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'50'}) ###########
+2016-10-29 20:17:50,273 root DEBUG ########### get expression objects ###########
+2016-10-29 20:17:50,274 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,276 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,276 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,277 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,277 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,277 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,279 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,279 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,279 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,280 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,280 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,282 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:17:50,282 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,282 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:17:50,283 root DEBUG ########### get url objects ###########
+2016-10-29 20:17:50,283 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,285 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:17:50,285 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,285 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'49'}) ###########
+2016-10-29 20:17:50,285 root DEBUG ########### get expression objects ###########
+2016-10-29 20:17:50,286 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,288 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,289 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,289 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,289 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,289 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,292 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,292 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:17:50,292 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,293 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,293 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,295 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,298 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,298 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,298 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,298 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,298 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,300 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,300 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,300 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,300 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,301 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,303 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:17:50,303 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,303 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:17:50,303 root DEBUG ########### get url objects ###########
+2016-10-29 20:17:50,303 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,305 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,308 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:17:50,308 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,308 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:17:50,308 root DEBUG ########### get person name ###########
+2016-10-29 20:17:50,308 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,310 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:17:50,310 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,311 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:17:50,311 root DEBUG ########### get channel name ###########
+2016-10-29 20:17:50,311 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:17:50,313 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:17:50,313 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:17:50,313 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:17:50,313 root DEBUG ########### get url objects ###########
+2016-10-29 20:17:50,313 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,386 root INFO ########### IN - index ###########
+2016-10-29 20:18:02,386 root INFO ########### FROM - _wrapped_view ###########
+2016-10-29 20:18:02,386 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-29 20:18:02,386 root INFO ########### Index page rendering ###########
+2016-10-29 20:18:02,388 root INFO ########### IN - get_expressions ###########
+2016-10-29 20:18:02,388 root INFO ########### FROM - index ###########
+2016-10-29 20:18:02,388 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,388 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-29 20:18:02,388 root INFO ########### IN - get_expressions_logic ###########
+2016-10-29 20:18:02,388 root INFO ########### FROM - get_expressions ###########
+2016-10-29 20:18:02,388 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,388 root DEBUG ########### Get Expressions Logic ###########
+2016-10-29 20:18:02,394 root INFO ########### IN - get_expressions_channel_database ###########
+2016-10-29 20:18:02,394 root INFO ########### FROM - inner ###########
+2016-10-29 20:18:02,394 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,394 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:18:02,394 root INFO ########### IN - get_channel_person_list ###########
+2016-10-29 20:18:02,395 root INFO ########### FROM - get_expressions_channel_database ###########
+2016-10-29 20:18:02,395 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,395 root DEBUG ########### expression list in channels followed ###########
+2016-10-29 20:18:02,395 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,398 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,400 root INFO ########### IN - get_expression_people_database ###########
+2016-10-29 20:18:02,400 root INFO ########### FROM - inner ###########
+2016-10-29 20:18:02,400 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,400 root DEBUG ########### Get Expression Channel Core Database ###########
+2016-10-29 20:18:02,401 root INFO ########### IN - get_person_person_list ###########
+2016-10-29 20:18:02,401 root INFO ########### FROM - get_expression_people_database ###########
+2016-10-29 20:18:02,401 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,401 root DEBUG ########### expression list in people followed ###########
+2016-10-29 20:18:02,401 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,403 root INFO ########### IN - get_discovery ###########
+2016-10-29 20:18:02,403 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:18:02,403 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': '46'}) ###########
+2016-10-29 20:18:02,403 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:18:02,403 root INFO ########### IN - get_discover_items ###########
+2016-10-29 20:18:02,403 root INFO ########### FROM - get_discovery ###########
+2016-10-29 20:18:02,403 root INFO ########### HAS - ArgInfo(args=['discover_bucket'], varargs=None, keywords=None, locals={'discover_bucket': None}) ###########
+2016-10-29 20:18:02,403 root DEBUG ########### Get Discovery Logic ###########
+2016-10-29 20:18:02,403 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.url_secondary LIMIT 10000
+2016-10-29 20:18:02,405 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.expression_secondary LIMIT 10000
+2016-10-29 20:18:02,409 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.person_secondary LIMIT 10000
+2016-10-29 20:18:02,411 cassandra.cqlengine.connection DEBUG SELECT * FROM the_thing.channel_secondary LIMIT 10000
+2016-10-29 20:18:02,413 root INFO ########### IN - create_expression_list ###########
+2016-10-29 20:18:02,413 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:18:02,413 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'49', u'50', u'51', u'52', u'DW44-DW45-DW46-DW48-DW44-DW44-', u'DE52-DE50-', u'DAE52-DAP46-DAC38-']}) ###########
+2016-10-29 20:18:02,413 root DEBUG ########### creating expression list Logic ###########
+2016-10-29 20:18:02,413 root INFO ########### IN - send_json_as_response ###########
+2016-10-29 20:18:02,413 root INFO ########### FROM - get_expressions_logic ###########
+2016-10-29 20:18:02,413 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'51', u'50', u'52', u'DE52-DE50-', u'DAE52-DAP46-DAC38-', u'49', u'DW44-DW45-DW46-DW48-DW44-DW44-']}) ###########
+2016-10-29 20:18:02,413 root DEBUG ########### Sending JSON Response Logic ###########
+2016-10-29 20:18:02,414 root INFO ########### IN - get_expression_json ###########
+2016-10-29 20:18:02,414 root INFO ########### FROM - inner ###########
+2016-10-29 20:18:02,414 root INFO ########### HAS - ArgInfo(args=['expression_list'], varargs=None, keywords=None, locals={'expression_list': [u'48', u'51', u'50', u'52', u'DE52-DE50-', u'DAE52-DAP46-DAC38-', u'49', u'DW44-DW45-DW46-DW48-DW44-DW44-']}) ###########
+2016-10-29 20:18:02,414 root DEBUG ########### Get Expression JSON Core Database ###########
+2016-10-29 20:18:02,414 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:18:02,414 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,414 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'48'}) ###########
+2016-10-29 20:18:02,414 root DEBUG ########### get expression objects ###########
+2016-10-29 20:18:02,414 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,417 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,417 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,417 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,417 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,417 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,419 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,419 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,419 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,419 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,420 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,422 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:18:02,422 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,422 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'51'}) ###########
+2016-10-29 20:18:02,422 root DEBUG ########### get expression objects ###########
+2016-10-29 20:18:02,422 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,425 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,425 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,425 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,425 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,426 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,428 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,428 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,428 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,428 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,428 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,430 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:18:02,430 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,430 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'50'}) ###########
+2016-10-29 20:18:02,430 root DEBUG ########### get expression objects ###########
+2016-10-29 20:18:02,431 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,433 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,433 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,433 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,433 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,434 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,436 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,436 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,436 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,436 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,436 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,438 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:18:02,438 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,439 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:18:02,439 root DEBUG ########### get url objects ###########
+2016-10-29 20:18:02,439 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,441 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:18:02,441 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,441 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'52'}) ###########
+2016-10-29 20:18:02,441 root DEBUG ########### get expression objects ###########
+2016-10-29 20:18:02,442 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,444 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,444 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,444 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,444 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,445 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,447 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,447 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,447 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,447 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,447 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,449 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:18:02,449 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,449 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:18:02,449 root DEBUG ########### get url objects ###########
+2016-10-29 20:18:02,450 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,452 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,455 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,455 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,455 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,455 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,455 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,457 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,457 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,458 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,458 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,458 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,460 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:18:02,460 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,460 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:18:02,460 root DEBUG ########### get url objects ###########
+2016-10-29 20:18:02,461 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,462 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,465 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,465 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,465 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,465 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,465 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,467 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,467 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,467 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,468 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,468 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,470 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:18:02,470 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,470 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '46'}) ###########
+2016-10-29 20:18:02,470 root DEBUG ########### get url objects ###########
+2016-10-29 20:18:02,470 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,473 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,476 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,476 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,476 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,476 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,477 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,479 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,479 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,479 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,480 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,480 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,482 root INFO ########### IN - get_url_objects ###########
+2016-10-29 20:18:02,482 root INFO ########### FROM - get_discovery_json ###########
+2016-10-29 20:18:02,482 root INFO ########### HAS - ArgInfo(args=['url_primary_id'], varargs=None, keywords=None, locals={'url_primary_id': '48'}) ###########
+2016-10-29 20:18:02,482 root DEBUG ########### get url objects ###########
+2016-10-29 20:18:02,483 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,485 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,489 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_name", "channel_unique_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,493 root INFO ########### IN - get_expression_objects ###########
+2016-10-29 20:18:02,493 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,493 root INFO ########### HAS - ArgInfo(args=['expression_id'], varargs=None, keywords=None, locals={'expression_id': u'49'}) ###########
+2016-10-29 20:18:02,493 root DEBUG ########### get expression objects ###########
+2016-10-29 20:18:02,494 cassandra.cqlengine.connection DEBUG SELECT "expression_secondary_id", "expression_owner_id", "expression_weight", "expression_content", "expression_content_url", "expression_imagefile", "broadcast_parent_id", "expression_time", "expression_channel", "total_upvotes", "total_broadcasts", "total_discussions", "total_collects", "expression_upvote_list", "expression_broadcast_list", "expression_discussion_list", "expression_collection_list" FROM the_thing.expression_secondary WHERE "expression_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,497 root INFO ########### IN - get_expression_owner_name ###########
+2016-10-29 20:18:02,497 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,497 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': u'46'}) ###########
+2016-10-29 20:18:02,497 root DEBUG ########### get person name ###########
+2016-10-29 20:18:02,497 cassandra.cqlengine.connection DEBUG SELECT "person_secondary_id", "user_name", "person_name", "total_followers", "person_weight", "person_channel_followee_list", "person_person_followee_list", "person_expression_list" FROM the_thing.person_secondary WHERE "person_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,500 root INFO ########### IN - get_expression_channel_name ###########
+2016-10-29 20:18:02,501 root INFO ########### FROM - get_expression_json ###########
+2016-10-29 20:18:02,501 root INFO ########### HAS - ArgInfo(args=['channel_list'], varargs=None, keywords=None, locals={'channel_list': [u'asd321']}) ###########
+2016-10-29 20:18:02,501 root DEBUG ########### get channel name ###########
+2016-10-29 20:18:02,501 cassandra.cqlengine.connection DEBUG SELECT "channel_secondary_id", "channel_primary_id", "channel_name", "channel_weight", "total_followers", "channel_expression_list" FROM the_thing.channel_secondary WHERE "channel_unique_name" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,505 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,508 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,511 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,515 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,518 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:02,521 cassandra.cqlengine.connection DEBUG SELECT "url_secondary_id", "url", "url_title", "url_desc", "url_imagefile", "url_weight" FROM the_thing.url_secondary WHERE "url_primary_id" = %(0)s LIMIT 10000
+2016-10-29 20:18:14,403 cassandra.connection DEBUG Sending options message heartbeat on idle connection (4533084560) 127.0.0.1
+2016-10-29 20:18:14,405 cassandra.connection DEBUG Received options response on connection (4533084560) from 127.0.0.1
+2016-10-29 20:18:35,808 cassandra.io.asyncorereactor DEBUG Waiting for event loop thread to join...
+2016-10-29 20:18:35,901 cassandra.io.asyncorereactor DEBUG Asyncore event loop ended
+2016-10-29 20:18:35,934 cassandra.io.asyncorereactor DEBUG Event loop thread was joined
+2016-10-29 20:18:35,964 cassandra.cluster DEBUG Shutting down Cluster Scheduler
+2016-10-29 20:18:35,965 cassandra.cluster DEBUG Shutting down control connection
+2016-10-29 20:18:35,965 cassandra.io.asyncorereactor DEBUG Closing connection (4533084560) to 127.0.0.1
+2016-10-29 20:18:35,965 cassandra.io.asyncorereactor DEBUG Closed socket to 127.0.0.1
+2016-10-29 20:18:35,965 cassandra.io.asyncorereactor DEBUG Closing connection (4541994064) to 127.0.0.1
+2016-10-29 20:18:35,966 cassandra.io.asyncorereactor DEBUG Closed socket to 127.0.0.1

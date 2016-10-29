@@ -22,7 +22,7 @@ heroku-server-start:
 
 local-mobile-server:
 	export DJANGO_SETTINGS_MODULE=core.settings.local
-	python manage.py runserver 192.168.8.100:1337 --settings=core.settings.local
+	python manage.py runserver 192.168.8.101:1337 --settings=core.settings.local
 
 dev-server:
 	export DJANGO_SETTINGS_MODULE=core.settings.local
