@@ -1,3 +1,11 @@
+//////////////////////////
+//
+// Copyright - Nirlendu Saha
+//
+// author - nirlendu@gmail.com
+//
+//////////////////////////
+
 //require our dependencies
 var path = require('path')
 var webpack = require('webpack')

@@ -1,0 +1,251 @@
+{% if entry.DW %}
+    <div class="well-custom-1 feed-discover-third-wrapper">
+        <div class = "feed-discover-third feed-discover-third-right">
+            <div class = "well feed-discover-article-content-third">
+                <div class="inline-discover-channel-article-wrapper" onclick="window.open('{{entry.DW.0.URL}}','mywindow');" style="cursor: pointer;">
+                    <div class="dicover-url-image">
+                        <img src="{{entry.DW.0.URL_IMAGEFILE}}" class="img-rounded"/>
+                    </div>
+                    <div class="discover-url-title">
+                        {{entry.DW.0.URL_TITLE}}
+                    </div>
+                    <div class="discover-url-domain">
+                        {{entry.DW.0.URL_DOMAIN}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "feed-discover-third feed-discover-third-right">
+            <div class = "well feed-discover-article-content-third">
+                <div class="inline-discover-channel-article-wrapper" onclick="window.open('{{entry.DW.1.URL}}','mywindow');" style="cursor: pointer;">
+                    <div class="dicover-url-image">
+                        <img src="{{entry.DW.1.URL_IMAGEFILE}}" class="img-rounded"/>
+                    </div>
+                    <div class="discover-url-title">
+                        {{entry.DW.1.URL_TITLE}}
+                    </div>
+                    <div class="discover-url-domain">
+                        {{entry.DW.1.URL_DOMAIN}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "feed-discover-third">
+            <div class = "well feed-discover-article-content-third">
+                <div class="inline-discover-channel-article-wrapper" onclick="window.open('{{entry.DW.2.URL}}','mywindow');" style="cursor: pointer;">
+                    <div class="dicover-url-image">
+                        <img src="{{entry.DW.2.URL_IMAGEFILE}}" class="img-rounded"/>
+                    </div>
+                    <div class="discover-url-title">
+                        {{entry.DW.2.URL_TITLE}}
+                    </div>
+                    <div class="discover-url-domain">
+                        {{entry.DW.2.URL_DOMAIN}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+{% if entry.DE %}
+
+    <div class="well-custom-1 feed-discover-inline">
+        <div class = "well inline-feed-left-discover inline-feed-discover-half">
+            <div onclick="window.open('{{entry.DE.0.URL}}','mywindow');" style="cursor: pointer;">
+                <div  class = "feed-express-header">
+                    <div class = "feed-express-profile-img">
+                        <div class="feed-express-profile-image-resize">
+                            <img src="/media/test2.jpg" class="img-rounded"/>
+                        </div>
+                    </div>
+                    <div class = "feed-express-profile-details">
+                        <div class="feed-express-background">
+                        </div>
+                        <div class="profile-name">
+                            {{entry.DE.0.EXPRESSION_OWNER}}
+                        </div>
+                    </div>
+                </div>
+                <div class = "feed-discover-body">
+                    <div class = "well feed-discover-article-content">
+                        <div class="inline-discover-channel-article-wrapper">
+                            <div class="dicover-url-image">
+                                <img src="{{entry.DE.0.URL_IMAGEFILE}}" class="img-rounded"/>
+                            </div>
+                            <div class="discover-url-title">
+                                {{entry.DE.0.URL_TITLE}}
+                            </div>
+                            <div class="discover-url-domain">
+                                {{entry.DE.0.URL_DOMAIN}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "feed-discover-footer">
+                <div class = "feed-discover-action">
+
+                    <button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-chevron-up"></span> {{entry.DE.0.TOTAL_UPVOTES}}
+                    </button>
+
+                    <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-volume-up"></span> {{entry.DE.0.TOTAL_BROADCASTS}}
+                    </button>
+
+                    <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-log-in"></span> {{entry.DE.0.TOTAL_COLLECTS}}
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class = "well inline-feed-discover-half">
+            <div onclick="window.open('{{entry.DE.1.URL}}','mywindow');" style="cursor: pointer;">
+                <div class = "feed-express-header">
+                    <div class = "feed-express-profile-img">
+                        <div class="feed-express-profile-image-resize">
+                            <img src="/media/test2.jpg" class="img-rounded"/>
+                        </div>
+                    </div>
+                    <div class = "feed-express-profile-details">
+                        <div class="feed-express-background">
+                        </div>
+                        <div class="profile-name">
+                            {{entry.DE.1.EXPRESSION_OWNER}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "feed-discover-body">
+                    <div class = "well feed-discover-article-content">
+                        <div class="inline-discover-channel-article-wrapper">
+                            <div class="dicover-url-image">
+                                <img src="{{entry.DE.1.URL_IMAGEFILE}}" class="img-rounded"/>
+                            </div>
+                            <div class="discover-url-title">
+                               {{entry.DE.1.URL_TITLE}}
+                            </div>
+                            <div class="discover-url-domain">
+                                {{entry.DE.0.URL_DOMAIN}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "feed-discover-footer">
+                <div class = "feed-discover-action">
+
+                    <button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-chevron-up"></span> {{entry.DE.1.TOTAL_UPVOTES}}
+                    </button>
+
+                    <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-volume-up"></span> {{entry.DE.1.TOTAL_BROADCASTS}}
+                    </button>
+
+                    <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+                      <span class="glyphicon glyphicon-log-in"></span> {{entry.DE.1.TOTAL_COLLECTS}}
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+{% if entry.DA %}
+
+        <div class="well-custom-1 feed-discover-inline">
+            <div class = "well inline-feed-left">
+                <div class = "feed-express-header">
+                    <div class = "feed-express-profile-img">
+                        <div class="feed-express-profile-image-resize">
+                            <img src="/media/test2.jpg" class="img-rounded"/>
+                        </div>
+                    </div>
+                    <div class = "feed-express-profile-details">
+                        <div class="feed-express-background">
+                        </div>
+                        <div class="profile-name">
+                            {{entry.DA.0.EXPRESSION_OWNER}}
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.open(' {{entry.DA.0.URL}}','mywindow');" style="cursor: pointer;" class = "feed-discover-body">
+                    <div class = "well feed-discover-article-content">
+                        <div class="inline-discover-channel-article-wrapper">
+                            <div class="dicover-url-image">
+                                <img src=" {{entry.DA.0.URL_IMAGEFILE}}" class="img-rounded"/>
+                            </div>
+                            <div class="discover-url-title">
+                                 {{entry.DA.0.URL_TITLE}}
+                            </div>
+                            <div class="discover-url-domain">
+                                 {{entry.DA.0.URL_DOMAIN}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "feed-discover-footer">
+                    <div class = "feed-discover-action">
+
+                        <button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+                          <span class="glyphicon glyphicon-chevron-up"></span>  {{entry.DA.0.TOTAL_UPVOTES}}
+                        </button>
+
+                        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+                          <span class="glyphicon glyphicon-volume-up"></span>  {{entry.DA.0.TOTAL_DISCUSSIONS}}
+                        </button>
+
+                        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+                          <span class="glyphicon glyphicon-log-in"></span>  {{entry.DA.0.TOTAL_COLLECTS}}
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class = "inline-discover-channel">
+                <div class="inline-discover-channel-wrapper">
+                    <div class="dicover-url-image-follow">
+                        <img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
+                    </div>
+                    <div class="discover-url-title">
+                        {{entry.DA.1.PERSON_NAME}}
+                    </div>
+                    <div class="discover-channel-footer">
+                        <button type="button" class='btn btn-primary btn-feed-channel-follow'>
+                          <span class="glyphicon glyphicon-plus-sign"></span> 2.3K
+                        </button>
+                    </div>
+                </div>
+
+                <div class="inline-discover-channel-wrapper">
+                    <div class="dicover-url-image-follow">
+                        <img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
+                    </div>
+                    <div onclick="window.open('','mywindow');" style="cursor: pointer;" class="discover-url-title">
+                        {{entry.DA.2.CHANNEL_NAME}}
+                    </div>
+                    <div class="discover-channel-footer">
+                        <button type="button" class='btn btn-primary btn-feed-channel-follow'>
+                          <span class="glyphicon glyphicon-plus-sign"></span> 5K
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endif %}

@@ -2,6 +2,11 @@
 
 {% paginate Expressions %}
 {% for entry in Expressions %}
+
+	{% include "../commons/discover.html" %}
+	{% if not entry.DW %}
+	{% if not entry.DE %}
+	{% if not entry.DA %}
 	<div class="well-custom feed-express-area">
 	<div class = "feed-express-header">
 		<div class = "feed-express-profile-img">
@@ -13,45 +18,44 @@
 		<div class="feed-express-background">                             
 		</div>
 		<div class="profile-name">
-			{{entry.expression_owner}}
+			{{entry.EXPRESSION_OWNER}}
 		</div>
 		<div class="topic-name">
-			Topic Name!
+			{{entry.CHANNEL.0}}
 		</div>
 		</div>
 	</div>
 	<div class = "feed-express-body">
 		<div class = "well feed-express-contents">
 		<div class="feed-express-text-box">
-			{{entry.expression_content}}
+			{{entry.EXPRESSION_CONTENT}}
 		</div>
 
-		{% if entry.expression_image %}
+		{% if entry.EXPRESSION_IMAGE %}
 			<div class="feed-express-image-resize">
-			<img src="{{entry.expression_image}}" class="img-rounded"/>
+			<img src="{{entry.EXPRESSION_IMAGE}}" class="img-rounded"/>
 			</div>
 		{% endif %}
 
-		{% if entry.expression_link_title %}
-			<div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+		{% if entry.URL_TITLE %}
+			<div onclick="window.open('{{entry.URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 			<div class = "link-preview-img">
 				<div class="link-preview-image-resize">
-				<img src="{{entry.expression_link_image}}" class="img-rounded"/>
+				<img src="{{entry.URL_IMAGEFILE}}" class="img-rounded"/>
 				</div>
 			</div>
 			<div class = "link-preview-details">
 				<div class="link-preview-title">    
-				{{entry.expression_link_title}}                         
+				{{entry.URL_TITLE}}
 				</div>
 				<div class="link-preview-parent-name">
-				{{entry.parent_domain}}
+				{{entry.URL_DOMAIN}}
 				</div>
 			</div>
 			</div>
 		{% endif %}
 
-
-		{% if entry.broadcast_of %}
+		{% if entry.BROADCAST_PARENT_OWNER %}
 			<div class="well-custom well-broadcast feed-express-area">
 			<div class = "feed-express-header">
 				<div class = "feed-express-profile-img">
@@ -63,38 +67,38 @@
 				<div class="feed-express-background">                             
 				</div>
 				<div class="profile-name">
-					{{entry.broadcast_of.expression_owner}}
+					{{entry.BROADCAST_PARENT_OWNER}}
 				</div>
 				<div class="topic-name">
-					Topic Name!
+					{{entry.BROADCAST_CHANNEL}}
 				</div>
 				</div>
 			</div>
 			<div class = "feed-express-body  broadcast-body">
 				<div class = "feed-express-contents broadcast-content">
 				<div class="feed-express-text-box broadcast-text-box">
-					{{entry.broadcast_of.expression_content}}
+					{{entry.BROADCAST_CONTENT}}
 				</div>
 
-				{% if entry.broadcast_of.expression_image %}
+				{% if entry.BROADCAST_IMAGE %}
 					<div class="feed-express-image-resize">
-					<img src="{{entry.broadcast_of.expression_image}}" class="img-rounded"/>
+					<img src="{{entry.BROADCAST_IMAGE}}" class="img-rounded"/>
 					</div>
 				{% endif %}
 
-				{% if entry.broadcast_of.expression_link_title %}
-					<div onclick="window.open('{{entry.broadcast_of.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+				{% if enrty.BROADCAST_URL_TITLE %}
+					<div onclick="window.open('{{entry.BROADCAST_URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
 					<div class = "link-preview-img">
 						<div class="link-preview-image-resize">
-						<img src="{{entry.broadcast_of.expression_link_image}}" class="img-rounded"/>
+						<img src="{{entry.BROADCAST_URL_IMAGEFILE}}" class="img-rounded"/>
 						</div>
 					</div>
 					<div class = "link-preview-details">
 						<div class="link-preview-title">    
-						{{entry.broadcast_of.expression_link_title}}                         
+						{{entry.BROADCAST_URL_TITLE}}
 						</div>
 						<div class="link-preview-parent-name">
-						{{entry.broadcast_of.parent_domain}}
+						{{entry.BROADCAST_URL_DOMAIN}}
 						</div>
 					</div>
 					</div>
@@ -104,16 +108,67 @@
 			</div>
 		{% endif %}
 
-		</div> 
 	</div>
-	<div class = "feed-express-footer">
-		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
+	</div>
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
+
+				{% if not entry.URL_TITLE and not entry.EXPRESSION_IMAGE %}
+					<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+				{% if entry.URL_TITLE and not entry.EXPRESSION_IMAGE %}
+					<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+				{% if entry.EXPRESSION_IMAGE and not entry.URL_TITLE %}
+					<button type="button" class='btn btn-feed-express-inverted btn-up btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-chevron-up"></span> {{entry.TOTAL_UPVOTES}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-discuss btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-broadcast btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+					</button>
+
+					<button type="button" class='btn btn-feed-express-inverted btn-collect btn-primary btn-sm'>
+					  <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+					</button>
+				{% endif %}
+
+			</div>
 		</div>
-	</div>
 	</div>
 
 
@@ -483,7 +538,9 @@
 			});
 		}
 
-
+{% endif %}
+{% endif %}
+{% endif %}
 
 	</script>
 

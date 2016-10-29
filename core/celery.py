@@ -1,3 +1,11 @@
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 from __future__ import absolute_import
 import os
 

@@ -2,93 +2,15 @@
 
 <!--ELEMENT ONE-->
 
-	<div class="well-custom feed-express-area">
-	<div class = "feed-express-header">
-		<div class = "feed-express-profile-img">
-		<div class="feed-express-profile-image-resize">
-			<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
-		</div>
-		</div>
-		<div class = "feed-express-profile-details">
-		<div class="feed-express-background">
-		</div>
-		<div class="profile-name">
-			Nirlendu Saha
-		</div>
-		<div class="topic-name">
-			Topic Name!
-		</div>
-		</div>
-	</div>
-	<div class = "feed-express-body">
-		<div class = "well feed-express-contents">
-		<div class="feed-express-text-box">
-			Sample expression :)
-		</div>
-
-			<!--<div class="feed-express-image-resize">-->
-			<!--<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>-->
-			<!--</div>-->
-
-
-			<div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-			<div class = "link-preview-img">
-				<div class="link-preview-image-resize">
-				<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
-				</div>
-			</div>
-			<div class = "link-preview-details">
-				<div class="link-preview-title">
-				Link title
-				</div>
-				<div class="link-preview-parent-name">
-				Domain
-				</div>
-			</div>
-			</div>
-
-
-		</div>
-	</div>
-	<div class = "feed-express-footer">
-		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
-		</div>
-	</div>
-	</div>
-
-<!--ELEMENT ONE-->
-
 <style type="text/css">
-.feed-express-area-inline{
-  padding : 2%;
-  margin-bottom: 5px;
-  display: flex;
-}
-.inline-feed-left{
-	margin-right: 1.5%;
-	display: inline-flex;
-	vertical-align: top;
-	width: 61.3%;
-	padding: 0px;
-	margin-bottom: 0px;
-}
 </style>
 
-<!--ELEMENT TWO-->
-
-<div class="well-custom feed-express-area-inline">
-<div class = "well inline-feed-left">
-
-
+<div class="well-custom feed-express-area">
 	<div class = "feed-express-header">
 		<div class = "feed-express-profile-img">
-		<div class="feed-express-profile-image-resize">
-			<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
-		</div>
+			<div class="feed-express-profile-image-resize">
+				<img src="/media/test2.jpg" class="img-rounded"/>
+			</div>
 		</div>
 		<div class = "feed-express-profile-details">
 			<div class="feed-express-background">
@@ -100,94 +22,156 @@
 				Topic Name!
 			</div>
 		</div>
-
-		<!-- <div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-			<div class = "link-preview-img">
-				<div class="link-preview-image-resize">
-				<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
-				</div>
-			</div>
-			<div class = "link-preview-details">
-				<div class="link-preview-title">
-				Link title
-				</div>
-				<div class="link-preview-parent-name">
-				Domain
-				</div>
-			</div>
-			</div> -->
-
 	</div>
+	<div class = "feed-express-body">
+		<div class = "well feed-express-contents">
+			<div class="feed-express-text-box">
+				Sample expression :)
+			</div>
+			<div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+				<div class = "link-preview-img">
+					<div class="link-preview-image-resize">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+				</div>
+				<div class = "link-preview-details">
+					<div class="link-preview-title">
+						Link title
+					</div>
+					<div class="link-preview-parent-name">
+						Domain
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class = "feed-discover-footer">
+		<div class = "feed-discover-action">
+
+		<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+        </button>
+
+        <button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm'>
+          <span class="glyphicon glyphicon-comment"></span> 400
+        </button>
+
+        <button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm'>
+          <span class="glyphicon glyphicon-volume-up"></span> 161
+        </button>
+
+        <button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+          <span class="glyphicon glyphicon-log-in"></span> 29
+        </button>
+
+		</div>
+	</div>
+</div>
+
+<!--ELEMENT ONE END-->
+
+
 
 <style type="text/css">
-.inline-discover{
-	display: inline-flex;
-	vertical-align: top;
-	width: 36.1%;
-	padding: 0px;
-	margin-bottom: 0px;
-}
-.inline-discover-wrapper{
-	position: relative;
-	display: block;
-}
-/*.dicover-url-image {
-	height : 38%;
-	width: 100%;
-}
-.dicover-url-image img {
-	width: 100%;
-	height: 100%;
-}*/
-.dicover-url-image{
-    height: 38%;
-    width: 100%;
-    overflow: hidden;
-}
-.dicover-url-image img {
-	width: 100%;
-}
-
-.discover-url-title{
-	padding: 5px;
-	display: block;
-}
-.discover-url-domain{
-	display: block;
-	position: absolute;
-	padding-right: 5px;
-	right: 0;
-    bottom: 0;
-}
 </style>
-</div>
-<div class = "well inline-discover">
-	<div class="inline-discover-wrapper">
-		<div class="dicover-url-image">
-			<img id= "discover-url-image-id" src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
+
+<!--ELEMENT TWO BEGIN-->
+
+<div class="well-custom-1 feed-discover-inline">
+	<div class = "well inline-feed-left">
+		<div class = "feed-express-header">
+			<div class = "feed-express-profile-img">
+				<div class="feed-express-profile-image-resize">
+					<img src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+			</div>
+			<div class = "feed-express-profile-details">
+				<div class="feed-express-background">
+				</div>
+				<div class="profile-name">
+					-channel-
+				</div>
+			</div>
 		</div>
-		<div class="discover-url-title">
-		Title
+
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "feed-discover-body">
+			<div class = "well feed-discover-article-content">
+				<div class="inline-discover-channel-article-wrapper">
+					<div class="dicover-url-image">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+					<div class="discover-url-title">
+						Title
+					</div>
+					<div class="discover-url-domain">
+						Domain
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="discover-url-domain">
-			Domain
+
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
+
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
+
+			</div>
+		</div>
+	</div>
+
+	<div class = "inline-discover-channel">
+		<div class="inline-discover-channel-wrapper">
+			<div class="dicover-url-image-follow">
+				<img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
+			</div>
+			<div class="discover-url-title">
+				Title
+			</div>
+			<div class="discover-channel-footer">
+				<button type="button" class='btn btn-primary btn-feed-channel-follow'>
+		          <span class="glyphicon glyphicon-plus-sign"></span> 2.3K
+		        </button>
+			</div>
+		</div>
+
+		<div class="inline-discover-channel-wrapper">
+			<div class="dicover-url-image-follow">
+				<img id= "discover-url-image-id" src="/media/test2.jpg" class="img-rounded"/>
+			</div>
+			<div onclick="window.open('','mywindow');" style="cursor: pointer;" class="discover-url-title">
+				Title
+			</div>
+			<div class="discover-channel-footer">
+				<button type="button" class='btn btn-primary btn-feed-channel-follow'>
+		          <span class="glyphicon glyphicon-plus-sign"></span> 5K
+		        </button>
+			</div>
 		</div>
 	</div>
 </div>
-</div>
 
 
-<!--ELEMENT TWO-->
+<!--ELEMENT TWO END-->
 
 
-<!--ELEMENT THREE-->
+<!--ELEMENT THREE BEGIN-->
 
 
-	<div class="well-custom feed-express-area">
+<div class="well-custom feed-express-area">
 	<div class = "feed-express-header">
 		<div class = "feed-express-profile-img">
 		<div class="feed-express-profile-image-resize">
-			<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
+			<img src="/media/test2.jpg" class="img-rounded"/>
 		</div>
 		</div>
 		<div class = "feed-express-profile-details">
@@ -206,45 +190,211 @@
 		<div class="feed-express-text-box">
 			Sample expression :)
 		</div>
-
 			<div class="feed-express-image-resize">
-			<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>
+			<img src="/media/test2.jpg" class="img-rounded"/>
 			</div>
-
-
-			<!--<div onclick="window.open('','mywindow');" style="cursor: pointer;" class = "link-preview-box well">-->
-			<!--<div class = "link-preview-img">-->
-				<!--<div class="link-preview-image-resize">-->
-				<!--<img src="https://s3.ap-south-1.amazonaws.com/the-thing/media/test2.jpg" class="img-rounded"/>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class = "link-preview-details">-->
-				<!--<div class="link-preview-title">-->
-				<!--Link title-->
-				<!--</div>-->
-				<!--<div class="link-preview-parent-name">-->
-				<!--Domain-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--</div>-->
-
-
 		</div>
 	</div>
 	<div class = "feed-express-footer">
 		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
+			<button type="button" class='btn btn-feed-express-inverted btn-up btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-discuss btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-comment"></span> 400
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-broadcast btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-volume-up"></span> 161
+	        </button>
+
+	        <button type="button" class='btn btn-feed-express-inverted btn-collect btn-primary btn-sm'>
+	          <span class="glyphicon glyphicon-log-in"></span> 29
+	        </button>
 		</div>
 	</div>
+</div>
+
+
+<!--ELEMENT THREE END-->
+
+
+<style type="text/css">
+</style>
+
+
+<!-- THE HALF DISCOVER BEGIN-->
+
+<div class="well-custom-1 feed-discover-inline">
+	<div class = "well inline-feed-left-discover inline-feed-discover-half">
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;">
+			<div  class = "feed-express-header">
+				<div class = "feed-express-profile-img">
+					<div class="feed-express-profile-image-resize">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+				</div>
+				<div class = "feed-express-profile-details">
+					<div class="feed-express-background">
+					</div>
+					<div class="profile-name">
+						-channel-
+					</div>
+				</div>
+			</div>
+			<div class = "feed-discover-body">
+				<div class = "well feed-discover-article-content">
+					<div class="inline-discover-channel-article-wrapper">
+						<div class="dicover-url-image">
+							<img src="/media/test2.jpg" class="img-rounded"/>
+						</div>
+						<div class="discover-url-title">
+							Title
+						</div>
+						<div class="discover-url-domain">
+							Domain
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
+
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
+
+			</div>
+		</div>
 	</div>
 
 
-<!--ELEMENT THREE-->
+
+	<div class = "well inline-feed-discover-half">
+		<div onclick="window.open('','mywindow');" style="cursor: pointer;">
+			<div class = "feed-express-header">
+				<div class = "feed-express-profile-img">
+					<div class="feed-express-profile-image-resize">
+						<img src="/media/test2.jpg" class="img-rounded"/>
+					</div>
+				</div>
+				<div class = "feed-express-profile-details">
+					<div class="feed-express-background">
+					</div>
+					<div class="profile-name">
+						-channel-
+					</div>
+				</div>
+			</div>
+
+			<div class = "feed-discover-body">
+				<div class = "well feed-discover-article-content">
+					<div class="inline-discover-channel-article-wrapper">
+						<div class="dicover-url-image">
+							<img src="/media/test2.jpg" class="img-rounded"/>
+						</div>
+						<div class="discover-url-title">
+							Title
+						</div>
+						<div class="discover-url-domain">
+							Domain
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "feed-discover-footer">
+			<div class = "feed-discover-action">
+
+				<button type="button" class='btn btn-discover-white btn-up btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-broadcast btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-volume-up"></span> 161
+		        </button>
+
+		        <button type="button" class='btn btn-discover-white btn-collect btn-primary btn-sm'>
+		          <span class="glyphicon glyphicon-log-in"></span> 29
+		        </button>
+
+			</div>
+		</div>
+	</div>
+</div>
 
 
+
+<!-- THE HALF DISCOVER END-->
+
+<style type="text/css">
+</style>
+
+
+<!-- THE THIRD DISCOVER BEGIN-->
+
+<div class="well-custom-1 feed-discover-third-wrapper">
+	<div class = "feed-discover-third feed-discover-third-right">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
+				<div class="dicover-url-image">
+					<img src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+				<div class="discover-url-title">
+					Title
+				</div>
+				<div class="discover-url-domain">
+					Domain
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "feed-discover-third feed-discover-third-right">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
+				<div class="dicover-url-image">
+					<img src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+				<div class="discover-url-title">
+					Title
+				</div>
+				<div class="discover-url-domain">
+					Domain
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "feed-discover-third">
+		<div class = "well feed-discover-article-content-third">
+			<div class="inline-discover-channel-article-wrapper" onclick="window.open('','mywindow');" style="cursor: pointer;">
+				<div class="dicover-url-image">
+					<img src="/media/test2.jpg" class="img-rounded"/>
+				</div>
+				<div class="discover-url-title">
+					Title
+				</div>
+				<div class="discover-url-domain">
+					Domain
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- THE THIRD DISCOVER END-->
 
 
 

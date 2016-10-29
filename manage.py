@@ -1,4 +1,13 @@
 #!/usr/bin/env python
+
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 import sys
 
 import os

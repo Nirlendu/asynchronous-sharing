@@ -3,6 +3,10 @@
 {% paginate Expressions %}
 {% for entry in Expressions %}
 
+{% include "../commons/m-discover.html" %}
+{% if not entry.DW %}
+{% if not entry.DE %}
+{% if not entry.DA %}
 <div class="well-custom status-box">
     <div class = "post-header">
         <div class = "post-profile-img">
@@ -14,71 +18,70 @@
             <div class="post_background">
             </div>
             <div class="profile-name">
-                {{entry.expression_owner}}
+                {{entry.EXPRESSION_OWNER}}
             </div>
             <div class="topic-name">
-                Topic Name!
+                {{entry.CHANNEL.0}}
             </div>
         </div>
     </div>
     <div class = "post-body">
         <div class = "well post-contents">
             <div class="post-text-box">
-                {{entry.expression_content}}
+                {{entry.EXPRESSION_CONTENT}}
             </div>
 
-            {% if entry.expression_image %}
+            {% if entry.EXPRESSION_IMAGE %}
                 <div class="post-image-resize">
-                    <img src="{{entry.expression_image}}" class="img-rounded"/>
+                    <img src="{{entry.EXPRESSION_IMAGE}}" class="img-rounded"/>
                 </div>
             {% endif %}
 
-            {% if entry.expression_link_title %}
-
-                {% if entry.expression_link_image %}
-                    <div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+            {% if entry.URL_TITLE %}
+                {% if entry.URL_IMAGEFILE %}
+                    <div onclick="window.open('{{entry.URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
                         <div class = "link-preview-img">
                             <div class="link-preview-image-resize">
-                                <img src="{{entry.expression_link_image}}" class="img-rounded"/>
+                                <img src="{{entry.URL_IMAGEFILE}}" class="img-rounded"/>
                             </div>
                         </div>
                         <div class = "link-preview-details">
                             <div class="link-preview-title">
-                                {{entry.expression_link_title}}
+                                {{entry.URL_TITLE}}
                             </div>
                             <div class="link-parent-name">
-                                {{entry.parent_domain}}
+                                {{entry.URL_DOMAIN}}
                             </div>
                         </div>
                     </div>
                 {% endif %}
-
-                {% if not entry.expression_link_image %}
-                    <div onclick="window.open('{{entry.expression_link}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
-                        <div class = "link-preview-details-max">
-                            <div class="link-preview-title">
-                                {{entry.expression_link_title}}
-                            </div>
-                            <div class="link-parent-name">
-                                {{entry.parent_domain}}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-
             {% endif %}
+
         </div>
     </div>
     <div class = "post-footer">
         <div class = "well post-action">
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Up'/>
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Discuss'/>
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Broadcast'/>
-            <input type='button' class='btn btn-upvote btn-primary btn-sm' value='Down'/>
+            <button type="button" class='btn btn-express-white btn-up btn-primary btn-sm'>
+              <span class="glyphicon glyphicon-chevron-up"></span>{{entry.TOTAL_UPVOTES}}
+            </button>
+
+             <button type="button" class='btn btn-express-white btn-discuss btn-primary btn-sm'>
+              <span class="glyphicon glyphicon-comment"></span> {{entry.TOTAL_DISCUSSIONS}}
+            </button>
+
+            <button type="button" class='btn btn-express-white btn-broadcast btn-primary btn-sm'>
+              <span class="glyphicon glyphicon-volume-up"></span> {{entry.TOTAL_BROADCASTS}}
+            </button>
+
+            <button type="button" class='btn btn-express-white btn-collect btn-primary btn-sm'>
+              <span class="glyphicon glyphicon-log-in"></span> {{entry.TOTAL_COLLECTS}}
+            </button>
         </div>
     </div>
 </div>
-
+{% endif %}
+{% endif %}
+{% endif %}
 
 {% endfor %}
 {% show_more %}

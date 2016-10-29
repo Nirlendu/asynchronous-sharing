@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+#############
+#
+# Copyright - Nirlendu Saha
+#
+# author - nirlendu@gmail.com
+#
+#############
+
 """
 Django settings for core project.
 
@@ -20,6 +28,8 @@ ALLOWED_HOSTS = ["*", ]
 
 WSGI_APPLICATION = 'core.wsgi.local.application'
 
+
+from cassandra import ConsistencyLevel
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
@@ -28,6 +38,28 @@ DATABASES = {
         'NAME': 'the_thing',
         'USER':'nirlendu',
         'HOST': 'localhost',
+    },
+    'cassandra': {
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': 'the_thing',
+        'HOST': '127.0.0.1',
+        'OPTIONS': {
+            'replication': {
+                'strategy_class': 'SimpleStrategy',
+                'replication_factor': 1
+            },
+            'connection': {
+                'consistency': ConsistencyLevel.LOCAL_ONE,
+                'port': 9042,
+                'retry_connect': True
+                # + All connection options for cassandra.cluster.Cluster()
+            },
+            'session': {
+                'default_timeout': 10,
+                'default_fetch_size': 10000
+                # + All options for cassandra.cluster.Session()
+            }
+        }
     }
 }
 
@@ -53,8 +85,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 AWS_STORAGE_BUCKET_NAME = 'the-thing'
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
@@ -86,12 +116,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
 #VERY IMPORTANT! - This is referred everywhere
 GRAPHDB_URL = 'http://localhost:7474/'
 
-
 REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
-
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
 os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'

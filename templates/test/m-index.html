@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href=" {% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src=" {% static 'js/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'js/jquery/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src= " {% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href=" {% static 'css/chat.css' %}">
+    <script type="text/javascript" src=" {% static 'js/loadCSS.js' %}"></script>
+    <link rel="stylesheet" href=" {% static 'mobile/css/mobile.main.css' %}">
+</head>
+<body>
+
+    {% include "../mobile/commons/m-top-header.html" %}
+
+    <div id="wrapper">
+
+        {% include "../test/m-feed.html" %}
+
+    </div>
+
+</body>
+</html>

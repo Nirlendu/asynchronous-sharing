@@ -22,7 +22,7 @@ def find_url_id(url):
 
 def store_url(
         url,
-        url_header,
+        url_title,
         url_desc,
         url_imagefile,
 ):
@@ -33,7 +33,7 @@ def store_url(
 
     return Link.objects.store_link(
         link_url=url,
-        link_name=url_header,
+        link_name=url_title,
         link_desc=url_desc,
         link_image=url_imagefile,
     )
