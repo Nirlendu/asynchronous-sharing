@@ -94,12 +94,14 @@ body {
   margin-bottom: 5px;
   padding: 0px;
   border: 0px;
+  background-color:white;
 }
 .left-profile-about{
   margin-bottom: 5px;
   padding: 5px;
   padding-left: 0px;
   padding-right: 0px;
+  background-color:white;
 }
 .left-express-btn{
   margin: 0px;
@@ -320,6 +322,7 @@ body {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
+  background-color:white;
 }
 .btn-side-nav-menu{
   margin-top: 5px;
