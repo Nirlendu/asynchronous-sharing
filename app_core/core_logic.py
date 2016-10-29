@@ -103,7 +103,7 @@ def get_expressions_logic(
     )
 
     random.shuffle(expression_list)
-    
+
     return send_json_as_response(
         expression_list=expression_list,
     )
