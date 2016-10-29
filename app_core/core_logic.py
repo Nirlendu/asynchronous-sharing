@@ -9,7 +9,7 @@
 #############
 
 import inspect
-import sys
+import sys, random
 
 import core_database as core
 
@@ -102,6 +102,8 @@ def get_expressions_logic(
         expression_list = channel_expression_list + person_expression_list + discover_list,
     )
 
+    random.shuffle(expression_list)
+    
     return send_json_as_response(
         expression_list=expression_list,
     )

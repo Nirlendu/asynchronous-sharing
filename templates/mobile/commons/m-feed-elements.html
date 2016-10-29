@@ -3,7 +3,10 @@
 {% paginate Expressions %}
 {% for entry in Expressions %}
 
-
+{% include "../commons/m-discover.html" %}
+{% if not entry.DW %}
+{% if not entry.DE %}
+{% if not entry.DA %}
 <div class="well-custom status-box">
     <div class = "post-header">
         <div class = "post-profile-img">
@@ -76,7 +79,9 @@
         </div>
     </div>
 </div>
-
+{% endif %}
+{% endif %}
+{% endif %}
 
 {% endfor %}
 {% show_more %}
