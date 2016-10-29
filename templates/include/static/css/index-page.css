@@ -13,8 +13,8 @@ body {
 }
 #wrapper {
   position: relative;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 5px;
   margin-right: calc(((100% - 1000px) * 1.6)/2.6);
   margin-left: calc((100% - 1000px)/2.6);
   width:1000px;
@@ -561,7 +561,7 @@ border-color: rgba(0,0,0,0.01);
 vertical-align: top;
 display: inline-block;
 /*margin-top: 5px;*/
-margin-bottom: 5px;
+/*margin-bottom: 5px;*/
 width: 32.5%;
 padding-left: 0px;
 background-color: white;
@@ -574,7 +574,7 @@ background-color: white;
 margin-bottom: 0px;
 padding: 0px;
 border: 0px;
-height: 285px;
+height: 300px;
 }
 
 

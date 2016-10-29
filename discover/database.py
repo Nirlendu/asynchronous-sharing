@@ -11,6 +11,8 @@
 import inspect
 import sys, re
 
+from django.db import connection
+
 from libs.logger import app_logger as log
 
 from app_interface.models import ExpressionSecondary, UrlSecondary, PersonSecondary, ChannelSecondary
@@ -44,20 +46,36 @@ def get_discover_items(
 
         discover_items.append(discover_items_id)
 
-        # discover_items_id = ''
-        # expression_ids = ExpressionSecondary.objects.exclude(expression_content_url='None').expression_primary_id
-        #
-        # for expression_id in expression_ids:
-        #     discover_items_id += 'DE' + expression_id + '-'
-        #
-        # if len(expression_ids)% 2:
-        #     discover_items_id += 'DW' + expression_ids[1] + '-'
-        #
-        # discover_items.append(discover_items_id)
-        #
+        # SECOND ELEMENT
         discover_items_id = ''
-        person_secondary = PersonSecondary.objects.all().person_primary_id
-        channel_secondary = ChannelSecondary.objects.all().channel_primary_id
+        expression_ids = []
+        expression_id_list = ExpressionSecondary.objects.all()
+
+        for each_e in expression_id_list:
+            if each_e.expression_content_url == 'None':
+                continue
+            expression_ids.append(each_e.expression_primary_id)
+
+
+        for expression_id in expression_ids:
+            discover_items_id += 'DE' + expression_id + '-'
+
+        if len(expression_ids)% 2:
+            discover_items_id += 'DE' + expression_ids[1] + '-'
+
+        discover_items.append(discover_items_id)
+
+        # THIRD ELEMENT
+        discover_items_id = ''
+        person_secondary=[]
+        channel_secondary = []
+        persons = PersonSecondary.objects.all()
+        for person in persons:
+            person_secondary.append(person.person_primary_id)
+
+        channels = ChannelSecondary.objects.all()
+        for channel in channels:
+            channel_secondary.append(channel.channel_primary_id)
 
         for i in xrange(0,1):
             discover_items_id += 'DAE' + expression_ids[0] + '-'
@@ -97,7 +115,7 @@ def get_discovery_json(ids):
     if ids.find('DE') != -1:
         id_list = ids.split('-')
         id_list.remove('')
-        discover_items['DW'] = []
+        discover_items['DE'] = []
 
         for each_id in id_list:
             json_discovery = {}
@@ -143,6 +161,7 @@ def get_discovery_json(ids):
             json_discovery = {}
 
             if each_id.find('DAE') != -1:
+
                 expression_object = ExpressionSecondary.objects.get(expression_primary_id=each_id[3:])
 
                 json_discovery['EXPRESSION_ID'] = expression_object.expression_primary_id

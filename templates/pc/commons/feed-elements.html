@@ -4,7 +4,9 @@
 {% for entry in Expressions %}
 
 	{% include "../commons/discover.html" %}
-
+	{% if not entry.DW %}
+	{% if not entry.DE %}
+	{% if not entry.DA %}
 	<div class="well-custom feed-express-area">
 	<div class = "feed-express-header">
 		<div class = "feed-express-profile-img">
@@ -536,7 +538,9 @@
 			});
 		}
 
-
+{% endif %}
+{% endif %}
+{% endif %}
 
 	</script>
 
