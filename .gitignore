@@ -9,6 +9,7 @@ description.txt
 *heroku_*
 *env/
 *heroku_*
+*.jpg.backupextension
 *env/
 *celerybeat*
 runtime.txt
