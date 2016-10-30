@@ -207,3 +207,1887 @@
 2016-10-30 09:33:38,188 httpstream DEBUG < content-length: 41
 2016-10-30 09:33:38,188 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
 2016-10-30 09:33:38,188 py2neo.cypher INFO stream (u'n',)
+2016-10-30 09:46:13,960 root INFO ########### IN - index ###########
+2016-10-30 09:46:13,961 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 09:46:13,961 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:46:13,961 root INFO ########### Index page rendering ###########
+2016-10-30 09:46:13,961 root INFO ########### IN - init_session ###########
+2016-10-30 09:46:13,961 root INFO ########### FROM - index ###########
+2016-10-30 09:46:13,961 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:46:13,961 root DEBUG ########### Init the session data ###########
+2016-10-30 09:46:13,974 root INFO ########### IN - get_expressions ###########
+2016-10-30 09:46:13,974 root INFO ########### FROM - index ###########
+2016-10-30 09:46:13,974 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:46:13,974 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 09:46:13,974 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 09:46:13,974 root INFO ########### FROM - get_expressions ###########
+2016-10-30 09:46:13,974 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:46:13,974 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 09:46:13,975 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-30 09:46:13,975 httpstream DEBUG > Host: localhost:7474
+2016-10-30 09:46:13,975 httpstream DEBUG > X-Stream: true
+2016-10-30 09:46:13,976 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 09:46:13,979 httpstream INFO < 200 OK [730]
+2016-10-30 09:46:13,979 httpstream DEBUG < date: Sun, 30 Oct 2016 04:16:13 GMT
+2016-10-30 09:46:13,979 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 09:46:13,979 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 09:46:13,979 httpstream DEBUG < content-length: 730
+2016-10-30 09:46:13,980 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-30 09:46:13,980 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 09:46:13,980 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-30 09:46:13,980 httpstream DEBUG > Host: localhost:7474
+2016-10-30 09:46:13,980 httpstream DEBUG > Content-Type: application/json
+2016-10-30 09:46:13,980 httpstream DEBUG > X-Stream: true
+2016-10-30 09:46:13,980 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 09:46:13,983 httpstream INFO < 200 OK [41]
+2016-10-30 09:46:13,983 httpstream DEBUG < date: Sun, 30 Oct 2016 04:16:13 GMT
+2016-10-30 09:46:13,983 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 09:46:13,983 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 09:46:13,983 httpstream DEBUG < content-length: 41
+2016-10-30 09:46:13,983 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-30 09:46:13,984 py2neo.cypher INFO stream (u'n',)
+2016-10-30 09:46:14,267 root INFO ########### IN - index ###########
+2016-10-30 09:46:14,267 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 09:46:14,267 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:46:14,267 root INFO ########### Index page rendering ###########
+2016-10-30 09:46:14,268 root INFO ########### IN - init_session ###########
+2016-10-30 09:46:14,268 root INFO ########### FROM - index ###########
+2016-10-30 09:46:14,268 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:46:14,268 root DEBUG ########### Init the session data ###########
+2016-10-30 09:46:14,276 root INFO ########### IN - get_expressions ###########
+2016-10-30 09:46:14,276 root INFO ########### FROM - index ###########
+2016-10-30 09:46:14,276 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:46:14,276 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 09:46:14,276 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 09:46:14,276 root INFO ########### FROM - get_expressions ###########
+2016-10-30 09:46:14,276 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:46:14,276 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 09:46:14,276 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 09:46:14,277 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-30 09:46:14,277 httpstream DEBUG > Host: localhost:7474
+2016-10-30 09:46:14,277 httpstream DEBUG > Content-Type: application/json
+2016-10-30 09:46:14,277 httpstream DEBUG > X-Stream: true
+2016-10-30 09:46:14,277 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 09:46:14,281 httpstream INFO < 200 OK [41]
+2016-10-30 09:46:14,282 httpstream DEBUG < date: Sun, 30 Oct 2016 04:16:14 GMT
+2016-10-30 09:46:14,282 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 09:46:14,282 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 09:46:14,282 httpstream DEBUG < content-length: 41
+2016-10-30 09:46:14,282 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-30 09:46:14,282 py2neo.cypher INFO stream (u'n',)
+2016-10-30 10:21:23,340 root INFO ########### IN - index ###########
+2016-10-30 10:21:23,341 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 10:21:23,342 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:21:23,342 root INFO ########### Index page rendering ###########
+2016-10-30 10:21:23,342 root INFO ########### IN - init_session ###########
+2016-10-30 10:21:23,342 root INFO ########### FROM - index ###########
+2016-10-30 10:21:23,342 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:21:23,342 root DEBUG ########### Init the session data ###########
+2016-10-30 10:21:23,345 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 62, in index
+    init_session(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 48, in init_session
+    request.session['person_name'] = 'Nirlendu Saha'
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 60, in __setitem__
+    self._session[key] = value
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:23,463 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:23,594 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:23,727 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:23,862 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,89 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,233 root INFO ########### IN - index ###########
+2016-10-30 10:21:24,233 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 10:21:24,233 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:21:24,238 root INFO ########### Index page rendering ###########
+2016-10-30 10:21:24,238 root INFO ########### IN - init_session ###########
+2016-10-30 10:21:24,238 root INFO ########### FROM - index ###########
+2016-10-30 10:21:24,239 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:21:24,239 root DEBUG ########### Init the session data ###########
+2016-10-30 10:21:24,239 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 62, in index
+    init_session(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/app_base/views.py", line 48, in init_session
+    request.session['person_name'] = 'Nirlendu Saha'
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 60, in __setitem__
+    self._session[key] = value
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,322 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,455 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,556 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,612 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:24,887 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:25,12 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:25,205 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:25,511 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:21:25,667 django.request ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.get_response(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = response_for_exception(request, exc)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 86, in response_for_exception
+    response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 128, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 84, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/views/debug.py", line 317, in get_traceback_html
+    return t.render(c)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/template/defaulttags.py", line 314, in render
+    if match:
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 234, in inner
+    self._setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/utils/functional.py", line 380, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 180, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    num = len(clone)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 824, in execute_sql
+    sql, params = self.as_sql()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 369, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 46, in pre_sql_setup
+    self.setup_query()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 37, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 226, in get_select
+    ret.append((col, self.compile(col, select_format=True), alias))
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 353, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/expressions.py", line 659, in as_sql
+    return "%s.%s" % (qn(self.alias), qn(self.target.column)), []
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 344, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "/Users/nirlendu/Documents/Codes/myApp/venv/lib/python2.7/site-packages/django/db/backends/dummy/base.py", line 21, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2016-10-30 10:23:33,398 root INFO ########### IN - index ###########
+2016-10-30 10:23:33,400 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 10:23:33,400 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:23:33,400 root INFO ########### Index page rendering ###########
+2016-10-30 10:23:33,400 root INFO ########### IN - init_session ###########
+2016-10-30 10:23:33,400 root INFO ########### FROM - index ###########
+2016-10-30 10:23:33,400 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 10:23:33,400 root DEBUG ########### Init the session data ###########
+2016-10-30 10:23:38,735 root INFO ########### IN - get_expressions ###########
+2016-10-30 10:23:38,735 root INFO ########### FROM - index ###########
+2016-10-30 10:23:38,735 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 10:23:38,735 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 10:23:38,736 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 10:23:38,736 root INFO ########### FROM - get_expressions ###########
+2016-10-30 10:23:38,736 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 10:23:38,736 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 10:23:38,737 httpstream INFO > GET http://app57701423-8gEB8r%3AJ2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/
+2016-10-30 10:23:38,737 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:38,737 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:38,737 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:38,737 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:45,995 httpstream INFO < 200 OK [1287]
+2016-10-30 10:23:45,995 httpstream DEBUG < content-length: 1287
+2016-10-30 10:23:45,995 httpstream DEBUG < server: nginx
+2016-10-30 10:23:45,995 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:45,995 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:37 GMT
+2016-10-30 10:23:45,995 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:45,995 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:45,997 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 10:23:45,997 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [147]
+2016-10-30 10:23:45,997 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:45,997 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:45,998 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:45,998 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:45,998 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:47,29 httpstream INFO < 200 OK [31159]
+2016-10-30 10:23:47,29 httpstream DEBUG < content-length: 31159
+2016-10-30 10:23:47,30 httpstream DEBUG < server: nginx
+2016-10-30 10:23:47,30 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:47,30 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:38 GMT
+2016-10-30 10:23:47,30 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:47,30 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:47,33 py2neo.cypher INFO stream (u'n',)
+2016-10-30 10:23:47,35 httpstream INFO > GET http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/
+2016-10-30 10:23:47,35 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:47,35 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:47,35 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:47,35 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:48,563 httpstream INFO < 200 OK [1287]
+2016-10-30 10:23:48,563 httpstream DEBUG < content-length: 1287
+2016-10-30 10:23:48,563 httpstream DEBUG < server: nginx
+2016-10-30 10:23:48,564 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:48,564 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:40 GMT
+2016-10-30 10:23:48,564 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:48,564 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:49,791 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '32' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:49,792 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:49,793 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:49,793 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:49,793 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:49,793 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:49,794 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:50,406 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:50,406 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:50,406 httpstream DEBUG < server: nginx
+2016-10-30 10:23:50,407 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:50,407 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:42 GMT
+2016-10-30 10:23:50,407 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:50,407 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:50,407 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:51,20 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '31' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:51,21 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:51,21 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:51,21 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:51,21 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:51,21 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:51,21 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:51,635 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:51,635 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:51,635 httpstream DEBUG < server: nginx
+2016-10-30 10:23:51,635 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:51,635 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:43 GMT
+2016-10-30 10:23:51,635 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:51,635 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:51,636 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:52,249 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '30' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:52,250 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:52,250 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:52,250 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:52,250 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:52,250 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:52,250 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:52,863 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:52,864 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:52,864 httpstream DEBUG < server: nginx
+2016-10-30 10:23:52,864 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:52,864 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:44 GMT
+2016-10-30 10:23:52,864 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:52,864 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:52,865 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:53,477 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '29' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:53,478 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:53,478 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:53,478 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:53,478 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:53,478 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:53,478 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:54,92 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:54,93 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:54,93 httpstream DEBUG < server: nginx
+2016-10-30 10:23:54,93 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:54,93 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:45 GMT
+2016-10-30 10:23:54,93 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:54,93 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:54,94 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:54,706 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '28' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:54,706 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:54,706 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:54,706 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:54,706 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:54,706 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:54,707 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:55,261 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:55,261 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:55,261 httpstream DEBUG < server: nginx
+2016-10-30 10:23:55,261 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:55,261 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:46 GMT
+2016-10-30 10:23:55,261 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:55,261 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:55,262 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:55,627 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:55,628 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:55,628 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:55,628 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:55,628 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:55,628 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:55,628 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:56,243 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:56,243 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:56,243 httpstream DEBUG < server: nginx
+2016-10-30 10:23:56,243 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:56,243 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:47 GMT
+2016-10-30 10:23:56,243 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:56,243 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:56,244 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:56,641 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:56,641 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:56,641 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:56,642 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:56,642 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:56,642 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:56,642 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:57,163 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:57,163 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:57,163 httpstream DEBUG < server: nginx
+2016-10-30 10:23:57,163 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:57,163 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:48 GMT
+2016-10-30 10:23:57,163 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:57,163 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:57,164 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:57,642 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:57,642 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:57,643 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:57,643 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:57,643 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:57,643 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:57,643 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:58,87 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:58,87 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:58,87 httpstream DEBUG < server: nginx
+2016-10-30 10:23:58,88 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:58,88 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:49 GMT
+2016-10-30 10:23:58,88 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:58,88 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:58,89 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:58,642 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '24' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:58,643 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:58,643 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:58,643 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:58,643 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:58,643 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:58,643 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:23:59,3 httpstream INFO < 200 OK [41]
+2016-10-30 10:23:59,3 httpstream DEBUG < content-length: 41
+2016-10-30 10:23:59,3 httpstream DEBUG < server: nginx
+2016-10-30 10:23:59,3 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:23:59,3 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:50 GMT
+2016-10-30 10:23:59,3 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:23:59,3 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:23:59,4 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:23:59,621 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '23' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:23:59,621 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:23:59,621 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:23:59,621 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:23:59,621 httpstream DEBUG > X-Stream: true
+2016-10-30 10:23:59,622 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:23:59,622 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:00,49 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:00,49 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:00,49 httpstream DEBUG < server: nginx
+2016-10-30 10:24:00,49 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:00,50 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:51 GMT
+2016-10-30 10:24:00,50 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:00,50 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:00,51 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:00,498 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '22' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:00,498 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:00,498 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:00,498 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:00,498 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:00,498 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:00,498 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:00,865 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:00,865 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:00,865 httpstream DEBUG < server: nginx
+2016-10-30 10:24:00,865 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:00,865 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:52 GMT
+2016-10-30 10:24:00,865 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:00,865 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:00,866 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:01,465 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '21' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:01,465 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:01,465 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:01,465 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:01,466 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:01,466 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:01,466 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:02,80 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:02,80 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:02,80 httpstream DEBUG < server: nginx
+2016-10-30 10:24:02,80 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:02,80 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:53 GMT
+2016-10-30 10:24:02,80 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:02,80 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:02,81 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:02,431 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '19' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:02,431 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:02,431 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:02,431 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:02,431 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:02,431 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:02,431 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:03,1 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:03,1 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:03,1 httpstream DEBUG < server: nginx
+2016-10-30 10:24:03,1 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:03,1 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:54 GMT
+2016-10-30 10:24:03,1 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:03,1 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:03,2 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:03,618 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '18' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:03,618 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:03,619 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:03,619 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:03,619 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:03,619 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:03,619 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:04,230 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:04,230 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:04,230 httpstream DEBUG < server: nginx
+2016-10-30 10:24:04,230 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:04,230 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:55 GMT
+2016-10-30 10:24:04,230 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:04,230 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:04,231 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:04,806 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '15' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:04,806 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:04,807 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:04,807 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:04,807 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:04,807 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:04,807 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:05,459 httpstream INFO < 200 OK [1859]
+2016-10-30 10:24:05,459 httpstream DEBUG < content-length: 1859
+2016-10-30 10:24:05,459 httpstream DEBUG < server: nginx
+2016-10-30 10:24:05,459 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:05,459 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:57 GMT
+2016-10-30 10:24:05,459 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:05,459 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:05,460 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:06,241 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '12' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:06,241 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:06,241 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:06,241 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:06,241 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:06,242 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:06,242 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:06,686 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:06,687 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:06,687 httpstream DEBUG < server: nginx
+2016-10-30 10:24:06,687 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:06,687 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:58 GMT
+2016-10-30 10:24:06,687 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:06,687 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:06,688 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:07,301 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '11' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:07,301 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:07,301 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:07,301 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:07,302 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:07,302 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:07,302 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:07,915 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:07,915 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:07,915 httpstream DEBUG < server: nginx
+2016-10-30 10:24:07,915 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:07,916 httpstream DEBUG < date: Sun, 30 Oct 2016 04:53:59 GMT
+2016-10-30 10:24:07,916 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:07,916 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:07,916 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:20,215 root INFO ########### IN - index ###########
+2016-10-30 10:24:20,217 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 10:24:20,217 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/?page=2&querystring_key=page'>}) ###########
+2016-10-30 10:24:20,217 root INFO ########### Index page rendering ###########
+2016-10-30 10:24:20,217 root INFO ########### IN - init_session ###########
+2016-10-30 10:24:20,218 root INFO ########### FROM - index ###########
+2016-10-30 10:24:20,218 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/?page=2&querystring_key=page'>}) ###########
+2016-10-30 10:24:20,218 root DEBUG ########### Init the session data ###########
+2016-10-30 10:24:28,807 root INFO ########### IN - get_expressions ###########
+2016-10-30 10:24:28,807 root INFO ########### FROM - index ###########
+2016-10-30 10:24:28,807 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 10:24:28,808 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 10:24:28,808 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 10:24:28,808 root INFO ########### FROM - get_expressions ###########
+2016-10-30 10:24:28,808 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 10:24:28,808 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 10:24:28,808 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 10:24:28,808 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [147]
+2016-10-30 10:24:28,808 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:28,808 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:28,808 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:28,809 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:28,809 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:30,34 httpstream INFO < 200 OK [31159]
+2016-10-30 10:24:30,38 httpstream DEBUG < content-length: 31159
+2016-10-30 10:24:30,38 httpstream DEBUG < server: nginx
+2016-10-30 10:24:30,38 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:30,38 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:21 GMT
+2016-10-30 10:24:30,39 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:30,39 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:30,40 py2neo.cypher INFO stream (u'n',)
+2016-10-30 10:24:31,262 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '32' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:31,262 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:31,262 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:31,262 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:31,262 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:31,262 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:31,262 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:32,492 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:32,492 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:32,492 httpstream DEBUG < server: nginx
+2016-10-30 10:24:32,492 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:32,492 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:24 GMT
+2016-10-30 10:24:32,492 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:32,492 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:32,493 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:33,105 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '31' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:33,105 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:33,105 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:33,105 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:33,105 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:33,105 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:33,105 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:33,720 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:33,721 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:33,721 httpstream DEBUG < server: nginx
+2016-10-30 10:24:33,721 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:33,721 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:25 GMT
+2016-10-30 10:24:33,721 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:33,721 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:33,722 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:34,334 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '30' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:34,334 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:34,334 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:34,334 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:34,334 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:34,334 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:34,334 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:34,949 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:34,949 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:34,949 httpstream DEBUG < server: nginx
+2016-10-30 10:24:34,949 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:34,949 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:26 GMT
+2016-10-30 10:24:34,949 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:34,949 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:34,950 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:35,563 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '29' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:35,563 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:35,563 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:35,563 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:35,563 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:35,563 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:35,563 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:36,177 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:36,177 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:36,177 httpstream DEBUG < server: nginx
+2016-10-30 10:24:36,177 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:36,177 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:27 GMT
+2016-10-30 10:24:36,177 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:36,178 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:36,178 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:36,792 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '28' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:36,792 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:36,792 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:36,793 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:36,793 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:36,793 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:36,793 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:37,406 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:37,406 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:37,406 httpstream DEBUG < server: nginx
+2016-10-30 10:24:37,406 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:37,406 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:29 GMT
+2016-10-30 10:24:37,406 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:37,406 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:37,407 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:38,20 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:38,20 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:38,20 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:38,20 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:38,21 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:38,21 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:38,21 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:38,635 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:38,635 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:38,635 httpstream DEBUG < server: nginx
+2016-10-30 10:24:38,635 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:38,636 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:30 GMT
+2016-10-30 10:24:38,636 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:38,636 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:38,637 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:39,249 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:39,249 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:39,250 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:39,250 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:39,250 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:39,250 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:39,250 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:39,863 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:39,863 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:39,863 httpstream DEBUG < server: nginx
+2016-10-30 10:24:39,864 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:39,864 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:31 GMT
+2016-10-30 10:24:39,864 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:39,864 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:39,864 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:40,477 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:40,478 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:40,478 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:40,478 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:40,478 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:40,478 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:40,478 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:41,92 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:41,92 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:41,92 httpstream DEBUG < server: nginx
+2016-10-30 10:24:41,92 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:41,92 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:32 GMT
+2016-10-30 10:24:41,92 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:41,92 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:41,93 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:41,708 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '24' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:41,708 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:41,708 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:41,708 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:41,708 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:41,708 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:41,708 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:42,321 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:42,321 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:42,321 httpstream DEBUG < server: nginx
+2016-10-30 10:24:42,321 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:42,321 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:33 GMT
+2016-10-30 10:24:42,321 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:42,321 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:42,322 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:42,939 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '23' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:42,939 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:42,939 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:42,939 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:42,939 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:42,939 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:42,939 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:43,438 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:43,438 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:43,438 httpstream DEBUG < server: nginx
+2016-10-30 10:24:43,438 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:43,438 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:35 GMT
+2016-10-30 10:24:43,438 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:43,438 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:43,439 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:43,883 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '22' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:43,883 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:43,883 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:43,883 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:43,883 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:43,883 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:43,883 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:44,351 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:44,351 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:44,351 httpstream DEBUG < server: nginx
+2016-10-30 10:24:44,351 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:44,351 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:36 GMT
+2016-10-30 10:24:44,351 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:44,351 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:44,352 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:44,698 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '21' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:44,699 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:44,699 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:44,699 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:44,699 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:44,699 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:44,699 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:45,52 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:45,52 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:45,53 httpstream DEBUG < server: nginx
+2016-10-30 10:24:45,53 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:45,53 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:36 GMT
+2016-10-30 10:24:45,53 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:45,53 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:45,53 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:45,504 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '19' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:45,505 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:45,505 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:45,505 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:45,505 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:45,505 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:45,505 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:45,866 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:45,866 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:45,866 httpstream DEBUG < server: nginx
+2016-10-30 10:24:45,866 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:45,867 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:37 GMT
+2016-10-30 10:24:45,867 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:45,867 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:45,867 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:46,317 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '18' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:46,318 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:46,318 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:46,318 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:46,318 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:46,318 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:46,318 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:46,677 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:46,677 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:46,677 httpstream DEBUG < server: nginx
+2016-10-30 10:24:46,677 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:46,677 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:38 GMT
+2016-10-30 10:24:46,677 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:46,677 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:46,678 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:47,138 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '15' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:47,138 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:47,138 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:47,138 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:47,138 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:47,138 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:47,139 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:47,517 httpstream INFO < 200 OK [1859]
+2016-10-30 10:24:47,518 httpstream DEBUG < content-length: 1859
+2016-10-30 10:24:47,518 httpstream DEBUG < server: nginx
+2016-10-30 10:24:47,518 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:47,518 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:39 GMT
+2016-10-30 10:24:47,518 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:47,518 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:47,518 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:48,340 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '12' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:48,341 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:48,341 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:48,341 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:48,341 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:48,341 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:48,341 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:48,794 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:48,795 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:48,795 httpstream DEBUG < server: nginx
+2016-10-30 10:24:48,795 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:48,796 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:40 GMT
+2016-10-30 10:24:48,796 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:48,796 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:48,796 py2neo.cypher INFO stream (u'e',)
+2016-10-30 10:24:49,140 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '11' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 10:24:49,141 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 10:24:49,141 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 10:24:49,141 httpstream DEBUG > Content-Type: application/json
+2016-10-30 10:24:49,141 httpstream DEBUG > X-Stream: true
+2016-10-30 10:24:49,141 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 10:24:49,141 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 10:24:49,482 httpstream INFO < 200 OK [41]
+2016-10-30 10:24:49,482 httpstream DEBUG < content-length: 41
+2016-10-30 10:24:49,482 httpstream DEBUG < server: nginx
+2016-10-30 10:24:49,483 httpstream DEBUG < connection: keep-alive
+2016-10-30 10:24:49,483 httpstream DEBUG < date: Sun, 30 Oct 2016 04:54:41 GMT
+2016-10-30 10:24:49,483 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 10:24:49,483 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 10:24:49,483 py2neo.cypher INFO stream (u'e',)

@@ -16,7 +16,7 @@
 			{{entry.expression_owner}}
 		</div>
 		<div class="topic-name">
-			Topic Name!
+			Channel
 		</div>
 		</div>
 	</div>
@@ -108,10 +108,43 @@
 	</div>
 	<div class = "feed-express-footer">
 		<div class = "well feed-express-action">
-		<input type='button' onclick="upvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-upvote btn-primary btn-sm' value='Upvote'/>
-		<input type='button' onclick="downvoteExpression('{{entry.expression_id}}')" class='btn btn-feed-express btn-downvote btn-primary btn-sm' value='Downvote'/>
-		<input type='button' class='btn btn-feed-express btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}" value='Discuss'/>
-		<input type='button' class='btn btn-feed-express btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}" value='Broadcast'/>
+
+			{% if not entry.expression_image %}
+				<button type="button" class='btn btn-feed-express-color btn-up btn-primary btn-sm'>
+				  <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+				</button>
+
+				<button type="button" class='btn btn-feed-express-color btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}">
+				  <span class="glyphicon glyphicon-comment"></span> 400
+				</button>
+
+				<button type="button" class='btn btn-feed-express-color btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}">
+				  <span class="glyphicon glyphicon-volume-up"></span> 161
+				</button>
+
+				<button type="button" class='btn btn-feed-express-color btn-collect btn-primary btn-sm'>
+				  <span class="glyphicon glyphicon-log-in"></span> 29
+				</button>
+			{% endif %}
+
+			{% if entry.expression_image %}
+				<button type="button" class='btn btn-feed-express-inverted btn-up btn-primary btn-sm'>
+				  <span class="glyphicon glyphicon-chevron-up"></span> 1.2K
+				</button>
+
+				<button type="button" class='btn btn-feed-express-inverted btn-discuss btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#discussModal{{entry.expression_id}}">
+				  <span class="glyphicon glyphicon-comment"></span> 400
+				</button>
+
+				<button type="button" class='btn btn-feed-express-inverted btn-broadcast btn-primary btn-sm launch-modal' data-toggle="modal" data-target="#broadcastModal{{entry.expression_id}}">
+				  <span class="glyphicon glyphicon-volume-up"></span> 161
+				</button>
+
+				<button type="button" class='btn btn-feed-express-inverted btn-collect btn-primary btn-sm'>
+				  <span class="glyphicon glyphicon-log-in"></span> 29
+				</button>
+			{% endif %}
+
 		</div>
 	</div>
 	</div>
