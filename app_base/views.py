@@ -100,6 +100,8 @@ def index(request):
 
 @ensure_csrf_cookie
 def test(request):
+    if device.get_device_data(request).detectTierIphone():
+        return render(request, 'm-test.html', {})
     return render(request, 'test.html', {})
 
 

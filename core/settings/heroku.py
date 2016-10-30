@@ -39,9 +39,6 @@ STATICFILES_DIRS = (
 MEDIA_URL = 'http://s3.ap-south-1.amazonaws.com/the-thing/'
 
 AWS_STORAGE_BUCKET_NAME = 'the-thing'
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-
 
 # place where media files are served wrt base directory
 #MEDIA_ROOT = os.path.join('http://the-thing.s3-website.ap-south-1.amazonaws.com', 'media')
