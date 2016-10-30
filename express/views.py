@@ -44,7 +44,7 @@ def update(request):
             expression_content=expression_content,
             expression_link_id=link_id,
             expression_imagefile=filename,
-            topics=topics,
+            topics='naarada',
         )
         return render(request, "index.html", {})
 
