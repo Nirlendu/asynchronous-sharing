@@ -168,3 +168,42 @@
 2016-10-15 23:26:06,62 httpstream DEBUG < content-type: application/json; charset=UTF-8
 2016-10-15 23:26:06,62 py2neo.cypher INFO stream (u'e',)
 2016-10-15 23:26:06,63 py2neo.cypher INFO stream (u'e',)
+2016-10-30 09:33:38,167 root INFO ########### IN - index ###########
+2016-10-30 09:33:38,168 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 09:33:38,168 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:33:38,168 root INFO ########### Index page rendering ###########
+2016-10-30 09:33:38,168 root INFO ########### IN - init_session ###########
+2016-10-30 09:33:38,168 root INFO ########### FROM - index ###########
+2016-10-30 09:33:38,168 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 09:33:38,168 root DEBUG ########### Init the session data ###########
+2016-10-30 09:33:38,176 root INFO ########### IN - get_expressions ###########
+2016-10-30 09:33:38,176 root INFO ########### FROM - index ###########
+2016-10-30 09:33:38,176 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:33:38,177 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 09:33:38,177 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 09:33:38,177 root INFO ########### FROM - get_expressions ###########
+2016-10-30 09:33:38,177 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 09:33:38,177 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 09:33:38,177 httpstream INFO > GET http://localhost:7474/db/data/
+2016-10-30 09:33:38,177 httpstream DEBUG > Host: localhost:7474
+2016-10-30 09:33:38,177 httpstream DEBUG > X-Stream: true
+2016-10-30 09:33:38,177 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 09:33:38,182 httpstream INFO < 200 OK [730]
+2016-10-30 09:33:38,182 httpstream DEBUG < date: Sun, 30 Oct 2016 04:03:38 GMT
+2016-10-30 09:33:38,182 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 09:33:38,182 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 09:33:38,182 httpstream DEBUG < content-length: 730
+2016-10-30 09:33:38,182 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-30 09:33:38,183 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 09:33:38,183 httpstream INFO > POST http://localhost:7474/db/data/cypher [147]
+2016-10-30 09:33:38,183 httpstream DEBUG > Host: localhost:7474
+2016-10-30 09:33:38,183 httpstream DEBUG > Content-Type: application/json
+2016-10-30 09:33:38,183 httpstream DEBUG > X-Stream: true
+2016-10-30 09:33:38,183 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 09:33:38,187 httpstream INFO < 200 OK [41]
+2016-10-30 09:33:38,187 httpstream DEBUG < date: Sun, 30 Oct 2016 04:03:38 GMT
+2016-10-30 09:33:38,187 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 09:33:38,188 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 09:33:38,188 httpstream DEBUG < content-length: 41
+2016-10-30 09:33:38,188 httpstream DEBUG < server: Jetty(9.2.z-SNAPSHOT)
+2016-10-30 09:33:38,188 py2neo.cypher INFO stream (u'n',)
