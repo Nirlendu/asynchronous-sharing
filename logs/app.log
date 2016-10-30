@@ -4392,3 +4392,464 @@ ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply
 2016-10-30 11:33:08,734 httpstream DEBUG > X-Stream: true
 2016-10-30 11:33:08,734 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
 2016-10-30 11:33:08,735 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:16,85 root INFO ########### IN - index ###########
+2016-10-30 11:54:16,87 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 11:54:16,87 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 11:54:16,87 root INFO ########### Index page rendering ###########
+2016-10-30 11:54:16,87 root INFO ########### IN - init_session ###########
+2016-10-30 11:54:16,87 root INFO ########### FROM - index ###########
+2016-10-30 11:54:16,87 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/'>}) ###########
+2016-10-30 11:54:16,87 root DEBUG ########### Init the session data ###########
+2016-10-30 11:54:20,522 root INFO ########### IN - get_expressions ###########
+2016-10-30 11:54:20,522 root INFO ########### FROM - index ###########
+2016-10-30 11:54:20,522 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 11:54:20,522 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 11:54:20,522 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 11:54:20,522 root INFO ########### FROM - get_expressions ###########
+2016-10-30 11:54:20,522 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 11:54:20,522 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 11:54:20,524 httpstream INFO > GET http://app57701423-8gEB8r%3AJ2B1pBNGviieYNm1bNiS@hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/
+2016-10-30 11:54:20,524 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:20,524 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:20,524 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:20,524 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:21,728 httpstream INFO < 200 OK [1287]
+2016-10-30 11:54:21,728 httpstream DEBUG < content-length: 1287
+2016-10-30 11:54:21,728 httpstream DEBUG < server: nginx
+2016-10-30 11:54:21,728 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:21,728 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:14 GMT
+2016-10-30 11:54:21,728 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:21,729 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:21,729 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 11:54:21,730 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [147]
+2016-10-30 11:54:21,730 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:21,730 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:21,730 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:21,730 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:21,730 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:22,359 httpstream INFO < 200 OK [31159]
+2016-10-30 11:54:22,359 httpstream DEBUG < content-length: 31159
+2016-10-30 11:54:22,359 httpstream DEBUG < server: nginx
+2016-10-30 11:54:22,359 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:22,359 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:14 GMT
+2016-10-30 11:54:22,360 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:22,360 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:22,362 py2neo.cypher INFO stream (u'n',)
+2016-10-30 11:54:22,364 httpstream INFO > GET http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/
+2016-10-30 11:54:22,364 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:22,364 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:22,364 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:22,364 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:23,584 httpstream INFO < 200 OK [1287]
+2016-10-30 11:54:23,584 httpstream DEBUG < content-length: 1287
+2016-10-30 11:54:23,584 httpstream DEBUG < server: nginx
+2016-10-30 11:54:23,584 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:23,584 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:16 GMT
+2016-10-30 11:54:23,584 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:23,585 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:24,815 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '32' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:24,815 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:24,815 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:24,816 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:24,816 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:24,816 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:24,816 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:25,428 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:25,428 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:25,428 httpstream DEBUG < server: nginx
+2016-10-30 11:54:25,428 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:25,429 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:17 GMT
+2016-10-30 11:54:25,429 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:25,429 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:25,430 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:26,43 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '31' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:26,43 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:26,43 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:26,43 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:26,44 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:26,44 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:26,44 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:26,656 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:26,656 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:26,656 httpstream DEBUG < server: nginx
+2016-10-30 11:54:26,656 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:26,656 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:19 GMT
+2016-10-30 11:54:26,656 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:26,656 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:26,657 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:27,275 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '30' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:27,275 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:27,276 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:27,276 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:27,276 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:27,276 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:27,276 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:27,888 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:27,888 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:27,888 httpstream DEBUG < server: nginx
+2016-10-30 11:54:27,888 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:27,888 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:20 GMT
+2016-10-30 11:54:27,888 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:27,888 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:27,889 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:28,499 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '29' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:28,500 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:28,500 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:28,500 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:28,500 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:28,500 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:28,500 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:29,113 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:29,114 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:29,114 httpstream DEBUG < server: nginx
+2016-10-30 11:54:29,114 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:29,114 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:21 GMT
+2016-10-30 11:54:29,114 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:29,114 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:29,115 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:29,729 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '28' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:29,730 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:29,730 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:29,730 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:29,730 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:29,730 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:29,730 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:30,171 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:30,171 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:30,171 httpstream DEBUG < server: nginx
+2016-10-30 11:54:30,171 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:30,171 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:22 GMT
+2016-10-30 11:54:30,171 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:30,171 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:30,171 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:30,589 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:30,589 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:30,589 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:30,589 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:30,589 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:30,590 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:30,590 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:31,267 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:31,267 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:31,267 httpstream DEBUG < server: nginx
+2016-10-30 11:54:31,267 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:31,267 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:23 GMT
+2016-10-30 11:54:31,267 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:31,267 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:31,268 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:31,880 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:31,880 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:31,880 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:31,880 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:31,880 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:31,880 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:31,880 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:32,494 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:32,494 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:32,494 httpstream DEBUG < server: nginx
+2016-10-30 11:54:32,494 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:32,494 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:24 GMT
+2016-10-30 11:54:32,494 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:32,495 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:32,495 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:33,110 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:33,111 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:33,111 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:33,111 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:33,111 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:33,111 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:33,111 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:33,725 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:33,725 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:33,725 httpstream DEBUG < server: nginx
+2016-10-30 11:54:33,725 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:33,725 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:26 GMT
+2016-10-30 11:54:33,725 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:33,725 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:33,726 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:34,336 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '24' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:34,336 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:34,336 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:34,336 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:34,336 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:34,336 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:34,336 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:34,951 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:34,951 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:34,952 httpstream DEBUG < server: nginx
+2016-10-30 11:54:34,952 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:34,952 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:27 GMT
+2016-10-30 11:54:34,952 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:34,952 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:34,953 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:35,357 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '23' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:35,357 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:35,357 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:35,357 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:35,357 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:35,357 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:35,357 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:35,840 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:35,840 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:35,840 httpstream DEBUG < server: nginx
+2016-10-30 11:54:35,840 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:35,840 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:28 GMT
+2016-10-30 11:54:35,841 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:35,841 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:35,841 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:36,223 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '22' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:36,223 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:36,223 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:36,223 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:36,223 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:36,223 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:36,223 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:36,693 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:36,693 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:36,693 httpstream DEBUG < server: nginx
+2016-10-30 11:54:36,693 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:36,693 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:29 GMT
+2016-10-30 11:54:36,693 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:36,693 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:36,694 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:37,58 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '21' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:37,59 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:37,59 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:37,59 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:37,59 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:37,59 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:37,59 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:37,506 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:37,506 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:37,506 httpstream DEBUG < server: nginx
+2016-10-30 11:54:37,506 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:37,506 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:30 GMT
+2016-10-30 11:54:37,506 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:37,506 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:37,507 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:37,871 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '19' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:37,871 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:37,871 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:37,871 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:37,871 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:37,872 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:37,872 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:38,224 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:38,225 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:38,225 httpstream DEBUG < server: nginx
+2016-10-30 11:54:38,225 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:38,225 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:30 GMT
+2016-10-30 11:54:38,225 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:38,225 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:38,226 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:38,661 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '18' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:38,661 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:38,661 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:38,661 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:38,661 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:38,661 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:38,661 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:39,254 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:39,254 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:39,254 httpstream DEBUG < server: nginx
+2016-10-30 11:54:39,254 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:39,254 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:31 GMT
+2016-10-30 11:54:39,255 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:39,255 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:39,255 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:39,866 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '15' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:39,867 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:39,867 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:39,867 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:39,867 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:39,867 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:39,867 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:40,481 httpstream INFO < 200 OK [1859]
+2016-10-30 11:54:40,481 httpstream DEBUG < content-length: 1859
+2016-10-30 11:54:40,481 httpstream DEBUG < server: nginx
+2016-10-30 11:54:40,481 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:40,481 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:32 GMT
+2016-10-30 11:54:40,481 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:40,481 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:40,482 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:41,710 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '12' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:41,710 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:41,710 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:41,710 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:41,710 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:41,710 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:41,710 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:42,323 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:42,323 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:42,323 httpstream DEBUG < server: nginx
+2016-10-30 11:54:42,323 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:42,323 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:34 GMT
+2016-10-30 11:54:42,323 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:42,323 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:42,324 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:42,937 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '11' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:54:42,937 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:54:42,937 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:54:42,937 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:54:42,938 httpstream DEBUG > X-Stream: true
+2016-10-30 11:54:42,938 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:54:42,938 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:54:43,553 httpstream INFO < 200 OK [41]
+2016-10-30 11:54:43,553 httpstream DEBUG < content-length: 41
+2016-10-30 11:54:43,553 httpstream DEBUG < server: nginx
+2016-10-30 11:54:43,553 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:54:43,553 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:36 GMT
+2016-10-30 11:54:43,553 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:54:43,553 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:54:43,554 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:54:57,238 root INFO ########### IN - index ###########
+2016-10-30 11:54:57,239 root INFO ########### FROM - _wrapped_view ###########
+2016-10-30 11:54:57,240 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/?page=2&querystring_key=page'>}) ###########
+2016-10-30 11:54:57,240 root INFO ########### Index page rendering ###########
+2016-10-30 11:54:57,240 root INFO ########### IN - init_session ###########
+2016-10-30 11:54:57,240 root INFO ########### FROM - index ###########
+2016-10-30 11:54:57,240 root INFO ########### HAS - ArgInfo(args=['request'], varargs=None, keywords=None, locals={'request': <WSGIRequest: GET '/?page=2&querystring_key=page'>}) ###########
+2016-10-30 11:54:57,240 root DEBUG ########### Init the session data ###########
+2016-10-30 11:55:02,601 root INFO ########### IN - get_expressions ###########
+2016-10-30 11:55:02,601 root INFO ########### FROM - index ###########
+2016-10-30 11:55:02,601 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 11:55:02,601 root DEBUG ########### Fetching expressions interface.. ###########
+2016-10-30 11:55:02,601 root INFO ########### IN - get_expressions_logic ###########
+2016-10-30 11:55:02,601 root INFO ########### FROM - get_expressions ###########
+2016-10-30 11:55:02,601 root INFO ########### HAS - ArgInfo(args=['person_id'], varargs=None, keywords=None, locals={'person_id': 'asd123'}) ###########
+2016-10-30 11:55:02,601 root DEBUG ########### Get Expressions Logic ###########
+2016-10-30 11:55:02,601 py2neo.cypher INFO execute "MATCH (n:ExpressionGraph) -[:IN_TOPIC]->(Topic{name:'naarada'}), (a:Person{person_id: 'asd123'})-[:EXPRESSED]->(n) RETURN n" {}
+2016-10-30 11:55:02,602 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [147]
+2016-10-30 11:55:02,602 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:02,602 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:02,602 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:02,602 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:02,602 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:04,135 httpstream INFO < 200 OK [31159]
+2016-10-30 11:55:04,135 httpstream DEBUG < content-length: 31159
+2016-10-30 11:55:04,135 httpstream DEBUG < server: nginx
+2016-10-30 11:55:04,136 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:04,136 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:56 GMT
+2016-10-30 11:55:04,136 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:04,136 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:04,137 py2neo.cypher INFO stream (u'n',)
+2016-10-30 11:55:05,58 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '32' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:05,59 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:05,59 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:05,59 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:05,59 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:05,59 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:05,59 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:06,284 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:06,284 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:06,284 httpstream DEBUG < server: nginx
+2016-10-30 11:55:06,284 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:06,284 httpstream DEBUG < date: Sun, 30 Oct 2016 06:24:58 GMT
+2016-10-30 11:55:06,284 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:06,284 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:06,285 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:06,898 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '31' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:06,899 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:06,899 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:06,899 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:06,899 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:06,899 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:06,899 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:07,355 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:07,355 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:07,355 httpstream DEBUG < server: nginx
+2016-10-30 11:55:07,355 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:07,355 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:00 GMT
+2016-10-30 11:55:07,355 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:07,355 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:07,356 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:07,823 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '30' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:07,823 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:07,823 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:07,823 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:07,824 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:07,824 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:07,824 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:08,434 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:08,434 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:08,434 httpstream DEBUG < server: nginx
+2016-10-30 11:55:08,434 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:08,434 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:00 GMT
+2016-10-30 11:55:08,434 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:08,434 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:08,435 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:09,52 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '29' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:09,52 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:09,53 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:09,53 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:09,53 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:09,53 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:09,53 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:09,666 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:09,666 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:09,666 httpstream DEBUG < server: nginx
+2016-10-30 11:55:09,666 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:09,666 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:02 GMT
+2016-10-30 11:55:09,666 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:09,667 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:09,667 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:10,278 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '28' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:10,279 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:10,279 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:10,279 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:10,279 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:10,279 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:10,279 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:10,893 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:10,893 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:10,893 httpstream DEBUG < server: nginx
+2016-10-30 11:55:10,893 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:10,893 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:03 GMT
+2016-10-30 11:55:10,893 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:10,893 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:10,894 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:11,508 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '27' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:11,508 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:11,508 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:11,508 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:11,508 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:11,508 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:11,508 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:12,121 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:12,121 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:12,122 httpstream DEBUG < server: nginx
+2016-10-30 11:55:12,122 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:12,122 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:04 GMT
+2016-10-30 11:55:12,122 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:12,122 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:12,123 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:12,735 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '26' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:12,735 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:12,736 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:12,736 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:12,736 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:12,736 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:12,736 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:13,354 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:13,354 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:13,354 httpstream DEBUG < server: nginx
+2016-10-30 11:55:13,354 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:13,354 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:05 GMT
+2016-10-30 11:55:13,354 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:13,354 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:13,355 py2neo.cypher INFO stream (u'e',)
+2016-10-30 11:55:14,271 py2neo.cypher INFO execute "MATCH (p:ExpressionGraph{expression_id: '25' }), (e:ExpressionGraph), (p)-[:BROADCAST_OF]->(e) return e" {}
+2016-10-30 11:55:14,271 httpstream INFO > POST http://hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789/db/data/cypher [127]
+2016-10-30 11:55:14,272 httpstream DEBUG > Host: hobby-lgmhhkicjildgbkedmhpafnl.dbs.graphenedb.com:24789
+2016-10-30 11:55:14,272 httpstream DEBUG > Content-Type: application/json
+2016-10-30 11:55:14,272 httpstream DEBUG > X-Stream: true
+2016-10-30 11:55:14,272 httpstream DEBUG > Authorization: Basic YXBwNTc3MDE0MjMtOGdFQjhyOkoyQjFwQk5HdmlpZVlObTFiTmlT
+2016-10-30 11:55:14,272 httpstream DEBUG > User-Agent: py2neo/2.0.7 HTTPStream/1.5.0 Python/2.7.10-final-0 (darwin)
+2016-10-30 11:55:14,886 httpstream INFO < 200 OK [41]
+2016-10-30 11:55:14,887 httpstream DEBUG < content-length: 41
+2016-10-30 11:55:14,887 httpstream DEBUG < server: nginx
+2016-10-30 11:55:14,887 httpstream DEBUG < connection: keep-alive
+2016-10-30 11:55:14,887 httpstream DEBUG < date: Sun, 30 Oct 2016 06:25:07 GMT
+2016-10-30 11:55:14,887 httpstream DEBUG < access-control-allow-origin: *
+2016-10-30 11:55:14,887 httpstream DEBUG < content-type: application/json; charset=UTF-8
+2016-10-30 11:55:14,888 py2neo.cypher INFO stream (u'e',)
