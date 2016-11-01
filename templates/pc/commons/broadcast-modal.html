@@ -1,0 +1,148 @@
+<!-- Modal 1 -->
+<div class="modal fade" id="broadcastModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Express youself!</h4>
+			</div>
+			<form id="post_form" enctype="multipart/form-data">
+
+				{% csrf_token %}
+				<div class="modal-body">
+
+					<input type="textarea" id="tagareaID1" class="form-control" placeholder="Tag it"></br>
+
+					<input type="textarea" id="textareaID1" class="form-control"><label class="control-label"></label>
+
+					<!-- Start of broadcast parent -->
+					<div class="well-custom feed-express-area">
+						<div class = "feed-express-header">
+							<div class = "feed-express-profile-img">
+								<div class="feed-express-profile-image-resize">
+									<img src="/media/test2.jpg" class="img-rounded"/>
+								</div>
+							</div>
+							<div class = "feed-express-profile-details">
+								<div class="feed-express-background">
+								</div>
+								<div class="profile-name">
+									{{entry.EXPRESSION_OWNER}}
+								</div>
+								<div class="topic-name">
+									{{entry.CHANNEL.0}}
+								</div>
+							</div>
+						</div>
+						<div class = "feed-express-body">
+							<div class = "well feed-express-contents">
+								<div class="feed-express-text-box">
+									{{entry.EXPRESSION_CONTENT}}
+								</div>
+
+								{% if entry.EXPRESSION_IMAGE %}
+									<div class="feed-express-image-resize">
+										<img src="{{entry.EXPRESSION_IMAGE}}" class="img-rounded"/>
+									</div>
+								{% endif %}
+
+								{% if entry.URL_TITLE %}
+									<div onclick="window.open('{{entry.URL}}','mywindow');" style="cursor: pointer;" class = "link-preview-box well">
+										<div class = "link-preview-img">
+											<div class="link-preview-image-resize">
+												<img src="{{entry.URL_IMAGEFILE}}" class="img-rounded"/>
+											</div>
+										</div>
+										<div class = "link-preview-details">
+											<div class="link-preview-title">
+												{{entry.URL_TITLE}}
+											</div>
+											<div class="link-preview-parent-name">
+												{{entry.URL_DOMAIN}}
+											</div>
+										</div>
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<!-- End of broadcast parent -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Discard</button>
+					<input type="submit" value="Post!" class="btn btn-primary">
+				</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script type="text/javascript">
+
+	function broadcast(owner_name, channel){
+		console.log("entry['EXPRESSION_OWNER']");
+		$(".profile-name #owner").val( entry['EXPRESSION_OWNER'] );
+	}
+
+	//function for broadcast
+
+	$(function() {
+		 $('#post_form{{entry.expression_id}}').submit(postExpression{{entry.expression_id}});
+	});
+
+
+	function postExpression{{entry.expression_id}}()
+	{
+		event.preventDefault();
+		$('#broadcastModal{{entry.expression_id}}').modal('toggle');
+		var csrftoken = $.cookie('csrftoken');
+
+		//console.log('WE ARE HERE!');
+
+		function csrfSafeMethod(method) {
+			// these HTTP methods do not require CSRF protection
+			return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+
+		$.ajaxSetup({
+			beforeSend: function(xhr, settings) {
+				if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+					xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				}
+			}
+		});
+
+		var formData = new FormData();
+
+		//console.log($('#textareaID1').val());
+		//formData['express_text'] = $('#textareaID1').val();
+		formData.append('broadcast_tag', $('#tagareaID{{entry.expression_id}}').val())
+		formData.append('broadcast_text', $('#textareaID{{entry.expression_id}}').val())
+
+		//console.log('TXT ARE DATA : ' + $('#textareaID{{entry.expression_id}}').val());
+		//console.log(formData);
+
+		//formData.append('expression_id', {{entry.expression_id}});
+		$.ajax({
+			url: '/expression/broadcast/',
+			type: 'POST',
+			data: formData,
+			cache: false,
+			processData: false, // Don't process the files
+			contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+			success: function(data, textStatus, jqXHR)
+			{
+				if(typeof data.error === 'undefined')
+				{
+					console.log('Broadcasted!');
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+				console.log('ERRORS: ' + textStatus);
+			}
+		});
+	}
+</script>
