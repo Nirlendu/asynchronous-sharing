@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   core/app_core
+   core/modules
 
 Indices and tables
 ==================

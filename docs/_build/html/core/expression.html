@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expression package &#8212; social-web 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="social-web 1.0 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expression-package">
+<h1>expression package<a class="headerlink" href="#expression-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="expression.migrations.html">expression.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expression.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.migrations.html#module-expression.migrations.0001_initial">expression.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.migrations.html#module-expression.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-expression.admin">
+<span id="expression-admin-module"></span><h2>expression.admin module<a class="headerlink" href="#module-expression.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-expression.apps">
+<span id="expression-apps-module"></span><h2>expression.apps module<a class="headerlink" href="#module-expression.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="expression.apps.ExpressionConfig">
+<em class="property">class </em><code class="descclassname">expression.apps.</code><code class="descname">ExpressionConfig</code><span class="sig-paren">(</span><em>app_name</em>, <em>app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.apps.ExpressionConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="expression.apps.ExpressionConfig.name">
+<code class="descname">name</code><em class="property"> = u'expression'</em><a class="headerlink" href="#expression.apps.ExpressionConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-expression.database">
+<span id="expression-database-module"></span><h2>expression.database module<a class="headerlink" href="#module-expression.database" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="expression.database.new_expresssion">
+<code class="descclassname">expression.database.</code><code class="descname">new_expresssion</code><span class="sig-paren">(</span><em>expression_owner_id</em>, <em>expression_content</em>, <em>expression_content_url</em>, <em>expression_imagefile</em>, <em>broadcast_parent_id</em>, <em>expression_weight</em>, <em>total_upvotes</em>, <em>total_collects</em>, <em>total_broadcasts</em>, <em>total_discussions</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.database.new_expresssion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-expression.models">
+<span id="expression-models-module"></span><h2>expression.models module<a class="headerlink" href="#module-expression.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="expression.models.ExpressionPrimary">
+<em class="property">class </em><code class="descclassname">expression.models.</code><code class="descname">ExpressionPrimary</code><span class="sig-paren">(</span><em>id</em>, <em>expression_owner_id</em>, <em>expression_content</em>, <em>expression_content_url</em>, <em>expression_imagefile</em>, <em>expression_weight</em>, <em>broadcast_parent_id</em>, <em>total_upvotes</em>, <em>total_broadcasts</em>, <em>total_discussions</em>, <em>total_collects</em>, <em>expression_updated</em>, <em>expression_created</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="expression.models.ExpressionPrimary.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#expression.models.ExpressionPrimary.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="expression.models.ExpressionPrimary.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">ExpressionPrimary.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#expression.models.ExpressionPrimary.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.broadcast_parent_id">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">broadcast_parent_id</code><a class="headerlink" href="#expression.models.ExpressionPrimary.broadcast_parent_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_content">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_content</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_content_url">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_content_url</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_content_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_created">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_created</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_imagefile">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_imagefile</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_imagefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_owner_id">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_owner_id</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_updated">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_updated</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.expression_weight">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">expression_weight</code><a class="headerlink" href="#expression.models.ExpressionPrimary.expression_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expression.models.ExpressionPrimary.get_next_by_expression_created">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">get_next_by_expression_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimary.get_next_by_expression_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="expression.models.ExpressionPrimary.get_next_by_expression_updated">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">get_next_by_expression_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimary.get_next_by_expression_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="expression.models.ExpressionPrimary.get_previous_by_expression_created">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">get_previous_by_expression_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimary.get_previous_by_expression_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="expression.models.ExpressionPrimary.get_previous_by_expression_updated">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">get_previous_by_expression_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimary.get_previous_by_expression_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.id">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">id</code><a class="headerlink" href="#expression.models.ExpressionPrimary.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.objects">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">objects</code><em class="property"> = &lt;expression.models.ExpressionPrimaryManager object&gt;</em><a class="headerlink" href="#expression.models.ExpressionPrimary.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.total_broadcasts">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">total_broadcasts</code><a class="headerlink" href="#expression.models.ExpressionPrimary.total_broadcasts" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.total_collects">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">total_collects</code><a class="headerlink" href="#expression.models.ExpressionPrimary.total_collects" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.total_discussions">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">total_discussions</code><a class="headerlink" href="#expression.models.ExpressionPrimary.total_discussions" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expression.models.ExpressionPrimary.total_upvotes">
+<code class="descclassname">ExpressionPrimary.</code><code class="descname">total_upvotes</code><a class="headerlink" href="#expression.models.ExpressionPrimary.total_upvotes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="expression.models.ExpressionPrimaryManager">
+<em class="property">class </em><code class="descclassname">expression.models.</code><code class="descname">ExpressionPrimaryManager</code><a class="headerlink" href="#expression.models.ExpressionPrimaryManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="expression.models.ExpressionPrimaryManager.create_expression">
+<code class="descname">create_expression</code><span class="sig-paren">(</span><em>expression_owner_id</em>, <em>expression_content</em>, <em>expression_content_url=None</em>, <em>expression_imagefile=None</em>, <em>broadcast_parent_id=None</em>, <em>expression_weight=0</em>, <em>total_upvotes=0</em>, <em>total_collects=0</em>, <em>total_broadcasts=0</em>, <em>total_discussions=0</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimaryManager.create_expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="expression.models.ExpressionPrimaryManager.update_expression">
+<code class="descname">update_expression</code><span class="sig-paren">(</span><em>expression_owner_id</em>, <em>expression_content</em>, <em>expression_content_url=None</em>, <em>expression_imagefile=None</em>, <em>expression_weight=0</em>, <em>broadcast_parent_id=None</em>, <em>total_upvotes=0</em>, <em>total_collects=0</em>, <em>total_broadcasts=0</em>, <em>total_discussions=0</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.models.ExpressionPrimaryManager.update_expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-expression.tests">
+<span id="expression-tests-module"></span><h2>expression.tests module<a class="headerlink" href="#module-expression.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-expression.views">
+<span id="expression-views-module"></span><h2>expression.views module<a class="headerlink" href="#module-expression.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="expression.views.get_url">
+<code class="descclassname">expression.views.</code><code class="descname">get_url</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.views.get_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="expression.views.new_expression">
+<code class="descclassname">expression.views.</code><code class="descname">new_expression</code><span class="sig-paren">(</span><em>expression_owner_id</em>, <em>expression_text</em>, <em>expression_imagefile</em>, <em>channels</em><span class="sig-paren">)</span><a class="headerlink" href="#expression.views.new_expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-expression">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-expression" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">expression package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-expression.admin">expression.admin module</a></li>
+<li><a class="reference internal" href="#module-expression.apps">expression.apps module</a></li>
+<li><a class="reference internal" href="#module-expression.database">expression.database module</a></li>
+<li><a class="reference internal" href="#module-expression.models">expression.models module</a></li>
+<li><a class="reference internal" href="#module-expression.tests">expression.tests module</a></li>
+<li><a class="reference internal" href="#module-expression.views">expression.views module</a></li>
+<li><a class="reference internal" href="#module-expression">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/core/expression.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Nirlendu Saha.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/core/expression.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

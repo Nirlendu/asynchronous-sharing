@@ -1,0 +1,1115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>libs.device_data package &#8212; social-web 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="social-web 1.0 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="libs-device-data-package">
+<h1>libs.device_data package<a class="headerlink" href="#libs-device-data-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-libs.device_data.device_data">
+<span id="libs-device-data-device-data-module"></span><h2>libs.device_data.device_data module<a class="headerlink" href="#module-libs.device_data.device_data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="libs.device_data.device_data.UAgentInfo">
+<em class="property">class </em><code class="descclassname">libs.device_data.device_data.</code><code class="descname">UAgentInfo</code><span class="sig-paren">(</span><em>userAgent</em>, <em>httpAccept</em><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The UAgentInfo class encapsulates information about
+a browser&#8217;s connection to your web site.
+You can use it to find out whether the browser asking for
+your site&#8217;s content is probably running on a mobile device.
+The methods were written so you can be as granular as you want.
+For example, enquiring whether it&#8217;s as specific as an iPod Touch or
+as general as a smartphone class device.
+The object&#8217;s methods return true, or false.</p>
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectAmazonSilk">
+<code class="descname">detectAmazonSilk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectAmazonSilk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Amazon Kindle Fire in Silk mode.</p>
+<p>Detects if the current Amazon device is using the Silk Browser.
+Note: Typically used by the the Kindle Fire.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectAndroid">
+<code class="descname">detectAndroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectAndroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Android device</p>
+<p>Detects <em>any</em> Android OS-based device: phone, tablet, and multi-media player.
+Also detects Google TV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectAndroidPhone">
+<code class="descname">detectAndroidPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectAndroidPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return  detection of an Android phone</p>
+<p>Detects if the current device is a (small-ish) Android OS-based device
+used for calling and/or multi-media (like a Samsung Galaxy Player).
+Google says these devices will have &#8216;Android&#8217; AND &#8216;mobile&#8217; in user agent.
+Ignores tablets (Honeycomb and later).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectAndroidTablet">
+<code class="descname">detectAndroidTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectAndroidTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Android tablet</p>
+<p>Detects if the current device is a (self-reported) Android tablet.
+Google says these devices will have &#8216;Android&#8217; and NOT &#8216;mobile&#8217; in their user agent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectAndroidWebKit">
+<code class="descname">detectAndroidWebKit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectAndroidWebKit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Android WebKit browser</p>
+<p>Detects if the current device is an Android OS-based device and
+the browser is based on WebKit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectArchos">
+<code class="descname">detectArchos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectArchos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Archos media player</p>
+<p>Detects if the current device is an Archos media player/Internet tablet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBada">
+<code class="descname">detectBada</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBada" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Bada device</p>
+<p>Detects a device running the Bada OS from Samsung.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerry">
+<code class="descname">detectBlackBerry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Blackberry</p>
+<p>Detects if the current browser is any BlackBerry.
+Includes the PlayBook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerry10Phone">
+<code class="descname">detectBlackBerry10Phone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerry10Phone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry 10 OS phone</p>
+<p>Detects if the current browser is a BlackBerry 10 OS phone.
+Excludes the PlayBook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerryHigh">
+<code class="descname">detectBlackBerryHigh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerryHigh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry device with a better browser</p>
+<p>Detects if the current browser is a BlackBerry device AND
+has a more capable recent browser. Excludes the Playbook.
+Examples, Storm, Bold, Tour, Curve2
+Excludes the new BlackBerry OS 6 and 7 browser!!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerryLow">
+<code class="descname">detectBlackBerryLow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerryLow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry device with a poorer browser</p>
+<p>Detects if the current browser is a BlackBerry device AND
+has an older, less capable browser.
+Examples: Pearl, 8800, Curve1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerryTablet">
+<code class="descname">detectBlackBerryTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerryTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry Tablet</p>
+<p>Detects if the current browser is on a BlackBerry tablet device.
+Example: PlayBook</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerryTouch">
+<code class="descname">detectBlackBerryTouch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerryTouch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry touchscreen device</p>
+<p>Detects if the current browser is a BlackBerry Touch
+device, such as the Storm, Torch, and Bold Touch. Excludes the Playbook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBlackBerryWebKit">
+<code class="descname">detectBlackBerryWebKit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBlackBerryWebKit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Blackberry device with WebKit browser</p>
+<p>Detects if the current browser is a BlackBerry device AND uses a
+WebKit-based browser. These are signatures for the new BlackBerry OS 6.
+Examples: Torch. Includes the Playbook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectBrewDevice">
+<code class="descname">detectBrewDevice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectBrewDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Brew device</p>
+<p>Detects whether the device is a Brew-powered device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectDangerHiptop">
+<code class="descname">detectDangerHiptop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectDangerHiptop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Danger Hiptop</p>
+<p>Detects the Danger Hiptop device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectFirefoxOS">
+<code class="descname">detectFirefoxOS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectFirefoxOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Firefox OS mobile device</p>
+<p>Detects a mobile device (probably) running the Firefox OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectFirefoxOSPhone">
+<code class="descname">detectFirefoxOSPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectFirefoxOSPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Firefox OS phone</p>
+<p>Detects a phone (probably) running the Firefox OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectFirefoxOSTablet">
+<code class="descname">detectFirefoxOSTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectFirefoxOSTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Firefox OS tablet</p>
+<p>Detects a tablet (probably) running the Firefox OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectGameConsole">
+<code class="descname">detectGameConsole</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectGameConsole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any Game Console</p>
+<p>Detects if the current device is an Internet-capable game console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectGamingHandheld">
+<code class="descname">detectGamingHandheld</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectGamingHandheld" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a gaming handheld with a modern iPhone-class browser</p>
+<dl class="docutils">
+<dt>Detects if the current device is a handheld gaming device with</dt>
+<dd>a touchscreen and modern iPhone-class browser. Includes the Playstation Vita.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectGarminNuvifone">
+<code class="descname">detectGarminNuvifone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectGarminNuvifone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Garmin Nuvifone</p>
+<p>Detects if the current browser is a
+Garmin Nuvifone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectGoogleTV">
+<code class="descname">detectGoogleTV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectGoogleTV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of GoogleTV</p>
+<p>Detects if the current device is a GoogleTV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectIos">
+<code class="descname">detectIos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectIos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Apple iOS device</p>
+<p>Detects <em>any</em> iOS device: iPhone, iPod Touch, iPad.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectIpad">
+<code class="descname">detectIpad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectIpad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an iPad</p>
+<p>Detects if the current device is an iPad tablet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectIphone">
+<code class="descname">detectIphone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectIphone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an iPhone</p>
+<p>Detects if the current device is an iPhone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectIphoneOrIpod">
+<code class="descname">detectIphoneOrIpod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectIphoneOrIpod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an iPhone or iPod Touch</p>
+<p>Detects if the current device is an iPhone or iPod Touch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectIpod">
+<code class="descname">detectIpod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectIpod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an iPod Touch</p>
+<p>Detects if the current device is an iPod Touch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectKindle">
+<code class="descname">detectKindle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectKindle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Kindle</p>
+<p>Detects if the current device is an Amazon Kindle (eInk devices only).
+Note: For the Kindle Fire, use the normal Android methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMaemoTablet">
+<code class="descname">detectMaemoTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMaemoTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Maemo OS tablet</p>
+<p>Detects if the current device is on one of the Maemo-based Nokia Internet Tablets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMeego">
+<code class="descname">detectMeego</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMeego" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Meego device</p>
+<p>Detects a device running the Meego OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMeegoPhone">
+<code class="descname">detectMeegoPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMeegoPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Meego phone</p>
+<p>Detects a phone running the Meego OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMidpCapable">
+<code class="descname">detectMidpCapable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMidpCapable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a MIDP mobile Java-capable device</p>
+<p>Detects if the current device supports MIDP, a mobile Java technology.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMobileLong">
+<code class="descname">detectMobileLong</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMobileLong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any mobile device using the more thorough method</p>
+<p>The longer and more thorough way to detect for a mobile device.
+Will probably detect most feature phones,
+smartphone-class devices, Internet Tablets,
+Internet-enabled game consoles, etc.
+This ought to catch a lot of the more obscure and older devices, also &#8211;
+but no promises on thoroughness!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectMobileQuick">
+<code class="descname">detectMobileQuick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectMobileQuick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any mobile device using the quicker method</p>
+<p>Detects if the current device is a mobile device.
+This method catches most of the popular modern devices.
+Excludes Apple iPads and other modern tablets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectNintendo">
+<code class="descname">detectNintendo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectNintendo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Nintendo</p>
+<p>Detects if the current device is a Nintendo game device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectOperaMobile">
+<code class="descname">detectOperaMobile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectOperaMobile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Opera browser for a mobile device</p>
+<p>Detects Opera Mobile or Opera Mini.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectPalmOS">
+<code class="descname">detectPalmOS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectPalmOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a PalmOS device</p>
+<p>Detects if the current browser is on a PalmOS device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectPalmWebOS">
+<code class="descname">detectPalmWebOS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectPalmWebOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Palm WebOS device</p>
+<p>Detects if the current browser is on a Palm device
+running the new WebOS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectS60OssBrowser">
+<code class="descname">detectS60OssBrowser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectS60OssBrowser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Symbian S60 Browser</p>
+<p>Detects if the current browser is the Symbian S60 Open Source Browser.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSailfish">
+<code class="descname">detectSailfish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSailfish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Sailfish OS device.</p>
+<p>Detects a device running the Sailfish OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSailfishPhone">
+<code class="descname">detectSailfishPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSailfishPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Sailfish phone</p>
+<p>Detects a phone running the Sailfish OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSmartphone">
+<code class="descname">detectSmartphone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSmartphone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a general smartphone device</p>
+<p>Checks to see whether the device is <em>any</em> &#8216;smartphone&#8217;.
+Note: It&#8217;s better to use DetectTierIphone() for modern touchscreen devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSonyMylo">
+<code class="descname">detectSonyMylo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSonyMylo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Sony Mylo device</p>
+<p>Detects if the current browser is a Sony Mylo device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSonyPlaystation">
+<code class="descname">detectSonyPlaystation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSonyPlaystation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Sony Playstation</p>
+<p>Detects if the current device is a Sony Playstation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectSymbianOS">
+<code class="descname">detectSymbianOS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectSymbianOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of SymbianOS</p>
+<p>Detects if the current device is any Symbian OS-based device,
+including older S60, Series 70, Series 80, Series 90, and UIQ,
+or other browsers running on these devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTierIphone">
+<code class="descname">detectTierIphone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTierIphone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any device in the iPhone/Android/WP7/WebOS Tier</p>
+<p>The quick way to detect for a tier of devices.
+This method detects for devices which can
+display iPhone-optimized web content.
+Includes iPhone, iPod Touch, Android, Windows Phone 7, Palm WebOS, etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTierOtherPhones">
+<code class="descname">detectTierOtherPhones</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTierOtherPhones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a mobile device in the less capable tier</p>
+<p>The quick way to detect for a tier of devices.
+This method detects for all other types of phones,
+but excludes the iPhone and RichCSS Tier devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTierRichCss">
+<code class="descname">detectTierRichCss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTierRichCss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any device in the &#8216;Rich CSS&#8217; Tier</p>
+<p>The quick way to detect for a tier of devices.
+This method detects for devices which are likely to be capable
+of viewing CSS content optimized for the iPhone,
+but may not necessarily support JavaScript.
+Excludes all iPhone Tier devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTierTablet">
+<code class="descname">detectTierTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTierTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of any device in the Tablet Tier</p>
+<p>The quick way to detect for a tier of devices.
+This method detects for the new generation of
+HTML 5 capable, larger screen tablets.
+Includes iPad, Android (e.g., Xoom), BB Playbook, WebOS, etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTizen">
+<code class="descname">detectTizen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTizen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Tizen device</p>
+<p>Detects a device running the Tizen smartphone OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectTizenTV">
+<code class="descname">detectTizenTV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectTizenTV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Tizen smart TV</p>
+<p>Detects if the current browser is on a Tizen smart TV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectUbuntu">
+<code class="descname">detectUbuntu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectUbuntu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Ubuntu Mobile OS mobile device</p>
+<p>Detects a mobile device running the Ubuntu Mobile OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectUbuntuPhone">
+<code class="descname">detectUbuntuPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectUbuntuPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Ubuntu Mobile OS phone</p>
+<p>Detects a phone running the Ubuntu Mobile OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectUbuntuTablet">
+<code class="descname">detectUbuntuTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectUbuntuTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an Ubuntu Mobile OS tablet</p>
+<p>Detects a tablet running the Ubuntu Mobile OS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWapWml">
+<code class="descname">detectWapWml</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWapWml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a WAP- or WML-capable device</p>
+<p>Detects whether the device supports WAP or WML.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWebOSTV">
+<code class="descname">detectWebOSTV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWebOSTV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a WebOS smart TV</p>
+<p>Detects if the current browser is on a WebOS smart TV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWebOSTablet">
+<code class="descname">detectWebOSTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWebOSTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of an HP WebOS tablet</p>
+<p>Detects if the current browser is on an HP tablet running WebOS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWebkit">
+<code class="descname">detectWebkit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWebkit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a WebKit browser</p>
+<p>Detects if the current browser is based on WebKit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWindowsMobile">
+<code class="descname">detectWindowsMobile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWindowsMobile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Windows Mobile</p>
+<p>Detects if the current browser is a Windows Mobile device.
+Excludes Windows Phone 7 devices.
+Focuses on Windows Mobile 6.xx and earlier.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWindowsPhone">
+<code class="descname">detectWindowsPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWindowsPhone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of a Windows Phone device</p>
+<p>Detects if the current browser is a 
+Windows Phone 7, 8, or 10 device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWindowsPhone10">
+<code class="descname">detectWindowsPhone10</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWindowsPhone10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Windows Phone 10</p>
+<p>Detects if the current browser is a
+Windows Phone 10 device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWindowsPhone7">
+<code class="descname">detectWindowsPhone7</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWindowsPhone7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Windows Phone 7</p>
+<p>Detects if the current browser is a
+Windows Phone 7 device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectWindowsPhone8">
+<code class="descname">detectWindowsPhone8</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectWindowsPhone8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Windows Phone 8</p>
+<p>Detects if the current browser is a
+Windows Phone 8 device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.detectXbox">
+<code class="descname">detectXbox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.detectXbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return detection of Xbox</p>
+<p>Detects if the current device is a Microsoft Xbox.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceAndroid">
+<code class="descname">deviceAndroid</code><em class="property"> = 'android'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceAndroid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceArchos">
+<code class="descname">deviceArchos</code><em class="property"> = 'archos'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceArchos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBB">
+<code class="descname">deviceBB</code><em class="property"> = 'blackberry'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBB10">
+<code class="descname">deviceBB10</code><em class="property"> = 'bb10'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBB10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBBold">
+<code class="descname">deviceBBBold</code><em class="property"> = 'blackberry97'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBBold" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBBoldTouch">
+<code class="descname">deviceBBBoldTouch</code><em class="property"> = 'blackberry 99'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBBoldTouch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBCurve">
+<code class="descname">deviceBBCurve</code><em class="property"> = 'blackberry89'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBCurveTouch">
+<code class="descname">deviceBBCurveTouch</code><em class="property"> = 'blackberry 938'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBCurveTouch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBPlaybook">
+<code class="descname">deviceBBPlaybook</code><em class="property"> = 'playbook'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBPlaybook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBStorm">
+<code class="descname">deviceBBStorm</code><em class="property"> = 'blackberry95'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBStorm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBTorch">
+<code class="descname">deviceBBTorch</code><em class="property"> = 'blackberry 98'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBTorch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBBTour">
+<code class="descname">deviceBBTour</code><em class="property"> = 'blackberry96'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBBTour" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBada">
+<code class="descname">deviceBada</code><em class="property"> = 'bada'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBada" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceBrew">
+<code class="descname">deviceBrew</code><em class="property"> = 'brew'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceBrew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceDanger">
+<code class="descname">deviceDanger</code><em class="property"> = 'danger'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceDanger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceGoogleTV">
+<code class="descname">deviceGoogleTV</code><em class="property"> = 'googletv'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceGoogleTV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceHiptop">
+<code class="descname">deviceHiptop</code><em class="property"> = 'hiptop'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceHiptop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceIeMob">
+<code class="descname">deviceIeMob</code><em class="property"> = 'iemobile'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceIeMob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceIpad">
+<code class="descname">deviceIpad</code><em class="property"> = 'ipad'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceIpad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceIphone">
+<code class="descname">deviceIphone</code><em class="property"> = 'iphone'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceIphone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceIpod">
+<code class="descname">deviceIpod</code><em class="property"> = 'ipod'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceIpod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceKindle">
+<code class="descname">deviceKindle</code><em class="property"> = 'kindle'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceKindle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceMacPpc">
+<code class="descname">deviceMacPpc</code><em class="property"> = 'macintosh'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceMacPpc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceMeego">
+<code class="descname">deviceMeego</code><em class="property"> = 'meego'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceMeego" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceMidp">
+<code class="descname">deviceMidp</code><em class="property"> = 'midp'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceMidp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceNintendo">
+<code class="descname">deviceNintendo</code><em class="property"> = 'nintendo'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceNintendo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceNintendoDs">
+<code class="descname">deviceNintendoDs</code><em class="property"> = 'nitro'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceNintendoDs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceNuvifone">
+<code class="descname">deviceNuvifone</code><em class="property"> = 'nuvifone'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceNuvifone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.devicePalm">
+<code class="descname">devicePalm</code><em class="property"> = 'palm'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.devicePalm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.devicePda">
+<code class="descname">devicePda</code><em class="property"> = 'pda'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.devicePda" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.devicePlaystation">
+<code class="descname">devicePlaystation</code><em class="property"> = 'playstation'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.devicePlaystation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.devicePlaystationVita">
+<code class="descname">devicePlaystationVita</code><em class="property"> = 'vita'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.devicePlaystationVita" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.devicePpc">
+<code class="descname">devicePpc</code><em class="property"> = 'ppc'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.devicePpc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceS60">
+<code class="descname">deviceS60</code><em class="property"> = 'series60'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceS60" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceS70">
+<code class="descname">deviceS70</code><em class="property"> = 'series70'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceS70" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceS80">
+<code class="descname">deviceS80</code><em class="property"> = 'series80'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceS80" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceS90">
+<code class="descname">deviceS90</code><em class="property"> = 'series90'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceS90" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceSailfish">
+<code class="descname">deviceSailfish</code><em class="property"> = 'sailfish'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceSailfish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceSymbian">
+<code class="descname">deviceSymbian</code><em class="property"> = 'symbian'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceSymbian" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceTablet">
+<code class="descname">deviceTablet</code><em class="property"> = 'tablet'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceTablet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceTizen">
+<code class="descname">deviceTizen</code><em class="property"> = 'tizen'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceTizen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceUbuntu">
+<code class="descname">deviceUbuntu</code><em class="property"> = 'ubuntu'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceUbuntu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWebOS">
+<code class="descname">deviceWebOS</code><em class="property"> = 'webos'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWebOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWebOShp">
+<code class="descname">deviceWebOShp</code><em class="property"> = 'hpwos'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWebOShp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWebOStv">
+<code class="descname">deviceWebOStv</code><em class="property"> = 'web0s'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWebOStv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWii">
+<code class="descname">deviceWii</code><em class="property"> = 'wii'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWii" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWinMob">
+<code class="descname">deviceWinMob</code><em class="property"> = 'windows ce'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWinMob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWinPhone10">
+<code class="descname">deviceWinPhone10</code><em class="property"> = 'windows phone 10'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWinPhone10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWinPhone7">
+<code class="descname">deviceWinPhone7</code><em class="property"> = 'windows phone os 7'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWinPhone7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWinPhone8">
+<code class="descname">deviceWinPhone8</code><em class="property"> = 'windows phone 8'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWinPhone8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceWindows">
+<code class="descname">deviceWindows</code><em class="property"> = 'windows'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceWindows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.deviceXbox">
+<code class="descname">deviceXbox</code><em class="property"> = 'xbox'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.deviceXbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.disUpdate">
+<code class="descname">disUpdate</code><em class="property"> = 'update'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.disUpdate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineBlazer">
+<code class="descname">engineBlazer</code><em class="property"> = 'blazer'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineBlazer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineFirefox">
+<code class="descname">engineFirefox</code><em class="property"> = 'firefox'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineFirefox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineNetfront">
+<code class="descname">engineNetfront</code><em class="property"> = 'netfront'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineNetfront" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineOpenWeb">
+<code class="descname">engineOpenWeb</code><em class="property"> = 'openweb'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineOpenWeb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineOpera">
+<code class="descname">engineOpera</code><em class="property"> = 'opera'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineOpera" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.enginePie">
+<code class="descname">enginePie</code><em class="property"> = 'wm5 pie'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.enginePie" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineSilk">
+<code class="descname">engineSilk</code><em class="property"> = 'silk'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineSilk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineTelecaQ">
+<code class="descname">engineTelecaQ</code><em class="property"> = 'teleca q'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineTelecaQ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineUpBrowser">
+<code class="descname">engineUpBrowser</code><em class="property"> = 'up.browser'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineUpBrowser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineWebKit">
+<code class="descname">engineWebKit</code><em class="property"> = 'webkit'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineWebKit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.engineXiino">
+<code class="descname">engineXiino</code><em class="property"> = 'xiino'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.engineXiino" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getHttpAccept">
+<code class="descname">getHttpAccept</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getHttpAccept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lower case HTTP_ACCEPT</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getIsIphone">
+<code class="descname">getIsIphone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getIsIphone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the device is an Iphone or iPod Touch</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getIsTierGenericMobile">
+<code class="descname">getIsTierGenericMobile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getIsTierGenericMobile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the device is a generic, less-capable mobile device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getIsTierIphone">
+<code class="descname">getIsTierIphone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getIsTierIphone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the device is in the Iphone Tier.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getIsTierRichCss">
+<code class="descname">getIsTierRichCss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getIsTierRichCss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the device is in the &#8216;Rich CSS&#8217; tier of mobile devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getIsTierTablet">
+<code class="descname">getIsTierTablet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getIsTierTablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the device is in the Tablet Tier.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.getUserAgent">
+<code class="descname">getUserAgent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.getUserAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lower case HTTP_USER_AGENT</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libs.device_data.device_data.UAgentInfo.initDeviceScan">
+<code class="descname">initDeviceScan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.initDeviceScan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize Key Stored Values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.linux">
+<code class="descname">linux</code><em class="property"> = 'linux'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.maemo">
+<code class="descname">maemo</code><em class="property"> = 'maemo'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.maemo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.manuHtc">
+<code class="descname">manuHtc</code><em class="property"> = 'htc'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.manuHtc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.manuSamsung1">
+<code class="descname">manuSamsung1</code><em class="property"> = 'sec-sgh'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.manuSamsung1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.manuSony">
+<code class="descname">manuSony</code><em class="property"> = 'sony'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.manuSony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.manuSonyEricsson">
+<code class="descname">manuSonyEricsson</code><em class="property"> = 'sonyericsson'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.manuSonyEricsson" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.manuericsson">
+<code class="descname">manuericsson</code><em class="property"> = 'ericsson'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.manuericsson" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.mini">
+<code class="descname">mini</code><em class="property"> = 'mini'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.mini" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.mobi">
+<code class="descname">mobi</code><em class="property"> = 'mobi'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.mobi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.mobile">
+<code class="descname">mobile</code><em class="property"> = 'mobile'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.mobile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.mylocom2">
+<code class="descname">mylocom2</code><em class="property"> = 'com2'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.mylocom2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.qtembedded">
+<code class="descname">qtembedded</code><em class="property"> = 'qt embedded'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.qtembedded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.smartTV1">
+<code class="descname">smartTV1</code><em class="property"> = 'smart-tv'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.smartTV1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.smartTV2">
+<code class="descname">smartTV2</code><em class="property"> = 'smarttv'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.smartTV2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.svcDocomo">
+<code class="descname">svcDocomo</code><em class="property"> = 'docomo'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.svcDocomo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.svcKddi">
+<code class="descname">svcKddi</code><em class="property"> = 'kddi'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.svcKddi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.svcVodafone">
+<code class="descname">svcVodafone</code><em class="property"> = 'vodafone'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.svcVodafone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.uplink">
+<code class="descname">uplink</code><em class="property"> = 'up.link'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.uplink" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.vndRIM">
+<code class="descname">vndRIM</code><em class="property"> = 'vnd.rim'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.vndRIM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.vndwap">
+<code class="descname">vndwap</code><em class="property"> = 'vnd.wap'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.vndwap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="libs.device_data.device_data.UAgentInfo.wml">
+<code class="descname">wml</code><em class="property"> = 'wml'</em><a class="headerlink" href="#libs.device_data.device_data.UAgentInfo.wml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="libs.device_data.device_data.get_device_data">
+<code class="descclassname">libs.device_data.device_data.</code><code class="descname">get_device_data</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#libs.device_data.device_data.get_device_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-libs.device_data">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs.device_data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">libs.device_data package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-libs.device_data.device_data">libs.device_data.device_data module</a></li>
+<li><a class="reference internal" href="#module-libs.device_data">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/core/libs.device_data.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Nirlendu Saha.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/core/libs.device_data.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

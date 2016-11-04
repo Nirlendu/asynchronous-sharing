@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>channel package &#8212; social-web 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="social-web 1.0 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="channel-package">
+<h1>channel package<a class="headerlink" href="#channel-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="channel.migrations.html">channel.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channel.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel.migrations.html#module-channel.migrations.0001_initial">channel.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel.migrations.html#module-channel.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-channel.admin">
+<span id="channel-admin-module"></span><h2>channel.admin module<a class="headerlink" href="#module-channel.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-channel.apps">
+<span id="channel-apps-module"></span><h2>channel.apps module<a class="headerlink" href="#module-channel.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="channel.apps.ChannelConfig">
+<em class="property">class </em><code class="descclassname">channel.apps.</code><code class="descname">ChannelConfig</code><span class="sig-paren">(</span><em>app_name</em>, <em>app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.apps.ChannelConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="channel.apps.ChannelConfig.name">
+<code class="descname">name</code><em class="property"> = u'channel'</em><a class="headerlink" href="#channel.apps.ChannelConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-channel.database">
+<span id="channel-database-module"></span><h2>channel.database module<a class="headerlink" href="#module-channel.database" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="channel.database.channel_expression_relation">
+<code class="descclassname">channel.database.</code><code class="descname">channel_expression_relation</code><span class="sig-paren">(</span><em>channels</em>, <em>expression_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.database.channel_expression_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="channel.database.channel_person_relation">
+<code class="descclassname">channel.database.</code><code class="descname">channel_person_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>person_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.database.channel_person_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="channel.database.new_channel">
+<code class="descclassname">channel.database.</code><code class="descname">new_channel</code><span class="sig-paren">(</span><em>channel_name</em>, <em>channel_unique_name</em>, <em>channel_weight</em>, <em>total_followers</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.database.new_channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-channel.models">
+<span id="channel-models-module"></span><h2>channel.models module<a class="headerlink" href="#module-channel.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="channel.models.ChannelChannelRelation">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelChannelRelation</code><span class="sig-paren">(</span><em>id</em>, <em>channel_id_one</em>, <em>channel_id_two</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelChannelRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="channel.models.ChannelChannelRelation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#channel.models.ChannelChannelRelation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="channel.models.ChannelChannelRelation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">ChannelChannelRelation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#channel.models.ChannelChannelRelation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelChannelRelation.channel_id_one">
+<code class="descclassname">ChannelChannelRelation.</code><code class="descname">channel_id_one</code><a class="headerlink" href="#channel.models.ChannelChannelRelation.channel_id_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelChannelRelation.channel_id_two">
+<code class="descclassname">ChannelChannelRelation.</code><code class="descname">channel_id_two</code><a class="headerlink" href="#channel.models.ChannelChannelRelation.channel_id_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelChannelRelation.id">
+<code class="descclassname">ChannelChannelRelation.</code><code class="descname">id</code><a class="headerlink" href="#channel.models.ChannelChannelRelation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelChannelRelation.object">
+<code class="descclassname">ChannelChannelRelation.</code><code class="descname">object</code><em class="property"> = &lt;channel.models.ChannelChannelRelationManager object&gt;</em><a class="headerlink" href="#channel.models.ChannelChannelRelation.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ChannelChannelRelationManager">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelChannelRelationManager</code><a class="headerlink" href="#channel.models.ChannelChannelRelationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="channel.models.ChannelChannelRelationManager.create_channel_channel_relation">
+<code class="descname">create_channel_channel_relation</code><span class="sig-paren">(</span><em>channel_id_one</em>, <em>channel_id_two</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelChannelRelationManager.create_channel_channel_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ChannelPersonRelation">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelPersonRelation</code><span class="sig-paren">(</span><em>id</em>, <em>channel_id</em>, <em>person_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPersonRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="channel.models.ChannelPersonRelation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#channel.models.ChannelPersonRelation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="channel.models.ChannelPersonRelation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">ChannelPersonRelation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#channel.models.ChannelPersonRelation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPersonRelation.channel_id">
+<code class="descclassname">ChannelPersonRelation.</code><code class="descname">channel_id</code><a class="headerlink" href="#channel.models.ChannelPersonRelation.channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPersonRelation.id">
+<code class="descclassname">ChannelPersonRelation.</code><code class="descname">id</code><a class="headerlink" href="#channel.models.ChannelPersonRelation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPersonRelation.object">
+<code class="descclassname">ChannelPersonRelation.</code><code class="descname">object</code><em class="property"> = &lt;channel.models.ChannelPersonRelationManager object&gt;</em><a class="headerlink" href="#channel.models.ChannelPersonRelation.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPersonRelation.person_id">
+<code class="descclassname">ChannelPersonRelation.</code><code class="descname">person_id</code><a class="headerlink" href="#channel.models.ChannelPersonRelation.person_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ChannelPersonRelationManager">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelPersonRelationManager</code><a class="headerlink" href="#channel.models.ChannelPersonRelationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="channel.models.ChannelPersonRelationManager.create_channel_person_relation">
+<code class="descname">create_channel_person_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>person_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPersonRelationManager.create_channel_person_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPersonRelationManager.delete_channel_person_relation">
+<code class="descname">delete_channel_person_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>person_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPersonRelationManager.delete_channel_person_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ChannelPrimary">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelPrimary</code><span class="sig-paren">(</span><em>id</em>, <em>channel_name</em>, <em>channel_unique_name</em>, <em>total_followers</em>, <em>channel_weight</em>, <em>channel_created</em>, <em>channel_updated</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="channel.models.ChannelPrimary.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#channel.models.ChannelPrimary.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="channel.models.ChannelPrimary.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">ChannelPrimary.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#channel.models.ChannelPrimary.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.channel_created">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">channel_created</code><a class="headerlink" href="#channel.models.ChannelPrimary.channel_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.channel_name">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">channel_name</code><a class="headerlink" href="#channel.models.ChannelPrimary.channel_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.channel_unique_name">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">channel_unique_name</code><a class="headerlink" href="#channel.models.ChannelPrimary.channel_unique_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.channel_updated">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">channel_updated</code><a class="headerlink" href="#channel.models.ChannelPrimary.channel_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.channel_weight">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">channel_weight</code><a class="headerlink" href="#channel.models.ChannelPrimary.channel_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimary.get_next_by_channel_created">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">get_next_by_channel_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimary.get_next_by_channel_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimary.get_next_by_channel_updated">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">get_next_by_channel_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimary.get_next_by_channel_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimary.get_previous_by_channel_created">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">get_previous_by_channel_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimary.get_previous_by_channel_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimary.get_previous_by_channel_updated">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">get_previous_by_channel_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimary.get_previous_by_channel_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.id">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">id</code><a class="headerlink" href="#channel.models.ChannelPrimary.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.object">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">object</code><em class="property"> = &lt;channel.models.ChannelPrimaryManager object&gt;</em><a class="headerlink" href="#channel.models.ChannelPrimary.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ChannelPrimary.total_followers">
+<code class="descclassname">ChannelPrimary.</code><code class="descname">total_followers</code><a class="headerlink" href="#channel.models.ChannelPrimary.total_followers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ChannelPrimaryManager">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ChannelPrimaryManager</code><a class="headerlink" href="#channel.models.ChannelPrimaryManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="channel.models.ChannelPrimaryManager.create_channel">
+<code class="descname">create_channel</code><span class="sig-paren">(</span><em>channel_name</em>, <em>channel_unique_name</em>, <em>total_followers</em>, <em>channel_weight</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimaryManager.create_channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimaryManager.get_channel">
+<code class="descname">get_channel</code><span class="sig-paren">(</span><em>channel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimaryManager.get_channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="channel.models.ChannelPrimaryManager.update_channel">
+<code class="descname">update_channel</code><span class="sig-paren">(</span><em>channel_name</em>, <em>total_followers</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ChannelPrimaryManager.update_channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ExpressionChannelRelation">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ExpressionChannelRelation</code><span class="sig-paren">(</span><em>id</em>, <em>channel_id</em>, <em>expression_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ExpressionChannelRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="channel.models.ExpressionChannelRelation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#channel.models.ExpressionChannelRelation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="channel.models.ExpressionChannelRelation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">ExpressionChannelRelation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#channel.models.ExpressionChannelRelation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ExpressionChannelRelation.channel_id">
+<code class="descclassname">ExpressionChannelRelation.</code><code class="descname">channel_id</code><a class="headerlink" href="#channel.models.ExpressionChannelRelation.channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ExpressionChannelRelation.expression_id">
+<code class="descclassname">ExpressionChannelRelation.</code><code class="descname">expression_id</code><a class="headerlink" href="#channel.models.ExpressionChannelRelation.expression_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ExpressionChannelRelation.id">
+<code class="descclassname">ExpressionChannelRelation.</code><code class="descname">id</code><a class="headerlink" href="#channel.models.ExpressionChannelRelation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.ExpressionChannelRelation.object">
+<code class="descclassname">ExpressionChannelRelation.</code><code class="descname">object</code><em class="property"> = &lt;channel.models.ExpressionChannelRelationManager object&gt;</em><a class="headerlink" href="#channel.models.ExpressionChannelRelation.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.ExpressionChannelRelationManager">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">ExpressionChannelRelationManager</code><a class="headerlink" href="#channel.models.ExpressionChannelRelationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="channel.models.ExpressionChannelRelationManager.create_expression_channel_relation">
+<code class="descname">create_expression_channel_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>expression_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.ExpressionChannelRelationManager.create_expression_channel_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.UrlChannelRelation">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">UrlChannelRelation</code><span class="sig-paren">(</span><em>id</em>, <em>channel_id</em>, <em>url_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.UrlChannelRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="channel.models.UrlChannelRelation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#channel.models.UrlChannelRelation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="channel.models.UrlChannelRelation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">UrlChannelRelation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#channel.models.UrlChannelRelation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.UrlChannelRelation.channel_id">
+<code class="descclassname">UrlChannelRelation.</code><code class="descname">channel_id</code><a class="headerlink" href="#channel.models.UrlChannelRelation.channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.UrlChannelRelation.id">
+<code class="descclassname">UrlChannelRelation.</code><code class="descname">id</code><a class="headerlink" href="#channel.models.UrlChannelRelation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.UrlChannelRelation.object">
+<code class="descclassname">UrlChannelRelation.</code><code class="descname">object</code><em class="property"> = &lt;channel.models.UrlChannelRelationManager object&gt;</em><a class="headerlink" href="#channel.models.UrlChannelRelation.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="channel.models.UrlChannelRelation.url_id">
+<code class="descclassname">UrlChannelRelation.</code><code class="descname">url_id</code><a class="headerlink" href="#channel.models.UrlChannelRelation.url_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="channel.models.UrlChannelRelationManager">
+<em class="property">class </em><code class="descclassname">channel.models.</code><code class="descname">UrlChannelRelationManager</code><a class="headerlink" href="#channel.models.UrlChannelRelationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="channel.models.UrlChannelRelationManager.create_url_channel_relation">
+<code class="descname">create_url_channel_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>url_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.models.UrlChannelRelationManager.create_url_channel_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-channel.tests">
+<span id="channel-tests-module"></span><h2>channel.tests module<a class="headerlink" href="#module-channel.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-channel.views">
+<span id="channel-views-module"></span><h2>channel.views module<a class="headerlink" href="#module-channel.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="channel.views.channel_person_relation">
+<code class="descclassname">channel.views.</code><code class="descname">channel_person_relation</code><span class="sig-paren">(</span><em>channel_id</em>, <em>person_id</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.views.channel_person_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="channel.views.new_channel">
+<code class="descclassname">channel.views.</code><code class="descname">new_channel</code><span class="sig-paren">(</span><em>channel_name</em>, <em>channel_unique_name</em><span class="sig-paren">)</span><a class="headerlink" href="#channel.views.new_channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-channel">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-channel" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">channel package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-channel.admin">channel.admin module</a></li>
+<li><a class="reference internal" href="#module-channel.apps">channel.apps module</a></li>
+<li><a class="reference internal" href="#module-channel.database">channel.database module</a></li>
+<li><a class="reference internal" href="#module-channel.models">channel.models module</a></li>
+<li><a class="reference internal" href="#module-channel.tests">channel.tests module</a></li>
+<li><a class="reference internal" href="#module-channel.views">channel.views module</a></li>
+<li><a class="reference internal" href="#module-channel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/core/channel.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Nirlendu Saha.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/core/channel.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

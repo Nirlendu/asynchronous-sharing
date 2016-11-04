@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>people package &#8212; social-web 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="social-web 1.0 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="people-package">
+<h1>people package<a class="headerlink" href="#people-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="people.migrations.html">people.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="people.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="people.migrations.html#module-people.migrations.0001_initial">people.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="people.migrations.html#module-people.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-people.admin">
+<span id="people-admin-module"></span><h2>people.admin module<a class="headerlink" href="#module-people.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-people.apps">
+<span id="people-apps-module"></span><h2>people.apps module<a class="headerlink" href="#module-people.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="people.apps.PeopleConfig">
+<em class="property">class </em><code class="descclassname">people.apps.</code><code class="descname">PeopleConfig</code><span class="sig-paren">(</span><em>app_name</em>, <em>app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#people.apps.PeopleConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="people.apps.PeopleConfig.name">
+<code class="descname">name</code><em class="property"> = u'people'</em><a class="headerlink" href="#people.apps.PeopleConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-people.database">
+<span id="people-database-module"></span><h2>people.database module<a class="headerlink" href="#module-people.database" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="people.database.new_person">
+<code class="descclassname">people.database.</code><code class="descname">new_person</code><span class="sig-paren">(</span><em>user_name</em>, <em>person_name</em>, <em>total_followers</em>, <em>person_weight</em><span class="sig-paren">)</span><a class="headerlink" href="#people.database.new_person" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-people.models">
+<span id="people-models-module"></span><h2>people.models module<a class="headerlink" href="#module-people.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="people.models.PersonPersonRelation">
+<em class="property">class </em><code class="descclassname">people.models.</code><code class="descname">PersonPersonRelation</code><span class="sig-paren">(</span><em>id</em>, <em>person_follower_id</em>, <em>person_followee_id</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPersonRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="people.models.PersonPersonRelation.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#people.models.PersonPersonRelation.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="people.models.PersonPersonRelation.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">PersonPersonRelation.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#people.models.PersonPersonRelation.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPersonRelation.id">
+<code class="descclassname">PersonPersonRelation.</code><code class="descname">id</code><a class="headerlink" href="#people.models.PersonPersonRelation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPersonRelation.object">
+<code class="descclassname">PersonPersonRelation.</code><code class="descname">object</code><em class="property"> = &lt;people.models.PersonPersonRelationManager object&gt;</em><a class="headerlink" href="#people.models.PersonPersonRelation.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPersonRelation.person_followee_id">
+<code class="descclassname">PersonPersonRelation.</code><code class="descname">person_followee_id</code><a class="headerlink" href="#people.models.PersonPersonRelation.person_followee_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPersonRelation.person_follower_id">
+<code class="descclassname">PersonPersonRelation.</code><code class="descname">person_follower_id</code><a class="headerlink" href="#people.models.PersonPersonRelation.person_follower_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="people.models.PersonPersonRelationManager">
+<em class="property">class </em><code class="descclassname">people.models.</code><code class="descname">PersonPersonRelationManager</code><a class="headerlink" href="#people.models.PersonPersonRelationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="people.models.PersonPersonRelationManager.create_person_person_relation">
+<code class="descname">create_person_person_relation</code><span class="sig-paren">(</span><em>person_follower_id</em>, <em>person_followee_id</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPersonRelationManager.create_person_person_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="people.models.PersonPrimary">
+<em class="property">class </em><code class="descclassname">people.models.</code><code class="descname">PersonPrimary</code><span class="sig-paren">(</span><em>id</em>, <em>user_name</em>, <em>person_name</em>, <em>total_followers</em>, <em>person_weight</em>, <em>person_created</em>, <em>person_updated</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="people.models.PersonPrimary.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#people.models.PersonPrimary.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="people.models.PersonPrimary.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descclassname">PersonPrimary.</code><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#people.models.PersonPrimary.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="people.models.PersonPrimary.get_next_by_person_created">
+<code class="descclassname">PersonPrimary.</code><code class="descname">get_next_by_person_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimary.get_next_by_person_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="people.models.PersonPrimary.get_next_by_person_updated">
+<code class="descclassname">PersonPrimary.</code><code class="descname">get_next_by_person_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimary.get_next_by_person_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="people.models.PersonPrimary.get_previous_by_person_created">
+<code class="descclassname">PersonPrimary.</code><code class="descname">get_previous_by_person_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimary.get_previous_by_person_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="people.models.PersonPrimary.get_previous_by_person_updated">
+<code class="descclassname">PersonPrimary.</code><code class="descname">get_previous_by_person_updated</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimary.get_previous_by_person_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.id">
+<code class="descclassname">PersonPrimary.</code><code class="descname">id</code><a class="headerlink" href="#people.models.PersonPrimary.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.object">
+<code class="descclassname">PersonPrimary.</code><code class="descname">object</code><em class="property"> = &lt;people.models.PersonPrimaryManager object&gt;</em><a class="headerlink" href="#people.models.PersonPrimary.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.person_created">
+<code class="descclassname">PersonPrimary.</code><code class="descname">person_created</code><a class="headerlink" href="#people.models.PersonPrimary.person_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.person_name">
+<code class="descclassname">PersonPrimary.</code><code class="descname">person_name</code><a class="headerlink" href="#people.models.PersonPrimary.person_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.person_updated">
+<code class="descclassname">PersonPrimary.</code><code class="descname">person_updated</code><a class="headerlink" href="#people.models.PersonPrimary.person_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.person_weight">
+<code class="descclassname">PersonPrimary.</code><code class="descname">person_weight</code><a class="headerlink" href="#people.models.PersonPrimary.person_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.total_followers">
+<code class="descclassname">PersonPrimary.</code><code class="descname">total_followers</code><a class="headerlink" href="#people.models.PersonPrimary.total_followers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="people.models.PersonPrimary.user_name">
+<code class="descclassname">PersonPrimary.</code><code class="descname">user_name</code><a class="headerlink" href="#people.models.PersonPrimary.user_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="people.models.PersonPrimaryManager">
+<em class="property">class </em><code class="descclassname">people.models.</code><code class="descname">PersonPrimaryManager</code><a class="headerlink" href="#people.models.PersonPrimaryManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="people.models.PersonPrimaryManager.create_person">
+<code class="descname">create_person</code><span class="sig-paren">(</span><em>user_name</em>, <em>person_name</em>, <em>total_followers=0</em>, <em>person_weight=0</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimaryManager.create_person" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="people.models.PersonPrimaryManager.update_person">
+<code class="descname">update_person</code><span class="sig-paren">(</span><em>person_name</em>, <em>total_followers</em>, <em>person_weight</em><span class="sig-paren">)</span><a class="headerlink" href="#people.models.PersonPrimaryManager.update_person" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-people.tests">
+<span id="people-tests-module"></span><h2>people.tests module<a class="headerlink" href="#module-people.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-people.views">
+<span id="people-views-module"></span><h2>people.views module<a class="headerlink" href="#module-people.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="people.views.new_person">
+<code class="descclassname">people.views.</code><code class="descname">new_person</code><span class="sig-paren">(</span><em>user_name</em>, <em>person_name</em><span class="sig-paren">)</span><a class="headerlink" href="#people.views.new_person" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-people">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-people" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">people package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-people.admin">people.admin module</a></li>
+<li><a class="reference internal" href="#module-people.apps">people.apps module</a></li>
+<li><a class="reference internal" href="#module-people.database">people.database module</a></li>
+<li><a class="reference internal" href="#module-people.models">people.models module</a></li>
+<li><a class="reference internal" href="#module-people.tests">people.tests module</a></li>
+<li><a class="reference internal" href="#module-people.views">people.views module</a></li>
+<li><a class="reference internal" href="#module-people">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/core/people.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Nirlendu Saha.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/core/people.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
