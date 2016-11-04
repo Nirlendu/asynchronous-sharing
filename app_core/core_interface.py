@@ -7,18 +7,21 @@
 # author - nirlendu@gmail.com
 #
 #############
+"""
+    This module contains functions that are for core interface.
 
-import inspect
-import sys
-import urllib
-import uuid
+    :Copyright: (c) 2016 by Nirlendu Saha
+"""
 
-import os
+import urllib, uuid, os
+
+
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 
 import core_logic as core
+
 from libs.image_processor import compressimages
 from libs.logger import app_logger as log
 
@@ -33,9 +36,17 @@ def new_person(
         person_person_followee_list=[],
         person_expression_list=[],
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New person
+
+    :param user_name:
+    :param person_name:
+    :param total_followers:
+    :param person_weight:
+    :param person_channel_followee_list:
+    :param person_person_followee_list:
+    :param person_expression_list:
+    :return:
+    """
     log.debug('new person interface..')
 
     return core.new_person_logic(
@@ -56,9 +67,15 @@ def new_channel(
     total_followers=0,
     channel_expression_list=[],
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New channel
+
+    :param channel_name:
+    :param channel_unique_name:
+    :param channel_weight:
+    :param total_followers:
+    :param channel_expression_list:
+    :return:
+    """
     log.debug('New Channel interface..')
 
     return core.new_channel_logic(
@@ -73,9 +90,12 @@ def channel_person_relation(
         channel_id,
         person_id,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel Person Relation
+
+    :param channel_id:
+    :param person_id:
+    :return:
+    """
     log.debug('Channel Person Relation interface..')
 
     return core.channel_person_relation_logic(
@@ -86,9 +106,11 @@ def channel_person_relation(
 def get_expressions(
             person_id,
         ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get expressions
+
+    :param person_id:
+    :return:
+    """
     log.debug('Fetching expressions interface..')
 
     return core.get_expressions_logic(
@@ -109,9 +131,21 @@ def new_expression(
         total_discussions=0,
         channels=[],
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New expression creation
+
+    :param expression_owner_id:
+    :param expression_content:
+    :param expression_content_url:
+    :param expression_imagefile:
+    :param expression_weight:
+    :param broadcast_parent_id:
+    :param total_upvotes:
+    :param total_collects:
+    :param total_broadcasts:
+    :param total_discussions:
+    :param channels:
+    :return:
+    """
     log.debug('New Expression Interface')
 
     # TODO
@@ -142,10 +176,15 @@ def store_url_interface(
     # TODO
     # Some checks on the url
     # Some data about the url
+    """New URL
 
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    :param url:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :param url_weight:
+    :return:
+    """
     log.debug('New URL INSERT')
 
     return core.store_url_logic(
@@ -158,9 +197,11 @@ def store_url_interface(
 
 
 def find_url_id(url):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Find URL ID
+
+    :param url:
+    :return:
+    """
     log.debug('Find URL')
 
     return core.find_url_id_logic(url=url)

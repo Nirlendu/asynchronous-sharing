@@ -14,8 +14,7 @@
     :Copyright: (c) 2016 by Nirlendu Saha
 """
 
-import inspect
-import sys, os, re
+import os, re
 
 from django.conf import settings
 from django.db import transaction
@@ -37,7 +36,7 @@ def get_expressions_channel_database(
             ):
     """Get a list of expressions related to channel
 
-    :param person_id
+    :param person_id:
     :return: list
     """
     log.debug('Get Expression Channel Core Database')
@@ -53,7 +52,7 @@ def get_expression_people_database(
             ):
     """Get a list of expressions related to person
 
-    :param person_id
+    :param person_id:
     :return: list
     """
 
@@ -76,13 +75,13 @@ def new_person_database(
     ):
     """New person registration - core database
 
-    :param user_name
-    :param person_name
-    :param total_followers
-    :param person_weight
-    :param person_channel_followee_list
-    :param person_person_followee_list
-    :param person_expression_list
+    :param user_name:
+    :param person_name:
+    :param total_followers:
+    :param person_weight:
+    :param person_channel_followee_list:
+    :param person_person_followee_list:
+    :param person_expression_list:
     :return: person_id
     """
 
@@ -126,11 +125,11 @@ def new_channel_database(
 ):
     """New channel creation
 
-    :param channel_name
-    :param channel_unique_name
-    :param channel_weight
-    :param total_followers
-    :param channel_expression_list
+    :param channel_name:
+    :param channel_unique_name:
+    :param channel_weight:
+    :param total_followers:
+    :param channel_expression_list:
     :return: channel_id
     """
 
@@ -169,8 +168,8 @@ def channel_person_relation_database(
 ):
     """New channel person relationship
 
-    :param channel_id
-    :param person_id
+    :param channel_id:
+    :param person_id:
     :return: channel_person_id
     """
     log.debug('New Channel Core Database')
@@ -201,7 +200,7 @@ def get_expression_json(
         ):
     """Get expression json from a list of expression ids
 
-    :param expression_list
+    :param expression_list:
     :return: expression_json
     """
     log.debug('Get Expression JSON Core Database')
@@ -291,17 +290,17 @@ def new_expression_database(
 ):
     """New expression creation
 
-    :param expression_owner_id
-    :param expression_content
-    :param expression_content_url
-    :param expression_imagefile
-    :param expression_weight
-    :param broadcast_parent_id
-    :param total_upvotes
-    :param total_collects
-    :param total_broadcasts
-    :param total_discussions
-    :param channels
+    :param expression_owner_id:
+    :param expression_content:
+    :param expression_content_url:
+    :param expression_imagefile:
+    :param expression_weight:
+    :param broadcast_parent_id:
+    :param total_upvotes:
+    :param total_collects:
+    :param total_broadcasts:
+    :param total_discussions:
+    :param channels:
     :return: expression id
     """
     log.debug('New Expression Core Database')
@@ -366,7 +365,7 @@ def new_expression_database(
 def find_url_id_database(url):
     """Find URL ID
 
-    :param url
+    :param url:
     :return: url_id
     """
     log.debug('Find URL database')
@@ -385,11 +384,11 @@ def store_url_database(
 ):
     """New URL
 
-    :param url
-    :param url_title
-    :param url_desc
-    :param url_imagefile
-    :param url_weight
+    :param url:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :param url_weight:
     :return: url_id
     """
     log.debug('New URL insert database')

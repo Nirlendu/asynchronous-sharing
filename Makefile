@@ -1,6 +1,9 @@
 init-env:
 	virtualenv venv --system-site-packages
 
+doc:
+	open docs/_build/html/index.html
+
 git-clean:
 	git add .
 	git commit -m "saving changes before clean-up"

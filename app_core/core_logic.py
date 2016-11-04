@@ -7,9 +7,13 @@
 # author - nirlendu@gmail.com
 #
 #############
+"""
+    This module contains functions that are for core logic.
 
-import inspect
-import sys, random
+    :Copyright: (c) 2016 by Nirlendu Saha
+"""
+
+import random
 
 import core_database as core
 
@@ -26,9 +30,17 @@ def new_person_logic(
         person_person_followee_list,
         person_expression_list,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Person registration logic
+
+    :param user_name:
+    :param person_name:
+    :param total_followers:
+    :param person_weight:
+    :param person_channel_followee_list:
+    :param person_person_followee_list:
+    :param person_expression_list:
+    :return:
+    """
     log.debug('New Person Logic')
 
     return core.new_person_database(
@@ -49,9 +61,15 @@ def new_channel_logic(
     total_followers,
     channel_expression_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel creation logic
+
+    :param channel_name:
+    :param channel_unique_name:
+    :param channel_weight:
+    :param total_followers:
+    :param channel_expression_list:
+    :return:
+    """
     log.debug('New Channel Logic')
 
     return core.new_channel_database(
@@ -67,9 +85,12 @@ def channel_person_relation_logic(
     channel_id,
     person_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel Person Relation logic
+
+    :param channel_id:
+    :param person_id:
+    :return:
+    """
     log.debug('Channel Person Relation Logic')
 
     return core.channel_person_relation_database(
@@ -81,9 +102,11 @@ def channel_person_relation_logic(
 def get_expressions_logic(
                 person_id,
             ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get expressions logic
+
+    :param person_id:
+    :return:
+    """
     log.debug('Get Expressions Logic')
 
     channel_expression_list = core.get_expressions_channel_database(
@@ -112,9 +135,11 @@ def get_expressions_logic(
 def create_expression_list(
     expression_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Create new list of expressions
+
+    :param expression_list:
+    :return:
+    """
     log.debug('creating expression list Logic')
 
     # HAVE TO RANK
@@ -126,9 +151,11 @@ def create_expression_list(
 def send_json_as_response(
     expression_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Expressions as JSON
+
+    :param expression_list:
+    :return:
+    """
     log.debug('Sending JSON Response Logic')
 
     return core.get_expression_json(
@@ -152,9 +179,21 @@ def new_expression_logic(
     # 1TODO
     # 1) Do some logic checks in the data
     # 2) Check if all the topics are present in DB
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New expression creation
+
+    :param expression_owner_id:
+    :param expression_content:
+    :param expression_content_url:
+    :param expression_imagefile:
+    :param expression_weight:
+    :param broadcast_parent_id:
+    :param total_upvotes:
+    :param total_collects:
+    :param total_broadcasts:
+    :param total_discussions:
+    :param channels:
+    :return:
+    """
     log.debug('New Expression Logic')
 
     core.new_expression_database(
@@ -174,9 +213,11 @@ def new_expression_logic(
 
 
 def find_url_id_logic(url):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Find URL ID
+
+    :param url:
+    :return:
+    """
     log.debug('Find URL logic')
 
     return core.find_url_id_database(url=url)
@@ -189,9 +230,15 @@ def store_url_logic(
         url_imagefile,
         url_weight,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New URL insert logic
+
+    :param url:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :param url_weight:
+    :return:
+    """
     log.debug('New URL insert logic')
 
     return core.store_url_database(
