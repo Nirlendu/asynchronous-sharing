@@ -11,7 +11,7 @@
 """
     This module contains functions that are for core database.
 
-    :copyright: (c) 2016 by Nirlendu Saha
+    :Copyright: (c) 2016 by Nirlendu Saha
 """
 
 import inspect
@@ -35,14 +35,11 @@ from discover import database as discover
 def get_expressions_channel_database(
                 person_id,
             ):
-    """Get a list of expressions related to channel - core database
+    """Get a list of expressions related to channel
 
     :param person_id
     :return: list
     """
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('Get Expression Channel Core Database')
 
     return interface.get_channel_person_list(
@@ -54,14 +51,12 @@ def get_expressions_channel_database(
 def get_expression_people_database(
                 person_id,
             ):
-    """Get a list of expressions related to person - core database
+    """Get a list of expressions related to person
 
-    :param person_id:
+    :param person_id
     :return: list
     """
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+
     log.debug('Get Expression Channel Core Database')
 
     return interface.get_person_person_list(
@@ -90,11 +85,9 @@ def new_person_database(
     :param person_expression_list
     :return: person_id
     """
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
     log.debug('New Person Core Database')
+
     person_primary_id = people.new_person(
                             user_name=user_name,
                             person_name=person_name,
@@ -131,20 +124,18 @@ def new_channel_database(
     total_followers,
     channel_expression_list,
 ):
-    """New channel creation - core database
+    """New channel creation
 
-    :param channel_name:
-    :param channel_unique_name:
-    :param channel_weight:
-    :param total_followers:
-    :param channel_expression_list:
-    :return:
+    :param channel_name
+    :param channel_unique_name
+    :param channel_weight
+    :param total_followers
+    :param channel_expression_list
+    :return: channel_id
     """
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
 
     log.debug('New Channel Core Database')
+
     channel_primary_id = channel.new_channel(
                             channel_name=channel_name,
                             channel_unique_name=channel_unique_name,
@@ -176,9 +167,13 @@ def channel_person_relation_database(
     channel_id,
     person_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New channel person relationship
+
+    :param channel_id
+    :param person_id
+    :return: channel_person_id
+    """
+    log.debug('New Channel Core Database')
 
     channel_person_primary_id = channel.channel_person_relation(
                             channel_id=channel_id,
@@ -204,9 +199,11 @@ def channel_person_relation_database(
 def get_expression_json(
             expression_list,
         ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get expression json from a list of expression ids
+
+    :param expression_list
+    :return: expression_json
+    """
     log.debug('Get Expression JSON Core Database')
 
     expression_content_list = []
@@ -292,11 +289,23 @@ def new_expression_database(
         total_discussions,
         channels,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New expression creation
 
+    :param expression_owner_id
+    :param expression_content
+    :param expression_content_url
+    :param expression_imagefile
+    :param expression_weight
+    :param broadcast_parent_id
+    :param total_upvotes
+    :param total_collects
+    :param total_broadcasts
+    :param total_discussions
+    :param channels
+    :return: expression id
+    """
     log.debug('New Expression Core Database')
+
     expression_primary_id = express.new_expresssion(
         expression_owner_id=expression_owner_id,
         expression_content=expression_content,
@@ -353,13 +362,17 @@ def new_expression_database(
     return expression_primary_id
 
 
+
 def find_url_id_database(url):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Find URL ID
+
+    :param url
+    :return: url_id
+    """
     log.debug('Find URL database')
 
     return web.find_url_id(url=url)
+
 
 
 @transaction.atomic
@@ -370,9 +383,15 @@ def store_url_database(
         url_imagefile,
         url_weight,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New URL
+
+    :param url
+    :param url_title
+    :param url_desc
+    :param url_imagefile
+    :param url_weight
+    :return: url_id
+    """
     log.debug('New URL insert database')
 
     url_primary_id = web.store_url(
