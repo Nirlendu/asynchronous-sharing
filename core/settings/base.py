@@ -17,6 +17,7 @@ SECRET_KEY = 'f23u9)dk)c$61q(hi65^^^&8y9cv4#hwkx5r+2*!9qrw-g(8r+'
 
 # Application definition settings
 INSTALLED_APPS_SETTINGS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,6 +25,8 @@ INSTALLED_APPS_SETTINGS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SITE_ID = 1
 
 # Application definition dependencies
 INSTALLED_APPS_DEPENDECIES = [
