@@ -30,10 +30,6 @@ class PersonPrimaryManager(models.Manager):
             total_followers=0,
             person_weight=0,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Person Create operation')
         person = self.create(
             user_name=user_name,
@@ -49,10 +45,6 @@ class PersonPrimaryManager(models.Manager):
             total_followers,
             person_weight,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Person Update operation')
         person = self.update(
             user_name=user_name,
@@ -102,10 +94,6 @@ class PersonPersonRelationManager(models.Manager):
             person_follower_id,
             person_followee_id
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Person Person Relation create operation')
         person_relation = self.create(
             person_follower_id=person_follower_id,

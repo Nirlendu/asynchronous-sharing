@@ -1,6 +1,3 @@
-init-env:
-	virtualenv venv --system-site-packages
-
 doc:
 	open docs/_build/html/index.html
 

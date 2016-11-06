@@ -25,11 +25,6 @@ class UrlManager(models.Manager):
             url_imagefile=None,
             url_weight=0,
     ):
-
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('URL create operation')
         url = Url.objects.create(
                 url=url,

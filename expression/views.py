@@ -28,10 +28,14 @@ def new_expression(
         expression_imagefile,
         channels,
     ):
+    """New Expression Primary views
 
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    :param expression_owner_id:
+    :param expression_text:
+    :param expression_imagefile:
+    :param channels:
+    :return:
+    """
     log.info('New Expression expression views')
 
     url = get_url(expression_text)

@@ -31,10 +31,6 @@ class ChannelPrimaryManager(models.Manager):
             total_followers,
             channel_weight
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel create operation')
         channel = self.create(
             channel_name=channel_name,
@@ -49,10 +45,6 @@ class ChannelPrimaryManager(models.Manager):
             channel_name,
             total_followers
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel update operation')
         channel = self.update_or_create(
             channel_name=channel_name,
@@ -65,10 +57,6 @@ class ChannelPrimaryManager(models.Manager):
             self,
             channel_id,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel get operation')
         channel = self.get(
             id=channel_id,
@@ -116,10 +104,6 @@ class ChannelChannelRelationManager(models.Manager):
             channel_id_one,
             channel_id_two,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel Channel Relation create operation')
 
         channel_relation = self.create(
@@ -158,10 +142,6 @@ class ChannelPersonRelationManager(models.Manager):
             channel_id,
             person_id,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel Person Relation create operation')
         channel_relation = self.create(
             channel_id=channel_id,
@@ -175,10 +155,6 @@ class ChannelPersonRelationManager(models.Manager):
             channel_id,
             person_id,
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Channel Person Relation delete operation')
         self.objects.get(
             channel_id=channel_id,
@@ -217,10 +193,6 @@ class ExpressionChannelRelationManager(models.Manager):
             channel_id,
             expression_id
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Expression Channel Relation create operation')
         expression_channel_relation = self.create(
             channel_id=channel_id,
@@ -259,10 +231,6 @@ class UrlChannelRelationManager(models.Manager):
             channel_id,
             url_id
         ):
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Expression Channel Relation create operation')
         url_channel_relation = self.create(
             channel_id=channel_id,

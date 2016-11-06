@@ -18,9 +18,11 @@ from libs.logger import app_logger as log
 def find_url_id(
         url,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Find URL ID Primary database
+
+    :param url:
+    :return:
+    """
 
     try:
         log.debug('Finding URL')
@@ -40,9 +42,15 @@ def store_url(
         url_imagefile,
         url_weight,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New URL Primary insert database
+
+    :param url:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :param url_weight:
+    :return:
+    """
     log.debug('New URL INSERT CORE')
 
     return Url.objects.store_url(

@@ -21,9 +21,14 @@ def new_person(
         total_followers,
         person_weight,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Person Primary database
+
+    :param user_name:
+    :param person_name:
+    :param total_followers:
+    :param person_weight:
+    :return:
+    """
     log.info('New person primary DB')
 
     return PersonPrimary.object.create_person(

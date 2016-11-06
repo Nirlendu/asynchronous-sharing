@@ -17,10 +17,12 @@ def new_person(
         user_name,
         person_name,
     ):
+    """New Person Primary views
 
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    :param user_name:
+    :param person_name:
+    :return:
+    """
     log.debug('New Person INSERT')
 
     return core.new_person(

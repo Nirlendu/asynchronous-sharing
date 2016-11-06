@@ -20,13 +20,17 @@ def store_url(
         url_desc,
         url_imagefile,
 ):
+    """New URL Primary views
+
+    :param url:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :return:
+    """
     # TODO
     # Some checks on the url
     # Some data about the url
-
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.debug('New URL INSERT')
 
     return core.store_url_interface(

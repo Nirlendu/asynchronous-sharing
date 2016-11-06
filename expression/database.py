@@ -27,9 +27,20 @@ def new_expresssion(
         total_broadcasts,
         total_discussions,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Expression Primary Database
+
+    :param expression_owner_id:
+    :param expression_content:
+    :param expression_content_url:
+    :param expression_imagefile:
+    :param broadcast_parent_id:
+    :param expression_weight:
+    :param total_upvotes:
+    :param total_collects:
+    :param total_broadcasts:
+    :param total_discussions:
+    :return:
+    """
     log.debug('New Expression Primary creating')
 
     expression_primary_id = ExpressionPrimary.objects.create_expression(

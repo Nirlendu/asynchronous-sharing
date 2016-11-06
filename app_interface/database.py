@@ -7,9 +7,12 @@
 # author - nirlendu@gmail.com
 #
 #############
+""" This module contains functions that are for interface database.
 
-import inspect
-import sys, os, uuid
+    :Copyright: (c) 2016 by Nirlendu Saha
+"""
+
+import os, uuid
 
 from libs.logger import app_logger as log
 
@@ -33,11 +36,28 @@ def new_expression(
         expression_discussion_list,
         expression_collection_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Expression create interface database
 
+    :param expression_primary_id:
+    :param expression_owner_id:
+    :param expression_content:
+    :param expression_content_url:
+    :param expression_imagefile:
+    :param expression_weight:
+    :param broadcast_parent_id:
+    :param expression_channel:
+    :param total_upvotes:
+    :param total_broadcasts:
+    :param total_discussions:
+    :param total_collects:
+    :param expression_upvote_list:
+    :param expression_broadcast_list:
+    :param expression_discussion_list:
+    :param expression_collection_list:
+    :return:
+    """
     log.debug('New expression secondary creating')
+
     expression_secondary = ExpressionSecondary.objects.create(
                                 expression_secondary_id = str(uuid.uuid4()).replace('-','')[:16],
                                 expression_primary_id=expression_primary_id,
@@ -68,11 +88,18 @@ def new_channel(
     total_followers,
     channel_expression_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel create interface database
 
+    :param channel_primary_id:
+    :param channel_name:
+    :param channel_unique_name:
+    :param channel_weight:
+    :param total_followers:
+    :param channel_expression_list:
+    :return:
+    """
     log.debug('New channel secondary creating')
+
     channel_secondary = ChannelSecondary.objects.create(
                                         channel_secondary_id = str(uuid.uuid4()).replace('-','')[:8],
                                         channel_primary_id=channel_primary_id,
@@ -89,11 +116,14 @@ def channel_person_relation(
             channel_id,
             person_id,
         ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel Person Relation Database
 
+    :param channel_id:
+    :param person_id:
+    :return:
+    """
     log.debug('New channel person secondary creating')
+
     person_secondary = PersonSecondary.objects.get(person_primary_id=person_id)
     if channel_id in person_secondary.person_channel_followee_list:
         person_secondary.person_channel_followee_list.remove(channel_unique_name)
@@ -120,11 +150,18 @@ def store_url(
         url_imagefile,
         url_weight,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New URL insert interface database
 
+    :param url:
+    :param url_primary_id:
+    :param url_title:
+    :param url_desc:
+    :param url_imagefile:
+    :param url_weight:
+    :return:
+    """
     log.debug('New url secondary creating')
+
     url_secondary = UrlSecondary.objects.create(
                                     url_secondary_id = str(uuid.uuid4()).replace('-','')[:16],
                                     url_primary_id=url_primary_id,
@@ -147,11 +184,20 @@ def new_person(
         person_person_followee_list,
         person_expression_list,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Person register interface database
 
+    :param person_primary_id:
+    :param user_name:
+    :param person_name:
+    :param total_followers:
+    :param person_weight:
+    :param person_channel_followee_list:
+    :param person_person_followee_list:
+    :param person_expression_list:
+    :return:
+    """
     log.debug('New person secondary creating')
+
     person_secondary = PersonSecondary.objects.create(
                                     person_secondary_id = str(uuid.uuid4()).replace('-','')[:12],
                                     user_name=user_name,
@@ -170,11 +216,14 @@ def get_channel_list(
         channels,
         expression_id,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get channel list interface database
 
+    :param channels:
+    :param expression_id:
+    :return:
+    """
     log.debug('Getting channel id list')
+
     channel_id_list = []
     for channel in channels:
         channel_secondary = ChannelSecondary.objects.get(channel_unique_name=channel)
@@ -190,9 +239,12 @@ def channel_expression_relation(
         channel_secondary,
         expression_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """New Channel Expression relation creation
+
+    :param channel_secondary:
+    :param expression_id:
+    :return:
+    """
     log.debug('channel expression interface relation')
 
     channel_secondary.channel_expression_list.append(expression_id)
@@ -202,9 +254,11 @@ def channel_expression_relation(
 def get_channel_person_list(
         person_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get Channel Person list interface database
+
+    :param person_id:
+    :return:
+    """
     log.debug('expression list in channels followed')
 
     person_secondary = PersonSecondary.objects.get(person_primary_id=person_id)
@@ -221,9 +275,11 @@ def get_channel_person_list(
 def get_person_person_list(
         person_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get Person Person relation list
+
+    :param person_id:
+    :return:
+    """
     log.debug('expression list in people followed')
 
     person_list = PersonSecondary.objects.get(person_primary_id=person_id).person_person_followee_list
@@ -239,9 +295,11 @@ def get_person_person_list(
 def get_expression_objects(
         expression_id,
     ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get expression Objects interface database
+
+    :param expression_id:
+    :return:
+    """
     log.debug('get expression objects')
 
     return ExpressionSecondary.objects.get(expression_primary_id=expression_id)
@@ -250,9 +308,11 @@ def get_expression_objects(
 def get_url_objects(
         url_primary_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get URL objects interface database
+
+    :param url_primary_id:
+    :return:
+    """
     log.debug('get url objects')
 
     return UrlSecondary.objects.get(url_primary_id=url_primary_id)
@@ -261,9 +321,11 @@ def get_url_objects(
 def get_expression_owner_name(
         person_id,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get expression owner name interface database
+
+    :param person_id:
+    :return:
+    """
     log.debug('get person name')
 
     return PersonSecondary.objects.get(person_primary_id=person_id).person_name
@@ -272,9 +334,11 @@ def get_expression_owner_name(
 def get_expression_channel_name(
         channel_list,
 ):
-    log.info('IN - ' + sys._getframe().f_code.co_name)
-    log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-    log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
+    """Get channel name interface database
+
+    :param channel_list:
+    :return:
+    """
     log.debug('get channel name')
 
     channel_name_list = []

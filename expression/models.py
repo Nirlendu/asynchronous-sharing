@@ -32,11 +32,6 @@ class ExpressionPrimaryManager(models.Manager):
             total_broadcasts=0,
             total_discussions=0,
     ):
-
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
         log.debug('Expression create operation')
         expression = self.create(
             expression_owner_id=expression_owner_id,
@@ -65,11 +60,7 @@ class ExpressionPrimaryManager(models.Manager):
             total_broadcasts=0,
             total_discussions=0,
     ):
-
-        log.info('IN - ' + sys._getframe().f_code.co_name)
-        log.info('FROM - ' + sys._getframe(1).f_code.co_name)
-        log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
-
+        log.debug('Expression update operation')
         expression = self.update_or_create(
             expression_owner_id=expression_owner_id,
             expression_content=expression_content,

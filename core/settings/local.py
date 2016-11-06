@@ -20,6 +20,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 from base import *
+from cassandra import ConsistencyLevel
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,8 +29,9 @@ ALLOWED_HOSTS = ["*", ]
 
 WSGI_APPLICATION = 'core.wsgi.local.application'
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
+os.environ['DATABASE_URL'] = 'localhost'
 
-from cassandra import ConsistencyLevel
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
@@ -120,9 +122,5 @@ REACT = {
     'RENDER': True,
     'RENDER_URL': 'http://127.0.0.1:9009',
 }
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
-os.environ['GRAPH_DATABASE_URL'] = 'http://localhost:7474/'
-os.environ['DATABASE_URL'] = 'localhost'
 
 
