@@ -11,3 +11,10 @@ To start:
 ```
 make dev-server
 ```
+Then navigate to https://localhost:8000
+
+To see docs:
+
+```
+make doc
+```
