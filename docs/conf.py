@@ -21,7 +21,7 @@ import sys
 from django.conf import settings
 import django
 sys.path.append(os.path.join(os.path.dirname(__name__), '..'))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings.local'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings'
 django.setup()
 # settings.configure()
 # sys.path.insert(0, os.path.abspath('.'))

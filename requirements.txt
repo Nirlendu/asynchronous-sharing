@@ -1,3 +1,5 @@
+cassandra-driver==3.7.1
+django-cassandra-engine==1.0.2
 amqp==1.4.9
 anyjson==0.3.3
 awscli==1.11.4
@@ -43,3 +45,7 @@ supervisor==3.3.1
 ujson==1.35
 virtualenv==15.0.3
 Werkzeug==0.11.11
+
+
+
+

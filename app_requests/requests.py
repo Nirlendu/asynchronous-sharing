@@ -64,8 +64,7 @@ def index(request):
     log.info('HAS - ' + str(inspect.getargvalues(sys._getframe())))
     log.info('Index page rendering')
 
-    #init_session(request)
-    request.session['person_id'] = '46'
+    request.session['person_id'] = '49'
 
     try:
         redis_cache = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -148,7 +147,7 @@ def store_link(request):
 @ensure_csrf_cookie
 def initdd(request):
     person_id = people.new_person(
-        user_name = request.session['person_id'],
+        user_name = 'asd123',
         person_name = 'Nirlendu Saha',
     )
     channel_id = channel.new_channel(
